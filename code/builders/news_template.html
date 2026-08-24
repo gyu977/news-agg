@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Styling tokens and tokens system */
+    :root {
+      --bg-gradient: linear-gradient(135deg, #090d16 0%, #0f172a 100%);
+      --bg-color: #0b0f19;
+      --card-bg: rgba(17, 24, 39, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+      --accent-blue-hover: #0ea5e9;
+      --accent-blue-rgba: rgba(56, 189, 248, 0.15);
+      --accent-gold: #fbbf24;
+      --accent-gold-rgba: rgba(251, 191, 36, 0.15);
+      --accent-indigo: #818cf8;
+      --accent-indigo-rgba: rgba(129, 140, 248, 0.15);
+      --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+      --shadow-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg-color);
+      background-image: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 2.5rem 1.5rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* Dashboard Header */
+    header {
+      margin-bottom: 2.5rem;
+      position: relative;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      font-weight: 400;
+    }
+
+    /* Controls Panel */
+    .controls-panel {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-lg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-highlight), var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .search-wrapper {
+      position: relative;
+      flex-grow: 1;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+      width: 18px;
+      height: 18px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 0.85rem 1rem 0.85rem 2.8rem;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition-smooth);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .btn-pdf {
+      background: var(--accent-blue);
+      color: #0b0f19;
+      border: none;
+      border-radius: 12px;
+      padding: 0 1.5rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-pdf:hover {
+      background: var(--accent-blue-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-pdf:active {
+      transform: translateY(0);
+    }
+
+    .btn-md {
+      background: rgba(129, 140, 248, 0.12);
+      color: #a5b4fc;
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      border-radius: 12px;
+      padding: 0 1.25rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition-smooth);
+    }
+    .btn-md:hover {
+      background: rgba(129, 140, 248, 0.2);
+      border-color: rgba(129, 140, 248, 0.5);
+      transform: translateY(-1px);
+    }
+    .btn-md:active {
+      transform: translateY(0);
+    }
+
+    .export-buttons, .export-controls {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .export-select {
+      height: 50px;
+      border-radius: 12px;
+      padding: 0 2.5rem 0 1rem;
+      background-position: right 1rem center;
+    }
+
+    .filters-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .filter-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+
+    .filter-select {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0.5rem 2.25rem 0.5rem 0.75rem;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.85rem;
+      cursor: pointer;
+      outline: none;
+      transition: var(--transition-smooth);
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 1rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    #sourceFilter {
+      width: 180px;
+    }
+
+    #typeFilter {
+      width: 140px;
+    }
+
+    #categoryFilter {
+      width: 220px;
+    }
+
+    .filter-select:focus {
+      border-color: var(--accent-blue);
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .checkbox-label input {
+      appearance: none;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: grid;
+      place-content: center;
+      transition: var(--transition-smooth);
+    }
+
+    .checkbox-label input::before {
+      content: "•";
+      width: 10px;
+      height: 10px;
+      transform: scale(0);
+      transition: 120ms transform ease-in-out;
+      box-shadow: inset 1em 1em var(--accent-blue);
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    }
+
+    .checkbox-label input:checked {
+      border-color: var(--accent-blue);
+      background: var(--accent-blue-rgba);
+    }
+
+    .checkbox-label input:checked::before {
+      transform: scale(1);
+    }
+
+    .hide-descriptions .description-text {
+      display: none !important;
+    }
+
+    tr.selected-row td {
+      background: rgba(56, 189, 248, 0.06) !important;
+      border-bottom-color: rgba(56, 189, 248, 0.15) !important;
+    }
+    
+    tr.selected-row td:first-child {
+      border-left: 3px solid var(--accent-blue) !important;
+    }
+
+    .btn-action {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      padding: 0.4rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: var(--transition-smooth);
+    }
+    .btn-action:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-1px);
+    }
+
+    @media print {
+      .print-selection-only tbody tr:not(.selected-row) {
+        display: none !important;
+      }
+      .print-selection-only thead th:first-child,
+      .print-selection-only tbody td:first-child {
+        display: none !important;
+      }
+    }
+
+    /* Table Container */
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-highlight), var(--shadow-lg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      margin-bottom: 2rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(15, 23, 42, 0.4);
+      padding: 1rem 1.25rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      cursor: pointer;
+      user-select: none;
+      transition: var(--transition-smooth);
+    }
+
+    th:hover {
+      background: rgba(15, 23, 42, 0.7);
+      color: var(--text-main);
+    }
+
+    th.active-sort {
+      color: var(--accent-blue);
+    }
+
+    .sort-indicator {
+      display: inline-block;
+      margin-left: 0.35rem;
+      font-size: 0.8rem;
+    }
+
+    td {
+      padding: 1.25rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.95rem;
+      vertical-align: top;
+      transition: var(--transition-smooth);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Badges & Icons */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+      white-space: nowrap;
+    }
+
+    .badge-tbt {
+      background: var(--accent-indigo-rgba);
+      color: var(--accent-indigo);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+    }
+
+    .badge-da {
+      background: var(--accent-blue-rgba);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .badge-pe {
+      background: rgba(255, 107, 0, 0.15);
+      color: #ff6b00;
+      border: 1px solid rgba(255, 107, 0, 0.3);
+    }
+
+    .badge-ai {
+      background: rgba(167, 139, 250, 0.15);
+      color: #c084fc;
+      border: 1px solid rgba(167, 139, 250, 0.3);
+    }
+
+    .badge-fose {
+      background: rgba(45, 212, 191, 0.15);
+      color: #2dd4bf;
+      border: 1px solid rgba(45, 212, 191, 0.3);
+    }
+
+    .badge-others {
+      background: rgba(244, 63, 94, 0.15);
+      color: #fb7185;
+      border: 1px solid rgba(244, 63, 94, 0.3);
+    }
+
+    .badge-addy {
+      background: rgba(235, 41, 140, 0.15);
+      color: #f472b6;
+      border: 1px solid rgba(235, 41, 140, 0.3);
+    }
+
+    .badge-spotlight {
+      background: var(--accent-gold-rgba);
+      color: var(--accent-gold);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      margin-top: 0.4rem;
+    }
+
+    .badge-category {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.72rem;
+      text-transform: none;
+      letter-spacing: normal;
+      font-weight: 500;
+      white-space: normal;
+      max-width: 180px;
+      line-height: 1.35;
+      padding: 0.3rem 0.6rem;
+    }
+
+    .article-title-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .article-link {
+      color: var(--text-main);
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .article-link:hover {
+      color: var(--accent-blue);
+    }
+
+    .description-text {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .date-cell {
+      white-space: nowrap;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .author-cell {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .type-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-weight: 600;
+    }
+
+    /* Quote Block */
+    .quote-row {
+      background: rgba(56, 189, 248, 0.02);
+    }
+
+    .quote-container {
+      border-left: 3px solid var(--accent-blue);
+      padding: 0.5rem 1rem;
+      margin-top: 0.5rem;
+      background: rgba(255, 255, 255, 0.01);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .quote-text {
+      font-style: italic;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .quote-author {
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--text-main);
+      margin-top: 0.25rem;
+    }
+
+    /* Counter Display */
+    .results-counter {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .no-results {
+      padding: 3rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Print styling rules */
+    @media print {
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        padding: 0 !important;
+      }
+
+      .controls-panel,
+      .btn-pdf,
+      .btn-md,
+      .export-buttons,
+      .export-controls,
+      .export-select,
+      th:hover {
+        display: none !important;
+      }
+
+      h1 {
+        background: none !important;
+        -webkit-text-fill-color: #000000 !important;
+        color: #000000 !important;
+        font-size: 2rem;
+      }
+
+      .table-container {
+        border: none !important;
+        box-shadow: none !important;
+        background: none !important;
+      }
+
+      th {
+        background: #f1f5f9 !important;
+        color: #000000 !important;
+        border-bottom: 2px solid #000000 !important;
+      }
+
+      td {
+        border-bottom: 1px solid #cbd5e1 !important;
+        color: #000000 !important;
+      }
+
+      .article-link {
+        color: #0284c7 !important;
+        font-weight: 700 !important;
+      }
+
+      .description-text {
+        color: #334155 !important;
+      }
+
+      .badge {
+        border: 1px solid #000000 !important;
+        color: #000000 !important;
+        background: none !important;
+      }
+
+      tr {
+        page-break-inside: avoid !important;
+      }
+    }
+
+    /* Collapsible Source Descriptions Panel */
+    .source-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .btn-collapsible {
+      align-self: flex-start;
+      background: transparent;
+      border: none;
+      color: var(--accent-blue);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-collapsible:hover {
+      color: var(--accent-blue-hover);
+    }
+
+    .source-description {
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      max-height: 400px;
+      opacity: 1;
+    }
+
+    .source-description.tall {
+      max-height: 720px;
+    }
+
+    .source-description.hidden {
+      max-height: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .source-list {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-left: 0.5rem;
+    }
+
+    .source-list li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .source-list li::before {
+      content: "•";
+      color: var(--accent-blue);
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+      line-height: 1;
+      top: -0.05rem;
+    }
+
+    .source-list strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .cat-count {
+      display: inline-block;
+      background: var(--accent-indigo-rgba);
+      color: var(--accent-indigo);
+      border-radius: 999px;
+      padding: 0 0.5rem;
+      margin-left: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+
+    .category-list li::before {
+      color: var(--accent-indigo);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .controls-panel {
+        padding: 1rem;
+      }
+
+      .search-row {
+        flex-direction: column;
+      }
+
+      .export-controls {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .export-controls select,
+      .export-controls button {
+        flex: 1;
+        padding: 0.85rem;
+        justify-content: center;
+        height: auto !important;
+      }
+
+      th, td {
+        padding: 0.75rem;
+      }
+
+      /* Stack columns on small viewports */
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        background: rgba(15, 23, 42, 0.4);
+      }
+
+      td {
+        border: none;
+        padding: 0.5rem 1rem;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        color: var(--accent-blue);
+        display: block;
+        margin-bottom: 0.25rem;
+      }
+
+      td:first-child {
+        padding-top: 1rem;
+      }
+
+      td:last-child {
+        padding-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>News Dashboard</h1>
+      <p>Search, filter, sort &amp; export parsed articles from several newsletters.</p>
+    </header>
+
+    <!-- Controls Panel -->
+    <div class="controls-panel">
+  <div class="source-panel">
+    <button id="sourceToggle" class="btn-collapsible" aria-expanded="false" aria-controls="sourceDesc">Show source descriptions ▼</button>
+    <div id="sourceDesc" class="source-description hidden">
+      <ul class="source-list">
+        <li data-source="Dear Architects"><strong>Dear Architects</strong> — Software architecture and systems design newsletter by Luca Mezzalira.</li>
+        <li data-source="Token by Token"><strong>Token by Token</strong> — AI and technology newsletter by Luca Mezzalira.</li>
+        <li data-source="Artificial Intelligence (Andriy Burkov)"><strong>Artificial Intelligence (Andriy Burkov)</strong> — AI-focused newsletter by Andriy Burkov.</li>
+        <li data-source="The Pragmatic Engineer"><strong>The Pragmatic Engineer</strong> — Gergely Orosz's newsletter covering the software engineering industry and developer careers.</li>
+        <li data-source="Addy Osmani"><strong>Addy Osmani</strong> — Personal blog essays on agentic engineering, software factories, and developer judgment by Addy Osmani.</li>
+        <li data-source="Future software development (Thoughtworks)"><strong>Future software development (Thoughtworks)</strong> — FOSE 2026 retreat notes.</li>
+        <li data-source="Others"><strong>Others</strong> — Personal curated reading collection by Mihai V.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="source-panel">
+    <button id="categoryToggle" class="btn-collapsible" aria-expanded="false" aria-controls="categoryDesc">Show category descriptions ▼</button>
+    <div id="categoryDesc" class="source-description tall hidden">
+      <ul class="source-list category-list">
+        <li data-cat="AI-Native &amp; Agentic Software Engineering"><strong>AI-Native &amp; Agentic Software Engineering</strong> — Building software with agents: loops, orchestration, context engineering and the day-to-day craft of AI-assisted development.</li>
+        <li data-cat="Large Language Models &amp; Evaluation Infrastructure"><strong>Large Language Models &amp; Evaluation Infrastructure</strong> — The models themselves: architectures, training, open weights, local inference, model specs, evals and coding benchmarks.</li>
+        <li data-cat="Software Architecture &amp; Distributed Systems"><strong>Software Architecture &amp; Distributed Systems</strong> — Boundaries and modularity: architectural decision-making, ADRs, micro frontends, microservices, DSLs and distributed systems design.</li>
+        <li data-cat="Software Testing, Quality &amp; Observability"><strong>Software Testing, Quality &amp; Observability</strong> — Verifying software: automated repair, code-review agents, test strategy, evals-as-tests, non-functional requirements and observability.</li>
+        <li data-cat="Cloud Infrastructure &amp; System Reliability"><strong>Cloud Infrastructure &amp; System Reliability</strong> — Running systems at scale: databases, service topology, load balancing, sidecars, cloud security, resilience and SRE practice.</li>
+        <li data-cat="Tech Industry, Jobs &amp; Careers"><strong>Tech Industry, Jobs &amp; Careers</strong> — The business around the code: AI spend and economics, industry news and incidents, hiring and developer careers.</li>
+        <li data-cat="Engineering Philosophy &amp; Estimation"><strong>Engineering Philosophy &amp; Estimation</strong> — Where the craft is heading: enduring fundamentals, mental models, napkin math estimation, and engineering culture.</li>
+      </ul>
+    </div>
+  </div>
+      <div class="search-row">
+        <div class="search-wrapper">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search by title, description, or author name...">
+        </div>
+        <div class="export-controls">
+          <select id="exportViewFormat" class="filter-select export-select" title="Export format selection">
+            <option value="md">Markdown File (.md)</option>
+            <option value="pdf">PDF Document (.pdf)</option>
+            <option value="html">HTML Webpage (.html)</option>
+          </select>
+          <button onclick="handleViewExport()" class="btn-pdf" style="height: 50px; border-radius: 12px; white-space: nowrap;">
+            <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Export View
+          </button>
+        </div>
+      </div>
+
+      <div class="filters-row">
+        <div class="filter-group">
+          <label class="filter-label">Timeframe</label>
+          <select id="timeframeFilter" class="filter-select">
+            <option value="30" selected>Last 1 Month</option>
+            <option value="60">Last 2 Months</option>
+            <option value="all">Last 3 Months</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Newsletter Source</label>
+          <select id="sourceFilter" class="filter-select">
+            <option value="all">All Newsletters</option>
+            <option value="Addy Osmani">Addy Osmani</option>
+            <option value="Artificial Intelligence (Andriy Burkov)">Artificial Intelligence (Andriy Burkov)</option>
+            <option value="Dear Architects">Dear Architects</option>
+            <option value="Future software development (Thoughtworks)">Future software development (Thoughtworks)</option>
+            <option value="Others">Others</option>
+            <option value="The Pragmatic Engineer">The Pragmatic Engineer</option>
+            <option value="Token by Token">Token by Token</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Content Type</label>
+          <select id="typeFilter" class="filter-select">
+            <option value="all">All Types</option>
+            <option value="article">Articles Only</option>
+            <option value="video">Videos/Podcasts Only (▶️)</option>
+            <option value="book">Books Only (📖)</option>
+            <option value="pulse">Pulses Only (⚡)</option>
+            <option value="presentation">Presentations/Talks Only (🎤)</option>
+            <option value="conference">Conferences Only (🎟️)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label">Subject Category</label>
+          <select id="categoryFilter" class="filter-select">
+            <option value="all">All Categories</option>
+            <option value="AI-Native &amp; Agentic Software Engineering">AI-Native &amp; Agentic Software Engineering</option>
+            <option value="Large Language Models &amp; Evaluation Infrastructure">Large Language Models &amp; Evaluation Infrastructure</option>
+            <option value="Software Architecture &amp; Distributed Systems">Software Architecture &amp; Distributed Systems</option>
+            <option value="Software Testing, Quality &amp; Observability">Software Testing, Quality &amp; Observability</option>
+            <option value="Cloud Infrastructure &amp; System Reliability">Cloud Infrastructure &amp; System Reliability</option>
+            <option value="Tech Industry, Jobs &amp; Careers">Tech Industry, Jobs &amp; Careers</option>
+            <option value="Engineering Philosophy &amp; Estimation">Engineering Philosophy &amp; Estimation</option>
+          </select>
+        </div>
+
+        <div class="filter-group" style="padding-top: 1.1rem;">
+          <label class="checkbox-label">
+            <input type="checkbox" id="spotlightToggle">
+            Show Spotlight Only
+          </label>
+        </div>
+
+        <div class="filter-group" style="padding-top: 1.1rem;">
+          <label class="checkbox-label">
+            <input type="checkbox" id="descriptionToggle" checked>
+            Show Descriptions
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Counter Display & Selection Actions -->
+    <div class="results-counter">
+      <span id="resultsCount">Showing 0 articles</span>
+      <div class="selection-actions" id="selectionActions" style="display: none; gap: 0.5rem; align-items: center;">
+        <span id="selectionText" style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 700; margin-right: 0.5rem;">0 selected</span>
+        <select id="exportSelectionFormat" class="filter-select" title="Export format selection" style="padding: 0.4rem 2rem 0.4rem 0.75rem; font-size: 0.85rem;">
+          <option value="md">Markdown File (.md)</option>
+          <option value="pdf">PDF Document (.pdf)</option>
+          <option value="html">HTML Webpage (.html)</option>
+        </select>
+        <button onclick="handleSelectionExport()" class="btn-action" style="background: var(--accent-blue-rgba); border: 1px solid rgba(56, 189, 248, 0.4); color: var(--accent-blue);">
+          ? Export Selection
+        </button>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="table-container">
+      <table id="articlesTable">
+        <thead>
+          <tr>
+            <th style="width: 50px; text-align: center;"><input type="checkbox" id="selectAllToggle" title="Select/Deselect All"></th>
+            <th onclick="handleSort('newsletter')" id="th-newsletter">Source <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('date')" id="th-date" class="active-sort">Date <span class="sort-indicator">&#x25BC;</span></th>
+            <th onclick="handleSort('author')" id="th-author">Author <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('category')" id="th-category">Subject <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('title')" id="th-title">Article details <span class="sort-indicator"></span></th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Dynamic rendering -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script>
+    // Embedded JSON data
+    /* ARTICLES_START */
+    const articles = [];
+    /* ARTICLES_END */
+
+    // Sorting & Filtering State
+    let sortColumn = 'date';
+    let sortDirection = 'desc'; // 'asc' or 'desc'
+
+    // DOM Elements
+    const searchInput = document.getElementById('searchInput');
+    const timeframeFilter = document.getElementById('timeframeFilter');
+    const sourceFilter = document.getElementById('sourceFilter');
+    const typeFilter = document.getElementById('typeFilter');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const spotlightToggle = document.getElementById('spotlightToggle');
+    const descriptionToggle = document.getElementById('descriptionToggle');
+const sourceToggle = document.getElementById('sourceToggle');
+const sourceDesc = document.getElementById('sourceDesc');
+const categoryToggle = document.getElementById('categoryToggle');
+const categoryDesc = document.getElementById('categoryDesc');
+    const tableBody = document.getElementById('tableBody');
+    const resultsCount = document.getElementById('resultsCount');
+
+    // Event Listeners
+    searchInput.addEventListener('input', render);
+    if (timeframeFilter) timeframeFilter.addEventListener('change', render);
+    sourceFilter.addEventListener('change', render);
+    typeFilter.addEventListener('change', render);
+    categoryFilter.addEventListener('change', render);
+    spotlightToggle.addEventListener('change', render);
+    descriptionToggle.addEventListener('change', updateDescriptionVisibility);
+sourceToggle.addEventListener('click', function() {
+  const expanded = sourceToggle.getAttribute('aria-expanded') === 'true';
+  sourceToggle.setAttribute('aria-expanded', !expanded);
+  sourceDesc.classList.toggle('hidden', expanded);
+  sourceToggle.textContent = expanded ? 'Show source descriptions ▼' : 'Hide source descriptions ▲';
+});
+
+categoryToggle.addEventListener('click', function() {
+  const expanded = categoryToggle.getAttribute('aria-expanded') === 'true';
+  categoryToggle.setAttribute('aria-expanded', !expanded);
+  categoryDesc.classList.toggle('hidden', expanded);
+  categoryToggle.textContent = expanded ? 'Show category descriptions ▼' : 'Hide category descriptions ▲';
+});
+
+// Append the live article count to each category and source description
+function renderCategoryCounts() {
+  const catCounts = articles.reduce(function(acc, a) {
+    acc[a.category] = (acc[a.category] || 0) + 1;
+    return acc;
+  }, {});
+  categoryDesc.querySelectorAll('li[data-cat]').forEach(function(li) {
+    let badge = li.querySelector('.cat-count');
+    if (!badge) {
+      badge = document.createElement('span');
+      badge.className = 'cat-count';
+      li.querySelector('strong').after(badge);
+    }
+    badge.textContent = catCounts[li.dataset.cat] || 0;
+  });
+
+  const srcCounts = articles.reduce(function(acc, a) {
+    acc[a.newsletter] = (acc[a.newsletter] || 0) + 1;
+    return acc;
+  }, {});
+  sourceDesc.querySelectorAll('li[data-source]').forEach(function(li) {
+    let badge = li.querySelector('.cat-count');
+    if (!badge) {
+      badge = document.createElement('span');
+      badge.className = 'cat-count';
+      li.querySelector('strong').after(badge);
+    }
+    badge.textContent = srcCounts[li.dataset.source] || 0;
+  });
+}
+
+    function updateDescriptionVisibility() {
+      const table = document.getElementById('articlesTable');
+      if (descriptionToggle.checked) {
+        table.classList.remove('hide-descriptions');
+      } else {
+        table.classList.add('hide-descriptions');
+      }
+    }
+
+    // Assign unique IDs to all articles for selection mapping
+    articles.forEach((art, index) => {
+      art.id = index;
+    });
+    const selectedIds = new Set();
+    let currentViewArticles = [];
+
+    // DOM Elements for selection
+    const selectAllToggle = document.getElementById('selectAllToggle');
+    const selectionActions = document.getElementById('selectionActions');
+    const selectionText = document.getElementById('selectionText');
+
+    // Event delegation for checkbox changes
+    tableBody.addEventListener('change', function(e) {
+      if (e.target.classList.contains('row-selector')) {
+        const id = parseInt(e.target.getAttribute('data-id'), 10);
+        if (e.target.checked) {
+          selectedIds.add(id);
+        } else {
+          selectedIds.delete(id);
+        }
+        render(); // re-render to apply pinning!
+      }
+    });
+
+    selectAllToggle.addEventListener('change', function(e) {
+      // Select or deselect visible rendered articles
+      const visibleSelectors = tableBody.querySelectorAll('.row-selector');
+      visibleSelectors.forEach(cb => {
+        const id = parseInt(cb.getAttribute('data-id'), 10);
+        cb.checked = e.target.checked;
+        if (e.target.checked) {
+          selectedIds.add(id);
+        } else {
+          selectedIds.delete(id);
+        }
+      });
+      render();
+    });
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function populateSourceFilter() {
+      if (!sourceFilter || typeof articles === 'undefined') return;
+      const currentVal = sourceFilter.value;
+      const uniqueSources = Array.from(new Set(articles.map(a => a.newsletter).filter(Boolean))).sort();
+      if (uniqueSources.length > 0) {
+        sourceFilter.innerHTML = '<option value="all">All Newsletters</option>' + 
+          uniqueSources.map(src => `<option value="${escapeHtml(src)}">${escapeHtml(src)}</option>`).join('');
+        if (uniqueSources.includes(currentVal)) {
+          sourceFilter.value = currentVal;
+        }
+      }
+    }
+
+    function populateCategoryFilter() {
+      if (!categoryFilter || typeof articles === 'undefined') return;
+      const currentVal = categoryFilter.value;
+      const uniqueCats = Array.from(new Set(articles.map(a => a.category).filter(Boolean))).sort();
+      if (uniqueCats.length > 0) {
+        categoryFilter.innerHTML = '<option value="all">All Categories</option>' + 
+          uniqueCats.map(cat => `<option value="${escapeHtml(cat)}">${escapeHtml(cat)}</option>`).join('');
+        if (uniqueCats.includes(currentVal)) {
+          categoryFilter.value = currentVal;
+        }
+      }
+    }
+
+    // Initial render
+    populateSourceFilter();
+    populateCategoryFilter();
+    render();
+    updateDescriptionVisibility();
+    renderCategoryCounts();
+
+    function render() {
+      const query = searchInput.value.toLowerCase().trim();
+      const timeframe = timeframeFilter ? timeframeFilter.value : 'all';
+      const source = sourceFilter.value;
+      const type = typeFilter.value;
+      const category = categoryFilter.value;
+      const spotlightOnly = spotlightToggle.checked;
+
+      // Determine max timestamp across all articles with sanity guard
+      const now = Date.now();
+      const rawMax = articles.reduce((max, a) => {
+        const t = new Date(a.date).getTime();
+        return isNaN(t) ? max : Math.max(max, t);
+      }, 0);
+      const maxTimestamp = rawMax > now + 30 * 24 * 3600 * 1000 ? now : rawMax;
+
+      // Partition: Pinned (selected) and Unpinned (not selected)
+      let pinned = articles.filter(a => selectedIds.has(a.id));
+      let unpinned = articles.filter(a => !selectedIds.has(a.id));
+
+      // Filter unpinned articles
+      let filteredUnpinned = unpinned.filter(article => {
+        // Text search match
+        const matchesQuery = !query || 
+          article.title.toLowerCase().includes(query) ||
+          article.author.toLowerCase().includes(query) ||
+          article.description.toLowerCase().includes(query) ||
+          article.issue_title.toLowerCase().includes(query);
+
+        // Timeframe match
+        let matchesTimeframe = true;
+        if (timeframe !== 'all' && maxTimestamp > 0) {
+          const days = parseInt(timeframe, 10);
+          const artTime = new Date(article.date).getTime();
+          if (!isNaN(artTime)) {
+            const cutoff = maxTimestamp - (days * 24 * 60 * 60 * 1000);
+            matchesTimeframe = artTime >= cutoff;
+          }
+        }
+
+        // Source filter match
+        const matchesSource = source === 'all' || article.newsletter === source;
+
+        // Type filter match
+        const matchesType = type === 'all' || article.type === type;
+
+        // Category filter match
+        const matchesCategory = category === 'all' || article.category === category;
+
+        // Spotlight match
+        const matchesSpotlight = !spotlightOnly || article.is_spotlight;
+
+        return matchesQuery && matchesTimeframe && matchesSource && matchesType && matchesCategory && matchesSpotlight;
+      });
+
+      // Sorting logic function
+      const sortFn = (a, b) => {
+        let valA = a[sortColumn];
+        let valB = b[sortColumn];
+
+        if (sortColumn === 'date') {
+          valA = new Date(valA).getTime();
+          valB = new Date(valB).getTime();
+        } else if (typeof valA === 'string') {
+          valA = valA.toLowerCase();
+          valB = valB.toLowerCase();
+        }
+
+        if (valA < valB) return sortDirection === 'asc' ? -1 : 1;
+        if (valA > valB) return sortDirection === 'asc' ? 1 : -1;
+        return 0;
+      };
+
+      pinned.sort(sortFn);
+      filteredUnpinned.sort(sortFn);
+
+      const finalArticles = [...pinned, ...filteredUnpinned];
+
+      // Render table rows
+      tableBody.innerHTML = '';
+      
+      if (finalArticles.length === 0) {
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="6" class="no-results">No articles matching your criteria were found.</td>
+          </tr>
+        `;
+        resultsCount.textContent = 'Showing 0 articles';
+        if (selectAllToggle) selectAllToggle.checked = false;
+        if (selectionActions) selectionActions.style.display = 'none';
+        return;
+      }
+
+      resultsCount.textContent = `Showing ${finalArticles.length} article${finalArticles.length > 1 ? 's' : ''}`;
+
+      // Update Selection UI Action Bar
+      if (selectedIds.size > 0) {
+        selectionActions.style.display = 'flex';
+        selectionText.textContent = `${selectedIds.size} selected`;
+      } else {
+        selectionActions.style.display = 'none';
+      }
+
+      // Check if all currently displayed items are selected to sync header checkbox
+      const allChecked = finalArticles.length > 0 && finalArticles.every(a => selectedIds.has(a.id));
+
+      finalArticles.forEach(article => {
+        const tr = document.createElement('tr');
+        const isPinned = selectedIds.has(article.id);
+        if (isPinned) {
+          tr.classList.add('selected-row');
+        }
+
+        // 0. Checkbox select cell
+        const tdSelect = document.createElement('td');
+        tdSelect.style.textAlign = 'center';
+        tdSelect.style.verticalAlign = 'middle';
+        tdSelect.setAttribute('data-label', 'Select');
+        const isChecked = isPinned ? 'checked' : '';
+        const pinIcon = isPinned ? '<span style="font-size: 0.95rem; line-height: 1;" title="Pinned Selection">📌</span>' : '';
+        tdSelect.innerHTML = `
+          <div style="display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
+            <input type="checkbox" class="row-selector" data-id="${article.id}" ${isChecked}>
+            ${pinIcon}
+          </div>
+        `;
+        tr.appendChild(tdSelect);
+        
+        // 1. Source cell
+        const tdSource = document.createElement('td');
+        tdSource.setAttribute('data-label', 'Source');
+        
+        let badgeClass = 'badge-tbt';
+        if (article.newsletter === 'Dear Architects') badgeClass = 'badge-da';
+        if (article.newsletter === 'The Pragmatic Engineer') badgeClass = 'badge-pe';
+        if (article.newsletter === 'Artificial Intelligence (Andriy Burkov)') badgeClass = 'badge-ai';
+        if (article.newsletter === 'Addy Osmani') badgeClass = 'badge-addy';
+        if (article.newsletter === 'Future software development (Thoughtworks)') badgeClass = 'badge-fose';
+        if (article.newsletter === 'Others') badgeClass = 'badge-others';
+        
+        const issueDisplay = article.issue_number ? `#${article.issue_number} ` : '';
+        if (article.issue_link) {
+          tdSource.innerHTML = `
+            <a href="${escapeHtml(article.issue_link)}" target="_blank" rel="noopener noreferrer" class="badge ${badgeClass}" title="View newsletter issue">
+              ${issueDisplay}${escapeHtml(article.newsletter)}
+            </a>
+          `;
+        } else {
+          tdSource.innerHTML = `
+            <span class="badge ${badgeClass}">
+              ${issueDisplay}${escapeHtml(article.newsletter)}
+            </span>
+          `;
+        }
+        tr.appendChild(tdSource);
+
+        // 2. Date cell
+        const tdDate = document.createElement('td');
+        tdDate.setAttribute('data-label', 'Date');
+        tdDate.className = 'date-cell';
+        tdDate.textContent = article.date_str;
+        tr.appendChild(tdDate);
+
+        // 3. Author cell
+        const tdAuthor = document.createElement('td');
+        tdAuthor.setAttribute('data-label', 'Author');
+        tdAuthor.className = 'author-cell';
+        tdAuthor.textContent = article.author;
+        tr.appendChild(tdAuthor);
+
+        // 3.5 Category cell
+        const tdCategory = document.createElement('td');
+        tdCategory.setAttribute('data-label', 'Subject');
+        tdCategory.innerHTML = `
+          <span class="badge badge-category">
+            ${article.category}
+          </span>
+        `;
+        tr.appendChild(tdCategory);
+
+        // 4. Details cell (Title, Icon, Quote, Description)
+        const tdDetails = document.createElement('td');
+        tdDetails.setAttribute('data-label', 'Details');
+        
+        // Get type visual icon
+        let icon = '';
+        if (article.type === 'video') icon = '▶️';
+        if (article.type === 'book') icon = '📖';
+        if (article.type === 'pulse') icon = '⚡';
+        if (article.type === 'presentation') icon = '🎤';
+        if (article.type === 'conference') icon = '🎟️';
+
+        const isSpotlightBadge = article.is_spotlight 
+          ? `<span class="badge badge-spotlight">★ Spotlight</span>` 
+          : '';
+
+        tdDetails.innerHTML = `
+          <div class="article-title-cell">
+            <div>
+              <a href="${article.link}" target="_blank" class="article-link">
+                ${icon ? `<span>${icon}</span>` : ''} ${article.title}
+              </a>
+              ${isSpotlightBadge}
+            </div>
+            <div class="description-text">${article.description}</div>
+          </div>
+        `;
+        tr.appendChild(tdDetails);
+
+        tableBody.appendChild(tr);
+      });
+
+      selectAllToggle.checked = allChecked;
+      currentViewArticles = finalArticles;
+    }
+
+    function handleSort(column) {
+      const headers = ['newsletter', 'date', 'author', 'category', 'title'];
+      
+      headers.forEach(h => {
+        const th = document.getElementById(`th-${h}`);
+        const indicator = th.querySelector('.sort-indicator');
+        
+        if (h === column) {
+          th.classList.add('active-sort');
+          if (sortColumn === column) {
+            sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+          } else {
+            sortColumn = column;
+            sortDirection = column === 'date' ? 'desc' : 'asc'; // date defaults to desc, others to asc
+          }
+          indicator.textContent = sortDirection === 'asc' ? '\u25B2' : '\u25BC';
+        } else {
+          th.classList.remove('active-sort');
+          indicator.textContent = '';
+        }
+      });
+
+      render();
+    }
+
+    function exportSelectionToMarkdown() {
+      if (selectedIds.size === 0) return;
+      
+      let mdText = "### Selected Newsletter Articles\n\n";
+      
+      // Sort selected articles by date descending
+      const selectedArticles = articles.filter(a => selectedIds.has(a.id));
+      selectedArticles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      
+      selectedArticles.forEach(a => {
+        let icon = '';
+        if (a.type === 'video') icon = '▶️';
+        if (a.type === 'book') icon = '📖';
+        if (a.type === 'pulse') icon = '⚡';
+        if (a.type === 'presentation') icon = '🎤';
+        if (a.type === 'conference') icon = '🎟️';
+        
+        const sourceBadge = a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter;
+        const authorPrefix = a.author ? `**${a.author}** - ` : '';
+        const quoteBlock = a.quote ? `\n> "${a.quote}"  — ${a.quote_author}\n` : '';
+        
+        mdText += `**[${sourceBadge}](${a.issue_link})** - ${a.date_str}\n\n`;
+        if (quoteBlock) mdText += quoteBlock + "\n";
+        mdText += `- ${authorPrefix}${icon}[${a.title}](${a.link})\n`;
+        mdText += `  *${a.description}*\n\n---\n\n`;
+      });
+      
+      // Remove trailing separator
+      mdText = mdText.replace(/\n\n---\n\n$/, '\n');
+      
+      const blob = new Blob([mdText], { type: 'text/markdown;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", "selected-newsletter-articles.md");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function exportSelectionToPDF() {
+      if (selectedIds.size === 0) return;
+      const table = document.getElementById('articlesTable');
+      table.classList.add('print-selection-only');
+      window.print();
+      table.classList.remove('print-selection-only');
+    }
+
+    function handleViewExport() {
+      const format = document.getElementById('exportViewFormat').value;
+      if (format === 'pdf') {
+        window.print();
+      } else if (format === 'md') {
+        exportViewToMarkdown();
+      } else if (format === 'html') {
+        exportViewToHTML();
+      }
+    }
+
+    function handleSelectionExport() {
+      const format = document.getElementById('exportSelectionFormat').value;
+      if (format === 'pdf') {
+        exportSelectionToPDF();
+      } else if (format === 'md') {
+        exportSelectionToMarkdown();
+      } else if (format === 'html') {
+        exportSelectionToHTML();
+      }
+    }
+
+    function triggerDownload(content, filename, contentType) {
+      const blob = new Blob([content], { type: contentType + ";charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.setAttribute("href", url);
+      link.setAttribute("download", filename);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function generateArticlesHTML(titleText, articleList) {
+      let rows = '';
+      articleList.forEach(a => {
+        let icon = '';
+        if (a.type === 'video') icon = '▶️';
+        if (a.type === 'book') icon = '📖';
+        if (a.type === 'pulse') icon = '⚡';
+        if (a.type === 'presentation') icon = '🎤';
+        if (a.type === 'conference') icon = '🎟️';
+
+        const sourceBadge = a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter;
+        const authorSpan = a.author ? `<span class="author">with ${a.author}</span>` : '';
+        const quoteDiv = a.quote ? `<div class="quote">"${a.quote}"  — <strong>${a.quote_author}</strong></div>` : '';
+
+        rows += `
+          <div class="article-card">
+            <div class="card-header">
+              <span class="badge badge-source">${sourceBadge}</span>
+              <span class="date">${a.date_str}</span>
+            </div>
+            ${quoteDiv}
+            <h3 class="title">
+              <a href="${a.link}" target="_blank">${icon ? `<span class="icon">${icon}</span>` : ''} ${a.title}</a>
+            </h3>
+            ${authorSpan}
+            <p class="description">${a.description}</p>
+          </div>
+        `;
+      });
+
+      return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>\${titleText}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: rgba(30, 41, 59, 0.4);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-blue: #38bdf8;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 2.25rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      background: linear-gradient(to right, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .article-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s;
+    }
+    .article-card:hover {
+      transform: translateY(-2px);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.25rem 0.5rem;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      margin: 0.5rem 0;
+    }
+    .title a {
+      color: var(--text-main);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .title a:hover {
+      color: var(--accent-blue);
+    }
+    .author {
+      font-size: 0.85rem;
+      color: var(--accent-blue);
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+    .description {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .quote {
+      border-left: 3px solid var(--accent-blue);
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <h1>\${titleText}</h1>
+  <div class="articles-list">
+    \${rows}
+  </div>
+</body>
+</html>`;
+    }
+
+    function exportViewToMarkdown() {
+      if (currentViewArticles.length === 0) return;
+      
+      let mdText = "### Filtered Newsletter Articles View\n\n";
+      
+      currentViewArticles.forEach(a => {
+        let icon = '';
+        if (a.type === 'video') icon = '▶️';
+        if (a.type === 'book') icon = '📖';
+        if (a.type === 'pulse') icon = '⚡';
+        if (a.type === 'presentation') icon = '🎤';
+        if (a.type === 'conference') icon = '🎟️';
+        
+        const sourceBadge = a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter;
+        const authorPrefix = a.author ? `**${a.author}** - ` : '';
+        const quoteBlock = a.quote ? `\n> "${a.quote}"  — ${a.quote_author}\n` : '';
+        
+        mdText += `**[${sourceBadge}](${a.issue_link})** - ${a.date_str}\n\n`;
+        if (quoteBlock) mdText += quoteBlock + "\n";
+        mdText += `- ${authorPrefix}${icon}[${a.title}](${a.link})\n`;
+        mdText += `  *${a.description}*\n\n---\n\n`;
+      });
+      
+      // Remove trailing separator
+      mdText = mdText.replace(/\n\n---\n\n$/, '\n');
+      triggerDownload(mdText, "filtered-newsletter-articles.md", "text/markdown");
+    }
+
+    function exportSelectionToMarkdown() {
+      if (selectedIds.size === 0) return;
+      
+      let mdText = "### Selected Newsletter Articles\n\n";
+      
+      // Sort selected articles by date descending
+      const selectedArticles = articles.filter(a => selectedIds.has(a.id));
+      selectedArticles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      
+      selectedArticles.forEach(a => {
+        let icon = '';
+        if (a.type === 'video') icon = '▶️';
+        if (a.type === 'book') icon = '📖';
+        if (a.type === 'pulse') icon = '⚡';
+        if (a.type === 'presentation') icon = '🎤';
+        if (a.type === 'conference') icon = '🎟️';
+        
+        const sourceBadge = a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter;
+        const authorPrefix = a.author ? `**${a.author}** - ` : '';
+        const quoteBlock = a.quote ? `\n> "${a.quote}"  — ${a.quote_author}\n` : '';
+        
+        mdText += `**[${sourceBadge}](${a.issue_link})** - ${a.date_str}\n\n`;
+        if (quoteBlock) mdText += quoteBlock + "\n";
+        mdText += `- ${authorPrefix}${icon}[${a.title}](${a.link})\n`;
+        mdText += `  *${a.description}*\n\n---\n\n`;
+      });
+      
+      // Remove trailing separator
+      mdText = mdText.replace(/\n\n---\n\n$/, '\n');
+      triggerDownload(mdText, "selected-newsletter-articles.md", "text/markdown");
+    }
+
+    function exportViewToHTML() {
+      if (currentViewArticles.length === 0) return;
+      const htmlContent = generateArticlesHTML("Filtered Newsletter Articles View", currentViewArticles);
+      triggerDownload(htmlContent, "filtered-newsletter-articles.html", "text/html");
+    }
+
+    function exportSelectionToHTML() {
+      if (selectedIds.size === 0) return;
+      const selectedArticles = articles.filter(a => selectedIds.has(a.id));
+      selectedArticles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      const htmlContent = generateArticlesHTML("Selected Newsletter Articles", selectedArticles);
+      triggerDownload(htmlContent, "selected-newsletter-articles.html", "text/html");
+    }
+  
+    function getBadgeClass(newsletter) {
+      switch(newsletter) {
+        case 'Others': return 'badge-others';
+        default: return '';
+      }
+    }
+</script>
+</body>
+</html>
+

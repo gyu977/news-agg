@@ -1,0 +1,87 @@
+{
+  "source_id": "andriy-burkov-ai",
+  "name": "Artificial Intelligence (Andriy Burkov)",
+  "author": "Andriy Burkov",
+  "official_site": "https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/",
+  "archive_url": "https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/",
+  "parsed_issues": {
+    "count": 8,
+    "issues": [
+      {
+        "id": "340",
+        "date": "2026-08-22",
+        "date_str": "22 August 2026",
+        "title": "Artificial Intelligence #340",
+        "url": "https://www.linkedin.com/pulse/artificial-intelligence-340-andriy-burkov-xlmpc",
+        "quotes": []
+      },
+      {
+        "id": "339",
+        "date": "2026-08-15",
+        "date_str": "15 August 2026",
+        "title": "Artificial Intelligence #339",
+        "url": "https://www.linkedin.com/pulse/artificial-intelligence-339-andriy-burkov-igh9c",
+        "quotes": []
+      },
+      {
+        "id": "338",
+        "date": "2026-08-08",
+        "date_str": "8 August 2026",
+        "title": "Artificial Intelligence #338",
+        "url": "https://www.linkedin.com/pulse/artificial-intelligence-338-andriy-burkov-3pwpc",
+        "quotes": []
+      },
+      {
+        "id": "337",
+        "date": "2026-08-01",
+        "date_str": "1 August 2026",
+        "title": "Artificial Intelligence #337",
+        "url": "https://www.linkedin.com/pulse/artificial-intelligence-337-andriy-burkov-gov8c",
+        "quotes": []
+      },
+      {
+        "id": "336",
+        "date": "2026-07-25",
+        "date_str": "25 July 2026",
+        "title": "Artificial Intelligence #336",
+        "url": "https://www.linkedin.com/pulse/artificial-intelligence-336-andriy-burkov-vdfjc/",
+        "quotes": []
+      },
+      {
+        "id": "335",
+        "date": "2026-07-18",
+        "date_str": "18 July 2026",
+        "title": "Artificial Intelligence #335",
+        "url": "https://www.linkedin.com/pulse/artificial-intelligence-335-andriy-burkov-iu7ac/",
+        "quotes": []
+      },
+      {
+        "id": "334",
+        "date": "2026-07-11",
+        "date_str": "11 July 2026",
+        "title": "Artificial Intelligence #334",
+        "url": "https://www.linkedin.com/pulse/artificial-intelligence-334-andriy-burkov-m4xcc/",
+        "quotes": []
+      },
+      {
+        "id": "333",
+        "date": "2026-07-04",
+        "date_str": "4 July 2026",
+        "title": "Artificial Intelligence #333",
+        "url": "https://www.linkedin.com/pulse/artificial-intelligence-333-andriy-burkov-bnjbf/",
+        "quotes": []
+      }
+    ],
+    "last_parsed_issue": "340",
+    "last_parsed_date": "2026-08-22"
+  },
+  "default_header": "### Andriy Burkov's Artificial Intelligence",
+  "sponsor_domains": [
+    "fandf.co"
+  ],
+  "archive_retention_days": 90,
+  "has_archive": true,
+  "selectors_spec": {
+    "pulse_pattern": "https://www.linkedin.com/pulse/*"
+  }
+}
