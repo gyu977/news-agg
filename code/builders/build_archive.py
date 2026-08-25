@@ -2,7 +2,7 @@
 Builds full cumulative markdown archives ([source]-archive.md) with categories,
 quotes, and italicized descriptions, containing all historical issues.
 Respects archive_retention_days and has_archive settings from definition.json.
-Auto-discovers and builds all sources in sources/ by default.
+Auto-discovers and builds all sources in data-sources/ by default.
 """
 
 import sys

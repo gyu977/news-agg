@@ -12,12 +12,19 @@ An automated newsletter aggregator, markdown archive builder, and interactive we
 
 ## 🚀 Quick Start
 
+**Requires Python 3.9 or newer.** The builders are pure standard library; only the
+web scrapers need third-party packages (see step 3).
+
 ### 1. Launch the Web Dashboard
 Double-click [`news.html`](news.html) in your browser, or serve locally:
 ```bash
 python3 -m http.server 8000
 # open http://localhost:8000/news.html
 ```
+
+The dashboard supports multi-selection for newsletter sources, content types, and subject
+categories. Selections are combined with OR inside each filter and AND across filters.
+The Spotlight-only option is available when Dear Architects or Token by Token is selected.
 
 ### 2. Build / Rebuild Deliverables
 To rebuild all 90-day Markdown digests, cumulative archives, and the dashboard from local data:
@@ -26,8 +33,11 @@ python3 code/build.py
 ```
 
 ### 3. Refresh Newsletters from the Web
-To crawl online sources (MailerLite, Substack, LinkedIn) for new issues and rebuild:
+To crawl refresh-enabled online sources (MailerLite, Substack, blogs) and rebuild:
 ```bash
+# Install scraper dependencies first (one-off):
+pip install -r requirements.txt
+
 # Refresh all online sources and rebuild:
 python3 code/build.py --refresh
 
@@ -35,12 +45,32 @@ python3 code/build.py --refresh
 python3 code/build.py --refresh --source pragmatic-engineer
 ```
 
+Curated/static sources are skipped with an explicit reason. LinkedIn automation is
+disabled because the site blocks unauthenticated crawlers and does not permit this
+scraping approach; its existing imported dataset remains available.
+
 ### 4. Add Personal Articles via Inbox
 Drop new links or notes into [`inbox.md`](inbox.md) right at the project root, then run:
 ```bash
 python3 code/build.py --inbox
 ```
 The ingestor automatically extracts OpenGraph metadata (title, author, description, date), assigns categories and content types, merges into the dataset, and rebuilds the outputs.
+
+### 5. Normalize the Data (maintenance)
+Re-cleans tracking parameters from links, merges same-issue duplicate records, re-mints article
+IDs as `{prefix}-{issue}-{hash6}`, collapses leaked HTML whitespace, and hides sponsor/ad links.
+Idempotent, so it is safe to re-run after any scrape:
+```bash
+python3 code/tools/normalize_data.py --check   # report only
+python3 code/tools/normalize_data.py           # apply
+```
+
+### 6. Run the Tests
+The test suite is standard-library `unittest` and needs no extra packages. It covers
+article categorisation, merge semantics, and data integrity across every source:
+```bash
+python3 -m unittest discover -s tests
+```
 
 ---
 
@@ -52,9 +82,9 @@ The ingestor automatically extracts OpenGraph metadata (title, author, descripti
 | **2** | **Token by Token** | Luca Mezzalira | MailerLite JSON API | Unlimited |
 | **3** | **Artificial Intelligence** | Andriy Burkov | LinkedIn Pulse | 90 Days Rolling |
 | **4** | **The Pragmatic Engineer** | Gergely Orosz | Substack JSON API | Unlimited |
-| **5** | **Addy Osmani** | Addy Osmani | Personal Technical Blog | 2026 Essays |
+| **5** | **Addy Osmani** | Addy Osmani | Personal Technical Blog | Rolling 730 Days |
 | **6** | **Future of Software Development** | Thoughtworks FOSE | Curated Retreat Series | No Archive (Event View) |
-| **7** | **Others (Collected Articles)** | Mihai V. | Personal Inbox & Web Sync | Curated Collection |
+| **7** | **On My Radar** | Mihai V. | Personal Inbox & Web Sync | Curated Collection |
 
 ---
 
@@ -67,14 +97,27 @@ news-agg/
 ├── README.md                   # User guide & quick start
 │
 ├── docs/                       # 📚 Dedicated documentation
-│   └── INSTRUCTIONS.md         # Architecture specifications, schemas, developer guide
+│   ├── INSTRUCTIONS.md         # Architecture specifications, schemas, developer guide
+│   ├── CODE-REVIEW.md          # Implementation review & issue tracker
+│   └── DATA-DISCREPANCIES.md   # Known data-level defects, deferred
 │
 ├── code/                       # ⚙️ Core engine and generators
 │   ├── build.py                # ⚡ Master CLI build runner
-│   ├── common/                 # models.py, constants.py, base_scraper.py
+│   ├── common/                 # models, crawl policy, shared MailerLite scraper
 │   └── builders/               # build_latest.py, build_archive.py, build_news_page.py
 │
-├── sources/                    # Standardized source modules
+├── code/tools/                 # 🔧 normalize_data.py — link/ID maintenance
+│
+├── tests/                      # ✅ stdlib unittest suite (no dependencies)
+│   ├── test_auto_categorize.py
+│   ├── test_merge_articles.py
+│   ├── test_url_identity.py
+│   ├── test_sponsor_detection.py
+│   ├── test_content_quality.py
+│   ├── test_scraper_infrastructure.py
+│   └── test_data_integrity.py
+│
+├── data-sources/               # Standardized source modules and canonical data
 │   ├── dear-architects/        # definition.json, data.json, scraper.py
 │   ├── token-by-token/
 │   ├── andriy-burkov-ai/
@@ -83,7 +126,7 @@ news-agg/
 │   ├── future-software-development/
 │   └── my-collected-articles/  # definition.json, data.json, scraper.py
 │
-└── output/                     # Generated Markdown deliverables
+└── generated/                  # Generated Markdown deliverables (git-ignored)
     ├── dear-architects.md              # 90-day detailed digest
     ├── dear-architects-compact.md      # 90-day compact bullet list
     ├── dear-architects-archive.md      # Full cumulative archive

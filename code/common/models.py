@@ -107,9 +107,13 @@ class SourceDefinition:
     archive_url: str
     parsed_issues: ParsedIssuesTrack
     default_header: str
+    short_name: str = ""
     sponsor_domains: List[str] = field(default_factory=list)
     archive_retention_days: Optional[int] = None
     has_archive: bool = True
+    static: bool = False
+    refresh_enabled: bool = True
+    refresh_disabled_reason: str = ""
     selectors_spec: Dict[str, Any] = field(default_factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -143,8 +147,12 @@ class SourceDefinition:
             archive_url=data.get("archive_url", ""),
             parsed_issues=parsed_track,
             default_header=data.get("default_header", ""),
+            short_name=data.get("short_name") or data.get("name", ""),
             sponsor_domains=data.get("sponsor_domains", []),
             archive_retention_days=data.get("archive_retention_days"),
             has_archive=data.get("has_archive", True),
+            static=data.get("static", False),
+            refresh_enabled=data.get("refresh_enabled", True),
+            refresh_disabled_reason=data.get("refresh_disabled_reason", ""),
             selectors_spec=data.get("selectors_spec", {})
         )

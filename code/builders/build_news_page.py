@@ -8,6 +8,7 @@ import os
 import json
 import sys
 import re
+import base64
 from datetime import datetime, timedelta
 from typing import Optional
 
@@ -19,74 +20,118 @@ for p in [code_root, project_root]:
     if p not in sys.path:
         sys.path.insert(0, p)
 
-def build_news_page(days_window: int = 90) -> str:
-    # Look for canonical template first, then fallback candidates
-    candidates = [
-        os.path.join(current_dir, "news_template.html"),
-        os.path.join(project_root, "news.html"),
-        os.path.join(project_root, "old", "all-news-enhanced.html")
-    ]
-    template_path = None
-    for cand in candidates:
-        if os.path.exists(cand):
-            template_path = cand
-            break
+from common.base_scraper import BaseScraper
 
-    if not template_path:
-        raise FileNotFoundError("Could not find a valid HTML template for news.html.")
+sys.path.insert(0, current_dir)
+from builder_core import warn_if_stale
+
+def build_news_page(days_window: int = 90, source_id: Optional[str] = None) -> str:
+    # The canonical template is required; falling back to the generated news.html
+    # would silently re-inject into stale output and compound drift.
+    template_path = os.path.join(current_dir, "news_template.html")
+    if not os.path.exists(template_path):
+        raise FileNotFoundError(
+            f"Canonical HTML template not found at {template_path}. "
+            "news.html is generated output and cannot be used as a template."
+        )
 
     output_path = os.path.join(project_root, "news.html")
 
     with open(template_path, "r", encoding="utf-8", errors="replace") as f:
         html = f.read()
 
-    # 1. Collect all articles from sources/*/data.json
-    sources_dir = os.path.join(project_root, "sources")
+    icon_path = os.path.join(project_root, "news-icon.svg")
+    if not os.path.exists(icon_path):
+        raise FileNotFoundError(f"Dashboard icon not found at {icon_path}.")
+    with open(icon_path, "rb") as f:
+        icon_data_uri = (
+            "data:image/svg+xml;base64,"
+            + base64.b64encode(f.read()).decode("ascii")
+        )
+    html = html.replace("{{NEWS_ICON_DATA_URI}}", icon_data_uri)
+
+    # 1. Collect all articles from data-sources/*/data.json
+    sources_dir = os.path.join(project_root, "data-sources")
     all_source_articles = []
-    managed_sources = set()
+    has_refreshable_source = False
 
     for entry in sorted(os.listdir(sources_dir)):
+        if source_id and entry != source_id:
+            continue
         src_folder = os.path.join(sources_dir, entry)
         data_file = os.path.join(src_folder, "data.json")
         def_file = os.path.join(src_folder, "definition.json")
+        def_data = {}
         
         if os.path.isdir(src_folder) and os.path.exists(data_file):
             quote_map = {}
             if os.path.exists(def_file):
-                try:
-                    with open(def_file, "r", encoding="utf-8") as df:
-                        def_data = json.load(df)
-                        issues_list = def_data.get("parsed_issues", {}).get("issues", [])
-                        for iss in issues_list:
-                            iss_num = iss.get("id")
-                            quotes = iss.get("quotes", [])
-                            if quotes:
-                                quote_map[iss_num] = quotes[0]
-                except Exception as e:
-                    print(f"[BuildNewsPage] Warning parsing definition.json for {entry}: {e}")
+                with open(def_file, "r", encoding="utf-8") as df:
+                    def_data = json.load(df)
+                    if not def_data.get("static") and def_data.get("refresh_enabled", True):
+                        has_refreshable_source = True
+                    issues_list = def_data.get("parsed_issues", {}).get("issues", [])
+                    for iss in issues_list:
+                        iss_key = str(iss.get("id"))
+                        quotes = iss.get("quotes", [])
+                        if quotes:
+                            quote_map[iss_key] = quotes[0]
 
             with open(data_file, "r", encoding="utf-8") as f:
-                try:
-                    src_articles = json.load(f)
-                    for a in src_articles:
-                        if a.get("hide", False):
-                            continue
-                        
-                        iss_num = a.get("issue_number")
-                        if iss_num in quote_map and not a.get("quote"):
-                            a["quote"] = quote_map[iss_num].get("text", "")
-                            a["quote_author"] = quote_map[iss_num].get("author", "")
+                src_articles = json.load(f)
+                for a in src_articles:
+                    if a.get("hide", False):
+                        continue
+                    a["source_id"] = def_data.get("source_id", entry)
+                    a["source_short_name"] = (
+                        def_data.get("short_name")
+                        or def_data.get("name")
+                        or a.get("newsletter", "")
+                    )
 
-                        all_source_articles.append(a)
-                        managed_sources.add(a.get("newsletter"))
-                except Exception as e:
-                    print(f"[BuildNewsPage] Error reading {data_file}: {e}")
+                    iss_key = str(a.get("issue_number"))
+                    if iss_key in quote_map and not a.get("quote"):
+                        a["quote"] = quote_map[iss_key].get("text", "")
+                        a["quote_author"] = quote_map[iss_key].get("author", "")
 
-    # 2. Re-assign sequential integer IDs for table selection & pinning
+                    all_source_articles.append(a)
+
+    # 2. Collapse cross-source duplicates: the same article recommended by several
+    #    newsletters should appear once, credited to whoever ran it first, with the
+    #    other sources listed. Deduping here (rather than in data.json) keeps each
+    #    source's own archive complete.
+    by_link = {}
+    deduped = []
+    for art in all_source_articles:
+        canon = BaseScraper.canonical_link(art.get("link") or "")
+        if not canon:
+            deduped.append(art)
+            continue
+        first = by_link.get(canon)
+        if first is None:
+            by_link[canon] = art
+            deduped.append(art)
+            continue
+        # Keep the earliest-dated record; credit the later one as an "also in" source.
+        earlier, later = (first, art)
+        if str(art.get("date", "")) < str(first.get("date", "")):
+            earlier, later = (art, first)
+            deduped[deduped.index(first)] = art
+            by_link[canon] = art
+        others = earlier.setdefault("also_in", [])
+        name = later.get("newsletter", "")
+        if name and name != earlier.get("newsletter") and name not in others:
+            others.append(name)
+
+    dupes_removed = len(all_source_articles) - len(deduped)
+
+    # 3. Re-assign sequential integer IDs for table selection & pinning
     final_articles = []
-    for idx, art in enumerate(all_source_articles, 1):
+    for idx, art in enumerate(deduped, 1):
         clean_art = {
             "id": idx,
+            "source_id": art.get("source_id", ""),
+            "source_short_name": art.get("source_short_name") or art.get("newsletter", ""),
             "newsletter": art.get("newsletter", ""),
             "issue_number": art.get("issue_number"),
             "issue_title": art.get("issue_title", ""),
@@ -104,22 +149,22 @@ def build_news_page(days_window: int = 90) -> str:
         if "quote" in art:
             clean_art["quote"] = art["quote"]
             clean_art["quote_author"] = art.get("quote_author", "")
+        if art.get("also_in"):
+            clean_art["also_in"] = art["also_in"]
 
         final_articles.append(clean_art)
 
-    # 3. Calculate dynamic cutoff date for LAST 3 MONTHS (90 days)
-    now = datetime.now()
-    dates = [datetime.strptime(a["date"], "%Y-%m-%d") for a in final_articles if a.get("date")]
-    past_or_current = [d for d in dates if d <= now + timedelta(days=3)]
-    ref_dt = max(past_or_current) if past_or_current else (max(dates) if dates else now)
-    cutoff_dt = ref_dt - timedelta(days=days_window)
-    cutoff_str = cutoff_dt.strftime("%Y-%m-%d")
+    # 4. Calculate the cutoff for the LAST 3 MONTHS (90 days), anchored to *now* rather
+    #    than to the newest article — a data-relative anchor hides a scraping outage.
+    cutoff_str = (datetime.now() - timedelta(days=days_window)).strftime("%Y-%m-%d")
     latest_articles = [a for a in final_articles if a.get("date", "") >= cutoff_str]
+    if has_refreshable_source:
+        warn_if_stale(final_articles, "news dashboard")
 
     # Sort descending by ISO date
     latest_articles.sort(key=lambda x: str(x.get("date", "")), reverse=True)
 
-    # 4. Clean JSON serialization
+    # 5. Clean JSON serialization
     json_articles_formatted = json.dumps(latest_articles, indent=4, ensure_ascii=False)
     new_articles_js = f"/* ARTICLES_START */\n    const articles = {json_articles_formatted};\n    /* ARTICLES_END */"
     
@@ -140,7 +185,9 @@ def build_news_page(days_window: int = 90) -> str:
     with open(output_path, "w", encoding="utf-8") as f:
         f.write(new_html)
 
-    print(f"[BuildNewsPage] Generated -> {output_path} ({len(latest_articles)} articles from last {days_window} days)")
+    dedupe_note = f", {dupes_removed} cross-source duplicates merged" if dupes_removed else ""
+    print(f"[BuildNewsPage] Generated -> {output_path} "
+          f"({len(latest_articles)} articles from last {days_window} days{dedupe_note})")
     return new_html
 
 if __name__ == "__main__":

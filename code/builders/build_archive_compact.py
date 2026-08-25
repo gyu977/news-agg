@@ -1,7 +1,7 @@
 """
 Builds compact cumulative markdown bullet lists ([source]-archive-compact.md)
 containing all historical issues. Respects archive_retention_days and has_archive.
-Auto-discovers and builds all sources in sources/ by default.
+Auto-discovers and builds all sources in data-sources/ by default.
 """
 
 import sys

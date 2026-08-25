@@ -1,7 +1,7 @@
 """
 Builds full detailed markdown digests ([source].md) for the LAST 3 MONTHS (90 days)
 with categories, quotes, and italicized descriptions.
-Auto-discovers and builds all sources in sources/ by default.
+Auto-discovers and builds all sources in data-sources/ by default.
 """
 
 import sys
@@ -10,7 +10,7 @@ from typing import Optional
 from builder_core import (
     load_source, filter_visible, apply_time_window, group_and_sort_issues,
     render_issue_header, render_quotes, render_article_line_full,
-    output_path_for, write_output, discover_sources
+    output_path_for, write_output, discover_sources, warn_if_stale
 )
 
 
@@ -25,6 +25,8 @@ def build_single_latest(source_id: str, days_window: int = 90) -> Optional[str]:
         print(f"[BuildLatest] No visible articles found for {source_id}.")
         return None
 
+    if not definition.get("static") and definition.get("refresh_enabled", True):
+        warn_if_stale(articles, source_id)
     articles = apply_time_window(articles, days_window)
     issues, sorted_issue_ids = group_and_sort_issues(articles, issue_metadata)
 
@@ -58,12 +60,12 @@ def build_single_latest(source_id: str, days_window: int = 90) -> Optional[str]:
     return output_content
 
 
-def build_latest(source_id: Optional[str] = None):
+def build_latest(source_id: Optional[str] = None, days_window: int = 90):
     if source_id:
-        build_single_latest(source_id)
+        build_single_latest(source_id, days_window)
     else:
         for sid in discover_sources():
-            build_single_latest(sid)
+            build_single_latest(sid, days_window)
 
 
 if __name__ == "__main__":

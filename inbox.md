@@ -19,6 +19,10 @@ Supported formats:
 
 ## ✅ Processed Articles
 
+### Processed on 2026-08-25 15:21:
+- [Quantum for Programmers](https://www.quantumforprogrammers.dev/)
+
+
 ### Processed on 2026-08-23 22:27:
 - **Dan Anthony** - [AI engineering for critical systems](https://dananthony.net/blog/ai-engineering-critical-systems.html)
 - **incident.io** - [We turned off Pub/Sub and nobody noticed](https://incident.io/blog/we-turned-off-pub-sub-and-nobody-noticed)

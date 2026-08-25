@@ -1,0 +1,55 @@
+{
+  "source_id": "my-collected-articles",
+  "name": "On My Radar",
+  "author": "Mihai V.",
+  "official_site": "",
+  "archive_url": "",
+  "parsed_issues": {
+    "count": 4,
+    "issues": [
+      {
+        "id": "collected-october-2026",
+        "date": "2026-10-20",
+        "date_str": "October 2026",
+        "title": "Collected articles — October 2026",
+        "url": "",
+        "quotes": []
+      },
+      {
+        "id": "collected-september-2026",
+        "date": "2026-09-14",
+        "date_str": "September 2026",
+        "title": "Collected articles — September 2026",
+        "url": "",
+        "quotes": []
+      },
+      {
+        "id": "collected-august-2026",
+        "date": "2026-08-31",
+        "date_str": "August 2026",
+        "title": "Collected articles — August 2026",
+        "url": "",
+        "quotes": []
+      },
+      {
+        "id": "collected-july-2026",
+        "date": "2026-07-31",
+        "date_str": "July 2026",
+        "title": "Collected articles — July 2026",
+        "url": "",
+        "quotes": []
+      }
+    ],
+    "last_parsed_issue": "collected-october-2026",
+    "last_parsed_date": "2026-10-20"
+  },
+  "default_header": "### On My Radar (Collected by Mihai V.)",
+  "short_name": "On My Radar",
+  "sponsor_domains": [],
+  "archive_retention_days": null,
+  "has_archive": false,
+  "static": false,
+  "refresh_enabled": true,
+  "refresh_disabled_reason": "",
+  "selectors_spec": {}
+}

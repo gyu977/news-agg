@@ -11,7 +11,7 @@ The codebase follows a modular 3-tier architecture:
 ```text
 ┌─────────────────────────────────────────────────────────────┐
 │                       Data Sources                          │
-│  sources/[source-id]/ (definition.json, data.json, scraper) │
+│ data-sources/<id>/ (definition, data, scraper)              │
 └──────────────────────────────┬──────────────────────────────┘
                                │ Ingests / Merges
                                ▼
@@ -29,7 +29,7 @@ The codebase follows a modular 3-tier architecture:
                                ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                     Output Deliverables                     │
-│   output/*.md  (Digests & Archives)  |  news.html (App)     │
+│ generated/*.md (Digests & Archives) | news.html (App)       │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -37,10 +37,10 @@ The codebase follows a modular 3-tier architecture:
 
 ## 2. Standardized Source Module Structure
 
-Every newsletter source resides in its own self-contained directory inside `sources/`:
+Every newsletter source resides in its own self-contained directory inside `data-sources/`:
 
 ```text
-sources/<source-id>/
+data-sources/<source-id>/
 ├── definition.json    # Source configuration, archive settings, and issue quote tracker
 ├── data.json          # Canonical database of all extracted articles
 ├── scraper.py         # Source-specific crawler/extractor inheriting from BaseScraper
@@ -61,6 +61,9 @@ sources/<source-id>/
   "archive_url": "https://www.linkedin.com/newsletters/artificial-intelligence-6862271403061649408/",
   "has_archive": true,
   "archive_retention_days": 90,
+  "static": false,
+  "refresh_enabled": true,
+  "refresh_disabled_reason": "",
   "default_header": "### Andriy Burkov's Artificial Intelligence",
   "sponsor_domains": ["fandf.co"],
   "parsed_issues": {
@@ -90,6 +93,9 @@ sources/<source-id>/
 * `has_archive` (`bool`): Set to `false` for one-off collections or event series (e.g. `future-software-development`, `my-collected-articles`) to skip generating cumulative archive files while still building 90-day views.
 * `archive_retention_days` (`int`, optional): Set to `90` for newsletters where historical issues are pruned from the cumulative archive (e.g. LinkedIn Pulse). Leave `null` or omit for unlimited cumulative archives.
 * `sponsor_domains` (`string[]`): Domains automatically filtered by `BaseScraper` (e.g. `fandf.co` affiliate links).
+* `static` (`bool`): Marks curated/imported data that has no supported network refresh.
+* `refresh_enabled` (`bool`): Allows `build.py --refresh` to run the source scraper. Static or policy-blocked sources set this to `false`.
+* `refresh_disabled_reason` (`string`): Human-readable explanation printed when refresh skips a source.
 
 ---
 
@@ -97,7 +103,7 @@ sources/<source-id>/
 ```json
 [
   {
-    "id": "da-304-1",
+    "id": "da-304-26f3ca",
     "newsletter": "Dear Architects",
     "issue_number": 304,
     "issue_title": "2026: What's hype vs. reality?",
@@ -119,8 +125,18 @@ sources/<source-id>/
 ```
 
 #### Field Rules:
+* `id`: Stable article identifier in the form **`{prefix}-{issue}-{hash6}`**, where `hash6` is the
+  first 6 hex digits of the SHA-1 of the *canonical* link (see below). Mint it with
+  `BaseScraper.make_article_id(prefix, issue, link, title)` — never with a positional index, which
+  produces collisions whenever the index restarts per issue. `{issue}` is the issue number, or the
+  article's `YYYY-MM` for sources without issue numbers. Current prefixes: `da`, `tbt`, `ab`,
+  `addy`, `pe`, `fose`, `others`.
+* `link`: Cleaned by `BaseScraper.clean_url()`, which strips tracking parameters (`utm_*`, `si`,
+  `fbclid`, `gclid`, `ref`, `mc_*`, …) while preserving meaningful ones such as `s`, `v` and `id`.
+  `BaseScraper.canonical_link()` goes further (lowercased host, no `www.`, no fragment, sorted
+  query) and is used **only** for identity comparison — the stored `link` stays user-facing.
 * `date`: ISO 8601 string (`YYYY-MM-DD`) required for reliable chronological sorting across sources.
-* `category`: Must match one of the **6 Canonical Categories** (see below).
+* `category`: Must match one of the **7 Canonical Categories** (see below).
 * `type`: Content type identifier (`article`, `book`, `video`, `pulse`, `presentation`, `conference`).
 * `hide` (`bool`): When `true`, the article is excluded from all Markdown digests and HTML dashboards without deleting the record.
 * `user_overrides` (`string[]`): Tracks fields manually edited by the user (e.g. `["category", "description"]`). The scraper's `merge_articles()` will **never overwrite** fields listed in `user_overrides` during subsequent crawler runs.
@@ -157,19 +173,19 @@ All articles are classified into one of these 7 canonical categories:
 > [!IMPORTANT]
 > **Adding or Changing Categories**:
 > If a category is added, renamed, or modified, you must update:
-> 1. [`code/common/constants.py`](file:///Users/gyu/projects/news-agg/code/common/constants.py) (`CATEGORIES` array).
-> 2. [`code/builders/news_template.html`](file:///Users/gyu/projects/news-agg/code/builders/news_template.html) (the `<ul class="source-list category-list">` inside `#categoryDesc`).
-> 3. [`code/common/base_scraper.py`](file:///Users/gyu/projects/news-agg/code/common/base_scraper.py) (`auto_categorize()` keyword mapping).
+> 1. [`code/common/constants.py`](../code/common/constants.py) (`CATEGORIES` array).
+> 2. [`code/builders/news_template.html`](../code/builders/news_template.html) (the `<ul class="source-list category-list">` inside `#categoryDesc`).
+> 3. [`code/common/base_scraper.py`](../code/common/base_scraper.py) (`auto_categorize()` keyword mapping).
 > 4. Rebuild deliverables with `python3 code/build.py`.
 
 ---
 
 ## 6. How to Add a New Newsletter Source
 
-Follow this 4-step process to add a new newsletter:
+Follow this 5-step process to add a new newsletter:
 
 ### Step 1: Create Module Directory
-Create `sources/<new-source-id>/`.
+Create `data-sources/<new-source-id>/`.
 
 ### Step 2: Create `definition.json`
 Define the source metadata, archive rules, and header title.
@@ -220,7 +236,7 @@ Run the master builder:
 ```bash
 python3 code/build.py
 ```
-The builders automatically auto-discover all directories in `sources/` containing a `definition.json`, generate the corresponding Markdown files in `output/`, and compile the updated `news.html`.
+The builders automatically auto-discover all directories in `data-sources/` containing a `definition.json`, generate the corresponding Markdown files in `generated/`, and compile the updated `news.html`.
 
 ---
 
@@ -228,7 +244,7 @@ The builders automatically auto-discover all directories in `sources/` containin
 
 To add ad-hoc articles, books, or event links:
 
-1. Paste lines into [`inbox.md`](file:///Users/gyu/projects/news-agg/inbox.md) at the project root:
+1. Paste lines into [`inbox.md`](../inbox.md) at the project root:
    ```markdown
    ## 📥 Articles to Process
 
@@ -240,7 +256,7 @@ To add ad-hoc articles, books, or event links:
    ```bash
    python3 code/build.py --inbox
    ```
-3. The scraper fetches missing OpenGraph metadata, classifies the category and content type, appends to `sources/my-collected-articles/data.json`, moves processed links to `## ✅ Processed Articles`, and immediately rebuilds all outputs.
+3. The scraper fetches missing OpenGraph metadata, classifies the category and content type, appends to `data-sources/my-collected-articles/data.json`, moves processed links to `## ✅ Processed Articles`, and immediately rebuilds all outputs.
 
 ---
 
@@ -250,7 +266,8 @@ To add ad-hoc articles, books, or event links:
 # Build all presentation outputs from local data (default, fast/offline)
 python3 code/build.py
 
-# Crawl online sources (MailerLite, Substack, LinkedIn) for new issues and rebuild
+# Crawl refresh-enabled sources for new issues and rebuild.
+# Static/disabled sources (including LinkedIn) are skipped with a reason.
 python3 code/build.py --refresh
 
 # Crawl and rebuild a specific source only

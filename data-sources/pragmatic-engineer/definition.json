@@ -1,0 +1,208 @@
+{
+  "source_id": "pragmatic-engineer",
+  "name": "The Pragmatic Engineer",
+  "short_name": "Pragmatic Eng.",
+  "author": "Gergely Orosz",
+  "official_site": "https://newsletter.pragmaticengineer.com/",
+  "archive_url": "https://newsletter.pragmaticengineer.com/archive",
+  "parsed_issues": {
+    "count": 23,
+    "issues": [
+      {
+        "id": "pe-2026-08-8908f6",
+        "date": "2026-08-20",
+        "date_str": "20 August 2026",
+        "title": "The Pulse: We need to talk about migrations with AI",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-we-need-to-talk-about-migrations",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-08-4d7cec",
+        "date": "2026-08-19",
+        "date_str": "19 August 2026",
+        "title": "From Chrome DevTools to AI Engineering, with Addy Osmani",
+        "url": "https://newsletter.pragmaticengineer.com/p/from-chrome-devtools-to-ai-engineering",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-08-4fe89b",
+        "date": "2026-08-18",
+        "date_str": "18 August 2026",
+        "title": "Headed for the Exit: the Great Engineering Leader Career Break",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-great-engineering-leader-career-break",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-08-68c233",
+        "date": "2026-08-14",
+        "date_str": "14 August 2026",
+        "title": "The Pulse: Meta’s self-inflicted resignation-wave",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-metas-self-inflicted-resignation",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-08-057303",
+        "date": "2026-08-12",
+        "date_str": "12 August 2026",
+        "title": "Stop being skeptical about AI for development with Charity Majors",
+        "url": "https://newsletter.pragmaticengineer.com/p/stop-being-skeptical-about-ai-for",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-08-6440b1",
+        "date": "2026-08-11",
+        "date_str": "11 August 2026",
+        "title": "Software engineering at a proprietary trading company: Optiver",
+        "url": "https://newsletter.pragmaticengineer.com/p/optiver",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-07-89a356",
+        "date": "2026-07-29",
+        "date_str": "29 July 2026",
+        "title": "Formal methods with Hillel Wayne",
+        "url": "https://newsletter.pragmaticengineer.com/p/formal-methods-with-hillel-wayne",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-07-d3b28b",
+        "date": "2026-07-28",
+        "date_str": "28 July 2026",
+        "title": "How building software is changing at Anthropic",
+        "url": "https://newsletter.pragmaticengineer.com/p/inside-anthropic",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-07-01df36",
+        "date": "2026-07-23",
+        "date_str": "23 July 2026",
+        "title": "The Pulse: Quitting Spotify Podcasts over reliability",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-quitting-spotify-podcasts",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-07-0d3944",
+        "date": "2026-07-21",
+        "date_str": "21 July 2026",
+        "title": "Pushing software engineering limits with “napkin math”",
+        "url": "https://newsletter.pragmaticengineer.com/p/pushing-software-engineering-limits",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-07-1bed9f",
+        "date": "2026-07-16",
+        "date_str": "16 July 2026",
+        "title": "The Pulse: Grok’s CLI caught uploading all your local files to the cloud",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-groks-cli-caught-uploading",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-07-7003f7",
+        "date": "2026-07-15",
+        "date_str": "15 July 2026",
+        "title": "Context engineering with Dex Horthy",
+        "url": "https://newsletter.pragmaticengineer.com/p/context-engineering-with-dex-horthy",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-07-17b10d",
+        "date": "2026-07-14",
+        "date_str": "14 July 2026",
+        "title": "What is “loop engineering?”",
+        "url": "https://newsletter.pragmaticengineer.com/p/what-is-loop-engineering",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-07-2acbe8",
+        "date": "2026-07-09",
+        "date_str": "9 July 2026",
+        "title": "The Pulse: What can we learn from Bun’s rapid Rust rewrite with AI?",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-what-can-we-learn-from",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-07-b73c8f",
+        "date": "2026-07-08",
+        "date_str": "8 July 2026",
+        "title": "The Pragmatic Engineer AMA",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pragmatic-engineer-ama",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-07-b3dd40",
+        "date": "2026-07-07",
+        "date_str": "7 July 2026",
+        "title": "Tech jobs market in 2026, part 3: hiring managers & job seekers",
+        "url": "https://newsletter.pragmaticengineer.com/p/tech-jobs-market-in-2026-part-3-hiring",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-07-5ed8c5",
+        "date": "2026-07-01",
+        "date_str": "1 July 2026",
+        "title": "How Kent Beck shapes the software engineering industry",
+        "url": "https://newsletter.pragmaticengineer.com/p/how-kent-beck-shapes-the-software",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-06-cadb05",
+        "date": "2026-06-30",
+        "date_str": "30 June 2026",
+        "title": "Impressions from visiting OpenAI, Anthropic, & Cursor",
+        "url": "https://newsletter.pragmaticengineer.com/p/impressions-from-visiting-openai",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-06-4e8837",
+        "date": "2026-06-24",
+        "date_str": "24 June 2026",
+        "title": "Tech interviews with NeetCode",
+        "url": "https://newsletter.pragmaticengineer.com/p/tech-interviews-with-neetcode",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-06-ffbe77",
+        "date": "2026-06-23",
+        "date_str": "23 June 2026",
+        "title": "Slow down to speed up: so much has changed in 6 months’ time",
+        "url": "https://newsletter.pragmaticengineer.com/p/slow-down-to-speed-up",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-06-e7065f",
+        "date": "2026-06-18",
+        "date_str": "18 June 2026",
+        "title": "The Pulse: Big implications of US banning Anthropic’s new model, Fable",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-big-implications-of-us",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-06-fd6c44",
+        "date": "2026-06-17",
+        "date_str": "17 June 2026",
+        "title": "CI/CD with Robert Erez",
+        "url": "https://newsletter.pragmaticengineer.com/p/cicd-with-robert-erez",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-06-d35c05",
+        "date": "2026-06-16",
+        "date_str": "16 June 2026",
+        "title": "Why is Meta destroying its engineering organization?",
+        "url": "https://newsletter.pragmaticengineer.com/p/why-is-meta-destroying-its-engineering",
+        "quotes": []
+      }
+    ],
+    "last_parsed_issue": "pe-2026-08-8908f6",
+    "last_parsed_date": "2026-08-20"
+  },
+  "default_header": "### Gergely Orosz's The Pragmatic Engineer",
+  "sponsor_domains": [
+    "fandf.co"
+  ],
+  "archive_retention_days": null,
+  "has_archive": true,
+  "selectors_spec": {
+    "api_archive_endpoint": "https://newsletter.pragmaticengineer.com/api/v1/archive?sort=new"
+  }
+}

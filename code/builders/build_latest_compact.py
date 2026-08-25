@@ -1,6 +1,6 @@
 """
 Builds compact markdown bullet lists ([source]-compact.md) for the LAST 3 MONTHS (90 days).
-Auto-discovers and builds all sources in sources/ by default.
+Auto-discovers and builds all sources in data-sources/ by default.
 """
 
 import sys
@@ -52,12 +52,12 @@ def build_single_latest_compact(source_id: str, days_window: int = 90) -> Option
     return output_content
 
 
-def build_latest_compact(source_id: Optional[str] = None):
+def build_latest_compact(source_id: Optional[str] = None, days_window: int = 90):
     if source_id:
-        build_single_latest_compact(source_id)
+        build_single_latest_compact(source_id, days_window)
     else:
         for sid in discover_sources():
-            build_single_latest_compact(sid)
+            build_single_latest_compact(sid, days_window)
 
 
 if __name__ == "__main__":

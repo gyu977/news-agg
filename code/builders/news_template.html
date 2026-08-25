@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>News Dashboard</title>
+  <link rel="icon" type="image/svg+xml" href="{{NEWS_ICON_DATA_URI}}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -58,6 +59,18 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
 
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-icon {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 auto;
+    }
+
     h1 {
       font-family: 'Outfit', sans-serif;
       font-size: 2.5rem;
@@ -66,7 +79,7 @@
       background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.25rem;
     }
 
     header p {
@@ -77,6 +90,8 @@
 
     /* Controls Panel */
     .controls-panel {
+      position: relative;
+      z-index: 10;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 16px;
@@ -139,7 +154,7 @@
       border-radius: 12px;
       padding: 0 1.5rem;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.875rem;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -184,8 +199,24 @@
       gap: 0.5rem;
     }
 
+    .export-controls {
+      align-items: center;
+    }
+
+    .export-action {
+      width: 196px;
+      justify-content: center;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .export-action svg {
+      flex: 0 0 auto;
+    }
+
     .export-select {
       height: 50px;
+      width: 196px;
       border-radius: 12px;
       padding: 0 2.5rem 0 1rem;
       background-position: right 1rem center;
@@ -194,7 +225,7 @@
     .filters-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 0.75rem;
       align-items: center;
     }
 
@@ -234,19 +265,111 @@
     }
 
     #sourceFilter {
-      width: 180px;
+      width: 220px;
     }
 
     #typeFilter {
-      width: 140px;
+      width: 200px;
     }
 
     #categoryFilter {
-      width: 220px;
+      width: 260px;
     }
 
     .filter-select:focus {
       border-color: var(--accent-blue);
+    }
+
+    .multi-filter {
+      position: relative;
+      flex: 0 0 auto;
+      box-sizing: border-box;
+    }
+
+    .multi-filter summary {
+      box-sizing: border-box;
+      width: 100%;
+      height: 42px;
+      list-style: none;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0.5rem 2.25rem 0.5rem 0.75rem;
+      color: var(--text-main);
+      font-size: 0.85rem;
+      cursor: pointer;
+      outline: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 1rem;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .multi-filter summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .multi-filter summary:focus,
+    .multi-filter[open] summary {
+      border-color: var(--accent-blue);
+    }
+
+    .multi-filter-menu {
+      position: absolute;
+      z-index: 30;
+      top: calc(100% + 0.35rem);
+      left: 0;
+      box-sizing: border-box;
+      width: 320px;
+      max-width: calc(100vw - 24px);
+      padding: 0.6rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      background: #111827;
+      box-shadow: var(--shadow-lg);
+    }
+
+    #typeFilter .multi-filter-menu {
+      width: 260px;
+    }
+
+    .multi-filter-actions {
+      display: flex;
+      gap: 0.4rem;
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .multi-filter-action {
+      border: 0;
+      border-radius: 6px;
+      padding: 0.3rem 0.55rem;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-blue);
+      font: inherit;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .multi-filter-options {
+      display: grid;
+      gap: 0.2rem;
+      max-height: calc(100vh - 220px);
+      overflow-y: auto;
+    }
+
+    .multi-filter-options.scrollable {
+      max-height: min(300px, calc(100vh - 220px));
+    }
+
+    .multi-filter-options .checkbox-label {
+      padding: 0.35rem 0.25rem;
+      overflow-wrap: anywhere;
     }
 
     .checkbox-label {
@@ -290,6 +413,15 @@
 
     .checkbox-label input:checked::before {
       transform: scale(1);
+    }
+
+    .checkbox-label.disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .checkbox-label input:disabled {
+      cursor: not-allowed;
     }
 
     .hide-descriptions .description-text {
@@ -468,9 +600,14 @@
       letter-spacing: normal;
       font-weight: 500;
       white-space: normal;
-      max-width: 180px;
+      max-width: 210px;
       line-height: 1.35;
       padding: 0.3rem 0.6rem;
+    }
+
+    .category-column {
+      width: 230px;
+      min-width: 230px;
     }
 
     .article-title-cell {
@@ -553,6 +690,47 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    .results-count-badge {
+      min-width: 1.75rem;
+      margin-right: 0.4rem;
+      text-align: center;
+    }
+
+    .selection-actions {
+      margin-left: auto;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .selection-count-label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .selection-count-badge {
+      min-width: 1.75rem;
+      margin-left: 0;
+      margin-right: 0.4rem;
+      text-align: center;
+    }
+
+    .selection-export-button {
+      height: 50px;
+      border-radius: 12px;
+      padding: 0 1rem;
+      background: rgba(56, 189, 248, 0.24);
+      border: 1px solid rgba(56, 189, 248, 0.55);
+      color: #bae6fd;
+    }
+
+    .selection-export-button:hover {
+      background: rgba(56, 189, 248, 0.34);
+      border-color: rgba(56, 189, 248, 0.75);
     }
 
     .no-results {
@@ -710,6 +888,48 @@
       vertical-align: middle;
     }
 
+    .also-in {
+      display: inline-block;
+      background: var(--accent-indigo-rgba);
+      color: var(--accent-indigo);
+      border-radius: 999px;
+      padding: 0.1rem 0.45rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      vertical-align: middle;
+      cursor: help;
+    }
+
+    .source-badges {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.3rem;
+    }
+
+    .cross-source-tooltip {
+      position: fixed;
+      z-index: 100;
+      max-width: min(320px, calc(100vw - 24px));
+      padding: 0.45rem 0.65rem;
+      border: 1px solid rgba(129, 140, 248, 0.35);
+      border-radius: 8px;
+      background: #111827;
+      color: #e0e7ff;
+      box-shadow: var(--shadow-lg);
+      font-size: 0.75rem;
+      line-height: 1.4;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(-2px);
+      transition: opacity 80ms ease, transform 80ms ease;
+    }
+
+    .cross-source-tooltip.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .category-list li::before {
       color: var(--accent-indigo);
     }
@@ -722,6 +942,11 @@
 
       h1 {
         font-size: 2rem;
+      }
+
+      .brand-icon {
+        width: 44px;
+        height: 44px;
       }
 
       .controls-panel {
@@ -741,9 +966,22 @@
       .export-controls select,
       .export-controls button {
         flex: 1;
+        width: auto;
         padding: 0.85rem;
         justify-content: center;
         height: auto !important;
+      }
+
+      .results-counter {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .selection-actions {
+        margin-left: 0;
+        width: 100%;
+        flex-wrap: wrap;
       }
 
       th, td {
@@ -788,6 +1026,11 @@
       td:last-child {
         padding-bottom: 1rem;
       }
+
+      .category-column {
+        width: auto;
+        min-width: 0;
+      }
     }
   </style>
 </head>
@@ -795,8 +1038,13 @@
 
   <div class="container">
     <header>
-      <h1>News Dashboard</h1>
-      <p>Search, filter, sort &amp; export parsed articles from several newsletters.</p>
+      <div class="brand-row">
+        <img class="brand-icon" src="{{NEWS_ICON_DATA_URI}}" alt="">
+        <div>
+          <h1>News Dashboard</h1>
+          <p>Insights on AI, architecture, and engineering.</p>
+        </div>
+      </div>
     </header>
 
     <!-- Controls Panel -->
@@ -810,8 +1058,8 @@
         <li data-source="Artificial Intelligence (Andriy Burkov)"><strong>Artificial Intelligence (Andriy Burkov)</strong> — AI-focused newsletter by Andriy Burkov.</li>
         <li data-source="The Pragmatic Engineer"><strong>The Pragmatic Engineer</strong> — Gergely Orosz's newsletter covering the software engineering industry and developer careers.</li>
         <li data-source="Addy Osmani"><strong>Addy Osmani</strong> — Personal blog essays on agentic engineering, software factories, and developer judgment by Addy Osmani.</li>
-        <li data-source="Future software development (Thoughtworks)"><strong>Future software development (Thoughtworks)</strong> — FOSE 2026 retreat notes.</li>
-        <li data-source="Others"><strong>Others</strong> — Personal curated reading collection by Mihai V.</li>
+        <li data-source="Future of Software Development (Thoughtworks FOSE)"><strong>Future of Software Development (Thoughtworks FOSE)</strong> — FOSE 2026 retreat notes.</li>
+        <li data-source="On My Radar"><strong>On My Radar</strong> — Personal curated reading collection by Mihai V.</li>
       </ul>
     </div>
   </div>
@@ -842,11 +1090,11 @@
             <option value="pdf">PDF Document (.pdf)</option>
             <option value="html">HTML Webpage (.html)</option>
           </select>
-          <button onclick="handleViewExport()" class="btn-pdf" style="height: 50px; border-radius: 12px; white-space: nowrap;">
+          <button onclick="handleViewExport()" class="btn-pdf export-action" style="height: 50px; border-radius: 12px; white-space: nowrap;">
             <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
             </svg>
-            Export View
+            Export Current View
           </button>
         </div>
       </div>
@@ -857,53 +1105,54 @@
           <select id="timeframeFilter" class="filter-select">
             <option value="30" selected>Last 1 Month</option>
             <option value="60">Last 2 Months</option>
-            <option value="all">Last 3 Months</option>
+            <option value="90">Last 3 Months</option>
           </select>
         </div>
 
         <div class="filter-group">
           <label class="filter-label">Newsletter Source</label>
-          <select id="sourceFilter" class="filter-select">
-            <option value="all">All Newsletters</option>
-            <option value="Addy Osmani">Addy Osmani</option>
-            <option value="Artificial Intelligence (Andriy Burkov)">Artificial Intelligence (Andriy Burkov)</option>
-            <option value="Dear Architects">Dear Architects</option>
-            <option value="Future software development (Thoughtworks)">Future software development (Thoughtworks)</option>
-            <option value="Others">Others</option>
-            <option value="The Pragmatic Engineer">The Pragmatic Engineer</option>
-            <option value="Token by Token">Token by Token</option>
-          </select>
+          <details id="sourceFilter" class="multi-filter" data-all-label="All Newsletters">
+            <summary><span class="multi-filter-summary">All Newsletters</span></summary>
+            <div class="multi-filter-menu">
+              <div class="multi-filter-actions">
+                <button type="button" class="multi-filter-action" data-filter-action="all">All</button>
+                <button type="button" class="multi-filter-action" data-filter-action="clear">Clear</button>
+              </div>
+              <div class="multi-filter-options"></div>
+            </div>
+          </details>
         </div>
 
         <div class="filter-group">
           <label class="filter-label">Content Type</label>
-          <select id="typeFilter" class="filter-select">
-            <option value="all">All Types</option>
-            <option value="article">Articles Only</option>
-            <option value="video">Videos/Podcasts Only (▶️)</option>
-            <option value="book">Books Only (📖)</option>
-            <option value="pulse">Pulses Only (⚡)</option>
-            <option value="presentation">Presentations/Talks Only (🎤)</option>
-            <option value="conference">Conferences Only (🎟️)</option>
-          </select>
+          <details id="typeFilter" class="multi-filter" data-all-label="All Types">
+            <summary><span class="multi-filter-summary">All Types</span></summary>
+            <div class="multi-filter-menu">
+              <div class="multi-filter-actions">
+                <button type="button" class="multi-filter-action" data-filter-action="all">All</button>
+                <button type="button" class="multi-filter-action" data-filter-action="clear">Clear</button>
+              </div>
+              <div class="multi-filter-options"></div>
+            </div>
+          </details>
         </div>
 
         <div class="filter-group">
-          <label class="filter-label">Subject Category</label>
-          <select id="categoryFilter" class="filter-select">
-            <option value="all">All Categories</option>
-            <option value="AI-Native &amp; Agentic Software Engineering">AI-Native &amp; Agentic Software Engineering</option>
-            <option value="Large Language Models &amp; Evaluation Infrastructure">Large Language Models &amp; Evaluation Infrastructure</option>
-            <option value="Software Architecture &amp; Distributed Systems">Software Architecture &amp; Distributed Systems</option>
-            <option value="Software Testing, Quality &amp; Observability">Software Testing, Quality &amp; Observability</option>
-            <option value="Cloud Infrastructure &amp; System Reliability">Cloud Infrastructure &amp; System Reliability</option>
-            <option value="Tech Industry, Jobs &amp; Careers">Tech Industry, Jobs &amp; Careers</option>
-            <option value="Engineering Philosophy &amp; Estimation">Engineering Philosophy &amp; Estimation</option>
-          </select>
+          <label class="filter-label">Categories</label>
+          <details id="categoryFilter" class="multi-filter" data-all-label="All Categories">
+            <summary><span class="multi-filter-summary">All Categories</span></summary>
+            <div class="multi-filter-menu">
+              <div class="multi-filter-actions">
+                <button type="button" class="multi-filter-action" data-filter-action="all">All</button>
+                <button type="button" class="multi-filter-action" data-filter-action="clear">Clear</button>
+              </div>
+              <div class="multi-filter-options"></div>
+            </div>
+          </details>
         </div>
 
         <div class="filter-group" style="padding-top: 1.1rem;">
-          <label class="checkbox-label">
+          <label id="spotlightLabel" class="checkbox-label" title="Available for Dear Architects and Token by Token articles">
             <input type="checkbox" id="spotlightToggle">
             Show Spotlight Only
           </label>
@@ -921,15 +1170,18 @@
     <!-- Counter Display & Selection Actions -->
     <div class="results-counter">
       <span id="resultsCount">Showing 0 articles</span>
-      <div class="selection-actions" id="selectionActions" style="display: none; gap: 0.5rem; align-items: center;">
-        <span id="selectionText" style="font-size: 0.85rem; color: var(--accent-blue); font-weight: 700; margin-right: 0.5rem;">0 selected</span>
-        <select id="exportSelectionFormat" class="filter-select" title="Export format selection" style="padding: 0.4rem 2rem 0.4rem 0.75rem; font-size: 0.85rem;">
+      <div class="selection-actions" id="selectionActions" style="display: none;">
+        <span id="selectionText" class="selection-count-label"><span class="cat-count selection-count-badge">0</span> selected</span>
+        <select id="exportSelectionFormat" class="filter-select export-select" title="Export format selection">
           <option value="md">Markdown File (.md)</option>
           <option value="pdf">PDF Document (.pdf)</option>
           <option value="html">HTML Webpage (.html)</option>
         </select>
-        <button onclick="handleSelectionExport()" class="btn-action" style="background: var(--accent-blue-rgba); border: 1px solid rgba(56, 189, 248, 0.4); color: var(--accent-blue);">
-          ? Export Selection
+        <button onclick="handleSelectionExport()" class="btn-action export-action selection-export-button">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Export Selection
         </button>
       </div>
     </div>
@@ -940,11 +1192,11 @@
         <thead>
           <tr>
             <th style="width: 50px; text-align: center;"><input type="checkbox" id="selectAllToggle" title="Select/Deselect All"></th>
-            <th onclick="handleSort('newsletter')" id="th-newsletter">Source <span class="sort-indicator"></span></th>
-            <th onclick="handleSort('date')" id="th-date" class="active-sort">Date <span class="sort-indicator">&#x25BC;</span></th>
-            <th onclick="handleSort('author')" id="th-author">Author <span class="sort-indicator"></span></th>
-            <th onclick="handleSort('category')" id="th-category">Subject <span class="sort-indicator"></span></th>
-            <th onclick="handleSort('title')" id="th-title">Article details <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('newsletter')" id="th-newsletter" tabindex="0" role="button" aria-label="Sort by source">Source <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('date')" id="th-date" class="active-sort" tabindex="0" role="button" aria-label="Sort by date">Date <span class="sort-indicator">&#x25BC;</span></th>
+            <th onclick="handleSort('author')" id="th-author" tabindex="0" role="button" aria-label="Sort by author">Author <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('category')" id="th-category" class="category-column" tabindex="0" role="button" aria-label="Sort by category">Category <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('title')" id="th-title" tabindex="0" role="button" aria-label="Sort by article title">Article <span class="sort-indicator"></span></th>
           </tr>
         </thead>
         <tbody id="tableBody">
@@ -953,6 +1205,8 @@
       </table>
     </div>
   </div>
+
+  <div id="crossSourceTooltip" class="cross-source-tooltip" role="tooltip" aria-hidden="true"></div>
 
   <script>
     // Embedded JSON data
@@ -971,6 +1225,7 @@
     const typeFilter = document.getElementById('typeFilter');
     const categoryFilter = document.getElementById('categoryFilter');
     const spotlightToggle = document.getElementById('spotlightToggle');
+    const spotlightLabel = document.getElementById('spotlightLabel');
     const descriptionToggle = document.getElementById('descriptionToggle');
 const sourceToggle = document.getElementById('sourceToggle');
 const sourceDesc = document.getElementById('sourceDesc');
@@ -978,13 +1233,24 @@ const categoryToggle = document.getElementById('categoryToggle');
 const categoryDesc = document.getElementById('categoryDesc');
     const tableBody = document.getElementById('tableBody');
     const resultsCount = document.getElementById('resultsCount');
+    const crossSourceTooltip = document.getElementById('crossSourceTooltip');
 
     // Event Listeners
     searchInput.addEventListener('input', render);
     if (timeframeFilter) timeframeFilter.addEventListener('change', render);
-    sourceFilter.addEventListener('change', render);
-    typeFilter.addEventListener('change', render);
-    categoryFilter.addEventListener('change', render);
+    sourceFilter.addEventListener('change', function() {
+      updateMultiFilterSummary(sourceFilter);
+      updateSpotlightAvailability();
+      render();
+    });
+    typeFilter.addEventListener('change', function() {
+      updateMultiFilterSummary(typeFilter);
+      render();
+    });
+    categoryFilter.addEventListener('change', function() {
+      updateMultiFilterSummary(categoryFilter);
+      render();
+    });
     spotlightToggle.addEventListener('change', render);
     descriptionToggle.addEventListener('change', updateDescriptionVisibility);
 sourceToggle.addEventListener('click', function() {
@@ -1001,9 +1267,15 @@ categoryToggle.addEventListener('click', function() {
   categoryToggle.textContent = expanded ? 'Show category descriptions ▼' : 'Hide category descriptions ▲';
 });
 
-// Append the live article count to each category and source description
-function renderCategoryCounts() {
-  const catCounts = articles.reduce(function(acc, a) {
+function additionalSourceNames(article) {
+  return Array.from(new Set((article.also_in || []).filter(Boolean)));
+}
+
+// Append the live article count to each category and source description.
+// Counts reflect the currently filtered view so they stay in sync with the table.
+function renderCategoryCounts(list) {
+  const rows = list || articles;
+  const catCounts = rows.reduce(function(acc, a) {
     acc[a.category] = (acc[a.category] || 0) + 1;
     return acc;
   }, {});
@@ -1017,8 +1289,10 @@ function renderCategoryCounts() {
     badge.textContent = catCounts[li.dataset.cat] || 0;
   });
 
-  const srcCounts = articles.reduce(function(acc, a) {
-    acc[a.newsletter] = (acc[a.newsletter] || 0) + 1;
+  const srcCounts = rows.reduce(function(acc, a) {
+    new Set([a.newsletter, ...additionalSourceNames(a)]).forEach(source => {
+      if (source) acc[source] = (acc[source] || 0) + 1;
+    });
     return acc;
   }, {});
   sourceDesc.querySelectorAll('li[data-source]').forEach(function(li) {
@@ -1091,54 +1365,238 @@ function renderCategoryCounts() {
         .replace(/'/g, '&#039;');
     }
 
-    function populateSourceFilter() {
-      if (!sourceFilter || typeof articles === 'undefined') return;
-      const currentVal = sourceFilter.value;
-      const uniqueSources = Array.from(new Set(articles.map(a => a.newsletter).filter(Boolean))).sort();
-      if (uniqueSources.length > 0) {
-        sourceFilter.innerHTML = '<option value="all">All Newsletters</option>' + 
-          uniqueSources.map(src => `<option value="${escapeHtml(src)}">${escapeHtml(src)}</option>`).join('');
-        if (uniqueSources.includes(currentVal)) {
-          sourceFilter.value = currentVal;
+    // Allow only http(s)/mailto targets so scraped links cannot inject javascript: or data: URLs
+    function safeUrl(url) {
+      const raw = String(url == null ? '' : url).trim();
+      return /^(https?:|mailto:)/i.test(raw) ? escapeHtml(raw) : '#';
+    }
+
+    let crossSourceTooltipTimer = null;
+
+    function showCrossSourceTooltip(marker) {
+      clearTimeout(crossSourceTooltipTimer);
+      crossSourceTooltipTimer = setTimeout(function() {
+        crossSourceTooltip.textContent = marker.dataset.tooltip;
+        crossSourceTooltip.classList.add('visible');
+        crossSourceTooltip.setAttribute('aria-hidden', 'false');
+
+        const markerRect = marker.getBoundingClientRect();
+        const tooltipRect = crossSourceTooltip.getBoundingClientRect();
+        const left = Math.min(
+          Math.max(12, markerRect.left),
+          window.innerWidth - tooltipRect.width - 12
+        );
+        let top = markerRect.bottom + 8;
+        if (top + tooltipRect.height > window.innerHeight - 12) {
+          top = markerRect.top - tooltipRect.height - 8;
         }
+        crossSourceTooltip.style.left = `${left}px`;
+        crossSourceTooltip.style.top = `${Math.max(12, top)}px`;
+      }, 100);
+    }
+
+    function hideCrossSourceTooltip() {
+      clearTimeout(crossSourceTooltipTimer);
+      crossSourceTooltip.classList.remove('visible');
+      crossSourceTooltip.setAttribute('aria-hidden', 'true');
+    }
+
+    function escapeMarkdownText(value) {
+      return String(value == null ? '' : value)
+        .replace(/\\/g, '\\\\')
+        .replace(/([`*_\[\]$])/g, '\\$1');
+    }
+
+    function escapeMarkdownUrl(value) {
+      return String(value == null ? '' : value)
+        .replace(/\\/g, '%5C')
+        .replace(/ /g, '%20')
+        .replace(/\(/g, '%28')
+        .replace(/\)/g, '%29');
+    }
+
+    function getSelectedFilterValues(filter) {
+      return new Set(Array.from(filter.querySelectorAll('input[type="checkbox"]:checked'))
+        .map(input => input.value));
+    }
+
+    function updateMultiFilterSummary(filter) {
+      const inputs = Array.from(filter.querySelectorAll('input[type="checkbox"]'));
+      const selected = inputs.filter(input => input.checked);
+      const summary = filter.querySelector('.multi-filter-summary');
+      if (selected.length === inputs.length) {
+        summary.textContent = filter.dataset.allLabel;
+      } else if (selected.length === 0) {
+        summary.textContent = 'None selected';
+      } else if (selected.length === 1) {
+        summary.textContent = selected[0].dataset.label;
+      } else {
+        summary.textContent = `${selected.length} selected`;
       }
     }
 
-    function populateCategoryFilter() {
-      if (!categoryFilter || typeof articles === 'undefined') return;
-      const currentVal = categoryFilter.value;
-      const uniqueCats = Array.from(new Set(articles.map(a => a.category).filter(Boolean))).sort();
-      if (uniqueCats.length > 0) {
-        categoryFilter.innerHTML = '<option value="all">All Categories</option>' + 
-          uniqueCats.map(cat => `<option value="${escapeHtml(cat)}">${escapeHtml(cat)}</option>`).join('');
-        if (uniqueCats.includes(currentVal)) {
-          categoryFilter.value = currentVal;
-        }
+    function populateMultiFilter(filter, options) {
+      const container = filter.querySelector('.multi-filter-options');
+      container.classList.toggle('scrollable', options.length > 10);
+      container.innerHTML = options.map(option => `
+        <label class="checkbox-label">
+          <input type="checkbox" value="${escapeHtml(option.value)}" data-label="${escapeHtml(option.label)}" checked>
+          ${escapeHtml(option.label)}
+        </label>
+      `).join('');
+      updateMultiFilterSummary(filter);
+    }
+
+    function setAllFilterOptions(filter, checked) {
+      filter.querySelectorAll('input[type="checkbox"]').forEach(input => {
+        input.checked = checked;
+      });
+      updateMultiFilterSummary(filter);
+    }
+
+    function bindMultiFilterActions(filter, onChange) {
+      filter.addEventListener('click', function(event) {
+        const action = event.target.closest('[data-filter-action]');
+        if (!action) return;
+        setAllFilterOptions(filter, action.dataset.filterAction === 'all');
+        onChange();
+      });
+    }
+
+    function closeMultiFilters(exceptFilter) {
+      document.querySelectorAll('.multi-filter[open]').forEach(filter => {
+        if (filter !== exceptFilter) filter.open = false;
+      });
+    }
+
+    [sourceFilter, typeFilter, categoryFilter].forEach(filter => {
+      filter.addEventListener('toggle', function() {
+        if (filter.open) closeMultiFilters(filter);
+      });
+    });
+
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.multi-filter')) closeMultiFilters();
+    });
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') closeMultiFilters();
+    });
+
+    function populateFilters() {
+      const uniqueSources = new Set(articles.map(a => a.newsletter).filter(Boolean));
+      const describedSources = Array.from(sourceDesc.querySelectorAll('li[data-source]'))
+        .map(item => item.dataset.source)
+        .filter(source => uniqueSources.has(source));
+      const undescribedSources = Array.from(uniqueSources)
+        .filter(source => !describedSources.includes(source))
+        .sort();
+      populateMultiFilter(sourceFilter, describedSources.concat(undescribedSources)
+        .map(source => ({ value: source, label: source })));
+
+      const typeLabels = {
+        article: 'Articles',
+        video: 'Videos/Podcasts (▶️)',
+        book: 'Books (📖)',
+        pulse: 'Pulses (⚡)',
+        presentation: 'Presentations/Talks (🎤)',
+        conference: 'Conferences (🎟️)'
+      };
+      const uniqueTypes = new Set(articles.map(a => a.type).filter(Boolean));
+      const typeOptions = Array.from(uniqueTypes)
+        .map(type => ({ value: type, label: typeLabels[type] || type }))
+        .sort((a, b) => a.label.localeCompare(b.label));
+      populateMultiFilter(typeFilter, typeOptions);
+
+      const uniqueCategories = new Set(articles.map(a => a.category).filter(Boolean));
+      const describedCategories = Array.from(categoryDesc.querySelectorAll('li[data-cat]'))
+        .map(item => item.dataset.cat)
+        .filter(category => uniqueCategories.has(category));
+      const undescribedCategories = Array.from(uniqueCategories)
+        .filter(category => !describedCategories.includes(category))
+        .sort();
+      populateMultiFilter(categoryFilter, describedCategories.concat(undescribedCategories)
+        .map(category => ({ value: category, label: category })));
+    }
+
+    const spotlightSources = new Set(['Dear Architects', 'Token by Token']);
+
+    function hasSpotlightSource(selectedSources) {
+      return Array.from(spotlightSources).some(source => selectedSources.has(source));
+    }
+
+    function updateSpotlightAvailability() {
+      const selectedSources = getSelectedFilterValues(sourceFilter);
+      const available = hasSpotlightSource(selectedSources);
+      spotlightToggle.disabled = !available;
+      spotlightLabel.classList.toggle('disabled', !available);
+      spotlightLabel.setAttribute('aria-disabled', String(!available));
+      if (!available) spotlightToggle.checked = false;
+    }
+
+    function matchesSelectedFilters(article, sources, types, categories) {
+      const matchesSource = sources.has(article.newsletter)
+        || (article.also_in || []).some(source => sources.has(source));
+      return matchesSource
+        && types.has(article.type)
+        && categories.has(article.category);
+    }
+
+    function compareArticlesForSort(a, b, column, direction) {
+      if (column === 'date') {
+        const timeA = new Date(a.date).getTime();
+        const timeB = new Date(b.date).getTime();
+        if (isNaN(timeA) && isNaN(timeB)) return 0;
+        if (isNaN(timeA)) return 1;
+        if (isNaN(timeB)) return -1;
+        return direction === 'asc' ? timeA - timeB : timeB - timeA;
       }
+
+      const valueA = String(a[column] ?? '').trim();
+      const valueB = String(b[column] ?? '').trim();
+      if (!valueA && !valueB) return 0;
+      if (!valueA) return 1;
+      if (!valueB) return -1;
+
+      const comparison = valueA.localeCompare(valueB, undefined, {
+        sensitivity: 'base',
+        numeric: true
+      });
+      return direction === 'asc' ? comparison : -comparison;
+    }
+
+    function updateResultsCount(count) {
+      const noun = count === 1 ? 'article' : 'articles';
+      resultsCount.innerHTML = `Showing <span class="cat-count results-count-badge">${count}</span> ${noun}`;
+    }
+
+    function updateSelectionCount(count) {
+      selectionText.innerHTML = `<span class="cat-count selection-count-badge">${count}</span> selected`;
     }
 
     // Initial render
-    populateSourceFilter();
-    populateCategoryFilter();
+    populateFilters();
+    bindMultiFilterActions(sourceFilter, function() {
+      updateSpotlightAvailability();
+      render();
+    });
+    bindMultiFilterActions(typeFilter, render);
+    bindMultiFilterActions(categoryFilter, render);
+    updateSpotlightAvailability();
     render();
     updateDescriptionVisibility();
-    renderCategoryCounts();
 
     function render() {
       const query = searchInput.value.toLowerCase().trim();
       const timeframe = timeframeFilter ? timeframeFilter.value : 'all';
-      const source = sourceFilter.value;
-      const type = typeFilter.value;
-      const category = categoryFilter.value;
+      const sources = getSelectedFilterValues(sourceFilter);
+      const types = getSelectedFilterValues(typeFilter);
+      const categories = getSelectedFilterValues(categoryFilter);
       const spotlightOnly = spotlightToggle.checked;
 
-      // Determine max timestamp across all articles with sanity guard
+      // Interactive rolling windows are anchored to the clock. Future-dated events
+      // remain visible regardless of the selected historical window.
       const now = Date.now();
-      const rawMax = articles.reduce((max, a) => {
-        const t = new Date(a.date).getTime();
-        return isNaN(t) ? max : Math.max(max, t);
-      }, 0);
-      const maxTimestamp = rawMax > now + 30 * 24 * 3600 * 1000 ? now : rawMax;
 
       // Partition: Pinned (selected) and Unpinned (not selected)
       let pinned = articles.filter(a => selectedIds.has(a.id));
@@ -1148,54 +1606,32 @@ function renderCategoryCounts() {
       let filteredUnpinned = unpinned.filter(article => {
         // Text search match
         const matchesQuery = !query || 
-          article.title.toLowerCase().includes(query) ||
-          article.author.toLowerCase().includes(query) ||
-          article.description.toLowerCase().includes(query) ||
-          article.issue_title.toLowerCase().includes(query);
+          (article.title || '').toLowerCase().includes(query) ||
+          (article.author || '').toLowerCase().includes(query) ||
+          (article.description || '').toLowerCase().includes(query) ||
+          (article.issue_title || '').toLowerCase().includes(query);
 
         // Timeframe match
         let matchesTimeframe = true;
-        if (timeframe !== 'all' && maxTimestamp > 0) {
+        if (timeframe !== 'all') {
           const days = parseInt(timeframe, 10);
           const artTime = new Date(article.date).getTime();
           if (!isNaN(artTime)) {
-            const cutoff = maxTimestamp - (days * 24 * 60 * 60 * 1000);
-            matchesTimeframe = artTime >= cutoff;
+            const cutoff = now - (days * 24 * 60 * 60 * 1000);
+            matchesTimeframe = artTime > now || artTime >= cutoff;
           }
         }
 
-        // Source filter match
-        const matchesSource = source === 'all' || article.newsletter === source;
-
-        // Type filter match
-        const matchesType = type === 'all' || article.type === type;
-
-        // Category filter match
-        const matchesCategory = category === 'all' || article.category === category;
+        const matchesFilters = matchesSelectedFilters(article, sources, types, categories);
 
         // Spotlight match
         const matchesSpotlight = !spotlightOnly || article.is_spotlight;
 
-        return matchesQuery && matchesTimeframe && matchesSource && matchesType && matchesCategory && matchesSpotlight;
+        return matchesQuery && matchesTimeframe && matchesFilters && matchesSpotlight;
       });
 
       // Sorting logic function
-      const sortFn = (a, b) => {
-        let valA = a[sortColumn];
-        let valB = b[sortColumn];
-
-        if (sortColumn === 'date') {
-          valA = new Date(valA).getTime();
-          valB = new Date(valB).getTime();
-        } else if (typeof valA === 'string') {
-          valA = valA.toLowerCase();
-          valB = valB.toLowerCase();
-        }
-
-        if (valA < valB) return sortDirection === 'asc' ? -1 : 1;
-        if (valA > valB) return sortDirection === 'asc' ? 1 : -1;
-        return 0;
-      };
+      const sortFn = (a, b) => compareArticlesForSort(a, b, sortColumn, sortDirection);
 
       pinned.sort(sortFn);
       filteredUnpinned.sort(sortFn);
@@ -1211,18 +1647,20 @@ function renderCategoryCounts() {
             <td colspan="6" class="no-results">No articles matching your criteria were found.</td>
           </tr>
         `;
-        resultsCount.textContent = 'Showing 0 articles';
+        updateResultsCount(0);
+        currentViewArticles = [];
+        renderCategoryCounts([]);
         if (selectAllToggle) selectAllToggle.checked = false;
         if (selectionActions) selectionActions.style.display = 'none';
         return;
       }
 
-      resultsCount.textContent = `Showing ${finalArticles.length} article${finalArticles.length > 1 ? 's' : ''}`;
+      updateResultsCount(finalArticles.length);
 
       // Update Selection UI Action Bar
       if (selectedIds.size > 0) {
         selectionActions.style.display = 'flex';
-        selectionText.textContent = `${selectedIds.size} selected`;
+        updateSelectionCount(selectedIds.size);
       } else {
         selectionActions.style.display = 'none';
       }
@@ -1256,27 +1694,54 @@ function renderCategoryCounts() {
         const tdSource = document.createElement('td');
         tdSource.setAttribute('data-label', 'Source');
         
-        let badgeClass = 'badge-tbt';
-        if (article.newsletter === 'Dear Architects') badgeClass = 'badge-da';
-        if (article.newsletter === 'The Pragmatic Engineer') badgeClass = 'badge-pe';
-        if (article.newsletter === 'Artificial Intelligence (Andriy Burkov)') badgeClass = 'badge-ai';
-        if (article.newsletter === 'Addy Osmani') badgeClass = 'badge-addy';
-        if (article.newsletter === 'Future software development (Thoughtworks)') badgeClass = 'badge-fose';
-        if (article.newsletter === 'Others') badgeClass = 'badge-others';
+        const badgeClasses = {
+          'dear-architects': 'badge-da',
+          'token-by-token': 'badge-tbt',
+          'pragmatic-engineer': 'badge-pe',
+          'andriy-burkov-ai': 'badge-ai',
+          'addy-osmani': 'badge-addy',
+          'future-software-development': 'badge-fose',
+          'my-collected-articles': 'badge-others'
+        };
+        const badgeClass = badgeClasses[article.source_id] || 'badge-tbt';
+        const sourceLabel = article.source_short_name || article.newsletter;
         
-        const issueDisplay = article.issue_number ? `#${article.issue_number} ` : '';
+        const issueDisplay = article.issue_number ? `#${escapeHtml(article.issue_number)} ` : '';
+        // Articles recommended by more than one newsletter are shown once, credited to
+        // whoever ran them first, with the other sources noted here.
+        const alsoInNames = additionalSourceNames(article);
+        const alsoIn = alsoInNames.length
+          ? `<span class="also-in" tabindex="0" data-tooltip="Also recommended by: ${escapeHtml(alsoInNames.join(', '))}" aria-label="Also recommended by: ${escapeHtml(alsoInNames.join(', '))}">Also in ${alsoInNames.length}</span>`
+          : '';
         if (article.issue_link) {
           tdSource.innerHTML = `
-            <a href="${escapeHtml(article.issue_link)}" target="_blank" rel="noopener noreferrer" class="badge ${badgeClass}" title="View newsletter issue">
-              ${issueDisplay}${escapeHtml(article.newsletter)}
-            </a>
+            <div class="source-badges">
+              <a href="${safeUrl(article.issue_link)}" target="_blank" rel="noopener noreferrer" class="badge ${badgeClass}" title="View ${escapeHtml(article.newsletter)} issue">
+                ${issueDisplay}${escapeHtml(sourceLabel)}
+              </a>
+              ${alsoIn}
+            </div>
           `;
         } else {
           tdSource.innerHTML = `
-            <span class="badge ${badgeClass}">
-              ${issueDisplay}${escapeHtml(article.newsletter)}
-            </span>
+            <div class="source-badges">
+              <span class="badge ${badgeClass}" title="${escapeHtml(article.newsletter)}">
+                ${issueDisplay}${escapeHtml(sourceLabel)}
+              </span>
+              ${alsoIn}
+            </div>
           `;
+        }
+        const alsoInMarker = tdSource.querySelector('.also-in');
+        if (alsoInMarker) {
+          alsoInMarker.addEventListener('mouseenter', function() {
+            showCrossSourceTooltip(alsoInMarker);
+          });
+          alsoInMarker.addEventListener('mouseleave', hideCrossSourceTooltip);
+          alsoInMarker.addEventListener('focus', function() {
+            showCrossSourceTooltip(alsoInMarker);
+          });
+          alsoInMarker.addEventListener('blur', hideCrossSourceTooltip);
         }
         tr.appendChild(tdSource);
 
@@ -1291,15 +1756,16 @@ function renderCategoryCounts() {
         const tdAuthor = document.createElement('td');
         tdAuthor.setAttribute('data-label', 'Author');
         tdAuthor.className = 'author-cell';
-        tdAuthor.textContent = article.author;
+        tdAuthor.textContent = article.author || '';
         tr.appendChild(tdAuthor);
 
         // 3.5 Category cell
         const tdCategory = document.createElement('td');
-        tdCategory.setAttribute('data-label', 'Subject');
+        tdCategory.setAttribute('data-label', 'Category');
+        tdCategory.className = 'category-column';
         tdCategory.innerHTML = `
           <span class="badge badge-category">
-            ${article.category}
+            ${escapeHtml(article.category)}
           </span>
         `;
         tr.appendChild(tdCategory);
@@ -1323,12 +1789,12 @@ function renderCategoryCounts() {
         tdDetails.innerHTML = `
           <div class="article-title-cell">
             <div>
-              <a href="${article.link}" target="_blank" class="article-link">
-                ${icon ? `<span>${icon}</span>` : ''} ${article.title}
+              <a href="${safeUrl(article.link)}" target="_blank" rel="noopener noreferrer" class="article-link">
+                ${icon ? `<span>${icon}</span>` : ''} ${escapeHtml(article.title)}
               </a>
               ${isSpotlightBadge}
             </div>
-            <div class="description-text">${article.description}</div>
+            <div class="description-text">${escapeHtml(article.description)}</div>
           </div>
         `;
         tr.appendChild(tdDetails);
@@ -1338,7 +1804,20 @@ function renderCategoryCounts() {
 
       selectAllToggle.checked = allChecked;
       currentViewArticles = finalArticles;
+      renderCategoryCounts(finalArticles);
     }
+
+    // Sortable headers are <th> elements, so they need explicit keyboard activation.
+    ['newsletter', 'date', 'author', 'category', 'title'].forEach(col => {
+      const th = document.getElementById(`th-${col}`);
+      if (!th) return;
+      th.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleSort(col);
+        }
+      });
+    });
 
     function handleSort(column) {
       const headers = ['newsletter', 'date', 'author', 'category', 'title'];
@@ -1363,46 +1842,6 @@ function renderCategoryCounts() {
       });
 
       render();
-    }
-
-    function exportSelectionToMarkdown() {
-      if (selectedIds.size === 0) return;
-      
-      let mdText = "### Selected Newsletter Articles\n\n";
-      
-      // Sort selected articles by date descending
-      const selectedArticles = articles.filter(a => selectedIds.has(a.id));
-      selectedArticles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-      
-      selectedArticles.forEach(a => {
-        let icon = '';
-        if (a.type === 'video') icon = '▶️';
-        if (a.type === 'book') icon = '📖';
-        if (a.type === 'pulse') icon = '⚡';
-        if (a.type === 'presentation') icon = '🎤';
-        if (a.type === 'conference') icon = '🎟️';
-        
-        const sourceBadge = a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter;
-        const authorPrefix = a.author ? `**${a.author}** - ` : '';
-        const quoteBlock = a.quote ? `\n> "${a.quote}"  — ${a.quote_author}\n` : '';
-        
-        mdText += `**[${sourceBadge}](${a.issue_link})** - ${a.date_str}\n\n`;
-        if (quoteBlock) mdText += quoteBlock + "\n";
-        mdText += `- ${authorPrefix}${icon}[${a.title}](${a.link})\n`;
-        mdText += `  *${a.description}*\n\n---\n\n`;
-      });
-      
-      // Remove trailing separator
-      mdText = mdText.replace(/\n\n---\n\n$/, '\n');
-      
-      const blob = new Blob([mdText], { type: 'text/markdown;charset=utf-8;' });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.setAttribute("href", url);
-      link.setAttribute("download", "selected-newsletter-articles.md");
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
     }
 
     function exportSelectionToPDF() {
@@ -1456,22 +1895,27 @@ function renderCategoryCounts() {
         if (a.type === 'presentation') icon = '🎤';
         if (a.type === 'conference') icon = '🎟️';
 
-        const sourceBadge = a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter;
-        const authorSpan = a.author ? `<span class="author">with ${a.author}</span>` : '';
-        const quoteDiv = a.quote ? `<div class="quote">"${a.quote}"  — <strong>${a.quote_author}</strong></div>` : '';
+        const sourceBadge = a.issue_number ? `#${escapeHtml(a.issue_number)} ${escapeHtml(a.newsletter)}` : escapeHtml(a.newsletter);
+        const alsoInNames = additionalSourceNames(a);
+        const alsoInDiv = alsoInNames.length
+          ? `<div class="also-in-export"><strong>Also in:</strong> ${escapeHtml(alsoInNames.join(', '))}</div>`
+          : '';
+        const authorSpan = a.author ? `<span class="author">with ${escapeHtml(a.author)}</span>` : '';
+        const quoteDiv = a.quote ? `<div class="quote">"${escapeHtml(a.quote)}"  — <strong>${escapeHtml(a.quote_author)}</strong></div>` : '';
 
         rows += `
           <div class="article-card">
             <div class="card-header">
               <span class="badge badge-source">${sourceBadge}</span>
-              <span class="date">${a.date_str}</span>
+              <span class="date">${escapeHtml(a.date_str)}</span>
             </div>
+            ${alsoInDiv}
             ${quoteDiv}
             <h3 class="title">
-              <a href="${a.link}" target="_blank">${icon ? `<span class="icon">${icon}</span>` : ''} ${a.title}</a>
+              <a href="${safeUrl(a.link)}" target="_blank" rel="noopener noreferrer">${icon ? `<span class="icon">${icon}</span>` : ''} ${escapeHtml(a.title)}</a>
             </h3>
             ${authorSpan}
-            <p class="description">${a.description}</p>
+            <p class="description">${escapeHtml(a.description)}</p>
           </div>
         `;
       });
@@ -1481,7 +1925,7 @@ function renderCategoryCounts() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>\${titleText}</title>
+  <title>${escapeHtml(titleText)}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -1544,6 +1988,11 @@ function renderCategoryCounts() {
       font-size: 0.85rem;
       color: var(--text-muted);
     }
+    .also-in-export {
+      color: #a5b4fc;
+      font-size: 0.85rem;
+      margin: -0.5rem 0 1rem;
+    }
     .title {
       font-family: 'Outfit', sans-serif;
       font-size: 1.25rem;
@@ -1580,9 +2029,9 @@ function renderCategoryCounts() {
   </style>
 </head>
 <body>
-  <h1>\${titleText}</h1>
+  <h1>${escapeHtml(titleText)}</h1>
   <div class="articles-list">
-    \${rows}
+    ${rows}
   </div>
 </body>
 </html>`;
@@ -1601,14 +2050,24 @@ function renderCategoryCounts() {
         if (a.type === 'presentation') icon = '🎤';
         if (a.type === 'conference') icon = '🎟️';
         
-        const sourceBadge = a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter;
-        const authorPrefix = a.author ? `**${a.author}** - ` : '';
-        const quoteBlock = a.quote ? `\n> "${a.quote}"  — ${a.quote_author}\n` : '';
+        const sourceBadge = escapeMarkdownText(
+          a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter
+        );
+        const alsoInNames = additionalSourceNames(a);
+        const authorPrefix = a.author ? `**${escapeMarkdownText(a.author)}** - ` : '';
+        const quoteBlock = a.quote
+          ? `\n> "${escapeMarkdownText(a.quote)}"  — ${escapeMarkdownText(a.quote_author)}\n`
+          : '';
         
-        mdText += `**[${sourceBadge}](${a.issue_link})** - ${a.date_str}\n\n`;
+        mdText += a.issue_link
+          ? `**[${sourceBadge}](${escapeMarkdownUrl(a.issue_link)})** - ${escapeMarkdownText(a.date_str)}\n\n`
+          : `**${sourceBadge}** - ${escapeMarkdownText(a.date_str)}\n\n`;
+        if (alsoInNames.length) {
+          mdText += `*Also in: ${escapeMarkdownText(alsoInNames.join(', '))}*\n\n`;
+        }
         if (quoteBlock) mdText += quoteBlock + "\n";
-        mdText += `- ${authorPrefix}${icon}[${a.title}](${a.link})\n`;
-        mdText += `  *${a.description}*\n\n---\n\n`;
+        mdText += `- ${authorPrefix}${icon}[${escapeMarkdownText(a.title)}](${escapeMarkdownUrl(a.link)})\n`;
+        mdText += `  *${escapeMarkdownText(a.description)}*\n\n---\n\n`;
       });
       
       // Remove trailing separator
@@ -1633,14 +2092,24 @@ function renderCategoryCounts() {
         if (a.type === 'presentation') icon = '🎤';
         if (a.type === 'conference') icon = '🎟️';
         
-        const sourceBadge = a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter;
-        const authorPrefix = a.author ? `**${a.author}** - ` : '';
-        const quoteBlock = a.quote ? `\n> "${a.quote}"  — ${a.quote_author}\n` : '';
+        const sourceBadge = escapeMarkdownText(
+          a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter
+        );
+        const alsoInNames = additionalSourceNames(a);
+        const authorPrefix = a.author ? `**${escapeMarkdownText(a.author)}** - ` : '';
+        const quoteBlock = a.quote
+          ? `\n> "${escapeMarkdownText(a.quote)}"  — ${escapeMarkdownText(a.quote_author)}\n`
+          : '';
         
-        mdText += `**[${sourceBadge}](${a.issue_link})** - ${a.date_str}\n\n`;
+        mdText += a.issue_link
+          ? `**[${sourceBadge}](${escapeMarkdownUrl(a.issue_link)})** - ${escapeMarkdownText(a.date_str)}\n\n`
+          : `**${sourceBadge}** - ${escapeMarkdownText(a.date_str)}\n\n`;
+        if (alsoInNames.length) {
+          mdText += `*Also in: ${escapeMarkdownText(alsoInNames.join(', '))}*\n\n`;
+        }
         if (quoteBlock) mdText += quoteBlock + "\n";
-        mdText += `- ${authorPrefix}${icon}[${a.title}](${a.link})\n`;
-        mdText += `  *${a.description}*\n\n---\n\n`;
+        mdText += `- ${authorPrefix}${icon}[${escapeMarkdownText(a.title)}](${escapeMarkdownUrl(a.link)})\n`;
+        mdText += `  *${escapeMarkdownText(a.description)}*\n\n---\n\n`;
       });
       
       // Remove trailing separator
@@ -1661,14 +2130,6 @@ function renderCategoryCounts() {
       const htmlContent = generateArticlesHTML("Selected Newsletter Articles", selectedArticles);
       triggerDownload(htmlContent, "selected-newsletter-articles.html", "text/html");
     }
-  
-    function getBadgeClass(newsletter) {
-      switch(newsletter) {
-        case 'Others': return 'badge-others';
-        default: return '';
-      }
-    }
 </script>
 </body>
 </html>
-

@@ -1,0 +1,39 @@
+{
+  "source_id": "future-software-development",
+  "name": "Future of Software Development (Thoughtworks FOSE)",
+  "short_name": "Thoughtworks FOSE",
+  "author": "Thoughtworks / Martin Fowler",
+  "official_site": "https://www.thoughtworks.com/en-us/about-us/events/the-future-of-software-development-europe-2026",
+  "archive_url": "https://www.thoughtworks.com/en-us/about-us/events/the-future-of-software-development-europe-2026",
+  "parsed_issues": {
+    "count": 1,
+    "issues": [
+      {
+        "id": "fose-2026",
+        "date": "2026-07-25",
+        "date_str": "July 2026",
+        "title": "FOSE 2026 Reflections - July 2026",
+        "url": "https://www.thoughtworks.com/en-us/about-us/events/the-future-of-software-development-europe-2026",
+        "quotes": [
+          {
+            "text": "Code generation is no longer the primary constraint; the real challenge is building reliable, fast, and human-legible verification methods.",
+            "author": "Thoughtworks FOSE Consensus"
+          }
+        ]
+      }
+    ],
+    "last_parsed_issue": "fose-2026",
+    "last_parsed_date": "2026-07-25"
+  },
+  "default_header": "### Future of Software Engineering (FOSE) Europe 2026",
+  "sponsor_domains": [],
+  "archive_retention_days": null,
+  "has_archive": false,
+  "static": true,
+  "refresh_enabled": false,
+  "refresh_disabled_reason": "Curated FOSE 2026 dataset; no stable public issue feed exists.",
+  "selectors_spec": {
+    "event_hashtag": "#twsoftwaredev26",
+    "retreat_location": "Engelberg, Switzerland"
+  }
+}

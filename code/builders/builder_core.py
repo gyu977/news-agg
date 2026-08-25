@@ -25,11 +25,32 @@ except ImportError:
     from code.common.constants import VISUAL_MARKERS
 
 
-def escape_markdown_math(text: str) -> str:
-    """Escape bare $ signs in text to prevent LaTeX math rendering in Markdown."""
+def escape_markdown_text(text: str) -> str:
+    """Escape scraped text used inside Markdown labels/emphasis."""
     if not text:
         return ""
-    return re.sub(r'(?<!\\)\$', r'\\$', text)
+    value = str(text).replace("\\", "\\\\")
+    for marker in ("`", "*", "_", "[", "]", "$"):
+        value = value.replace(marker, f"\\{marker}")
+    return value
+
+
+def escape_markdown_math(text: str) -> str:
+    """Backward-compatible alias for the full Markdown text escaper."""
+    return escape_markdown_text(text)
+
+
+def escape_markdown_url(url: str) -> str:
+    """Escape characters that terminate a Markdown inline-link destination."""
+    if not url:
+        return ""
+    return (
+        str(url)
+        .replace("\\", "%5C")
+        .replace(" ", "%20")
+        .replace("(", "%28")
+        .replace(")", "%29")
+    )
 
 
 def load_source(source_id: str) -> Optional[Tuple[Dict, List[Dict], Dict]]:
@@ -37,7 +58,7 @@ def load_source(source_id: str) -> Optional[Tuple[Dict, List[Dict], Dict]]:
     Load a source's definition.json and data.json.
     Returns (definition, raw_articles, issue_metadata_by_id) or None if files don't exist.
     """
-    source_dir = os.path.join(project_root, "sources", source_id)
+    source_dir = os.path.join(project_root, "data-sources", source_id)
     def_path = os.path.join(source_dir, "definition.json")
     data_path = os.path.join(source_dir, "data.json")
 
@@ -65,20 +86,42 @@ def filter_visible(raw_articles: List[Dict]) -> List[Dict]:
 
 def apply_time_window(articles: List[Dict], days_window: int = 90) -> List[Dict]:
     """
-    Apply a rolling time window cutoff (e.g. 90 days).
-    Reference date is the most recent article date that isn't far in the future.
-    Future events (up to 3 days ahead) are always included.
+    Apply a rolling time window cutoff (e.g. 90 days), anchored to *now*.
+
+    The anchor used to be `max(article date)`, which made the window data-relative: if
+    scraping stalled, "last 90 days" kept showing the same frozen slice forever and the
+    outage stayed invisible. Anchoring to the clock means a stale feed visibly empties.
+    Future-dated events (conferences) are always kept.
     """
     if not articles:
         return articles
 
     now = datetime.now()
-    dates = [datetime.strptime(a["date"], "%Y-%m-%d") for a in articles if a.get("date")]
-    past_or_current = [d for d in dates if d <= now + timedelta(days=3)]
-    ref_dt = max(past_or_current) if past_or_current else (max(dates) if dates else now)
-    cutoff_dt = ref_dt - timedelta(days=days_window)
-    cutoff_str = cutoff_dt.strftime("%Y-%m-%d")
+    cutoff_str = (now - timedelta(days=days_window)).strftime("%Y-%m-%d")
     return [a for a in articles if a.get("date", "") >= cutoff_str]
+
+
+def staleness_days(articles: List[Dict]) -> Optional[int]:
+    """Days between now and the newest non-future article date, or None if unknown."""
+    now = datetime.now()
+    dates = []
+    for a in articles:
+        try:
+            dates.append(datetime.strptime(a["date"], "%Y-%m-%d"))
+        except (KeyError, ValueError, TypeError):
+            continue
+    past = [d for d in dates if d <= now + timedelta(days=3)]
+    if not past:
+        return None
+    return (now - max(past)).days
+
+
+def warn_if_stale(articles: List[Dict], label: str, threshold_days: int = 30) -> Optional[int]:
+    """Print a build-time warning when a feed has clearly stopped updating (H8)."""
+    days = staleness_days(articles)
+    if days is not None and days > threshold_days:
+        print(f"  [stale] {label}: newest article is {days} days old — scraping may have stalled.")
+    return days
 
 
 def apply_archive_retention(articles: List[Dict], definition: Dict) -> List[Dict]:
@@ -94,8 +137,7 @@ def apply_archive_retention(articles: List[Dict], definition: Dict) -> List[Dict
     if not dates:
         return articles
 
-    max_dt = max(dates)
-    cutoff_dt = max_dt - timedelta(days=retention_days)
+    cutoff_dt = datetime.now() - timedelta(days=retention_days)
     cutoff_str = cutoff_dt.strftime("%Y-%m-%d")
     return [a for a in articles if a.get("date", "") >= cutoff_str]
 
@@ -133,17 +175,25 @@ def render_issue_header(iss: Dict) -> str:
     """Render the markdown header line for an issue."""
     num = iss.get("issue_number")
     num_prefix = f"#{num} - " if num is not None else ""
+    title = escape_markdown_text(iss.get("issue_title", ""))
+    date_str = escape_markdown_text(iss.get("date_str", ""))
     if iss.get("issue_link"):
-        return f"**[{num_prefix}{iss['issue_title']}]({iss['issue_link']})** - {iss['date_str']}"
+        return (
+            f"**[{num_prefix}{title}]({escape_markdown_url(iss['issue_link'])})** "
+            f"- {date_str}"
+        )
     else:
-        return f"**{num_prefix}{iss['issue_title']}** - {iss['date_str']}"
+        return f"**{num_prefix}{title}** - {date_str}"
 
 
 def render_quotes(iss: Dict) -> List[str]:
     """Render blockquote lines for an issue's quotes."""
     lines = []
     for q in iss.get("quotes", []):
-        lines.append(f'> "{q["text"]}" — {q["author"]}')
+        lines.append(
+            f'> "{escape_markdown_text(q["text"])}" — '
+            f'{escape_markdown_text(q["author"])}'
+        )
     return lines
 
 
@@ -151,7 +201,7 @@ def render_article_line_full(a: Dict) -> List[str]:
     """Render a full article entry with description and category tag."""
     lines = []
     author = a.get("author")
-    author_prefix = f"**{author}** - " if author else ""
+    author_prefix = f"**{escape_markdown_text(author)}** - " if author else ""
 
     icon_str = ""
     atype = a.get("type", "article")
@@ -161,11 +211,14 @@ def render_article_line_full(a: Dict) -> List[str]:
     spotlight_str = " - In the spotlight" if a.get("is_spotlight") else ""
     cat_str = f" - [Category: {a.get('category')}]" if a.get('category') else ""
 
-    title_escaped = escape_markdown_math(a.get("title", ""))
-    lines.append(f"{author_prefix}{icon_str}[{title_escaped}]({a['link']}){spotlight_str}{cat_str}")
+    title_escaped = escape_markdown_text(a.get("title", ""))
+    lines.append(
+        f"{author_prefix}{icon_str}[{title_escaped}]"
+        f"({escape_markdown_url(a['link'])}){spotlight_str}{cat_str}"
+    )
     lines.append("")
 
-    desc = escape_markdown_math(a.get("description", "").strip())
+    desc = escape_markdown_text(a.get("description", "").strip())
     if desc:
         lines.append(f"*{desc}*")
         lines.append("")
@@ -176,7 +229,7 @@ def render_article_line_full(a: Dict) -> List[str]:
 def render_article_line_compact(a: Dict) -> str:
     """Render a compact bullet-list article entry."""
     author = a.get("author")
-    author_prefix = f"**{author}** - " if author else ""
+    author_prefix = f"**{escape_markdown_text(author)}** - " if author else ""
 
     icon_str = ""
     atype = a.get("type", "article")
@@ -184,13 +237,16 @@ def render_article_line_compact(a: Dict) -> str:
         icon_str = f"{VISUAL_MARKERS[atype]} "
 
     spotlight_str = " - In the spotlight" if a.get("is_spotlight") else ""
-    title_escaped = escape_markdown_math(a.get("title", ""))
-    return f"- {author_prefix}{icon_str}[{title_escaped}]({a['link']}){spotlight_str}"
+    title_escaped = escape_markdown_text(a.get("title", ""))
+    return (
+        f"- {author_prefix}{icon_str}[{title_escaped}]"
+        f"({escape_markdown_url(a['link'])}){spotlight_str}"
+    )
 
 
 def output_path_for(source_id: str, suffix: str) -> str:
     """Get the output file path for a given source and suffix."""
-    return os.path.join(project_root, "output", f"{source_id}{suffix}.md")
+    return os.path.join(project_root, "generated", f"{source_id}{suffix}.md")
 
 
 def write_output(path: str, content: str):
@@ -202,7 +258,7 @@ def write_output(path: str, content: str):
 
 def discover_sources() -> List[str]:
     """Auto-discover all source IDs that have a definition.json."""
-    sources_dir = os.path.join(project_root, "sources")
+    sources_dir = os.path.join(project_root, "data-sources")
     result = []
     for entry in sorted(os.listdir(sources_dir)):
         full_path = os.path.join(sources_dir, entry)
