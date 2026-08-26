@@ -5,12 +5,13 @@
 * **Host**: Thoughtworks & Martin Fowler
 * **Location**: Engelberg, Switzerland
 * **Has Archive**: `false` (Standalone Event Collection)
+* **Refresh Policy**: Static curated dataset; no stable public issue feed is available
 
 ---
 
 ## 📖 Curated Scope
 
-16 articles and reflections from industry leaders exploring:
+The current collection contains 16 articles and reflections from industry leaders exploring:
 * Shift from code authoring to agent orchestration & harness engineering.
 * Verification and deterministic guardrails as the primary engineering bottleneck.
 * Human cognitive load, Extreme Humanism, and the junior developer apprenticeship challenge.

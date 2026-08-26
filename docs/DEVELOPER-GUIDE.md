@@ -1,4 +1,4 @@
-# News Aggregator Architecture & Developer Guide (`INSTRUCTIONS.md`)
+# News Aggregator Developer Guide
 
 This document defines the architectural patterns, data schemas, scraper design principles, and guidelines for maintaining and expanding the `news-agg` system.
 
@@ -56,34 +56,30 @@ data-sources/<source-id>/
 {
   "source_id": "andriy-burkov-ai",
   "name": "Artificial Intelligence (Andriy Burkov)",
+  "short_name": "Burkov AI",
   "author": "Andriy Burkov",
-  "official_site": "https://www.linkedin.com/in/andriyburkov/",
-  "archive_url": "https://www.linkedin.com/newsletters/artificial-intelligence-6862271403061649408/",
+  "official_site": "https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/",
+  "archive_url": "https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/",
   "has_archive": true,
   "archive_retention_days": 90,
-  "static": false,
-  "refresh_enabled": true,
-  "refresh_disabled_reason": "",
+  "static": true,
+  "refresh_enabled": false,
+  "refresh_disabled_reason": "LinkedIn automation is disabled; use an authorised manual export.",
   "default_header": "### Andriy Burkov's Artificial Intelligence",
   "sponsor_domains": ["fandf.co"],
   "parsed_issues": {
     "count": 8,
     "issues": [
       {
-        "id": 340,
+        "id": "340",
         "date": "2026-08-22",
         "date_str": "22 August 2026",
         "title": "Artificial Intelligence #340",
         "url": "https://www.linkedin.com/pulse/artificial-intelligence-340-andriy-burkov-xlmpc/",
-        "quotes": [
-          {
-            "text": "Models don't fail because they are small; they fail because their context is polluted.",
-            "author": "Andriy Burkov"
-          }
-        ]
+        "quotes": []
       }
     ],
-    "last_parsed_issue": 340,
+    "last_parsed_issue": "340",
     "last_parsed_date": "2026-08-22"
   }
 }
@@ -196,7 +192,6 @@ Subclass `BaseScraper` from `code/common/base_scraper.py`:
 ```python
 import os
 import sys
-from bs4 import BeautifulSoup
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_dir, "..", ".."))
@@ -217,7 +212,7 @@ class MyNewsletterScraper(BaseScraper):
         # 1. Fetch web/API content
         # 2. Extract articles into Article objects
         # 3. Use self.merge_articles(new_articles) to protect user overrides
-        # 4. Use self.save_data() to commit changes
+        # 4. Use self.save_data() to persist changes
         pass
 
 if __name__ == "__main__":
@@ -226,7 +221,8 @@ if __name__ == "__main__":
 ```
 
 ### Step 4: Update Template Descriptions (`code/builders/news_template.html`)
-Add the new source entry with its `data-source` identifier and description inside the `#sourceDesc` panel:
+Add the new source entry with its canonical display name and description inside the
+`#sourceDesc` panel:
 ```html
 <li data-source="My New Newsletter"><strong>My New Newsletter</strong> — Concise description of this source.</li>
 ```

@@ -422,10 +422,10 @@ Resolved per area: HTML **9/9**, Code **11/11**, Sources **11/11**, Data & docs 
 ### Data & docs
 
 - [x] **L6 · Documentation inconsistencies**
-  * `docs/INSTRUCTIONS.md:123` says "**6** Canonical Categories"; §5 (`:147`) lists **7**, matching `constants.py`.
-  * `docs/INSTRUCTIONS.md:169` announces a "4-step process" then lists **5** steps.
+  * The former `docs/INSTRUCTIONS.md:123` said "**6** Canonical Categories"; §5 listed **7**, matching `constants.py`.
+  * The former `docs/INSTRUCTIONS.md:169` announced a "4-step process" then listed **5** steps.
   * Six links point at `file:///Users/gyu/projects/news-agg/…` — another machine's absolute paths (`:160`, `:161`, `:162`, `:231`).
-  * `README.md:86` and `INSTRUCTIONS.md:32` document `generated/` as a deliverable, but `.gitignore` excludes it — worth stating that outputs are generated, not committed.
+  * `README.md:86` and the former `INSTRUCTIONS.md:32` documented `generated/` as a deliverable, but `.gitignore` excludes it — worth stating that outputs are generated, not committed.
   * `README.md:44` describes `--inbox` without mentioning it is a no-op alongside `--refresh` (see H6).
 
 ---

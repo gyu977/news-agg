@@ -82,7 +82,7 @@ python3 -m unittest discover -s tests
 | **2** | **Token by Token** | Luca Mezzalira | MailerLite JSON API | Unlimited |
 | **3** | **Artificial Intelligence** | Andriy Burkov | LinkedIn Pulse | 90 Days Rolling |
 | **4** | **The Pragmatic Engineer** | Gergely Orosz | Substack JSON API | Unlimited |
-| **5** | **Addy Osmani** | Addy Osmani | Personal Technical Blog | Rolling 730 Days |
+| **5** | **Addy Osmani** | Addy Osmani | Personal Technical Blog | Unlimited (730-day discovery window) |
 | **6** | **Future of Software Development** | Thoughtworks FOSE | Curated Retreat Series | No Archive (Event View) |
 | **7** | **On My Radar** | Mihai V. | Personal Inbox & Web Sync | Curated Collection |
 
@@ -97,7 +97,7 @@ news-agg/
 ├── README.md                   # User guide & quick start
 │
 ├── docs/                       # 📚 Dedicated documentation
-│   ├── INSTRUCTIONS.md         # Architecture specifications, schemas, developer guide
+│   ├── DEVELOPER-GUIDE.md      # Architecture, schemas, and extension guide
 │   ├── CODE-REVIEW.md          # Implementation review & issue tracker
 │   └── DATA-DISCREPANCIES.md   # Known data-level defects, deferred
 │
@@ -126,7 +126,7 @@ news-agg/
 │   ├── future-software-development/
 │   └── my-collected-articles/  # definition.json, data.json, scraper.py
 │
-└── generated/                  # Generated Markdown deliverables (git-ignored)
+└── generated/                  # Generated Markdown deliverables (local, git-ignored)
     ├── dear-architects.md              # 90-day detailed digest
     ├── dear-architects-compact.md      # 90-day compact bullet list
     ├── dear-architects-archive.md      # Full cumulative archive
@@ -138,4 +138,4 @@ news-agg/
 
 ## 📖 Developer Guide
 
-For detailed technical specifications on data schemas, scraper design, visual markers, and adding new newsletter sources, see **[docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)**.
+For detailed technical specifications on data schemas, scraper design, visual markers, and adding new newsletter sources, see **[docs/DEVELOPER-GUIDE.md](docs/DEVELOPER-GUIDE.md)**.
