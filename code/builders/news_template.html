@@ -1106,6 +1106,9 @@
             <option value="30" selected>Last 1 Month</option>
             <option value="60">Last 2 Months</option>
             <option value="90">Last 3 Months</option>
+            <option value="180">Last 6 Months</option>
+            <option value="365">Last 1 Year</option>
+            <option value="all">All Time</option>
           </select>
         </div>
 
@@ -1315,9 +1318,10 @@ function renderCategoryCounts(list) {
       }
     }
 
-    // Assign unique IDs to all articles for selection mapping
+    // Ensure all articles have a unique ID for selection mapping
     articles.forEach((art, index) => {
-      art.id = index;
+      if (!art.id) art.id = `art-${index}`;
+      art.id = String(art.id);
     });
     const selectedIds = new Set();
     let currentViewArticles = [];
@@ -1330,7 +1334,7 @@ function renderCategoryCounts(list) {
     // Event delegation for checkbox changes
     tableBody.addEventListener('change', function(e) {
       if (e.target.classList.contains('row-selector')) {
-        const id = parseInt(e.target.getAttribute('data-id'), 10);
+        const id = String(e.target.getAttribute('data-id'));
         if (e.target.checked) {
           selectedIds.add(id);
         } else {
@@ -1344,7 +1348,7 @@ function renderCategoryCounts(list) {
       // Select or deselect visible rendered articles
       const visibleSelectors = tableBody.querySelectorAll('.row-selector');
       visibleSelectors.forEach(cb => {
-        const id = parseInt(cb.getAttribute('data-id'), 10);
+        const id = String(cb.getAttribute('data-id'));
         cb.checked = e.target.checked;
         if (e.target.checked) {
           selectedIds.add(id);
@@ -1599,8 +1603,8 @@ function renderCategoryCounts(list) {
       const now = Date.now();
 
       // Partition: Pinned (selected) and Unpinned (not selected)
-      let pinned = articles.filter(a => selectedIds.has(a.id));
-      let unpinned = articles.filter(a => !selectedIds.has(a.id));
+      let pinned = articles.filter(a => selectedIds.has(String(a.id)));
+      let unpinned = articles.filter(a => !selectedIds.has(String(a.id)));
 
       // Filter unpinned articles
       let filteredUnpinned = unpinned.filter(article => {
@@ -1666,11 +1670,12 @@ function renderCategoryCounts(list) {
       }
 
       // Check if all currently displayed items are selected to sync header checkbox
-      const allChecked = finalArticles.length > 0 && finalArticles.every(a => selectedIds.has(a.id));
+      const allChecked = finalArticles.length > 0 && finalArticles.every(a => selectedIds.has(String(a.id)));
 
       finalArticles.forEach(article => {
         const tr = document.createElement('tr');
-        const isPinned = selectedIds.has(article.id);
+        const artIdStr = String(article.id);
+        const isPinned = selectedIds.has(artIdStr);
         if (isPinned) {
           tr.classList.add('selected-row');
         }
@@ -1684,7 +1689,7 @@ function renderCategoryCounts(list) {
         const pinIcon = isPinned ? '<span style="font-size: 0.95rem; line-height: 1;" title="Pinned Selection">📌</span>' : '';
         tdSelect.innerHTML = `
           <div style="display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
-            <input type="checkbox" class="row-selector" data-id="${article.id}" ${isChecked}>
+            <input type="checkbox" class="row-selector" data-id="${escapeHtml(artIdStr)}" ${isChecked}>
             ${pinIcon}
           </div>
         `;
@@ -2081,7 +2086,7 @@ function renderCategoryCounts(list) {
       let mdText = "### Selected Newsletter Articles\n\n";
       
       // Sort selected articles by date descending
-      const selectedArticles = articles.filter(a => selectedIds.has(a.id));
+      const selectedArticles = articles.filter(a => selectedIds.has(String(a.id)));
       selectedArticles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
       
       selectedArticles.forEach(a => {
@@ -2125,7 +2130,7 @@ function renderCategoryCounts(list) {
 
     function exportSelectionToHTML() {
       if (selectedIds.size === 0) return;
-      const selectedArticles = articles.filter(a => selectedIds.has(a.id));
+      const selectedArticles = articles.filter(a => selectedIds.has(String(a.id)));
       selectedArticles.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
       const htmlContent = generateArticlesHTML("Selected Newsletter Articles", selectedArticles);
       triggerDownload(htmlContent, "selected-newsletter-articles.html", "text/html");

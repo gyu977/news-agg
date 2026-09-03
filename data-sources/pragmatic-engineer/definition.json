@@ -6,8 +6,40 @@
   "official_site": "https://newsletter.pragmaticengineer.com/",
   "archive_url": "https://newsletter.pragmaticengineer.com/archive",
   "parsed_issues": {
-    "count": 23,
+    "count": 27,
     "issues": [
+      {
+        "id": "pe-2026-09-c147d5",
+        "date": "2026-09-01",
+        "date_str": "1 September 2026",
+        "title": "The Pragmatic Engineer: Five years",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pragmatic-engineer-five-years",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-08-2a6c1a",
+        "date": "2026-08-28",
+        "date_str": "28 August 2026",
+        "title": "The Pulse: Meta wanted to reduce teams by 60% because of AI",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-meta-teams-60-percent",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-08-ebef14",
+        "date": "2026-08-27",
+        "date_str": "27 August 2026",
+        "title": "Why performant code matters (but gets widely ignored)",
+        "url": "https://newsletter.pragmaticengineer.com/p/why-performant-code-matters",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-08-e366ad",
+        "date": "2026-08-25",
+        "date_str": "25 August 2026",
+        "title": "Why Ramp built its own in-house coding agent, Inspect",
+        "url": "https://newsletter.pragmaticengineer.com/p/why-ramp-built-inspect",
+        "quotes": []
+      },
       {
         "id": "pe-2026-08-8908f6",
         "date": "2026-08-20",
@@ -193,8 +225,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "pe-2026-08-8908f6",
-    "last_parsed_date": "2026-08-20"
+    "last_parsed_issue": "pe-2026-09-c147d5",
+    "last_parsed_date": "2026-09-01"
   },
   "default_header": "### Gergely Orosz's The Pragmatic Engineer",
   "sponsor_domains": [

@@ -161,7 +161,8 @@ def main():
         build_archive_compact(args.source)
 
     if run_all or args.news_page:
-        build_news_page(args.days, args.source)
+        news_days = args.days if any(arg.startswith("--days") for arg in sys.argv) else None
+        build_news_page(news_days, args.source)
 
     print("\n✓ All presentation builds completed successfully!")
     return 0

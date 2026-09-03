@@ -6,6 +6,7 @@
 * **Official Website**: [https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/](https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/)
 * **Platform**: Static import from LinkedIn Newsletters / Pulse
 * **Archive Retention**: `90` days (3 months archive limit property)
+* **Last Updated:** 29 August 2026
 * **Refresh Policy**: Automated LinkedIn crawling is disabled because the site blocks
   unauthenticated automation and does not permit this scraper approach. Existing imported
   data remains available; future updates require an authorised/manual export.

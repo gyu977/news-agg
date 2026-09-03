@@ -5,6 +5,7 @@
 * **Host**: Thoughtworks & Martin Fowler
 * **Location**: Engelberg, Switzerland
 * **Has Archive**: `false` (Standalone Event Collection)
+* **Last Updated:** 25 July 2026
 * **Refresh Policy**: Static curated dataset; no stable public issue feed is available
 
 ---

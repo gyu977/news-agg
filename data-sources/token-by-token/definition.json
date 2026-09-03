@@ -8,8 +8,16 @@
   "has_archive": true,
   "archive_retention_days": null,
   "parsed_issues": {
-    "count": 19,
+    "count": 20,
     "issues": [
+      {
+        "id": "20",
+        "date": "2026-08-27",
+        "date_str": "27 August 2026",
+        "title": "Token by Token #20",
+        "url": "https://preview.mailerlite.io/emails/webview/2096144/196963444803503295?signature=58fd48a4494bf7ac5966c845d49ac8ecd730a0867746acebf7cbc42b8bb8a25b",
+        "quotes": []
+      },
       {
         "id": "19",
         "date": "2026-08-20",
@@ -163,8 +171,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "19",
-    "last_parsed_date": "2026-08-20"
+    "last_parsed_issue": "20",
+    "last_parsed_date": "2026-08-27"
   },
   "default_header": "### Luca Mezzalira's Token by Token",
   "sponsor_domains": [

@@ -8,6 +8,7 @@
 * **Account ID**: `2096144`
 * **Dynamic API Endpoint**: `https://assets.mailerlite.com/jsonp/2096144/recent-emails/0371fada216137b32c04343dc4ad33a6140353a621bb0d8111810301386e7619`
 * **Archive:** Enabled with unlimited retention
+* **Last Updated:** 27 August 2026
 
 ---
 

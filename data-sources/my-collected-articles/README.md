@@ -4,6 +4,7 @@
 * **Newsletter / Source Name**: On My Radar
 * **Author / Curator**: Mihai V.
 * **Has Archive**: `false` (Curated Collection)
+* **Last Updated:** 2 September 2026
 * **Refresh Method**: Process new links from the repository-level `inbox.md`
 
 ---

@@ -19,9 +19,16 @@ Supported formats:
 
 ## ✅ Processed Articles
 
+### Processed on 2026-09-02 19:57:
+- **Giles Edwards-Alexander** - [An Accidental Blackboard](https://martinfowler.com/articles/exploring-gen-ai/an-accidental-blackboard.html)
+- **Brian Houck** - [The quality paradox of AI-generated code](https://newsletter.getdx.com/p/the-quality-paradox-of-ai-generated)
+
+### Processed on 2026-09-02 19:38:
+- **Cat Hicks** - [The Psychology of Software Teams](https://www.taylorfrancis.com/books/mono/10.1201/9781003589112/psychology-software-teams-cat-hicks)
+- **Sean Goedecke** - [No, local models will not win](https://www.seangoedecke.com/local-models-will-not-win/)
+
 ### Processed on 2026-08-25 15:21:
 - [Quantum for Programmers](https://www.quantumforprogrammers.dev/)
-
 
 ### Processed on 2026-08-23 22:27:
 - **Dan Anthony** - [AI engineering for critical systems](https://dananthony.net/blog/ai-engineering-critical-systems.html)

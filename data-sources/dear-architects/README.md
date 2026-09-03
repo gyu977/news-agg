@@ -1,6 +1,7 @@
 # Dear Architects Source Documentation
 
 ## Source Overview
+* **Last Updated:** 29 August 2026
 * **Author:** Luca Mezzalira
 * **Official Site:** [https://deararchitects.xyz/](https://deararchitects.xyz/)
 * **Archive URL:** [https://www.deararchitects.xyz/archive](https://www.deararchitects.xyz/archive)

@@ -6,8 +6,16 @@
   "official_site": "https://deararchitects.xyz/",
   "archive_url": "https://www.deararchitects.xyz/archive",
   "parsed_issues": {
-    "count": 86,
+    "count": 87,
     "issues": [
+      {
+        "id": "305",
+        "date": "2026-08-29",
+        "date_str": "29 August 2026",
+        "title": "#305 - Architecture as a craft, data for agents, and the end of programming",
+        "url": "https://preview.mailerlite.io/emails/webview/1235400/197169616004319051?signature=6723b8131537e7b10a041701f3a7e5527cd00c443f42f86e1a7e66abc675cadc",
+        "quotes": []
+      },
       {
         "id": "304",
         "date": "2026-08-22",
@@ -1117,8 +1125,8 @@
         ]
       }
     ],
-    "last_parsed_issue": "304",
-    "last_parsed_date": "2026-08-22"
+    "last_parsed_issue": "305",
+    "last_parsed_date": "2026-08-29"
   },
   "default_header": "### Luca Mezzalira's Dear Architects",
   "sponsor_domains": [

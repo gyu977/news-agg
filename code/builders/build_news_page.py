@@ -1,7 +1,7 @@
 """
 Builds the rich interactive web dashboard (news.html)
-loaded exclusively with the LAST 3 MONTHS (90 days) of articles
-for maximum performance and responsiveness, injecting valid JSON via json.dumps().
+with stable canonical article IDs and client-side timeframe filtering,
+injecting valid JSON via json.dumps().
 """
 
 import os
@@ -25,7 +25,7 @@ from common.base_scraper import BaseScraper
 sys.path.insert(0, current_dir)
 from builder_core import warn_if_stale
 
-def build_news_page(days_window: int = 90, source_id: Optional[str] = None) -> str:
+def build_news_page(days_window: Optional[int] = None, source_id: Optional[str] = None) -> str:
     # The canonical template is required; falling back to the generated news.html
     # would silently re-inject into stale output and compound drift.
     template_path = os.path.join(current_dir, "news_template.html")
@@ -125,11 +125,11 @@ def build_news_page(days_window: int = 90, source_id: Optional[str] = None) -> s
 
     dupes_removed = len(all_source_articles) - len(deduped)
 
-    # 3. Re-assign sequential integer IDs for table selection & pinning
+    # 3. Preserve stable canonical IDs for table selection & pinning (prevents git diff churn)
     final_articles = []
     for idx, art in enumerate(deduped, 1):
         clean_art = {
-            "id": idx,
+            "id": art.get("id") or f"art-{idx}",
             "source_id": art.get("source_id", ""),
             "source_short_name": art.get("source_short_name") or art.get("newsletter", ""),
             "newsletter": art.get("newsletter", ""),
@@ -154,15 +154,20 @@ def build_news_page(days_window: int = 90, source_id: Optional[str] = None) -> s
 
         final_articles.append(clean_art)
 
-    # 4. Calculate the cutoff for the LAST 3 MONTHS (90 days), anchored to *now* rather
-    #    than to the newest article — a data-relative anchor hides a scraping outage.
-    cutoff_str = (datetime.now() - timedelta(days=days_window)).strftime("%Y-%m-%d")
-    latest_articles = [a for a in final_articles if a.get("date", "") >= cutoff_str]
+    # 4. Optional days window filter. By default (days_window is None or 0), all articles
+    #    are embedded so the client-side timeframe filter ("Last 1 Month", "Last 3 Months",
+    #    "Last 6 Months", "Last 1 Year", "All Time") can filter dynamically without build-time pruning.
+    if days_window and days_window > 0:
+        cutoff_str = (datetime.now() - timedelta(days=days_window)).strftime("%Y-%m-%d")
+        latest_articles = [a for a in final_articles if a.get("date", "") >= cutoff_str]
+    else:
+        latest_articles = final_articles
+
     if has_refreshable_source:
         warn_if_stale(final_articles, "news dashboard")
 
-    # Sort descending by ISO date
-    latest_articles.sort(key=lambda x: str(x.get("date", "")), reverse=True)
+    # Sort descending by ISO date, then by id for deterministic order
+    latest_articles.sort(key=lambda x: (str(x.get("date", "")), str(x.get("id", ""))), reverse=True)
 
     # 5. Clean JSON serialization
     json_articles_formatted = json.dumps(latest_articles, indent=4, ensure_ascii=False)
@@ -186,8 +191,9 @@ def build_news_page(days_window: int = 90, source_id: Optional[str] = None) -> s
         f.write(new_html)
 
     dedupe_note = f", {dupes_removed} cross-source duplicates merged" if dupes_removed else ""
+    window_note = f"last {days_window} days" if days_window else "full archive"
     print(f"[BuildNewsPage] Generated -> {output_path} "
-          f"({len(latest_articles)} articles from last {days_window} days{dedupe_note})")
+          f"({len(latest_articles)} articles, {window_note}{dedupe_note})")
     return new_html
 
 if __name__ == "__main__":

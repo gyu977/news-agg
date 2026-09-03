@@ -7,6 +7,7 @@
 * **Platform**: Substack
 * **API Endpoint**: Paginated `https://newsletter.pragmaticengineer.com/api/v1/archive?sort=new`
 * **Archive:** Enabled with unlimited retention
+* **Last Updated:** 1 September 2026
 
 ---
 
