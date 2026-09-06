@@ -236,5 +236,7 @@
   "has_archive": true,
   "selectors_spec": {
     "api_archive_endpoint": "https://newsletter.pragmaticengineer.com/api/v1/archive?sort=new"
-  }
+  },
+  "article_id_prefix": "pe",
+  "description": "Gergely Orosz's newsletter covering the software engineering industry and developer careers."
 }

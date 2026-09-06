@@ -1053,13 +1053,13 @@
     <button id="sourceToggle" class="btn-collapsible" aria-expanded="false" aria-controls="sourceDesc">Show source descriptions ▼</button>
     <div id="sourceDesc" class="source-description hidden">
       <ul class="source-list">
-        <li data-source="Dear Architects"><strong>Dear Architects</strong> — Software architecture and systems design newsletter by Luca Mezzalira.</li>
-        <li data-source="Token by Token"><strong>Token by Token</strong> — AI and technology newsletter by Luca Mezzalira.</li>
-        <li data-source="Artificial Intelligence (Andriy Burkov)"><strong>Artificial Intelligence (Andriy Burkov)</strong> — AI-focused newsletter by Andriy Burkov.</li>
-        <li data-source="The Pragmatic Engineer"><strong>The Pragmatic Engineer</strong> — Gergely Orosz's newsletter covering the software engineering industry and developer careers.</li>
         <li data-source="Addy Osmani"><strong>Addy Osmani</strong> — Personal blog essays on agentic engineering, software factories, and developer judgment by Addy Osmani.</li>
+        <li data-source="Artificial Intelligence (Andriy Burkov)"><strong>Artificial Intelligence (Andriy Burkov)</strong> — AI-focused newsletter by Andriy Burkov.</li>
+        <li data-source="Dear Architects"><strong>Dear Architects</strong> — Software architecture and systems design newsletter by Luca Mezzalira.</li>
         <li data-source="Future of Software Development (Thoughtworks FOSE)"><strong>Future of Software Development (Thoughtworks FOSE)</strong> — FOSE 2026 retreat notes.</li>
         <li data-source="On My Radar"><strong>On My Radar</strong> — Personal curated reading collection by Mihai V.</li>
+        <li data-source="The Pragmatic Engineer"><strong>The Pragmatic Engineer</strong> — Gergely Orosz&#x27;s newsletter covering the software engineering industry and developer careers.</li>
+        <li data-source="Token by Token"><strong>Token by Token</strong> — AI and technology newsletter by Luca Mezzalira.</li>
       </ul>
     </div>
   </div>
@@ -14081,7 +14081,11 @@ const categoryDesc = document.getElementById('categoryDesc');
     const crossSourceTooltip = document.getElementById('crossSourceTooltip');
 
     // Event Listeners
-    searchInput.addEventListener('input', render);
+    let searchDebounceTimer = null;
+    searchInput.addEventListener('input', function() {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(render, 150);
+    });
     if (timeframeFilter) timeframeFilter.addEventListener('change', render);
     sourceFilter.addEventListener('change', function() {
       updateMultiFilterSummary(sourceFilter);
@@ -14420,6 +14424,57 @@ function renderCategoryCounts(list) {
       selectionText.innerHTML = `<span class="cat-count selection-count-badge">${count}</span> selected`;
     }
 
+    function restoreStateFromUrl() {
+      try {
+        const hash = window.location.hash.replace(/^#/, '');
+        if (!hash && !window.location.search) return;
+        const params = new URLSearchParams(hash || window.location.search);
+        
+        if (params.has('q')) {
+          searchInput.value = params.get('q');
+        }
+        if (params.has('timeframe') && timeframeFilter) {
+          timeframeFilter.value = params.get('timeframe');
+        }
+        if (params.has('spotlight')) {
+          spotlightToggle.checked = params.get('spotlight') === '1';
+        }
+        const checkValues = (filter, paramName) => {
+          if (!params.has(paramName)) return;
+          const vals = new Set(params.get(paramName).split(';'));
+          filter.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+            cb.checked = vals.has(cb.value);
+          });
+          updateMultiFilterSummary(filter);
+        };
+        checkValues(categoryFilter, 'categories');
+        checkValues(sourceFilter, 'sources');
+        checkValues(typeFilter, 'types');
+      } catch (e) {}
+    }
+
+    function saveStateToUrl() {
+      try {
+        const params = new URLSearchParams();
+        const q = searchInput.value.trim();
+        if (q) params.set('q', q);
+        if (timeframeFilter && timeframeFilter.value !== '30') params.set('timeframe', timeframeFilter.value);
+        if (spotlightToggle.checked) params.set('spotlight', '1');
+        const cats = Array.from(getSelectedFilterValues(categoryFilter));
+        if (cats.length) params.set('categories', cats.join(';'));
+        const srcs = Array.from(getSelectedFilterValues(sourceFilter));
+        if (srcs.length) params.set('sources', srcs.join(';'));
+        const typs = Array.from(getSelectedFilterValues(typeFilter));
+        if (typs.length) params.set('types', typs.join(';'));
+
+        const qs = params.toString();
+        const newHash = qs ? `#${qs}` : '';
+        if (window.location.hash !== newHash) {
+          history.replaceState(null, '', newHash || window.location.pathname);
+        }
+      } catch (e) {}
+    }
+
     // Initial render
     populateFilters();
     bindMultiFilterActions(sourceFilter, function() {
@@ -14428,6 +14483,7 @@ function renderCategoryCounts(list) {
     });
     bindMultiFilterActions(typeFilter, render);
     bindMultiFilterActions(categoryFilter, render);
+    restoreStateFromUrl();
     updateSpotlightAvailability();
     render();
     updateDescriptionVisibility();
@@ -14652,6 +14708,7 @@ function renderCategoryCounts(list) {
       selectAllToggle.checked = allChecked;
       currentViewArticles = finalArticles;
       renderCategoryCounts(finalArticles);
+      saveStateToUrl();
     }
 
     // Sortable headers are <th> elements, so they need explicit keyboard activation.

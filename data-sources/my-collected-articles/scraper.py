@@ -62,8 +62,35 @@ class MetadataParser(HTMLParser):
 class MyCollectedArticlesScraper(BaseScraper):
     INBOX_PLACEHOLDER = "*(Drop new articles here)*"
 
+    KNOWN_DOMAIN_AUTHORS = {
+        "dananthony.net": "Dan Anthony",
+        "incident.io": "incident.io",
+        "adamtornhill.substack.com": "Adam Tornhill",
+        "linkedin.com/pulse/100-most-watched": "Tech Talks Weekly",
+    }
+
     def __init__(self):
         super().__init__(source_dir=current_dir)
+
+    def load_all_existing_links(self) -> Dict[str, str]:
+        """Maps canonical link to source name across all data sources."""
+        links = {}
+        sources_dir = os.path.join(project_root, "data-sources")
+        if not os.path.isdir(sources_dir):
+            return links
+        for entry in os.listdir(sources_dir):
+            data_file = os.path.join(sources_dir, entry, "data.json")
+            if os.path.isfile(data_file):
+                try:
+                    with open(data_file, "r", encoding="utf-8") as f:
+                        arts = json.load(f)
+                    for a in arts:
+                        c_link = self.clean_url(a.get("link") or "")
+                        if c_link:
+                            links[c_link] = a.get("newsletter") or entry
+                except Exception:
+                    pass
+        return links
 
     def extract_web_metadata(self, url: str) -> Dict[str, Optional[str]]:
         """
@@ -170,6 +197,7 @@ class MyCollectedArticlesScraper(BaseScraper):
         blocks = re.split(r'\n\s*\n|\n(?=\d+\.\s+)', content_no_comments)
         parsed_articles = []
         seen_links = {a.link for a in self.articles if a.link}
+        all_existing_links = self.load_all_existing_links()
 
         for block in blocks:
             block = block.strip()
@@ -187,6 +215,10 @@ class MyCollectedArticlesScraper(BaseScraper):
                 clean_url = self.clean_url(raw_url.rstrip(".,;"))
                 if not clean_url or clean_url in seen_links:
                     continue
+
+                if clean_url in all_existing_links:
+                    source_name = all_existing_links[clean_url]
+                    print(f"[MyCollectedArticles] Notice: '{clean_url}' is already tracked in {source_name}")
 
                 custom_title = None
                 custom_author = None
@@ -250,15 +282,10 @@ class MyCollectedArticlesScraper(BaseScraper):
                 final_title = final_title.strip()
 
                 final_author = custom_author or web_meta["author"]
-                if "dananthony.net" in clean_url:
-                    final_author = "Dan Anthony"
-                elif "incident.io" in clean_url:
-                    final_author = "incident.io"
-                elif "adamtornhill.substack.com" in clean_url:
-                    final_author = "Adam Tornhill"
-                elif "linkedin.com/pulse/100-most-watched" in clean_url:
-                    final_author = "Tech Talks Weekly"
-                    final_title = "100 Most-Watched Software Engineering conference talks of 2026"
+                for domain_pattern, author_name in self.KNOWN_DOMAIN_AUTHORS.items():
+                    if domain_pattern in clean_url:
+                        final_author = author_name
+                        break
 
                 final_desc = custom_desc or web_meta["description"] or ""
                 final_date = custom_date or web_meta["date"]

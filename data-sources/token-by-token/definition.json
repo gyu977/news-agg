@@ -181,5 +181,7 @@
   "selectors_spec": {
     "mail_preview_pattern": "https://preview.mailerlite.io/preview/2096144/emails/*",
     "spotlight_indicator": "In the spotlight"
-  }
+  },
+  "article_id_prefix": "tbt",
+  "description": "AI and technology newsletter by Luca Mezzalira."
 }

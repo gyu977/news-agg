@@ -9,6 +9,7 @@ import json
 import sys
 import re
 import base64
+import html as html_lib
 from datetime import datetime, timedelta
 from typing import Optional
 
@@ -53,6 +54,7 @@ def build_news_page(days_window: Optional[int] = None, source_id: Optional[str] 
     # 1. Collect all articles from data-sources/*/data.json
     sources_dir = os.path.join(project_root, "data-sources")
     all_source_articles = []
+    source_descriptions = {}
     has_refreshable_source = False
 
     for entry in sorted(os.listdir(sources_dir)):
@@ -68,6 +70,9 @@ def build_news_page(days_window: Optional[int] = None, source_id: Optional[str] 
             if os.path.exists(def_file):
                 with open(def_file, "r", encoding="utf-8") as df:
                     def_data = json.load(df)
+                    src_name = def_data.get("name") or entry
+                    if def_data.get("description"):
+                        source_descriptions[src_name] = def_data["description"]
                     if not def_data.get("static") and def_data.get("refresh_enabled", True):
                         has_refreshable_source = True
                     issues_list = def_data.get("parsed_issues", {}).get("issues", [])
@@ -107,17 +112,19 @@ def build_news_page(days_window: Optional[int] = None, source_id: Optional[str] 
         if not canon:
             deduped.append(art)
             continue
-        first = by_link.get(canon)
-        if first is None:
-            by_link[canon] = art
+        first_entry = by_link.get(canon)
+        if first_entry is None:
+            idx = len(deduped)
             deduped.append(art)
+            by_link[canon] = (idx, art)
             continue
+        first_idx, first = first_entry
         # Keep the earliest-dated record; credit the later one as an "also in" source.
         earlier, later = (first, art)
         if str(art.get("date", "")) < str(first.get("date", "")):
             earlier, later = (art, first)
-            deduped[deduped.index(first)] = art
-            by_link[canon] = art
+            deduped[first_idx] = art
+            by_link[canon] = (first_idx, art)
         others = earlier.setdefault("also_in", [])
         name = later.get("newsletter", "")
         if name and name != earlier.get("newsletter") and name not in others:
@@ -169,7 +176,15 @@ def build_news_page(days_window: Optional[int] = None, source_id: Optional[str] 
     # Sort descending by ISO date, then by id for deterministic order
     latest_articles.sort(key=lambda x: (str(x.get("date", "")), str(x.get("id", ""))), reverse=True)
 
-    # 5. Clean JSON serialization
+    # 5. Clean JSON serialization & source descriptions injection
+    desc_lines = []
+    for s_name, s_desc in source_descriptions.items():
+        desc_lines.append(
+            f'        <li data-source="{html_lib.escape(s_name)}">'
+            f'<strong>{html_lib.escape(s_name)}</strong> — {html_lib.escape(s_desc)}</li>'
+        )
+    html = html.replace("{{SOURCE_DESCRIPTIONS_HTML}}", "\n".join(desc_lines))
+
     json_articles_formatted = json.dumps(latest_articles, indent=4, ensure_ascii=False)
     new_articles_js = f"/* ARTICLES_START */\n    const articles = {json_articles_formatted};\n    /* ARTICLES_END */"
     

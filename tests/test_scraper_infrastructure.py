@@ -233,6 +233,14 @@ class ConcreteSourceAdapterTests(unittest.TestCase):
         self.assertTrue(token.api_endpoint)
         self.assertFalse(token.extract_article_authors)
 
+    def test_substack_adapters_are_concrete(self):
+        pe = load_source_module("pragmatic-engineer").PragmaticEngineerScraper()
+        self.assertTrue(pe.base_url)
+        self.assertEqual(pe.newsletter_name, "The Pragmatic Engineer")
+        self.assertEqual(pe.article_id_prefix, "pe")
+        from common.substack_scraper import SubstackScraper
+        self.assertIsInstance(pe, SubstackScraper)
+
     def test_mailerlite_adapter_parses_html_fixture_when_bs4_is_available(self):
         try:
             import bs4  # noqa: F401
@@ -464,6 +472,59 @@ class BuilderSafetyTests(unittest.TestCase):
             with mock.patch.object(module, "write_output"):
                 module.build_single_latest("future-software-development")
         warn.assert_not_called()
+
+
+class RSSFeedScraperTests(unittest.TestCase):
+    def test_parses_rss2_feed(self):
+        from common.rss_feed_scraper import RSSFeedScraper
+        scraper = RSSFeedScraper.__new__(RSSFeedScraper)
+        scraper.log_name = "TestRSS"
+        scraper.default_author = "Default Author"
+        rss_xml = """<?xml version="1.0" encoding="UTF-8"?>
+        <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+            <channel>
+                <title>Test Channel</title>
+                <item>
+                    <title>AI and Systems Design</title>
+                    <link>https://example.com/ai-systems</link>
+                    <pubDate>Mon, 01 Sep 2026 10:00:00 GMT</pubDate>
+                    <description>&lt;p&gt;Overview of modern agent architectures.&lt;/p&gt;</description>
+                    <dc:creator>Jane Doe</dc:creator>
+                </item>
+            </channel>
+        </rss>"""
+        items = scraper.parse_feed_xml(rss_xml)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["title"], "AI and Systems Design")
+        self.assertEqual(items[0]["link"], "https://example.com/ai-systems")
+        self.assertEqual(items[0]["author"], "Jane Doe")
+        self.assertEqual(items[0]["description"], "Overview of modern agent architectures.")
+        iso_date, date_str = scraper.parse_feed_date(items[0]["date_raw"])
+        self.assertEqual(iso_date, "2026-09-01")
+
+    def test_parses_atom_feed(self):
+        from common.rss_feed_scraper import RSSFeedScraper
+        scraper = RSSFeedScraper.__new__(RSSFeedScraper)
+        scraper.log_name = "TestAtom"
+        scraper.default_author = "Default Author"
+        atom_xml = """<?xml version="1.0" encoding="utf-8"?>
+        <feed xmlns="http://www.w3.org/2005/Atom">
+            <title>Test Atom Feed</title>
+            <entry>
+                <title>Observability in Microservices</title>
+                <link rel="alternate" href="https://example.com/observability"/>
+                <published>2026-08-15T12:00:00Z</published>
+                <summary>A deep dive into telemetry and spans.</summary>
+                <author><name>John Smith</name></author>
+            </entry>
+        </feed>"""
+        items = scraper.parse_feed_xml(atom_xml)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["title"], "Observability in Microservices")
+        self.assertEqual(items[0]["link"], "https://example.com/observability")
+        self.assertEqual(items[0]["author"], "John Smith")
+        iso_date, date_str = scraper.parse_feed_date(items[0]["date_raw"])
+        self.assertEqual(iso_date, "2026-08-15")
 
 
 if __name__ == "__main__":

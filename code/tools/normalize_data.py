@@ -117,10 +117,14 @@ def merge_records(primary, duplicate):
 REPORT_ONLY_STATS = {"suspicious_titles"}
 
 
-def normalize_source(source_id, records):
+def normalize_source(source_id, records, definition=None):
     """Return (new_records, stats) without mutating the input list."""
     stats = collections.Counter()
-    prefix = ID_PREFIXES.get(source_id, source_id)
+    prefix = ""
+    if definition:
+        prefix = definition.get("article_id_prefix") or definition.get("id_prefix")
+    if not prefix:
+        prefix = ID_PREFIXES.get(source_id, source_id.split("-")[0])
 
     cleaned = []
     for rec in records:
@@ -219,7 +223,13 @@ def main():
         with open(path, "r", encoding="utf-8") as f:
             records = json.load(f)
 
-        new_records, stats = normalize_source(name, records)
+        def_path = os.path.join(SOURCES_DIR, name, "definition.json")
+        definition = {}
+        if os.path.isfile(def_path):
+            with open(def_path, "r", encoding="utf-8") as df:
+                definition = json.load(df)
+
+        new_records, stats = normalize_source(name, records, definition=definition)
         total.update(stats)
 
         # Report-only counters must not mark a source as modified, or `--check` would

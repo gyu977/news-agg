@@ -95,5 +95,7 @@
   "refresh_disabled_reason": "LinkedIn prohibits this automated crawl and serves HTTP 999 to unauthenticated clients; retained as a static imported dataset.",
   "selectors_spec": {
     "pulse_pattern": "https://www.linkedin.com/pulse/*"
-  }
+  },
+  "article_id_prefix": "ab",
+  "description": "AI-focused newsletter by Andriy Burkov."
 }

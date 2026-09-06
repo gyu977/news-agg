@@ -35,5 +35,7 @@
   "selectors_spec": {
     "event_hashtag": "#twsoftwaredev26",
     "retreat_location": "Engelberg, Switzerland"
-  }
+  },
+  "article_id_prefix": "fose",
+  "description": "FOSE 2026 retreat notes."
 }

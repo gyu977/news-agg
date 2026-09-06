@@ -115,6 +115,8 @@ class SourceDefinition:
     refresh_enabled: bool = True
     refresh_disabled_reason: str = ""
     selectors_spec: Dict[str, Any] = field(default_factory=dict)
+    article_id_prefix: str = ""
+    description: str = ""
 
     def to_dict(self) -> Dict[str, Any]:
         d = asdict(self)
@@ -154,5 +156,7 @@ class SourceDefinition:
             static=data.get("static", False),
             refresh_enabled=data.get("refresh_enabled", True),
             refresh_disabled_reason=data.get("refresh_disabled_reason", ""),
-            selectors_spec=data.get("selectors_spec", {})
+            selectors_spec=data.get("selectors_spec", {}),
+            article_id_prefix=data.get("article_id_prefix") or data.get("id_prefix", ""),
+            description=data.get("description", "")
         )

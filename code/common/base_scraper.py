@@ -48,11 +48,18 @@ class BaseScraper:
 
     def save_data(self):
         if self.definition:
+            track = getattr(self.definition, "parsed_issues", None)
+            if track and getattr(track, "issues", None):
+                track.count = len(track.issues)
+                track.last_parsed_issue = str(track.issues[0].id)
+                track.last_parsed_date = str(track.issues[0].date)
             with open(self.definition_path, "w", encoding="utf-8") as f:
                 json.dump(self.definition.to_dict(), f, indent=2, ensure_ascii=False)
-                
+                f.write("\n")
+
         with open(self.data_path, "w", encoding="utf-8") as f:
             json.dump([a.to_dict() for a in self.articles], f, indent=2, ensure_ascii=False)
+            f.write("\n")
 
     def _robots_allowed(self, url: str) -> bool:
         """Return whether this scraper may fetch URL according to the site's robots.txt."""

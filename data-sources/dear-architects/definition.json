@@ -1138,5 +1138,7 @@
     "mail_preview_pattern": "https://preview.mailerlite.io/preview/1235400/emails/*",
     "spotlight_indicator": "In the spotlight",
     "quote_selector": "blockquote"
-  }
+  },
+  "article_id_prefix": "da",
+  "description": "Software architecture and systems design newsletter by Luca Mezzalira."
 }
