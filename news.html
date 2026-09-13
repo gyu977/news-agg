@@ -7099,74 +7099,6 @@ function renderCategoryCounts(list) {
       selectionText.innerHTML = `<span class="cat-count selection-count-badge">${count}</span> selected`;
     }
 
-    function restoreStateFromUrl() {
-      try {
-        const hash = window.location.hash.replace(/^#/, '');
-        if (!hash && !window.location.search) return;
-        const params = new URLSearchParams(hash || window.location.search);
-        
-        if (params.has('q')) {
-          searchInput.value = params.get('q');
-        }
-        if (params.has('timeframe') && timeframeFilter) {
-          const tf = params.get('timeframe');
-          timeframeFilter.value = (tf === '90') ? 'all' : tf;
-        }
-        if (params.has('spotlight')) {
-          spotlightToggle.checked = params.get('spotlight') === '1';
-        }
-        const checkValues = (filter, paramName) => {
-          if (!params.has(paramName)) return;
-          const val = params.get(paramName);
-          if (val === 'none') {
-            filter.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-              cb.checked = false;
-            });
-          } else {
-            const vals = new Set(val.split(';'));
-            filter.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-              cb.checked = vals.has(cb.value);
-            });
-          }
-          updateMultiFilterSummary(filter);
-        };
-        checkValues(categoryFilter, 'categories');
-        checkValues(sourceFilter, 'sources');
-        checkValues(typeFilter, 'types');
-      } catch (e) {}
-    }
-
-    function saveStateToUrl() {
-      try {
-        const params = new URLSearchParams();
-        const q = searchInput.value.trim();
-        if (q) params.set('q', q);
-        if (timeframeFilter && timeframeFilter.value !== '30') params.set('timeframe', timeframeFilter.value);
-        if (spotlightToggle.checked) params.set('spotlight', '1');
-
-        const appendMultiParam = (filter, paramName) => {
-          const allInputs = filter.querySelectorAll('input[type="checkbox"]');
-          const checked = Array.from(filter.querySelectorAll('input[type="checkbox"]:checked'));
-          // Only serialize if user modified selection (i.e. not all checked, and not zero options)
-          if (checked.length > 0 && checked.length < allInputs.length) {
-            params.set(paramName, checked.map(cb => cb.value).join(';'));
-          } else if (allInputs.length > 0 && checked.length === 0) {
-            params.set(paramName, 'none');
-          }
-        };
-
-        appendMultiParam(categoryFilter, 'categories');
-        appendMultiParam(sourceFilter, 'sources');
-        appendMultiParam(typeFilter, 'types');
-
-        const qs = params.toString();
-        const newHash = qs ? `#${qs}` : '';
-        if (window.location.hash !== newHash) {
-          history.replaceState(null, '', newHash || window.location.pathname);
-        }
-      } catch (e) {}
-    }
-
     // Initial render
     populateFilters();
     bindMultiFilterActions(sourceFilter, function() {
@@ -7175,7 +7107,11 @@ function renderCategoryCounts(list) {
     });
     bindMultiFilterActions(typeFilter, render);
     bindMultiFilterActions(categoryFilter, render);
-    restoreStateFromUrl();
+    if (window.location.hash) {
+      try {
+        history.replaceState(null, '', window.location.pathname);
+      } catch (e) {}
+    }
     updateSpotlightAvailability();
     render();
     updateDescriptionVisibility();
@@ -7401,7 +7337,6 @@ function renderCategoryCounts(list) {
       selectAllToggle.checked = allChecked;
       currentViewArticles = finalArticles;
       renderCategoryCounts(finalArticles);
-      saveStateToUrl();
     }
 
     // Sortable headers are <th> elements, so they need explicit keyboard activation.
