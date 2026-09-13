@@ -1,15 +1,28 @@
 {
   "source_id": "token-by-token",
   "name": "Token by Token",
-  "short_name": "Token by Token",
   "author": "Luca Mezzalira",
   "official_site": "https://www.tokenbytoken.ai/",
   "archive_url": "https://www.tokenbytoken.ai/",
-  "has_archive": true,
-  "archive_retention_days": null,
   "parsed_issues": {
-    "count": 20,
+    "count": 22,
     "issues": [
+      {
+        "id": "22",
+        "date": "2026-09-10",
+        "date_str": "10 September 2026",
+        "title": "Stop building agents, build environments - #22 token by token",
+        "url": "https://preview.mailerlite.io/preview/2096144/emails/198208869123491721",
+        "quotes": []
+      },
+      {
+        "id": "21",
+        "date": "2026-09-03",
+        "date_str": "3 September 2026",
+        "title": "Is your system still the design? - #21 - token by token",
+        "url": "https://preview.mailerlite.io/emails/webview/2096144/197574848376997362?signature=5ffec1dfd06bc2ff7aaf0aba0f01a92d28ba1139ad9ec37084fb75ea017b3bd1",
+        "quotes": []
+      },
       {
         "id": "20",
         "date": "2026-08-27",
@@ -171,13 +184,19 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "20",
-    "last_parsed_date": "2026-08-27"
+    "last_parsed_issue": "22",
+    "last_parsed_date": "2026-09-10"
   },
   "default_header": "### Luca Mezzalira's Token by Token",
+  "short_name": "Token by Token",
   "sponsor_domains": [
     "fandf.co"
   ],
+  "archive_retention_days": null,
+  "has_archive": true,
+  "static": false,
+  "refresh_enabled": true,
+  "refresh_disabled_reason": "",
   "selectors_spec": {
     "mail_preview_pattern": "https://preview.mailerlite.io/preview/2096144/emails/*",
     "spotlight_indicator": "In the spotlight"

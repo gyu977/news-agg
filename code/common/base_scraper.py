@@ -331,7 +331,8 @@ class BaseScraper:
             ("Large Language Models & Evaluation Infrastructure", [
                 "evaluation", "model", "parameter", "quantization", "benchmarks", 
                 "glm-5.2", "kimi", "open-weight", "small language model", "evals", 
-                "gpt2", "kimi3", "gpt-4", "how models learn"
+                "gpt2", "kimi3", "gpt-4", "how models learn", "decoding", "vllm",
+                "speculative decoding", "self-improvement", "training data"
             ]),
             ("Software Architecture & Distributed Systems", [
                 "architecture", "microservices", "microservice", "micro-frontend", 
@@ -340,7 +341,8 @@ class BaseScraper:
             ]),
             ("Software Testing, Quality & Observability", [
                 "test", "testing", "observability", "qa", "repair at scale", "quality", 
-                "sapfix", "observability engineering", "reproducible environments"
+                "sapfix", "observability engineering", "reproducible environments",
+                "bayes", "experiment", "experiments"
             ]),
             ("Cloud Infrastructure & System Reliability", [
                 "cloud", "security", "dsql", "balancing", "sidecar", "topology", 

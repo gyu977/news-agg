@@ -1,13 +1,38 @@
 {
   "source_id": "dear-architects",
   "name": "Dear Architects",
-  "short_name": "Dear Architects",
   "author": "Luca Mezzalira",
   "official_site": "https://deararchitects.xyz/",
   "archive_url": "https://www.deararchitects.xyz/archive",
   "parsed_issues": {
-    "count": 87,
+    "count": 89,
     "issues": [
+      {
+        "id": "307",
+        "date": "2026-09-12",
+        "date_str": "12 September 2026",
+        "title": "GenAI at Airbnb: Eval-driven wins - #307 Dear Architects",
+        "url": "https://preview.mailerlite.io/preview/1235400/emails/198435098620593201",
+        "quotes": [
+          {
+            "text": "Analyzing the trade-offs between disintegration drivers and integration drivers is the secret to getting service granularity right.",
+            "author": "Neal Ford"
+          }
+        ]
+      },
+      {
+        "id": "306",
+        "date": "2026-09-05",
+        "date_str": "5 September 2026",
+        "title": "AI for Enterprise: The New Playbook - #306 - Dear Architects",
+        "url": "https://preview.mailerlite.io/emails/webview/1235400/197804239581349309?signature=fd21522896e6fdcdbc654df3e6709c67bbffcb40c63e279c1e5e33a99afd0ea5",
+        "quotes": [
+          {
+            "text": "If you can't describe what you are doing as a process, you don't know what you're doing",
+            "author": "Edwards Deming"
+          }
+        ]
+      },
       {
         "id": "305",
         "date": "2026-08-29",
@@ -1125,15 +1150,19 @@
         ]
       }
     ],
-    "last_parsed_issue": "305",
-    "last_parsed_date": "2026-08-29"
+    "last_parsed_issue": "307",
+    "last_parsed_date": "2026-09-12"
   },
   "default_header": "### Luca Mezzalira's Dear Architects",
+  "short_name": "Dear Architects",
   "sponsor_domains": [
     "fandf.co"
   ],
   "archive_retention_days": null,
   "has_archive": true,
+  "static": false,
+  "refresh_enabled": true,
+  "refresh_disabled_reason": "",
   "selectors_spec": {
     "mail_preview_pattern": "https://preview.mailerlite.io/preview/1235400/emails/*",
     "spotlight_indicator": "In the spotlight",

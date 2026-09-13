@@ -39,6 +39,46 @@ class AndriyBurkovScraper(BaseScraper):
                 return urllib.parse.unquote(match.group(1))
         return href
 
+    @classmethod
+    def is_editorial_noise(cls, title: str, link: str, description: str = "") -> bool:
+        """
+        Editorial noise filter for Andriy Burkov's broad AI newsletter.
+        Automatically flags non-engineering items to set hide=True:
+        1. General consumer / societal news (e.g. students' homework, general chatbot psychology,
+           pop-culture, book scanning copyright op-eds, general social media bot controversies).
+        2. Academic conference submission / AI detector drama (e.g. Pangram/Turnitin detector
+           controversies, conference desk-rejection disputes).
+        NOTE: Pure academic math & natural science breakthroughs (e.g. Quanta foundational math,
+        Erdős problems, physics/cyclone forecasting, structural biology, genomics) are intentionally
+        KEPT active per user preference.
+        """
+        haystack = f"{title} {link} {description}".lower()
+
+        # 1. Conference & detector drama
+        detector_patterns = [
+            "neurips", "desk-rejected", "ai-generated text", "pangram",
+            "ai-detectors", "detection tools", "10.1007/s40979",
+            "scarlet letter watermark"
+        ]
+        if any(p in haystack for p in detector_patterns):
+            return True
+
+        # 2. General consumer / societal news & mainstream op-eds
+        societal_patterns = [
+            "why do we trust chatbots", "faster homework", "students’ learning",
+            "aljazeera.com", "when ai art has no author", "theconversation.com",
+            "destroying books", "destroying the world’s books", "destroying millions of old books",
+            "new-font-turns-ordinary-webpages", "weapon against ai scrapers",
+            "so who is", "theguardian.com/commentisfree", "cbc.ca", "human readers",
+            "protect social media communities", "bill-oliver-ai-speech", "nationalpost.com",
+            "putting sign language ai", "tutormoments", "do ai tutors know"
+        ]
+        if any(p in haystack for p in societal_patterns):
+            return True
+
+        return False
+
+
     def parse_issue_html(
         self, 
         html: str, 
@@ -95,11 +135,15 @@ class AndriyBurkovScraper(BaseScraper):
                     continue
 
                 # Find the specific line that contains this anchor text
-                matched_line = anchor_text
-                for line in lines:
-                    if anchor_text in line or any(word in line for word in anchor_text.split() if len(word) > 4):
-                        matched_line = line
-                        break
+                parent_li = a.find_parent("li")
+                if parent_li:
+                    matched_line = parent_li.get_text(" ", strip=True)
+                else:
+                    matched_line = anchor_text
+                    for line in lines:
+                        if anchor_text in line or any(word in line for word in anchor_text.split() if len(word) > 4):
+                            matched_line = line
+                            break
 
                 # `A or B` must be grouped before the whitelist test: written
                 # unparenthesised this read as `A or (B and C)`, so *any* line mentioning
@@ -160,6 +204,8 @@ class AndriyBurkovScraper(BaseScraper):
 
                 content_type = self.detect_content_type(clean_link)
                 category = self.auto_categorize(title, description)
+                should_hide = self.is_editorial_noise(title, clean_link, description)
+                overrides = ["hide"] if should_hide else []
 
                 art_id = self.make_article_id("ab", issue_number, clean_link, title)
                 article = Article(
@@ -177,8 +223,8 @@ class AndriyBurkovScraper(BaseScraper):
                     category=category,
                     is_spotlight=False,
                     type=content_type,
-                    hide=False,
-                    user_overrides=[],
+                    hide=should_hide,
+                    user_overrides=overrides,
                     metadata={}
                 )
                 articles.append(article)
@@ -191,7 +237,8 @@ class AndriyBurkovScraper(BaseScraper):
         self, 
         issue_number: Optional[int], 
         issue_title: str, 
-        issue_url: str
+        issue_url: str,
+        html_content: Optional[str] = None,
     ) -> int:
         """
         Fetches a manually supplied issue and reads its publication date from metadata.
@@ -200,7 +247,7 @@ class AndriyBurkovScraper(BaseScraper):
         retained for a future authorised importer and never invents a weekly date.
         """
         print(f"[AndriyBurkov] Ingesting Issue #{issue_number}: {issue_title} ({issue_url})...")
-        html = self.fetch_html(issue_url)
+        html = html_content if html_content is not None else self.fetch_html(issue_url)
         published_at = MailerLiteScraper.publication_date_from_html(html)
         if not published_at:
             raise ValueError(

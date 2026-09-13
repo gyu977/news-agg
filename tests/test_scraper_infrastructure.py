@@ -241,6 +241,72 @@ class ConcreteSourceAdapterTests(unittest.TestCase):
         from common.substack_scraper import SubstackScraper
         self.assertIsInstance(pe, SubstackScraper)
 
+    def test_simon_willison_adapter_is_concrete(self):
+        sw = load_source_module("simon-willison").SimonWillisonScraper()
+        self.assertEqual(sw.newsletter_name, "Simon Willison's Weblog")
+        self.assertEqual(sw.article_id_prefix, "sw")
+        self.assertEqual(sw.feed_url, "https://simonwillison.net/atom/entries/")
+        from common.rss_feed_scraper import RSSFeedScraper
+        self.assertIsInstance(sw, RSSFeedScraper)
+
+    def test_simon_willison_preserves_empty_description_policy(self):
+        sw = load_source_module("simon-willison").SimonWillisonScraper()
+        sample_atom = """<?xml version="1.0" encoding="utf-8"?>
+        <feed xmlns="http://www.w3.org/2005/Atom">
+            <entry>
+                <title>Test Title for Simon Willison</title>
+                <link rel="alternate" href="https://simonwillison.net/2026/Sep/13/test-article/"/>
+                <published>2026-09-13T10:00:00Z</published>
+                <content type="html">&lt;p&gt;Long essay content here...&lt;/p&gt;</content>
+                <category term="ai"/>
+                <category term="llms"/>
+            </entry>
+        </feed>"""
+        items = sw.parse_feed_xml(sample_atom)
+        self.assertEqual(len(items), 1)
+        self.assertEqual(items[0]["title"], "Test Title for Simon Willison")
+        self.assertEqual(items[0]["description"], "")
+        self.assertIn("ai llms", items[0]["tag_context"])
+
+    def test_burkov_editorial_noise_filter(self):
+        scraper_cls = load_source_module("andriy-burkov-ai").AndriyBurkovScraper
+
+        # Must flag consumer / societal news and detector controversies
+        self.assertTrue(scraper_cls.is_editorial_noise(
+            "Why do we trust chatbots and how can we use them more wisely? A psychologist explains",
+            "https://theconversation.com/why-do-we-trust-chatbots"
+        ))
+        self.assertTrue(scraper_cls.is_editorial_noise(
+            "Faster homework, poor exam results: What AI is doing to students’ learning",
+            "https://aljazeera.com/news/faster-homework"
+        ))
+        self.assertTrue(scraper_cls.is_editorial_noise(
+            "NeurIPS desk-rejected 178 position papers for being “AI-generated.”",
+            "https://strictcite.com/blog/neurips-detector"
+        ))
+        self.assertTrue(scraper_cls.is_editorial_noise(
+            "Anthropic destroying books",
+            "https://www.theguardian.com/commentisfree/2026/aug/05/anthropic-ai-destroying-books"
+        ))
+
+        # Must KEEP core engineering, systems, and pure math/science
+        self.assertFalse(scraper_cls.is_editorial_noise(
+            "Exploring speculative decoding in vLLM on AMD GPUs",
+            "https://vllm.ai/blog/speculative-decoding"
+        ))
+        self.assertFalse(scraper_cls.is_editorial_noise(
+            "‘Reverse Mathematics’ illuminates why hard problems are hard",
+            "https://www.quantamagazine.org/reverse-mathematics"
+        ))
+        self.assertFalse(scraper_cls.is_editorial_noise(
+            "Google’s AI genome system evaluates every possible one-base change",
+            "https://arstechnica.com/science/genome-system"
+        ))
+        self.assertFalse(scraper_cls.is_editorial_noise(
+            "Why the legendary Erdős problems are falling to AI",
+            "https://www.quantamagazine.org/erdos-problems"
+        ))
+
     def test_mailerlite_adapter_parses_html_fixture_when_bs4_is_available(self):
         try:
             import bs4  # noqa: F401
@@ -363,6 +429,24 @@ class BuilderSafetyTests(unittest.TestCase):
             source = stream.read()
         self.assertIn("const cutoff = now -", source)
         self.assertNotIn("maxTimestamp -", source)
+
+    def test_dashboard_timeframe_options_and_default_window(self):
+        template = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
+        with open(template, encoding="utf-8") as stream:
+            source = stream.read()
+        self.assertIn('<option value="7">Last 1 Week</option>', source)
+        self.assertIn('<option value="14">Last 2 Weeks</option>', source)
+        self.assertIn('<option value="30" selected>Last 1 Month</option>', source)
+        self.assertIn('<option value="60">Last 2 Months</option>', source)
+        self.assertIn('<option value="all">Last 3 Months (All)</option>', source)
+        self.assertNotIn('value="180"', source)
+        self.assertNotIn('value="365"', source)
+
+        from builders import build_news_page as module
+        import inspect
+        self.assertEqual(module.DEFAULT_NEWS_DAYS_WINDOW, 90)
+        sig = inspect.signature(module.build_news_page)
+        self.assertEqual(sig.parameters["days_window"].default, 90)
 
     def test_dashboard_filters_support_multiple_values(self):
         template = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")

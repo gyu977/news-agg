@@ -1062,12 +1062,12 @@
     <div id="categoryDesc" class="source-description tall hidden">
       <ul class="source-list category-list">
         <li data-cat="AI-Native &amp; Agentic Software Engineering"><strong>AI-Native &amp; Agentic Software Engineering</strong> — Building software with agents: loops, orchestration, context engineering and the day-to-day craft of AI-assisted development.</li>
+        <li data-cat="Cloud Infrastructure &amp; System Reliability"><strong>Cloud Infrastructure &amp; System Reliability</strong> — Running systems at scale: databases, service topology, load balancing, sidecars, cloud security, resilience and SRE practice.</li>
+        <li data-cat="Engineering Philosophy &amp; Estimation"><strong>Engineering Philosophy &amp; Estimation</strong> — Where the craft is heading: enduring fundamentals, mental models, napkin math estimation, and engineering culture.</li>
         <li data-cat="Large Language Models &amp; Evaluation Infrastructure"><strong>Large Language Models &amp; Evaluation Infrastructure</strong> — The models themselves: architectures, training, open weights, local inference, model specs, evals and coding benchmarks.</li>
         <li data-cat="Software Architecture &amp; Distributed Systems"><strong>Software Architecture &amp; Distributed Systems</strong> — Boundaries and modularity: architectural decision-making, ADRs, micro frontends, microservices, DSLs and distributed systems design.</li>
         <li data-cat="Software Testing, Quality &amp; Observability"><strong>Software Testing, Quality &amp; Observability</strong> — Verifying software: automated repair, code-review agents, test strategy, evals-as-tests, non-functional requirements and observability.</li>
-        <li data-cat="Cloud Infrastructure &amp; System Reliability"><strong>Cloud Infrastructure &amp; System Reliability</strong> — Running systems at scale: databases, service topology, load balancing, sidecars, cloud security, resilience and SRE practice.</li>
         <li data-cat="Tech Industry, Jobs &amp; Careers"><strong>Tech Industry, Jobs &amp; Careers</strong> — The business around the code: AI spend and economics, industry news and incidents, hiring and developer careers.</li>
-        <li data-cat="Engineering Philosophy &amp; Estimation"><strong>Engineering Philosophy &amp; Estimation</strong> — Where the craft is heading: enduring fundamentals, mental models, napkin math estimation, and engineering culture.</li>
       </ul>
     </div>
   </div>
@@ -1097,12 +1097,11 @@
         <div class="filter-group">
           <label class="filter-label">Timeframe</label>
           <select id="timeframeFilter" class="filter-select">
+            <option value="7">Last 1 Week</option>
+            <option value="14">Last 2 Weeks</option>
             <option value="30" selected>Last 1 Month</option>
             <option value="60">Last 2 Months</option>
-            <option value="90">Last 3 Months</option>
-            <option value="180">Last 6 Months</option>
-            <option value="365">Last 1 Year</option>
-            <option value="all">All Time</option>
+            <option value="all">Last 3 Months (All)</option>
           </select>
         </div>
 
@@ -1586,7 +1585,8 @@ function renderCategoryCounts(list) {
           searchInput.value = params.get('q');
         }
         if (params.has('timeframe') && timeframeFilter) {
-          timeframeFilter.value = params.get('timeframe');
+          const tf = params.get('timeframe');
+          timeframeFilter.value = (tf === '90') ? 'all' : tf;
         }
         if (params.has('spotlight')) {
           spotlightToggle.checked = params.get('spotlight') === '1';
@@ -1665,14 +1665,15 @@ function renderCategoryCounts(list) {
           (article.description || '').toLowerCase().includes(query) ||
           (article.issue_title || '').toLowerCase().includes(query);
 
-        // Timeframe match
+        // Timeframe match: anchored to clock, expanded to full calendar day of cutoff
         let matchesTimeframe = true;
         if (timeframe !== 'all') {
           const days = parseInt(timeframe, 10);
           const artTime = new Date(article.date).getTime();
           if (!isNaN(artTime)) {
             const cutoff = now - (days * 24 * 60 * 60 * 1000);
-            matchesTimeframe = artTime > now || artTime >= cutoff;
+            const startOfCutoffDay = new Date(cutoff).setHours(0, 0, 0, 0);
+            matchesTimeframe = artTime > now || artTime >= startOfCutoffDay;
           }
         }
 
@@ -1849,7 +1850,7 @@ function renderCategoryCounts(list) {
               </a>
               ${isSpotlightBadge}
             </div>
-            <div class="description-text">${escapeHtml(article.description)}</div>
+            ${article.description ? `<div class="description-text">${escapeHtml(article.description)}</div>` : ''}
           </div>
         `;
         tr.appendChild(tdDetails);
@@ -2123,7 +2124,11 @@ function renderCategoryCounts(list) {
         }
         if (quoteBlock) mdText += quoteBlock + "\n";
         mdText += `- ${authorPrefix}${icon}[${escapeMarkdownText(a.title)}](${escapeMarkdownUrl(a.link)})\n`;
-        mdText += `  *${escapeMarkdownText(a.description)}*\n\n---\n\n`;
+        if (a.description) {
+          mdText += `  *${escapeMarkdownText(a.description)}*\n\n---\n\n`;
+        } else {
+          mdText += `\n---\n\n`;
+        }
       });
       
       // Remove trailing separator
@@ -2165,7 +2170,11 @@ function renderCategoryCounts(list) {
         }
         if (quoteBlock) mdText += quoteBlock + "\n";
         mdText += `- ${authorPrefix}${icon}[${escapeMarkdownText(a.title)}](${escapeMarkdownUrl(a.link)})\n`;
-        mdText += `  *${escapeMarkdownText(a.description)}*\n\n---\n\n`;
+        if (a.description) {
+          mdText += `  *${escapeMarkdownText(a.description)}*\n\n---\n\n`;
+        } else {
+          mdText += `\n---\n\n`;
+        }
       });
       
       // Remove trailing separator

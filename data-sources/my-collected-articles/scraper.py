@@ -104,7 +104,7 @@ class MyCollectedArticlesScraper(BaseScraper):
             "date_str": None
         }
 
-        # Known manual fallbacks for sites that block web scraping (e.g. O'Reilly library)
+        # Known manual fallbacks for sites that block web scraping (e.g. O'Reilly library, PDFs)
         if "building-resilient-distributed" in url:
             meta["title"] = "Building Resilient Distributed Systems"
             meta["author"] = "O'Reilly"
@@ -119,6 +119,22 @@ class MyCollectedArticlesScraper(BaseScraper):
             meta["description"] = "A guide to building software architectures that adapt, heal, and evolve over time."
             meta["date"] = "2026-08-15"
             meta["date_str"] = "15 August 2026"
+            return meta
+
+        if "agentic-engineering" in url:
+            meta["title"] = "Agentic Engineering"
+            meta["author"] = "Addy Osmani"
+            meta["description"] = "Code generation has become cheap. Verification has not. As AI agents take on more of the development process, the bottleneck has moved from writing code to deciding what to build, directing agents to build it, and being able to answer for what ships."
+            meta["date"] = "2026-08-28"
+            meta["date_str"] = "28 August 2026"
+            return meta
+
+        if "java_at_30_essay.pdf" in url:
+            meta["title"] = "Java at 30: An Essay"
+            meta["author"] = "Gilad Bracha"
+            meta["description"] = "Published March 2025 — An essay by Gilad Bracha reflecting on the 30th anniversary of Java, its evolution, language design trade-offs between C++ and Smalltalk, cultural artifacts in programming, and generics."
+            meta["date"] = "2026-09-13"
+            meta["date_str"] = "13 September 2026"
             return meta
 
         try:
@@ -218,13 +234,15 @@ class MyCollectedArticlesScraper(BaseScraper):
 
                 if clean_url in all_existing_links:
                     source_name = all_existing_links[clean_url]
-                    print(f"[MyCollectedArticles] Notice: '{clean_url}' is already tracked in {source_name}")
+                    print(f"[MyCollectedArticles] Skipping '{clean_url}': already tracked in {source_name}")
+                    continue
 
                 custom_title = None
                 custom_author = None
                 custom_desc = ""
                 custom_date = None
                 custom_date_str = None
+                custom_category = None
 
                 # Extract context from block lines
                 non_url_lines = [l for l in lines if not re.search(r'https?://', l)]
@@ -253,6 +271,55 @@ class MyCollectedArticlesScraper(BaseScraper):
                     custom_date = "2026-10-20"
                     custom_date_str = "20 October 2026"
                     custom_desc = "20 October 2026. Conference and masterclasses covering modern software architecture, AI engineering, and craftsmanship."
+                elif "frontier-engineering" in clean_url:
+                    custom_title = "Frontier engineering"
+                    custom_author = "Clare Liguori"
+                    custom_date = "2025-09-03"
+                    custom_date_str = "3 September 2025"
+                    custom_desc = "A practitioner’s guide to frontier engineering. Ten principles for working with AI agents and shipping dramatically faster."
+                    custom_category = "AI-Native & Agentic Software Engineering"
+                elif "agentic-engineering" in clean_url:
+                    custom_title = "Agentic Engineering"
+                    custom_author = "Addy Osmani"
+                    custom_date = "2026-08-28"
+                    custom_date_str = "28 August 2026"
+                    custom_desc = "Code generation has become cheap. Verification has not. As AI agents take on more of the development process, the bottleneck has moved from writing code to deciding what to build, directing agents to build it, and being able to answer for what ships."
+                    custom_category = "AI-Native & Agentic Software Engineering"
+                elif "threat-intelligence-report-september-2026" in clean_url:
+                    custom_title = "Detecting and countering misuse of AI: September 2026"
+                    custom_author = "Anthropic"
+                    custom_date = "2026-09-10"
+                    custom_date_str = "10 September 2026"
+                    custom_desc = "Case studies from threat actors disrupted between December 2025 and August 2026 across seven areas of harm, from cyber operations and multi-agent kill chains to biological misuse."
+                    custom_category = "AI-Native & Agentic Software Engineering"
+                elif "we-must-pace-the-frontier" in clean_url:
+                    custom_title = "We Must Pace the Frontier"
+                    custom_author = "Dario Amodei"
+                    custom_date = "2026-09-12"
+                    custom_date_str = "12 September 2026"
+                    custom_desc = "An essay by Anthropic CEO Dario Amodei on why frontier AI scaling demands deliberate pacing, third-party evaluations, and responsible capability management."
+                    custom_category = "Tech Industry, Jobs & Careers"
+                elif "lie-detectors" in clean_url:
+                    custom_title = "Fine-Tuned Lie Detectors Failed to Generalize"
+                    custom_author = "Jack Hopkins, Dipika Khullar, Rowan Wang, Fabien Roger"
+                    custom_date = "2026-08-21"
+                    custom_date_str = "21 August 2026"
+                    custom_desc = "We trained lie detectors on on-policy lies from open-source models, but fine-tuning them didn’t generalize well to out-of-distribution cases. In these cases, fine-tuned detectors barely beat prompted baselines, and larger prompted models often beat them outright."
+                    custom_category = "Large Language Models & Evaluation Infrastructure"
+                elif "i-cant-keep-track-of-the-ai-stack" in clean_url:
+                    custom_title = "I can’t keep track of the AI stack anymore"
+                    custom_author = "Sharon Goldman"
+                    custom_date = "2026-09-09"
+                    custom_date_str = "9 September 2026"
+                    custom_desc = "Nvidia is buying Hugging Face. OpenAI is building chips. Databricks, Salesforce and ServiceNow are sprawling across the AI technology stack. Good luck putting any of them in a box."
+                    custom_category = "Tech Industry, Jobs & Careers"
+                elif "java_at_30_essay.pdf" in clean_url:
+                    custom_title = "Java at 30: An Essay"
+                    custom_author = "Gilad Bracha"
+                    custom_date = "2026-09-13"
+                    custom_date_str = "13 September 2026"
+                    custom_desc = "Published March 2025 — An essay by Gilad Bracha reflecting on the 30th anniversary of Java, its evolution, language design trade-offs between C++ and Smalltalk, cultural artifacts in programming, and generics."
+                    custom_category = "Engineering Philosophy & Estimation"
                 else:
                     if cleaned_non_url:
                         # Check first line for title/author
@@ -303,7 +370,7 @@ class MyCollectedArticlesScraper(BaseScraper):
                 elif "youtube.com" in clean_url or "podcast" in lower_context:
                     content_type = "video"
 
-                category = self.auto_categorize(final_title, final_desc)
+                category = custom_category or self.auto_categorize(final_title, final_desc)
                 art_id = self.make_article_id(
                     "others", (final_date or "")[:7], clean_url, final_title
                 )

@@ -5,7 +5,7 @@
   "official_site": "",
   "archive_url": "",
   "parsed_issues": {
-    "count": 4,
+    "count": 5,
     "issues": [
       {
         "id": "collected-october-2026",
@@ -36,6 +36,14 @@
         "date": "2026-07-31",
         "date_str": "July 2026",
         "title": "Collected articles — July 2026",
+        "url": "",
+        "quotes": []
+      },
+      {
+        "id": "collected-september-2025",
+        "date": "2025-09-03",
+        "date_str": "September 2025",
+        "title": "Collected articles — September 2025",
         "url": "",
         "quotes": []
       }

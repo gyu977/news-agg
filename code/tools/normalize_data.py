@@ -60,6 +60,7 @@ ID_PREFIXES = {
     "future-software-development": "fose",
     "my-collected-articles": "others",
     "pragmatic-engineer": "pe",
+    "simon-willison": "sw",
     "token-by-token": "tbt",
 }
 

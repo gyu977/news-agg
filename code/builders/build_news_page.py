@@ -26,7 +26,9 @@ from common.base_scraper import BaseScraper
 sys.path.insert(0, current_dir)
 from builder_core import warn_if_stale
 
-def build_news_page(days_window: Optional[int] = None, source_id: Optional[str] = None) -> str:
+DEFAULT_NEWS_DAYS_WINDOW = 90
+
+def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, source_id: Optional[str] = None) -> str:
     # The canonical template is required; falling back to the generated news.html
     # would silently re-inject into stale output and compound drift.
     template_path = os.path.join(current_dir, "news_template.html")
@@ -161,9 +163,8 @@ def build_news_page(days_window: Optional[int] = None, source_id: Optional[str] 
 
         final_articles.append(clean_art)
 
-    # 4. Optional days window filter. By default (days_window is None or 0), all articles
-    #    are embedded so the client-side timeframe filter ("Last 1 Month", "Last 3 Months",
-    #    "Last 6 Months", "Last 1 Year", "All Time") can filter dynamically without build-time pruning.
+    # 4. Optional days window filter. Defaults to 90 days (last 3 months).
+    #    If days_window is None or <= 0, all articles are embedded (full archive).
     if days_window and days_window > 0:
         cutoff_str = (datetime.now() - timedelta(days=days_window)).strftime("%Y-%m-%d")
         latest_articles = [a for a in final_articles if a.get("date", "") >= cutoff_str]

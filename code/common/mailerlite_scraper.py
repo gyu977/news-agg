@@ -393,8 +393,9 @@ class MailerLiteScraper(BaseScraper):
         issue_title: str,
         issue_url: str,
         published_at: Optional[datetime] = None,
+        html_content: Optional[str] = None,
     ) -> int:
-        html = self.fetch_html(issue_url)
+        html = html_content if html_content is not None else self.fetch_html(issue_url)
         actual_date = published_at or self.publication_date_from_html(html)
         if not actual_date:
             raise ValueError(

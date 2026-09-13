@@ -172,7 +172,7 @@ class SubstackScraper(BaseScraper):
                 {
                     "id": a.id,
                     "date": a.date,
-                    "date_str": a.date,
+                    "date_str": a.date_str or a.date,
                     "title": a.title,
                     "url": a.link,
                     "quotes": [],

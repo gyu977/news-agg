@@ -82,9 +82,10 @@ python3 -m unittest discover -s tests
 | **2** | **Token by Token** | Luca Mezzalira | MailerLite JSON API | Unlimited |
 | **3** | **Artificial Intelligence** | Andriy Burkov | LinkedIn Pulse | 90 Days Rolling |
 | **4** | **The Pragmatic Engineer** | Gergely Orosz | Substack JSON API | Unlimited |
-| **5** | **Addy Osmani** | Addy Osmani | Personal Technical Blog | Unlimited (730-day discovery window) |
+| **5** | **Addy Osmani** | Addy Osmani | Personal Blog & Substack | Unlimited (730-day discovery window) |
 | **6** | **Future of Software Development** | Thoughtworks FOSE | Curated Retreat Series | No Archive (Event View) |
 | **7** | **On My Radar** | Mihai V. | Personal Inbox & Web Sync | Curated Collection |
+| **8** | **Simon Willison's Weblog** | Simon Willison | Atom Feed (Highlights) | Unlimited |
 
 ---
 
@@ -124,7 +125,8 @@ news-agg/
 │   ├── pragmatic-engineer/
 │   ├── addy-osmani/
 │   ├── future-software-development/
-│   └── my-collected-articles/  # definition.json, data.json, scraper.py
+│   ├── my-collected-articles/  # definition.json, data.json, scraper.py
+│   └── simon-willison/         # definition.json, data.json, scraper.py
 │
 └── generated/                  # Generated Markdown deliverables (local, git-ignored)
     ├── dear-architects.md              # 90-day detailed digest

@@ -1,0 +1,49 @@
+{
+  "source_id": "simon-willison",
+  "name": "Simon Willison's Weblog",
+  "author": "Simon Willison",
+  "official_site": "https://simonwillison.net/",
+  "archive_url": "https://simonwillison.net/atom/entries/",
+  "parsed_issues": {
+    "count": 3,
+    "issues": [
+      {
+        "id": "2026-09",
+        "date": "2026-09-12",
+        "date_str": "12 September 2026",
+        "title": "September 2026 Blog Posts",
+        "url": "https://simonwillison.net/2026/Sep/",
+        "quotes": []
+      },
+      {
+        "id": "2026-08",
+        "date": "2026-08-30",
+        "date_str": "30 August 2026",
+        "title": "August 2026 Blog Posts",
+        "url": "https://simonwillison.net/2026/Aug/",
+        "quotes": []
+      },
+      {
+        "id": "2026-07",
+        "date": "2026-07-31",
+        "date_str": "31 July 2026",
+        "title": "July 2026 Blog Posts",
+        "url": "https://simonwillison.net/2026/Jul/",
+        "quotes": []
+      }
+    ],
+    "last_parsed_issue": "2026-09",
+    "last_parsed_date": "2026-09-12"
+  },
+  "default_header": "### Simon Willison",
+  "short_name": "Simon Willison",
+  "sponsor_domains": [],
+  "archive_retention_days": null,
+  "has_archive": true,
+  "static": false,
+  "refresh_enabled": true,
+  "refresh_disabled_reason": "",
+  "selectors_spec": {},
+  "article_id_prefix": "sw",
+  "description": "Highlights and long-form blog entries on AI, LLMs, agents, and open-source architecture by Simon Willison."
+}

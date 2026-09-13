@@ -138,6 +138,40 @@ class AddyOsmaniScraper(BaseScraper):
         if successful_pages == 0:
             raise RuntimeError("Addy Osmani: every listing-page request failed")
 
+        # Also discover recent posts from Addy's Substack
+        try:
+            print("[AddyOsmani] Querying Substack archive...")
+            substack_api = "https://addyo.substack.com/api/v1/archive?sort=new&limit=50"
+            raw = self.fetch_url(substack_api, accept="application/json")
+            posts = json.loads(raw.decode("utf-8"))
+            for p in posts:
+                canonical = p.get("canonical_url")
+                if not canonical or canonical in seen_links:
+                    continue
+                post_date_raw = p.get("post_date")
+                if not post_date_raw:
+                    continue
+                dt = datetime.fromisoformat(post_date_raw.replace("Z", "+00:00"))
+                if dt.tzinfo:
+                    dt = dt.astimezone()
+                dt_naive = dt.replace(tzinfo=None)
+                if dt_naive < datetime.now() - timedelta(days=RECENT_WINDOW_DAYS):
+                    continue
+                date_iso = dt_naive.strftime("%Y-%m-%d")
+                date_str = dt_naive.strftime("%d %B %Y").lstrip("0")
+                title = p.get("title", "").strip()
+                desc = (p.get("subtitle") or p.get("description") or "").strip()
+                seen_links.add(canonical)
+                extracted_posts.append({
+                    "title": title,
+                    "link": canonical,
+                    "date": date_iso,
+                    "date_str": date_str,
+                    "description": desc,
+                })
+        except Exception as e:
+            print(f"[AddyOsmani] Warning: could not fetch Substack archive: {e}")
+
         print(
             f"[AddyOsmani] Found {len(extracted_posts)} articles in the rolling "
             f"{RECENT_WINDOW_DAYS}-day window. Fetching metadata..."
@@ -145,15 +179,27 @@ class AddyOsmaniScraper(BaseScraper):
 
         articles = []
         issue_groups: Dict[str, Dict] = {}
+        existing_by_link = {a.link: a for a in self.articles if a.link}
 
         for idx, post in enumerate(extracted_posts, 1):
             url = post["link"]
-            meta = self.fetch_post_metadata(url)
-            
-            title = meta["title"] or post["title"]
-            description = meta["description"]
             date_iso = post["date"]
             date_str = post["date_str"]
+
+            existing = existing_by_link.get(url)
+            if existing and existing.description:
+                title = existing.title
+                description = existing.description
+                cat = existing.category
+            elif post.get("description") and post.get("title"):
+                title = post["title"]
+                description = post["description"]
+                cat = None
+            else:
+                meta = self.fetch_post_metadata(url)
+                title = meta["title"] or post["title"]
+                description = meta["description"]
+                cat = None
 
             # Generate monthly issue grouping
             month_year = datetime.strptime(date_iso, "%Y-%m-%d").strftime("%B %Y")
@@ -175,17 +221,18 @@ class AddyOsmaniScraper(BaseScraper):
             art_id = self.make_article_id("addy", month_key, url, title)
 
             # Auto-categorize based on title and description
-            cat = self.auto_categorize(title, description)
-            if "agent" in title.lower() or "factory" in title.lower() or "loop" in title.lower() or "spec" in title.lower():
-                cat = "AI-Native & Agentic Software Engineering"
-            elif "eval" in title.lower() or "gemini" in title.lower() or "model" in title.lower():
-                cat = "Large Language Models & Evaluation Infrastructure"
-            elif "architecture" in title.lower() or "comprehension" in title.lower() or "orchestra" in title.lower():
-                cat = "Software Architecture & Distributed Systems"
-            elif "review" in title.lower() or "quality" in title.lower():
-                cat = "Software Testing, Quality & Observability"
-            elif "lessons" in title.lower() or "career" in title.lower() or "action" in title.lower() or "efficiency" in title.lower():
-                cat = "Tech Industry, Jobs & Careers"
+            if cat is None:
+                cat = self.auto_categorize(title, description)
+                if "agent" in title.lower() or "factory" in title.lower() or "loop" in title.lower() or "spec" in title.lower():
+                    cat = "AI-Native & Agentic Software Engineering"
+                elif "eval" in title.lower() or "gemini" in title.lower() or "model" in title.lower():
+                    cat = "Large Language Models & Evaluation Infrastructure"
+                elif "architecture" in title.lower() or "comprehension" in title.lower() or "orchestra" in title.lower():
+                    cat = "Software Architecture & Distributed Systems"
+                elif "review" in title.lower() or "quality" in title.lower():
+                    cat = "Software Testing, Quality & Observability"
+                elif "lessons" in title.lower() or "career" in title.lower() or "action" in title.lower() or "efficiency" in title.lower():
+                    cat = "Tech Industry, Jobs & Careers"
 
             article = Article(
                 id=art_id,

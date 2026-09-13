@@ -137,6 +137,16 @@ data-sources/<source-id>/
 * `hide` (`bool`): When `true`, the article is excluded from all Markdown digests and HTML dashboards without deleting the record.
 * `user_overrides` (`string[]`): Tracks fields manually edited by the user (e.g. `["category", "description"]`). The scraper's `merge_articles()` will **never overwrite** fields listed in `user_overrides` during subsequent crawler runs.
 
+### C. Editorial Noise & Quality Filtering (`hide: true`)
+
+For high-volume broad feeds (specifically `andriy-burkov-ai`, which publishes ~8 general AI items per weekly issue), the system enforces an editorial signal-to-noise policy:
+* **Filtered / Hidden (`hide: true`)**:
+  - **General consumer & societal news**: Mainstream media op-eds, consumer chatbot psychology, educational homework debates, and copyright/book scanning controversies.
+  - **Academic conference & detector drama**: Administrative disputes, conference desk rejections over AI detection, and benchmark wars around generic AI text detectors (Pangram, Turnitin).
+* **Retained / Visible (`hide: false`)**:
+  - **Core engineering & systems**: ML inference runtimes (vLLM, speculative decoding, KV cache), coding agents, execution harnesses, tool calling, and developer infrastructure.
+  - **Pure academic mathematics & natural science**: Foundational logic, computability, combinatorics/Erdős problems, Lean formal verification, and deep learning applied to physics, genomics, and molecular design.
+
 ---
 
 ## 4. Visual Markers & Content Types
@@ -187,7 +197,7 @@ Create `data-sources/<new-source-id>/`.
 Define the source metadata, archive rules, and header title.
 
 ### Step 3: Implement `scraper.py`
-Subclass `BaseScraper` from `code/common/base_scraper.py`:
+Subclass `BaseScraper` (or specialized base classes like `MailerLiteScraper`, `SubstackScraper`, or `RSSFeedScraper`) from `code/common/`:
 
 ```python
 import os
@@ -220,12 +230,8 @@ if __name__ == "__main__":
     scraper.fetch_latest_issues()
 ```
 
-### Step 4: Update Template Descriptions (`code/builders/news_template.html`)
-Add the new source entry with its canonical display name and description inside the
-`#sourceDesc` panel:
-```html
-<li data-source="My New Newsletter"><strong>My New Newsletter</strong> — Concise description of this source.</li>
-```
+### Step 4: Add Source Description in `definition.json`
+Provide a clear, human-readable summary in the `"description"` field of `definition.json`. The master builder (`code/builders/build_news_page.py`) automatically discovers it and injects it in alphabetical order into the dashboard's `#sourceDesc` collapsible panel.
 
 ### Step 5: Build & Verify
 Run the master builder:
@@ -290,3 +296,88 @@ python3 code/build.py --news-page
 # Build a specific source only
 python3 code/build.py --source dear-architects
 ```
+
+---
+
+## 9. Weekly Release & Publishing Workflow (DateVer)
+
+The project publishes weekly editions using [DateVer](https://github.com/ducks/date-ver) version tags (`vYYYY.MM.DD`). GitHub Releases acts as the central distribution hub, powering automated email notifications and RSS/Atom feed syndication.
+
+### A. Distribution Channels
+
+1. **GitHub Releases Atom Feed**:
+   - Every GitHub repository automatically exposes an Atom feed of its releases:
+     ```text
+     https://github.com/<owner>/<repo>/releases.atom
+     ```
+   - Feed readers (NetNewsWire, Feedly, Miniflux, Inoreader) parse and render the release notes markdown as full HTML.
+
+2. **Email Subscriptions via newreleases.io**:
+   - [newreleases.io](https://newreleases.io) (or services like Blogtrottr, Follow.it) watches the repository's releases.
+   - When a new GitHub Release is created, subscribers automatically receive an email containing the release notes.
+
+---
+
+### B. Step-by-Step Release Checklist
+
+Perform this workflow locally when ready to publish a weekly edition:
+
+#### 1. Ingest & Refresh Newsletters
+Crawl and ingest the latest newsletter issues or process new inbox items:
+```bash
+# Refresh online feeds and ingest pending inbox items
+python3 code/build.py --refresh --inbox
+```
+
+#### 2. Validate Data Integrity & Tests
+Ensure all links, IDs, and sponsor rules are normalized and the test suite passes:
+```bash
+python3 code/tools/normalize_data.py --check
+PYTHONPATH=code python3 -m unittest discover -s tests -v
+```
+
+#### 3. Prepare Weekly Release Notes (`release_notes.md`)
+Create a `release_notes.md` file highlighting the articles from the past week grouped by category.
+
+**Example `release_notes.md` structure**:
+```markdown
+# News Digest — Edition 2026.09.08
+
+Highlights of architecture and AI engineering articles published this week.
+
+## 🤖 AI-Native & Agentic Software Engineering
+- [The Agentic Enterprise](https://amzn.to/46sV66x) — Babak Hodjat & Antoine Blondeau (*Dear Architects #306*)
+  > Blending strategy with architecture-level guidance for senior technology leaders evaluating readiness and managing multi-agent risk.
+- [Portal by Spotify cut my Claude Code token usage by 90%](https://engineering.atspotify.com/2026/9/portal-by-spotify-cut-my-claude-code-token-usage-by-90) (*Spotify Engineering*)
+
+## 🏛️ Software Architecture & Distributed Systems
+- [An Accidental Blackboard](https://martinfowler.com/articles/exploring-gen-ai/an-accidental-blackboard.html) — Giles Edwards-Alexander (*Token by Token #21*)
+  > How Thoughtworks re-discovered the classic AI Blackboard architectural pattern for coordinating autonomous agents through a shared workspace.
+
+## 🧪 Software Testing, Quality & Observability
+- [Scaling ArchUnit with Nebula ArchRules](https://netflixtechblog.com/scaling-archunit-with-nebula-archrules-b4642c464c5a) (*Netflix TechBlog*)
+
+---
+*The complete interactive dashboard for the last 3 months is attached as `news.html`.*
+```
+
+#### 4. Commit and Push to Main
+```bash
+git add .
+git commit -m "Weekly update: Edition vYYYY.MM.DD"
+git push origin main
+```
+
+#### 5. Publish the GitHub Release (DateVer)
+Use the GitHub CLI (`gh`) to create the release, attach the release notes, and upload `news.html` as a downloadable asset:
+```bash
+gh release create vYYYY.MM.DD --notes-file release_notes.md news.html
+```
+
+> [!TIP]
+> To publish for today's date dynamically in bash / zsh:
+> ```bash
+> TAG="v$(date +'%Y.%m.%d')"
+> gh release create "$TAG" --title "Edition $TAG" --notes-file release_notes.md news.html
+> ```
+

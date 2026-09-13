@@ -248,8 +248,7 @@ class RSSFeedScraper(BaseScraper):
             return 0
 
         print(f"[{self.log_name}] Ingested {len(new_articles)} new article(s).")
-        merged = self.merge_articles(new_articles)
-        self.articles = merged
+        self.merge_articles(new_articles)
 
         # Sync parsed issues
         if self.definition and self.definition.parsed_issues:

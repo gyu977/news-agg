@@ -1,12 +1,11 @@
 {
   "source_id": "addy-osmani",
   "name": "Addy Osmani",
-  "short_name": "Addy Osmani",
   "author": "Addy Osmani",
   "official_site": "https://addyosmani.com/blog/",
   "archive_url": "https://addyosmani.com/blog/",
   "parsed_issues": {
-    "count": 8,
+    "count": 14,
     "issues": [
       {
         "id": "addy-2026-08",
@@ -71,15 +70,67 @@
         "title": "January 2026 Blog Essays",
         "url": "https://addyosmani.com/blog/",
         "quotes": []
+      },
+      {
+        "id": "addy-2025-12",
+        "date": "2025-12-29",
+        "date_str": "29 December 2025",
+        "title": "December 2025 Blog Essays",
+        "url": "https://addyosmani.com/blog/",
+        "quotes": []
+      },
+      {
+        "id": "addy-2025-11",
+        "date": "2025-11-30",
+        "date_str": "30 November 2025",
+        "title": "November 2025 Blog Essays",
+        "url": "https://addyosmani.com/blog/",
+        "quotes": []
+      },
+      {
+        "id": "addy-2025-10",
+        "date": "2025-10-28",
+        "date_str": "28 October 2025",
+        "title": "October 2025 Blog Essays",
+        "url": "https://addyosmani.com/blog/",
+        "quotes": []
+      },
+      {
+        "id": "addy-2025-09",
+        "date": "2025-09-25",
+        "date_str": "25 September 2025",
+        "title": "September 2025 Blog Essays",
+        "url": "https://addyosmani.com/blog/",
+        "quotes": []
+      },
+      {
+        "id": "addy-2025-07",
+        "date": "2025-07-25",
+        "date_str": "25 July 2025",
+        "title": "July 2025 Blog Essays",
+        "url": "https://addyosmani.com/blog/",
+        "quotes": []
+      },
+      {
+        "id": "addy-2025-04",
+        "date": "2025-04-05",
+        "date_str": "5 April 2025",
+        "title": "April 2025 Blog Essays",
+        "url": "https://addyosmani.com/blog/",
+        "quotes": []
       }
     ],
     "last_parsed_issue": "addy-2026-08",
     "last_parsed_date": "2026-08-21"
   },
   "default_header": "### Addy Osmani",
+  "short_name": "Addy Osmani",
   "sponsor_domains": [],
   "archive_retention_days": null,
   "has_archive": true,
+  "static": false,
+  "refresh_enabled": true,
+  "refresh_disabled_reason": "",
   "selectors_spec": {
     "pages": [
       "https://addyosmani.com/blog/",

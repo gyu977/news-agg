@@ -38,7 +38,7 @@ KNOWN_DUPLICATE_IDS = {}
 KNOWN_DUPLICATE_LINKS = {"andriy-burkov-ai": 2, "dear-architects": 2}
 
 # Visible records whose title looks truncated (D8). Reported, never auto-hidden.
-KNOWN_TRUNCATED_TITLES = 13
+KNOWN_TRUNCATED_TITLES = 12
 
 
 def load_sources():
@@ -165,8 +165,10 @@ class DataLintTests(unittest.TestCase):
             )
 
     def test_dear_architects_dates_match_mailbox_ground_truth(self):
-        source_path = Path(__file__).resolve().parents[1] / "data-sources" / "dear-architects"
-        ground_truth = json.loads((source_path / "issue_dates.json").read_text())
+        tests_dir = Path(__file__).resolve().parent
+        fixtures_path = tests_dir / "fixtures"
+        ground_truth = json.loads((fixtures_path / "dear_architects_issue_dates.json").read_text())
+        source_path = tests_dir.parent / "data-sources" / "dear-architects"
         definition = json.loads((source_path / "definition.json").read_text())
         records = json.loads((source_path / "data.json").read_text())
 

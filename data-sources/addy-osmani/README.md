@@ -3,9 +3,9 @@
 Source adapter for Addy Osmani's personal technical blog at `https://addyosmani.com/blog/`.
 
 ## Extraction & Filtering Rules
-- **Last Updated**: 21 August 2026
-- **Platform**: Static HTML personal blog.
-- **Domain Scope**: Strictly articles hosted on `https://addyosmani.com/blog/` (excludes external posts on Substack or LeadDev).
+- **Last Updated**: 31 August 2026
+- **Platform**: Static HTML personal blog and Substack newsletter archive.
+- **Domain Scope**: Articles hosted on `https://addyosmani.com/blog/` and `https://addyo.substack.com/` (excludes external platforms like LeadDev).
 - **Discovery Window**: The crawler reads the first two blog listing pages and imports posts
   published within the latest **730 days**.
 - **Author**: Addy Osmani.

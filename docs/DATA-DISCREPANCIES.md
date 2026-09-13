@@ -5,7 +5,7 @@
 This file records **data-level** defects — wrong values in `data-sources/*/data.json` and `definition.json` — as distinct from code defects. They are deliberately deferred so that code fixes can land first without mixing large data rewrites into the same commits.
 
 Ground truth for Dear Architects issue dates is stored in
-[`data-sources/dear-architects/issue_dates.json`](../data-sources/dear-architects/issue_dates.json), extracted from 10 mailbox screenshots covering issues #219–#304.
+[`tests/fixtures/dear_architects_issue_dates.json`](../tests/fixtures/dear_architects_issue_dates.json), extracted from 10 mailbox screenshots covering issues #219–#304.
 
 ---
 
@@ -53,7 +53,7 @@ Ground truth for Dear Architects issue dates is stored in
 | 222 | `2025-01-25` | `2025-01-26` | +1d | 6 |
 | 221 | `2025-01-18` | `2025-01-19` | +1d | 6 |
 | 220 | `2025-01-11` | `2025-01-12` | +1d | 6 |
-**Done:** corrected all 34 known `definition.json` issue dates and propagated them to 181 article records. `test_dear_architects_dates_match_mailbox_ground_truth` now ratchets both surfaces against `issue_dates.json`. Future MailerLite ingestion reads authoritative API/page metadata and refuses to ingest if no real date is present; the arithmetic fallback is deleted.
+**Done:** corrected all 34 known `definition.json` issue dates and propagated them to 181 article records. `test_dear_architects_dates_match_mailbox_ground_truth` now ratchets both surfaces against `tests/fixtures/dear_architects_issue_dates.json`. Future MailerLite ingestion reads authoritative API/page metadata and refuses to ingest if no real date is present; the arithmetic fallback is deleted.
 
 ---
 

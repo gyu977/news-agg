@@ -19,6 +19,16 @@ Supported formats:
 
 ## ✅ Processed Articles
 
+### Processed on 2026-09-13 13:16:
+- **Clare Liguori** - [Frontier engineering](https://kiro.dev/topics/frontier-engineering/)
+- **Addy Osmani** - [Agentic Engineering](https://learning.oreilly.com/library/view/agentic-engineering/0642572392291/)
+- **Anthropic** - [Detecting and countering misuse of AI: September 2026](https://www.anthropic.com/threat-intelligence-report-september-2026)
+- **Dario Amodei** - [We Must Pace the Frontier](https://darioamodei.com/post/we-must-pace-the-frontier)
+- **Jack Hopkins, Dipika Khullar, Rowan Wang, Fabien Roger** - [Fine-Tuned Lie Detectors Failed to Generalize](https://alignment.anthropic.com/2026/lie-detectors/)
+- **Sharon Goldman** - [I can’t keep track of the AI stack anymore](https://www.groundlevel-ai.com/p/i-cant-keep-track-of-the-ai-stack)
+- **Gilad Bracha** - [Java at 30: An Essay](https://bracha.org/java_at_30_essay.pdf)
+
+
 ### Processed on 2026-09-02 19:57:
 - **Giles Edwards-Alexander** - [An Accidental Blackboard](https://martinfowler.com/articles/exploring-gen-ai/an-accidental-blackboard.html)
 - **Brian Houck** - [The quality paradox of AI-generated code](https://newsletter.getdx.com/p/the-quality-paradox-of-ai-generated)
