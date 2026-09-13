@@ -7117,10 +7117,17 @@ function renderCategoryCounts(list) {
         }
         const checkValues = (filter, paramName) => {
           if (!params.has(paramName)) return;
-          const vals = new Set(params.get(paramName).split(';'));
-          filter.querySelectorAll('input[type="checkbox"]').forEach(cb => {
-            cb.checked = vals.has(cb.value);
-          });
+          const val = params.get(paramName);
+          if (val === 'none') {
+            filter.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+              cb.checked = false;
+            });
+          } else {
+            const vals = new Set(val.split(';'));
+            filter.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+              cb.checked = vals.has(cb.value);
+            });
+          }
           updateMultiFilterSummary(filter);
         };
         checkValues(categoryFilter, 'categories');
@@ -7136,12 +7143,21 @@ function renderCategoryCounts(list) {
         if (q) params.set('q', q);
         if (timeframeFilter && timeframeFilter.value !== '30') params.set('timeframe', timeframeFilter.value);
         if (spotlightToggle.checked) params.set('spotlight', '1');
-        const cats = Array.from(getSelectedFilterValues(categoryFilter));
-        if (cats.length) params.set('categories', cats.join(';'));
-        const srcs = Array.from(getSelectedFilterValues(sourceFilter));
-        if (srcs.length) params.set('sources', srcs.join(';'));
-        const typs = Array.from(getSelectedFilterValues(typeFilter));
-        if (typs.length) params.set('types', typs.join(';'));
+
+        const appendMultiParam = (filter, paramName) => {
+          const allInputs = filter.querySelectorAll('input[type="checkbox"]');
+          const checked = Array.from(filter.querySelectorAll('input[type="checkbox"]:checked'));
+          // Only serialize if user modified selection (i.e. not all checked, and not zero options)
+          if (checked.length > 0 && checked.length < allInputs.length) {
+            params.set(paramName, checked.map(cb => cb.value).join(';'));
+          } else if (allInputs.length > 0 && checked.length === 0) {
+            params.set(paramName, 'none');
+          }
+        };
+
+        appendMultiParam(categoryFilter, 'categories');
+        appendMultiParam(sourceFilter, 'sources');
+        appendMultiParam(typeFilter, 'types');
 
         const qs = params.toString();
         const newHash = qs ? `#${qs}` : '';
