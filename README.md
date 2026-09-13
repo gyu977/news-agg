@@ -16,7 +16,8 @@ An automated newsletter aggregator, markdown archive builder, and interactive we
 web scrapers need third-party packages (see step 3).
 
 ### 1. Launch the Web Dashboard
-Double-click [`news.html`](news.html) in your browser, or serve locally:
+- **Live Web Dashboard**: **[https://gyu977.github.io/news-agg/](https://gyu977.github.io/news-agg/)**
+- **Local Offline**: Double-click [`news.html`](news.html) in your browser, or serve locally:
 ```bash
 python3 -m http.server 8000
 # open http://localhost:8000/news.html
@@ -135,6 +136,17 @@ news-agg/
     ├── dear-architects-archive-compact.md
     └── ...
 ```
+
+---
+
+## 🔔 Subscriptions & Release Notifications
+
+Weekly editions and major dataset updates are published as GitHub Releases and syndicated automatically:
+
+* **RSS / Atom Feed**: `https://github.com/gyu977/news-agg/releases.atom`  
+  *(Subscribe directly using [Feedly](https://feedly.com), or any standard feed reader)*
+* **GitHub Watch**: Click **Watch** at the top right of this repository $\rightarrow$ **Custom** $\rightarrow$ check **Releases** to receive native GitHub email notifications.
+* **Email Delivery & Trackers**: Track releases directly using [newreleases.io](https://newreleases.io/) or paste the `releases.atom` URL into free RSS-to-email services like [Blogtrottr](https://blogtrottr.com/) or [Follow.it](https://follow.it/) to get release digests delivered straight to your inbox.
 
 ---
 

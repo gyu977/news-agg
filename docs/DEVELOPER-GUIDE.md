@@ -312,9 +312,12 @@ The project publishes weekly editions using [DateVer](https://github.com/ducks/d
      ```
    - Feed readers (NetNewsWire, Feedly, Miniflux, Inoreader) parse and render the release notes markdown as full HTML.
 
-2. **Email Subscriptions via newreleases.io**:
-   - [newreleases.io](https://newreleases.io) (or services like Blogtrottr, Follow.it) watches the repository's releases.
+2. **Email Subscriptions via RSS-to-Email / Trackers**:
+   - Services like [Blogtrottr](https://blogtrottr.com/), [Follow.it](https://follow.it/), or [newreleases.io](https://newreleases.io) watch the repository's releases.
    - When a new GitHub Release is created, subscribers automatically receive an email containing the release notes.
+
+3. **Native GitHub Watch Notifications**:
+   - Any GitHub user who clicks **Watch** $\rightarrow$ **Custom** $\rightarrow$ **Releases** on the repository automatically receives native release notification emails from GitHub.
 
 ---
 
