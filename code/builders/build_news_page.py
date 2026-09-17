@@ -74,7 +74,12 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
                     def_data = json.load(df)
                     src_name = def_data.get("name") or entry
                     if def_data.get("description"):
-                        source_descriptions[src_name] = def_data["description"]
+                        display_name = src_name
+                        if src_name == "Simon Willison's Weblog":
+                            display_name = "Simon Willison"
+                        elif src_name == "Artificial Intelligence (Andriy Burkov)":
+                            display_name = "AI (Andriy Burkov)"
+                        source_descriptions[src_name] = (display_name, def_data["description"])
                     if not def_data.get("static") and def_data.get("refresh_enabled", True):
                         has_refreshable_source = True
                     issues_list = def_data.get("parsed_issues", {}).get("issues", [])
@@ -179,10 +184,14 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
 
     # 5. Clean JSON serialization & source descriptions injection
     desc_lines = []
-    for s_name, s_desc in source_descriptions.items():
+    for s_name, s_val in source_descriptions.items():
+        if isinstance(s_val, tuple):
+            s_display, s_desc = s_val
+        else:
+            s_display, s_desc = s_name, s_val
         desc_lines.append(
             f'        <li data-source="{html_lib.escape(s_name)}">'
-            f'<strong>{html_lib.escape(s_name)}</strong> — {html_lib.escape(s_desc)}</li>'
+            f'<strong>{html_lib.escape(s_display)}</strong> — {html_lib.escape(s_desc)}</li>'
         )
     html = html.replace("{{SOURCE_DESCRIPTIONS_HTML}}", "\n".join(desc_lines))
 

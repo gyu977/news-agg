@@ -384,3 +384,21 @@ gh release create vYYYY.MM.DD --notes-file release_notes.md news.html
 > gh release create "$TAG" --title "Edition $TAG" --notes-file release_notes.md news.html
 > ```
 
+---
+
+## 10. UI Label & Cross-Component Data Synchronization
+
+When modifying, adding, or shortening display labels for **Sources** or **Categories**, always ensure the labels remain synchronized across all consumer components in `news_template.html` and the build pipeline:
+
+1. **Table Cells (`<tbody>`)**:
+   - Table rows render compact display chips via `getCategoryDisplayName(article.category)` and `article.source_short_name || article.newsletter`.
+2. **Guide Modal (`#guideDialog`)**:
+   - The **Sources** tab lists entries using `<strong>{{display_name}}</strong>`.
+   - The **Categories** tab lists entries using clean bold titles `<strong>{{display_name}}</strong>` matching the canonical short names, avoiding code badges/box wrappers.
+3. **Multi-Filter Dropdowns (`#sourceFilter`, `#categoryFilter`)**:
+   - The filter checkboxes must display the clean user-facing label (`option.label`), while preserving the underlying canonical identifier in `option.value` for exact dataset filtering:
+     - Categories: `label: getCategoryDisplayName(category)`, `value: category`
+     - Sources: `label: sourceLabelMap[source] || source`, `value: source`
+4. **Automated Test Invariants (`tests/test_scraper_infrastructure.py`)**:
+   - Verify `test_dashboard_filters_support_multiple_values` and `test_dashboard_uses_definition_short_names_for_table_badges` pass after any label or template adjustment.
+

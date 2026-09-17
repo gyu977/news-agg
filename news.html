@@ -53,16 +53,26 @@
 
     /* Dashboard Header */
     header {
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.25rem;
       position: relative;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
     .brand-row {
       display: flex;
       align-items: center;
       gap: 1.35rem;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
     .brand-icon {
@@ -265,10 +275,8 @@
     }
 
     .filter-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      font-size: 0.78rem;
+      font-weight: 600;
       color: var(--text-muted);
     }
 
@@ -456,6 +464,84 @@
       cursor: not-allowed;
     }
 
+    /* Switch Toggles */
+    .switch-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .switch-label.disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .switch-control {
+      position: relative;
+      display: inline-block;
+      width: 38px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+
+    .switch-control input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      position: absolute;
+    }
+
+    .switch-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 22px;
+      transition: var(--transition-smooth);
+    }
+
+    .switch-slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background-color: var(--text-muted);
+      border-radius: 50%;
+      transition: var(--transition-smooth);
+    }
+
+    .switch-control input:checked + .switch-slider {
+      background-color: var(--accent-blue-rgba);
+      border-color: var(--accent-blue);
+    }
+
+    .switch-control input:checked + .switch-slider:before {
+      transform: translateX(16px);
+      background-color: var(--accent-blue);
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+    }
+
+    .switch-control input:focus-visible + .switch-slider {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 2px;
+    }
+
+    .switch-control input:disabled + .switch-slider {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
     .hide-descriptions .description-text {
       display: none !important;
     }
@@ -489,6 +575,9 @@
     }
 
     @media print {
+      .select-col {
+        display: none !important;
+      }
       .print-selection-only tbody tr:not(.selected-row) {
         display: none !important;
       }
@@ -503,7 +592,7 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 16px;
-      overflow: hidden;
+      overflow: clip;
       box-shadow: var(--shadow-highlight), var(--shadow-lg);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -512,26 +601,38 @@
 
     table {
       width: 100%;
-      border-collapse: collapse;
+      border-collapse: separate;
+      border-spacing: 0;
       text-align: left;
     }
 
+    thead {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
     th {
-      background: rgba(15, 23, 42, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: #0f172a;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding: 0.85rem 1.15rem;
       font-size: 0.82rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.01em;
       color: var(--text-muted);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       cursor: pointer;
       user-select: none;
       transition: var(--transition-smooth);
     }
 
     th:hover {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(15, 23, 42, 0.98);
       color: var(--text-main);
     }
 
@@ -553,6 +654,24 @@
       transition: var(--transition-smooth);
     }
 
+    .select-col {
+      width: 48px;
+      min-width: 48px;
+      max-width: 48px;
+      text-align: center;
+      vertical-align: middle;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+    }
+
+    .select-cell-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
     tr:last-child td {
       border-bottom: none;
     }
@@ -568,9 +687,8 @@
       padding: 0.25rem 0.5rem;
       border-radius: 6px;
       font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.025em;
+      font-weight: 600;
+      letter-spacing: 0.01em;
       white-space: nowrap;
     }
 
@@ -625,16 +743,25 @@
 
     .badge-category {
       background: rgba(255, 255, 255, 0.05);
-      color: var(--text-muted);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 0.72rem;
+      color: #cbd5e1;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.74rem;
       text-transform: none;
       letter-spacing: normal;
-      font-weight: 500;
-      white-space: normal;
-      max-width: 210px;
+      font-weight: 600;
+      white-space: nowrap;
       line-height: 1.35;
-      padding: 0.3rem 0.6rem;
+      padding: 0.28rem 0.6rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      transition: var(--transition-smooth);
+    }
+
+    .badge-category:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.22);
+      color: #ffffff;
     }
 
     .category-column {
@@ -852,63 +979,153 @@
       }
     }
 
-    /* Collapsible Source Descriptions Panel */
-    .source-panel {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .btn-collapsible {
+    /* Guide Modal Dialog */
+    .btn-guide {
       align-self: flex-start;
-      background: transparent;
-      border: none;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 8px;
       color: var(--accent-blue);
       cursor: pointer;
       font-family: inherit;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
       transition: var(--transition-smooth);
     }
 
-    .btn-collapsible:hover {
-      color: var(--accent-blue-hover);
+    .btn-guide:hover {
+      background: rgba(56, 189, 248, 0.16);
+      border-color: rgba(56, 189, 248, 0.45);
+      color: #ffffff;
+      transform: translateY(-1px);
     }
 
-    .source-description {
+    .guide-dialog {
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      max-width: 840px;
+      width: calc(100vw - 48px);
+      max-height: 88vh;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      background: #0f172a;
+      background: linear-gradient(145deg, #0f172a 0%, #111827 100%);
+      color: var(--text-main);
+      padding: 0;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       overflow: hidden;
-      transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      max-height: 400px;
-      opacity: 1;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
     }
 
-    .source-description.tall {
-      max-height: 720px;
+    .guide-dialog:not([open]) {
+      display: none;
     }
 
-    .source-description.hidden {
-      max-height: 0;
-      opacity: 0;
-      pointer-events: none;
+    .guide-dialog::backdrop {
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 1.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .modal-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .btn-modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.35rem;
+      line-height: 1;
+      padding: 0.35rem 0.65rem;
+      border-radius: 8px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-modal-close:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .modal-tabs {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.85rem 1.75rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .modal-tab {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+      padding: 0.6rem 0.9rem;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .modal-tab:hover {
+      color: var(--text-main);
+    }
+
+    .modal-tab.active {
+      color: var(--accent-blue);
+      border-bottom-color: var(--accent-blue);
+    }
+
+    .modal-body {
+      padding: 1.75rem;
+      overflow-y: auto;
+      flex-grow: 1;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
     }
 
     .source-list {
       list-style-type: none;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      padding-left: 0.5rem;
+      gap: 0.65rem;
+      padding-left: 0;
     }
 
     .source-list li {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text-muted);
       position: relative;
       padding-left: 1.25rem;
+      line-height: 1.5;
     }
 
     .source-list li::before {
@@ -1099,6 +1316,17 @@
         width: auto;
         min-width: 0;
       }
+
+      .select-col {
+        width: auto !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        text-align: left !important;
+      }
+
+      .select-cell-inner {
+        justify-content: flex-start !important;
+      }
     }
   </style>
 </head>
@@ -1113,39 +1341,64 @@
           <p>Insights on AI, architecture, and engineering.</p>
         </div>
       </div>
+      <div class="header-actions">
+        <button id="openGuideBtn" class="btn-guide" aria-haspopup="dialog" aria-controls="guideDialog">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Sources &amp; Categories Guide
+        </button>
+      </div>
     </header>
 
-    <!-- Controls Panel -->
-    <div class="controls-panel">
-  <div class="source-panel">
-    <button id="sourceToggle" class="btn-collapsible" aria-expanded="false" aria-controls="sourceDesc">Show source descriptions ▼</button>
-    <div id="sourceDesc" class="source-description hidden">
-      <ul class="source-list">
-        <li data-source="Addy Osmani"><strong>Addy Osmani</strong> — Personal blog essays on agentic engineering, software factories, and developer judgment by Addy Osmani.</li>
-        <li data-source="Artificial Intelligence (Andriy Burkov)"><strong>Artificial Intelligence (Andriy Burkov)</strong> — AI-focused newsletter by Andriy Burkov.</li>
+    <!-- Guide Dialog Modal -->
+    <dialog id="guideDialog" class="guide-dialog" aria-labelledby="guideDialogTitle">
+      <div class="modal-header">
+        <h2 id="guideDialogTitle" class="modal-title">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Sources &amp; Categories Guide
+        </h2>
+        <button id="closeGuideBtn" class="btn-modal-close" aria-label="Close guide dialog">✕</button>
+      </div>
+      <div class="modal-tabs" role="tablist">
+        <button id="tabBtnSources" class="modal-tab active" role="tab" aria-selected="true" aria-controls="tabContentSources">Sources</button>
+        <button id="tabBtnCategories" class="modal-tab" role="tab" aria-selected="false" aria-controls="tabContentCategories">Categories</button>
+      </div>
+      <div class="modal-body">
+        <div id="tabContentSources" class="tab-content active" role="tabpanel" aria-labelledby="tabBtnSources">
+          <div id="sourceDesc">
+            <ul class="source-list">
+        <li data-source="Addy Osmani"><strong>Addy Osmani</strong> — Personal blog essays on agentic engineering, software factories, and developer judgment.</li>
+        <li data-source="Artificial Intelligence (Andriy Burkov)"><strong>AI (Andriy Burkov)</strong> — AI-focused newsletter.</li>
         <li data-source="Dear Architects"><strong>Dear Architects</strong> — Software architecture and systems design newsletter by Luca Mezzalira.</li>
         <li data-source="Future of Software Development (Thoughtworks FOSE)"><strong>Future of Software Development (Thoughtworks FOSE)</strong> — FOSE 2026 retreat notes.</li>
         <li data-source="On My Radar"><strong>On My Radar</strong> — Personal curated reading collection by Mihai V.</li>
         <li data-source="The Pragmatic Engineer"><strong>The Pragmatic Engineer</strong> — Gergely Orosz&#x27;s newsletter covering the software engineering industry and developer careers.</li>
-        <li data-source="Simon Willison&#x27;s Weblog"><strong>Simon Willison&#x27;s Weblog</strong> — Highlights and long-form blog entries on AI, LLMs, agents, and open-source architecture by Simon Willison.</li>
+        <li data-source="Simon Willison&#x27;s Weblog"><strong>Simon Willison</strong> — Highlights and long-form blog entries on AI, LLMs, agents, and open-source architecture.</li>
         <li data-source="Token by Token"><strong>Token by Token</strong> — AI and technology newsletter by Luca Mezzalira.</li>
-      </ul>
-    </div>
-  </div>
-  <div class="source-panel">
-    <button id="categoryToggle" class="btn-collapsible" aria-expanded="false" aria-controls="categoryDesc">Show category descriptions ▼</button>
-    <div id="categoryDesc" class="source-description tall hidden">
-      <ul class="source-list category-list">
-        <li data-cat="AI-Native &amp; Agentic Software Engineering"><strong>AI-Native &amp; Agentic Software Engineering</strong> — Building software with agents: loops, orchestration, context engineering and the day-to-day craft of AI-assisted development.</li>
-        <li data-cat="Cloud Infrastructure &amp; System Reliability"><strong>Cloud Infrastructure &amp; System Reliability</strong> — Running systems at scale: databases, service topology, load balancing, sidecars, cloud security, resilience and SRE practice.</li>
-        <li data-cat="Engineering Philosophy &amp; Estimation"><strong>Engineering Philosophy &amp; Estimation</strong> — Where the craft is heading: enduring fundamentals, mental models, napkin math estimation, and engineering culture.</li>
-        <li data-cat="Large Language Models &amp; Evaluation Infrastructure"><strong>Large Language Models &amp; Evaluation Infrastructure</strong> — The models themselves: architectures, training, open weights, local inference, model specs, evals and coding benchmarks.</li>
-        <li data-cat="Software Architecture &amp; Distributed Systems"><strong>Software Architecture &amp; Distributed Systems</strong> — Boundaries and modularity: architectural decision-making, ADRs, micro frontends, microservices, DSLs and distributed systems design.</li>
-        <li data-cat="Software Testing, Quality &amp; Observability"><strong>Software Testing, Quality &amp; Observability</strong> — Verifying software: automated repair, code-review agents, test strategy, evals-as-tests, non-functional requirements and observability.</li>
-        <li data-cat="Tech Industry, Jobs &amp; Careers"><strong>Tech Industry, Jobs &amp; Careers</strong> — The business around the code: AI spend and economics, industry news and incidents, hiring and developer careers.</li>
-      </ul>
-    </div>
-  </div>
+            </ul>
+          </div>
+        </div>
+        <div id="tabContentCategories" class="tab-content" role="tabpanel" aria-labelledby="tabBtnCategories">
+          <div id="categoryDesc">
+            <ul class="source-list category-list">
+              <li data-cat="AI-Native &amp; Agentic Software Engineering"><strong>AI &amp; Agentic Eng</strong> — Building software with agents: loops, orchestration, context engineering and the day-to-day craft of AI-assisted development.</li>
+              <li data-cat="Cloud Infrastructure &amp; System Reliability"><strong>Cloud Infra &amp; SRE</strong> — Running systems at scale: databases, service topology, load balancing, sidecars, cloud security, resilience and SRE practice.</li>
+              <li data-cat="Engineering Philosophy &amp; Estimation"><strong>Eng Philosophy &amp; Culture</strong> — Where the craft is heading: enduring fundamentals, mental models, napkin math estimation, and engineering culture.</li>
+              <li data-cat="Large Language Models &amp; Evaluation Infrastructure"><strong>LLMs &amp; Evaluation</strong> — The models themselves: architectures, training, open weights, local inference, model specs, evals and coding benchmarks.</li>
+              <li data-cat="Software Architecture &amp; Distributed Systems"><strong>Arch &amp; Dist Systems</strong> — Boundaries and modularity: architectural decision-making, ADRs, micro frontends, microservices, DSLs and distributed systems design.</li>
+              <li data-cat="Software Testing, Quality &amp; Observability"><strong>Testing &amp; Observability</strong> — Verifying software: automated repair, code-review agents, test strategy, evals-as-tests, non-functional requirements and observability.</li>
+              <li data-cat="Tech Industry, Jobs &amp; Careers"><strong>Industry &amp; Careers</strong> — The business around the code: AI spend and economics, industry news and incidents, hiring and developer careers.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Controls Panel -->
+    <div class="controls-panel">
       <div class="search-row">
         <div class="search-wrapper">
           <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1223,15 +1476,21 @@
         </div>
 
         <div class="filter-group filter-toggles-cluster" style="padding-top: 1.1rem;">
-          <label id="spotlightLabel" class="checkbox-label" title="Available for Dear Architects and Token by Token articles">
-            <input type="checkbox" id="spotlightToggle">
+          <label id="spotlightLabel" class="switch-label" title="Available for Dear Architects and Token by Token articles">
+            <span class="switch-control">
+              <input type="checkbox" id="spotlightToggle" role="switch" aria-checked="false">
+              <span class="switch-slider"></span>
+            </span>
             Show Spotlight Only
           </label>
         </div>
 
         <div class="filter-group" style="padding-top: 1.1rem;">
-          <label class="checkbox-label">
-            <input type="checkbox" id="descriptionToggle" checked>
+          <label class="switch-label">
+            <span class="switch-control">
+              <input type="checkbox" id="descriptionToggle" role="switch" aria-checked="true" checked>
+              <span class="switch-slider"></span>
+            </span>
             Show Descriptions
           </label>
         </div>
@@ -1262,7 +1521,7 @@
       <table id="articlesTable">
         <thead>
           <tr>
-            <th style="width: 50px; text-align: center;"><input type="checkbox" id="selectAllToggle" title="Select/Deselect All"></th>
+            <th class="select-col"><input type="checkbox" id="selectAllToggle" title="Select/Deselect All"></th>
             <th onclick="handleSort('newsletter')" id="th-newsletter" tabindex="0" role="button" aria-label="Sort by source">Source <span class="sort-indicator"></span></th>
             <th onclick="handleSort('date')" id="th-date" class="active-sort" tabindex="0" role="button" aria-label="Sort by date">Date <span class="sort-indicator">&#x25BC;</span></th>
             <th onclick="handleSort('author')" id="th-author" tabindex="0" role="button" aria-label="Sort by author">Author <span class="sort-indicator"></span></th>
@@ -6635,10 +6894,15 @@
     const spotlightToggle = document.getElementById('spotlightToggle');
     const spotlightLabel = document.getElementById('spotlightLabel');
     const descriptionToggle = document.getElementById('descriptionToggle');
-const sourceToggle = document.getElementById('sourceToggle');
-const sourceDesc = document.getElementById('sourceDesc');
-const categoryToggle = document.getElementById('categoryToggle');
-const categoryDesc = document.getElementById('categoryDesc');
+    const sourceDesc = document.getElementById('sourceDesc');
+    const categoryDesc = document.getElementById('categoryDesc');
+    const guideDialog = document.getElementById('guideDialog');
+    const openGuideBtn = document.getElementById('openGuideBtn');
+    const closeGuideBtn = document.getElementById('closeGuideBtn');
+    const tabBtnSources = document.getElementById('tabBtnSources');
+    const tabBtnCategories = document.getElementById('tabBtnCategories');
+    const tabContentSources = document.getElementById('tabContentSources');
+    const tabContentCategories = document.getElementById('tabContentCategories');
     const tableBody = document.getElementById('tableBody');
     const resultsCount = document.getElementById('resultsCount');
     const crossSourceTooltip = document.getElementById('crossSourceTooltip');
@@ -6663,21 +6927,61 @@ const categoryDesc = document.getElementById('categoryDesc');
       updateMultiFilterSummary(categoryFilter);
       render();
     });
-    spotlightToggle.addEventListener('change', render);
-    descriptionToggle.addEventListener('change', updateDescriptionVisibility);
-sourceToggle.addEventListener('click', function() {
-  const expanded = sourceToggle.getAttribute('aria-expanded') === 'true';
-  sourceToggle.setAttribute('aria-expanded', !expanded);
-  sourceDesc.classList.toggle('hidden', expanded);
-  sourceToggle.textContent = expanded ? 'Show source descriptions ▼' : 'Hide source descriptions ▲';
-});
+    spotlightToggle.addEventListener('change', function() {
+      spotlightToggle.setAttribute('aria-checked', String(spotlightToggle.checked));
+      render();
+    });
+    descriptionToggle.addEventListener('change', function() {
+      descriptionToggle.setAttribute('aria-checked', String(descriptionToggle.checked));
+      updateDescriptionVisibility();
+    });
 
-categoryToggle.addEventListener('click', function() {
-  const expanded = categoryToggle.getAttribute('aria-expanded') === 'true';
-  categoryToggle.setAttribute('aria-expanded', !expanded);
-  categoryDesc.classList.toggle('hidden', expanded);
-  categoryToggle.textContent = expanded ? 'Show category descriptions ▼' : 'Hide category descriptions ▲';
-});
+    // Guide Dialog Controller
+    if (openGuideBtn && guideDialog) {
+      openGuideBtn.addEventListener('click', function() {
+        if (typeof guideDialog.showModal === 'function') {
+          guideDialog.showModal();
+        } else {
+          guideDialog.setAttribute('open', '');
+        }
+      });
+
+      const closeGuide = function() {
+        if (typeof guideDialog.close === 'function') {
+          guideDialog.close();
+        } else {
+          guideDialog.removeAttribute('open');
+        }
+      };
+
+      if (closeGuideBtn) closeGuideBtn.addEventListener('click', closeGuide);
+
+      // Close when clicking dialog backdrop
+      guideDialog.addEventListener('click', function(e) {
+        if (e.target === guideDialog) closeGuide();
+      });
+
+      // Tab switching in Guide Dialog
+      if (tabBtnSources && tabBtnCategories) {
+        tabBtnSources.addEventListener('click', function() {
+          tabBtnSources.classList.add('active');
+          tabBtnSources.setAttribute('aria-selected', 'true');
+          tabBtnCategories.classList.remove('active');
+          tabBtnCategories.setAttribute('aria-selected', 'false');
+          tabContentSources.classList.add('active');
+          tabContentCategories.classList.remove('active');
+        });
+
+        tabBtnCategories.addEventListener('click', function() {
+          tabBtnCategories.classList.add('active');
+          tabBtnCategories.setAttribute('aria-selected', 'true');
+          tabBtnSources.classList.remove('active');
+          tabBtnSources.setAttribute('aria-selected', 'false');
+          tabContentCategories.classList.add('active');
+          tabContentSources.classList.remove('active');
+        });
+      }
+    }
 
 function additionalSourceNames(article) {
   return Array.from(new Set((article.also_in || []).filter(Boolean)));
@@ -6740,32 +7044,51 @@ function renderCategoryCounts(list) {
     const selectionActions = document.getElementById('selectionActions');
     const selectionText = document.getElementById('selectionText');
 
-    // Event delegation for checkbox changes
+    // Event delegation for checkbox changes: update in place without full DOM teardown
     tableBody.addEventListener('change', function(e) {
       if (e.target.classList.contains('row-selector')) {
         const id = String(e.target.getAttribute('data-id'));
+        const row = e.target.closest('tr');
         if (e.target.checked) {
           selectedIds.add(id);
+          if (row) row.classList.add('selected-row');
         } else {
           selectedIds.delete(id);
+          if (row) row.classList.remove('selected-row');
         }
-        render(); // re-render to apply pinning!
+        if (selectedIds.size > 0) {
+          selectionActions.style.display = 'flex';
+          updateSelectionCount(selectedIds.size);
+        } else {
+          selectionActions.style.display = 'none';
+        }
+        if (selectAllToggle && currentViewArticles.length > 0) {
+          selectAllToggle.checked = currentViewArticles.every(a => selectedIds.has(String(a.id)));
+        }
       }
     });
 
     selectAllToggle.addEventListener('change', function(e) {
-      // Select or deselect visible rendered articles
+      // Select or deselect visible rendered articles without full DOM rebuild
       const visibleSelectors = tableBody.querySelectorAll('.row-selector');
       visibleSelectors.forEach(cb => {
         const id = String(cb.getAttribute('data-id'));
+        const row = cb.closest('tr');
         cb.checked = e.target.checked;
         if (e.target.checked) {
           selectedIds.add(id);
+          if (row) row.classList.add('selected-row');
         } else {
           selectedIds.delete(id);
+          if (row) row.classList.remove('selected-row');
         }
       });
-      render();
+      if (selectedIds.size > 0) {
+        selectionActions.style.display = 'flex';
+        updateSelectionCount(selectedIds.size);
+      } else {
+        selectionActions.style.display = 'none';
+      }
     });
 
     function escapeHtml(str) {
@@ -6812,6 +7135,21 @@ function renderCategoryCounts(list) {
       clearTimeout(crossSourceTooltipTimer);
       crossSourceTooltip.classList.remove('visible');
       crossSourceTooltip.setAttribute('aria-hidden', 'true');
+    }
+
+    // Category Display Aliases for compact, high-legibility table badges
+    const categoryDisplayAliases = {
+      'AI-Native & Agentic Software Engineering': 'AI & Agentic Eng',
+      'Large Language Models & Evaluation Infrastructure': 'LLMs & Evaluation',
+      'Software Architecture & Distributed Systems': 'Arch & Dist Systems',
+      'Software Testing, Quality & Observability': 'Testing & Observability',
+      'Cloud Infrastructure & System Reliability': 'Cloud Infra & SRE',
+      'Tech Industry, Jobs & Careers': 'Industry & Careers',
+      'Engineering Philosophy & Estimation': 'Eng Philosophy & Culture'
+    };
+
+    function getCategoryDisplayName(canonicalCat) {
+      return categoryDisplayAliases[canonicalCat] || canonicalCat;
     }
 
     function escapeMarkdownText(value) {
@@ -6904,8 +7242,13 @@ function renderCategoryCounts(list) {
       const undescribedSources = Array.from(uniqueSources)
         .filter(source => !describedSources.includes(source))
         .sort();
+      const sourceLabelMap = {};
+      sourceDesc.querySelectorAll('li[data-source]').forEach(li => {
+        const strong = li.querySelector('strong');
+        if (strong) sourceLabelMap[li.dataset.source] = strong.textContent.trim();
+      });
       populateMultiFilter(sourceFilter, describedSources.concat(undescribedSources)
-        .map(source => ({ value: source, label: source })));
+        .map(source => ({ value: source, label: sourceLabelMap[source] || source })));
 
       const typeLabels = {
         article: 'Articles',
@@ -6929,7 +7272,7 @@ function renderCategoryCounts(list) {
         .filter(category => !describedCategories.includes(category))
         .sort();
       populateMultiFilter(categoryFilter, describedCategories.concat(undescribedCategories)
-        .map(category => ({ value: category, label: category })));
+        .map(category => ({ value: category, label: getCategoryDisplayName(category) })));
     }
 
     const spotlightSources = new Set(['Dear Architects', 'Token by Token']);
@@ -6945,6 +7288,7 @@ function renderCategoryCounts(list) {
       spotlightLabel.classList.toggle('disabled', !available);
       spotlightLabel.setAttribute('aria-disabled', String(!available));
       if (!available) spotlightToggle.checked = false;
+      spotlightToggle.setAttribute('aria-checked', String(spotlightToggle.checked));
     }
 
     function matchesSelectedFilters(article, sources, types, categories) {
@@ -7016,12 +7360,8 @@ function renderCategoryCounts(list) {
       // remain visible regardless of the selected historical window.
       const now = Date.now();
 
-      // Partition: Pinned (selected) and Unpinned (not selected)
-      let pinned = articles.filter(a => selectedIds.has(String(a.id)));
-      let unpinned = articles.filter(a => !selectedIds.has(String(a.id)));
-
-      // Filter unpinned articles
-      let filteredUnpinned = unpinned.filter(article => {
+      // Filter articles matching active criteria
+      let filteredArticles = articles.filter(article => {
         // Text search match
         const matchesQuery = !query || 
           (article.title || '').toLowerCase().includes(query) ||
@@ -7051,11 +7391,9 @@ function renderCategoryCounts(list) {
 
       // Sorting logic function
       const sortFn = (a, b) => compareArticlesForSort(a, b, sortColumn, sortDirection);
+      filteredArticles.sort(sortFn);
 
-      pinned.sort(sortFn);
-      filteredUnpinned.sort(sortFn);
-
-      const finalArticles = [...pinned, ...filteredUnpinned];
+      const finalArticles = filteredArticles;
 
       // Render table rows
       tableBody.innerHTML = '';
@@ -7090,22 +7428,19 @@ function renderCategoryCounts(list) {
       finalArticles.forEach(article => {
         const tr = document.createElement('tr');
         const artIdStr = String(article.id);
-        const isPinned = selectedIds.has(artIdStr);
-        if (isPinned) {
+        const isSelected = selectedIds.has(artIdStr);
+        if (isSelected) {
           tr.classList.add('selected-row');
         }
 
         // 0. Checkbox select cell
         const tdSelect = document.createElement('td');
-        tdSelect.style.textAlign = 'center';
-        tdSelect.style.verticalAlign = 'middle';
+        tdSelect.className = 'select-col';
         tdSelect.setAttribute('data-label', 'Select');
-        const isChecked = isPinned ? 'checked' : '';
-        const pinIcon = isPinned ? '<span style="font-size: 0.95rem; line-height: 1;" title="Pinned Selection">📌</span>' : '';
+        const isChecked = isSelected ? 'checked' : '';
         tdSelect.innerHTML = `
-          <div style="display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
-            <input type="checkbox" class="row-selector" data-id="${escapeHtml(artIdStr)}" ${isChecked}>
-            ${pinIcon}
+          <div class="select-cell-inner">
+            <input type="checkbox" class="row-selector" data-id="${escapeHtml(artIdStr)}" ${isChecked} aria-label="Select article">
           </div>
         `;
         tr.appendChild(tdSelect);
@@ -7183,9 +7518,10 @@ function renderCategoryCounts(list) {
         const tdCategory = document.createElement('td');
         tdCategory.setAttribute('data-label', 'Category');
         tdCategory.className = 'category-column';
+        const displayCatName = getCategoryDisplayName(article.category);
         tdCategory.innerHTML = `
-          <span class="badge badge-category">
-            ${escapeHtml(article.category)}
+          <span class="badge badge-category" title="${escapeHtml(article.category)}" data-canonical-cat="${escapeHtml(article.category)}">
+            ${escapeHtml(displayCatName)}
           </span>
         `;
         tr.appendChild(tdCategory);
