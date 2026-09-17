@@ -62,39 +62,31 @@
     .brand-row {
       display: flex;
       align-items: center;
-      gap: 1rem;
-    }
-
-    h1.brand-wordmark {
-      font-family: 'Outfit', sans-serif;
-      font-size: 2.6rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: #ffffff;
-      display: inline-flex;
-      align-items: center;
-      line-height: 1;
-      margin-bottom: 0.35rem;
+      gap: 1.35rem;
     }
 
     .brand-icon {
-      height: 1.22em;
-      width: 1.22em;
-      display: inline-block;
-      vertical-align: middle;
-      border-radius: 13px;
-      box-shadow: 0 4px 18px rgba(56, 189, 248, 0.3), 0 2px 8px rgba(0, 0, 0, 0.6);
-      margin-right: 0.04em;
+      width: 68px;
+      height: 68px;
+      flex: 0 0 auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.32), 0 2px 8px rgba(0, 0, 0, 0.6);
       transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s ease;
     }
 
     .brand-icon:hover {
       transform: scale(1.06);
-      box-shadow: 0 6px 24px rgba(56, 189, 248, 0.5);
+      box-shadow: 0 6px 26px rgba(56, 189, 248, 0.55);
     }
 
-    .word-tail {
-      margin-right: 0.3em;
+    h1.brand-wordmark {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 0.35rem;
     }
 
     .gold-accent-text,
@@ -105,7 +97,7 @@
 
     header p {
       color: var(--text-muted);
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 400;
     }
 
@@ -1003,8 +995,9 @@
       }
 
       .brand-icon {
-        width: 44px;
-        height: 44px;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
       }
 
       .controls-panel {
@@ -1114,12 +1107,9 @@
   <div class="container">
     <header>
       <div class="brand-row">
+        <img class="brand-icon" src="{{NEWS_ICON_DATA_URI}}" alt="">
         <div>
-          <h1 class="brand-wordmark">
-            <img class="brand-icon" src="{{NEWS_ICON_DATA_URI}}" alt="">
-            <span class="word-tail">ews</span>
-            <span class="gold-accent-text gold-gradient-text">Catch</span>
-          </h1>
+          <h1 class="brand-wordmark">News <span class="gold-accent-text gold-gradient-text">Catch</span></h1>
           <p>Insights on AI, architecture, and engineering.</p>
         </div>
       </div>
