@@ -148,10 +148,14 @@ class BaseScraper:
         "si", "fbclid", "gclid", "dclid", "msclkid", "twclid", "igshid",
         "ref", "referrer", "source", "ck_subscriber_id", "_hsenc", "_hsmi",
         "vero_id", "vero_conv", "yclid", "wickedid", "oly_enc_id", "oly_anon_id",
+        # Substack, Medium, Beehiiv & newsletter subscriber tokens
+        "publication_id", "post_id", "isFreemail", "audience", "r",
+        # Marketing automation & affiliate / campaign tokens
+        "mkt_tok", "spm", "feature", "context", "cmpid", "mbid", "cid",
     })
 
     # Prefixes matched case-insensitively against the start of a parameter name.
-    TRACKING_PREFIXES = ("utm_", "mc_", "pk_", "piwik_", "matomo_", "hsa_")
+    TRACKING_PREFIXES = ("utm_", "mc_", "pk_", "piwik_", "matomo_", "hsa_", "sc_")
 
     def clean_url(self, url: str) -> str:
         """

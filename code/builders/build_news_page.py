@@ -79,6 +79,8 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
                             display_name = "Simon Willison"
                         elif src_name == "Artificial Intelligence (Andriy Burkov)":
                             display_name = "AI (Andriy Burkov)"
+                        elif src_name == "Future of Software Development (Thoughtworks FOSE)":
+                            display_name = "Future of Software Development"
                         source_descriptions[src_name] = (display_name, def_data["description"])
                     if not def_data.get("static") and def_data.get("refresh_enabled", True):
                         has_refreshable_source = True
@@ -198,18 +200,19 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
     json_articles_formatted = json.dumps(latest_articles, indent=4, ensure_ascii=False)
     new_articles_js = f"/* ARTICLES_START */\n    const articles = {json_articles_formatted};\n    /* ARTICLES_END */"
     
-    # Locate replacement zone using explicit markers or fallback regex
+    # Locate replacement zone using explicit boundary markers
     start_marker = "/* ARTICLES_START */"
     end_marker = "/* ARTICLES_END */"
     
-    if start_marker in html and end_marker in html:
-        start_idx = html.find(start_marker)
-        end_idx = html.find(end_marker) + len(end_marker)
-        new_html = html[:start_idx] + new_articles_js + html[end_idx:]
-    else:
-        # Fallback to regex pattern matching
-        pattern = re.compile(r'(\s*const articles = )\[.*?\];', re.DOTALL)
-        new_html = pattern.sub(f"\\1{json_articles_formatted};", html, count=1)
+    if start_marker not in html or end_marker not in html:
+        raise ValueError(
+            f"Missing '{start_marker}' or '{end_marker}' in template ({template_path}). "
+            "Cannot safely inject compiled articles data."
+        )
+
+    start_idx = html.find(start_marker)
+    end_idx = html.find(end_marker) + len(end_marker)
+    new_html = html[:start_idx] + new_articles_js + html[end_idx:]
 
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:

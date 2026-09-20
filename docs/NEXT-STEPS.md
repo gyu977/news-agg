@@ -10,26 +10,35 @@ Based on the recommendations in [`docs/ui-expert-review-en.md`](docs/ui-expert-r
 
 | # | Feature / Recommendation | Status | Notes |
 | :--- | :--- | :---: | :--- |
-| **1.1** | **In-Place Row Selection (Zero Layout Shift)** | ✅ **Done** | Fixed 48px `.select-col`; row jumping eliminated; event delegation toggles `.selected-row` |
+| **1.1** | **In-Place Row Selection (Zero Layout Shift)** | ✅ **Done** | Fixed 48px `.select-col`; row jumping eliminated; event delegation toggles `.selected-row`; native browser tooltips always provide contextual bulk guidance on header (`Select all visible articles to export...` / `Deselect all visible articles`), with row tooltips suppressed once selection is active for quiet multi-selection |
 | **1.2** | **Tighten Header & Brand Wordmark** | ✅ **Done** | Removed heavy border line; recovered ~60px vertical height; integrated mechanical hook icon |
 | **1.3** | **Accessible Switch Controls** | ✅ **Done** | Converted checkboxes to animated pill switches with WAI-ARIA (`role="switch"`, `aria-checked`) |
 | **1.4** | **Eliminate ALL CAPS Typography** | ✅ **Done** | Title/Sentence Case with proper optical weights across headers, badges, and labels |
 | **2.1** | **Modal Dialog for Sources & Categories** | ✅ **Done** | Replaced 400–700px CLS accordion with native `<dialog id="guideDialog">` (tabbed, Escape/backdrop close) |
 | **2.2** | **Category & Source Label Synchronization** | ✅ **Done** | Compact labels (`AI & Agentic Eng`, etc.) synced across table badges, modal, and filter dropdowns |
 | **2.3** | **Clean Source Definitions** | ✅ **Done** | Removed redundant author attributions from `definition.json` descriptions (Addy Osmani, Simon Willison, Burkov AI) |
-| **2.4** | **Documentation Contract** | ✅ **Done** | Added Section 10 to [`docs/DEVELOPER-GUIDE.md`](docs/DEVELOPER-GUIDE.md) governing cross-component label sync |
-| **3.1** | **True Viewport Sticky Table Header** | ⏳ **Postponed** | In progress: needs removal of parent `backdrop-filter` & clipping boundaries on `.table-container` to lock `<th>` to viewport |
-| **3.2** | **Consolidated Action & Export Toolbar** | 📋 **To Be Implemented** | Move search input adjacent to table results and unify *Export View* and *Export Selection* into a single cohesive action bar |
-| **3.3** | **Dynamic Filter Counts & Dimming** | 📋 **To Be Implemented** | Compute live match counts inside dropdown options and dim/disable items with 0 active matches (e.g. *Pulses* in 30d window) |
+| **2.4** | **Documentation Contract** | ✅ **Done** | Added Section 10 to [`docs/DEVELOPER-GUIDE.md`](DEVELOPER-GUIDE.md) governing cross-component label sync |
+| **3.1** | **True Viewport Sticky Table Header** | ✅ **Done** | Unconstrained `.table-container` (`overflow: visible`), removed parent backdrop filter, and added inner cell radii |
+| **3.2** | **Consolidated Action & Export Toolbar** | ✅ **Done** | Moved search input adjacent to table results with fixed 350px width; added inline `✕` clear button (supports click, input sync, Esc key); symmetric displayed/selected count badges with fixed minimum widths (`.pill-displayed: 116px`, `.pill-selected: 146px`), 25px right-aligned `.count-num` slots, and `tabular-nums` making both the capsules and their inner text 100% motionless; compact 34px export controls (Markdown `.md`, HTML `.html`) with 8px border radius; tightened vertical spacing between filter controls and table toolbar |
+| **3.3** | **Dynamic Faceted Filter Counts & Dimming** | ✅ **Done** | Multidimensional cross-filtering: live match counts inside dropdowns reflect the intersection of all other active filters (timeframe, sources, types, categories) with zero-match dimming; fixed filter widths (`timeframe: 180px`, `sources: 200px`, `types: 180px`, `categories: 210px`) and unified `.toggles-wrapper` prevent toolbar shift and line wrapping |
+| **3.4** | **Table Column Layout & Typography Stability** | ✅ **Done** | Implemented `table-layout: fixed` to completely eliminate horizontal layout shift when filtering; calibrated fixed metadata column widths (`.select-col: 48px`, `.source-column: 185px`, `.date-column: 160px`, `.author-column: 170px`, `.category-column: 210px`, article title `width: auto` flex); top-aligned select checkboxes and content-type icons; inline article title and spotlight badge flow preventing spurious wrapping |
 
 ---
 
-## 2. General Backlog (Future Considerations)
+## 2. General Backlog (Future Considerations & Architectural Thresholds)
 
+- **Sticky Table Header Corner Bleed on Selected Rows (UI Polish)**:
+  - *Scenario*: When rows are selected (e.g. "Select All") and the user scrolls down through the table.
+  - *Issue*: The sticky table header (`th:first-child`) uses `border-top-left-radius: 12px;`, whereas selected rows (`.selected-row td:first-child`) have an accent indicator (`border-left: 3px solid #38bdf8`). When scrolling down, the blue strip of rows moving under the header visibly peeks out through the transparent curved corner radius.
+  - *Proposed Fix Options*: Replace `border-left` with `box-shadow: inset 3px 0 0 #38bdf8;`, square the sticky header's corners when pinned / scrolled, or add an outer clipping wrapper around the scrollable body.
 - **Additional Feeds**: Martin Fowler (Bliki), ByteByteGo (Systems Design), Dan Luu (Performance). Use `code/tools/scaffold_source.py`.
 - **Scheduled CI/CD**: Set up `.github/workflows/refresh.yml` to automate weekly newsletter ingestion on GitHub Actions.
 - **Bookmarks**: Browser `localStorage` bookmarking (`[★ Saved]`) for offline reading queues.
 - **Aggregated RSS Feed**: Add `code/builders/build_feed.py` to output a unified `output/feed.xml`.
+- **Architectural Triggers (Milestone Thresholds)**:
+  - *DOM Virtualization*: Keep vanilla DOM rendering as long as active articles stay under 1,000–1,500. Only consider implementing chunked rendering / `IntersectionObserver` virtualization if the archive exceeds 1,500–2,000 items and layout latency is detected on mobile devices.
+  - *URL Normalization Audit*: Periodically check `BaseScraper.TRACKING_PARAMS` whenever onboarding new feed formats (Substack, Beehiiv, LinkedIn) to preserve clean cross-source deduplication (`also_in`).
+  - *E2E Browser Smoke Testing*: If table structure or client-side filtering undergoes radical architectural rewrites, consider running a one-off headless browser check to re-verify parity with `tests/test_filter_matrix.py`.
 
 ---
 
@@ -37,6 +46,7 @@ Based on the recommendations in [`docs/ui-expert-review-en.md`](docs/ui-expert-r
 
 When starting a new Antigravity session:
 1. Select the project **`news-agg`**.
-2. Provide this starting prompt:
-   > *"We are continuing work on the news aggregator project. Please read `NEXT_STEPS.md`. Let's resume with the remaining UI tasks: Item 3.1 (Sticky Table Header fix) and Item 3.2 (Consolidated Action & Export Toolbar)."*
+2. All items from the UI Modernization Plan (1.1 through 3.4) are complete and verified. Provide this starting prompt:
+   > *"We are continuing work on the news aggregator project. All UI Modernization items (1.1–3.4) are completed. Please check `git status` and `NEXT-STEPS.md` for upcoming backlog items (e.g. adding new feeds, CI/CD, or bookmarks)."*
+
 

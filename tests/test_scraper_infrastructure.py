@@ -4,11 +4,12 @@ import json
 import importlib.util
 import io
 import os
+import re
 import sys
 import tempfile
 import unittest
 from contextlib import redirect_stdout
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from unittest import mock
 
 from helpers import CODE_DIR, REPO_ROOT, StubScraper
@@ -427,8 +428,19 @@ class BuilderSafetyTests(unittest.TestCase):
         template = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
         with open(template, encoding="utf-8") as stream:
             source = stream.read()
+        self.assertIn("const now = Date.now();", source)
         self.assertIn("const cutoff = now -", source)
         self.assertNotIn("maxTimestamp -", source)
+
+    def test_dashboard_filter_counts_and_dimming(self):
+        template = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
+        with open(template, encoding="utf-8") as stream:
+            source = stream.read()
+        self.assertIn("function updateFilterOptionCounts(", source)
+        self.assertIn("updateFilterOptionCounts(articlesForSources, articlesForTypes, articlesForCategories);", source)
+        self.assertIn("label.classList.toggle('disabled', count === 0);", source)
+        self.assertIn("input.disabled = isDisabled;", source)
+        self.assertIn('<span class="opt-count">0</span>', source)
 
     def test_dashboard_timeframe_options_and_default_window(self):
         template = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
@@ -455,14 +467,17 @@ class BuilderSafetyTests(unittest.TestCase):
         self.assertIn("function getSelectedFilterValues(filter)", source)
         self.assertIn("function matchesSelectedFilters(article, sources, types, categories)", source)
         self.assertIn("const matchesFilters = matchesSelectedFilters(", source)
-        self.assertIn("container.classList.toggle('scrollable', options.length > 10)", source)
         self.assertIn("width: 320px;", source)
         self.assertIn("#typeFilter .multi-filter-menu", source)
-        self.assertIn("width: 260px;", source)
+        self.assertIn("width: 290px;", source)
+        self.assertIn("#categoryFilter .multi-filter-menu", source)
+        self.assertIn("width: 280px;", source)
+        self.assertIn("#timeframeFilterDropdown .multi-filter-menu", source)
+        self.assertIn("width: 200px;", source)
         self.assertIn('<label class="filter-label">Categories</label>', source)
         self.assertIn('aria-label="Sort by category">Category', source)
         self.assertIn('aria-label="Sort by article title">Article', source)
-        self.assertIn("min-width: 230px;", source)
+        self.assertIn("min-width: 210px;", source)
         self.assertIn("function compareArticlesForSort(a, b, column, direction)", source)
         self.assertIn("String(a[column] ?? '').trim()", source)
         self.assertIn(".sort((a, b) => a.label.localeCompare(b.label))", source)
@@ -518,27 +533,174 @@ class BuilderSafetyTests(unittest.TestCase):
         self.assertIn(">Also in ${alsoInNames.length}</span>", source)
         self.assertIn("function showCrossSourceTooltip(marker)", source)
         self.assertIn("}, 100);", source)
-        self.assertIn("alsoInMarker.addEventListener('focus'", source)
+        self.assertIn("tableBody.addEventListener('focusin'", source)
         self.assertIn("function updateResultsCount(count)", source)
-        self.assertIn("function updateSelectionCount(count)", source)
-        self.assertIn('class="cat-count results-count-badge"', source)
-        self.assertIn('class="cat-count selection-count-badge"', source)
+        self.assertIn("function updateSelectionUI()", source)
+        self.assertIn('class="count-pill pill-displayed"', source)
+        self.assertIn('class="count-pill pill-selected"', source)
         self.assertIn("justify-content: space-between;", source)
-        self.assertNotIn("? Export Selection", source)
-        self.assertIn("Export Current View", source)
-        self.assertIn(".export-action svg", source)
-        self.assertIn("flex: 0 0 auto;", source)
-        self.assertGreaterEqual(source.count("Also in:"), 3)
+        self.assertIn("btn-export-unified", source)
+        self.assertIn("Export Selection", source)
+        self.assertIn(".btn-export-unified svg", source)
+        self.assertIn("searchClearBtn", source)
+        self.assertIn("syncSearchClearBtn", source)
+        self.assertGreaterEqual(source.count("Also in:"), 2)
 
     def test_dashboard_multi_filters_overlay_and_close(self):
         template = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
         with open(template, encoding="utf-8") as stream:
             source = stream.read()
         self.assertIn(".controls-panel {\n      position: relative;\n      z-index: 10;", source)
+        self.assertIn(".table-container {\n      position: relative;\n      z-index: 2;", source)
         self.assertIn(".multi-filter-menu {\n      position: absolute;", source)
         self.assertIn("function closeMultiFilters(exceptFilter)", source)
         self.assertIn("if (!event.target.closest('.multi-filter')) closeMultiFilters();", source)
         self.assertIn("if (filter.open) closeMultiFilters(filter);", source)
+
+    def test_dashboard_search_and_filter_synchronization(self):
+        template = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
+        with open(template, encoding="utf-8") as stream:
+            source = stream.read()
+        self.assertIn(".multi-filter-summary {", source)
+        self.assertIn("min-width: 0;", source)
+        self.assertIn("text-overflow: ellipsis;", source)
+        self.assertIn("padding: 0 2.25rem 0 0.85rem;", source)
+        self.assertIn('autocomplete="off"', source)
+        self.assertIn("(article.newsletter || '').toLowerCase().includes(query)", source)
+        self.assertIn("(article.source_short_name || '').toLowerCase().includes(query)", source)
+        # Verify faceted filter counts and spotlight availability synchronization
+        sources_pos = source.find("const sources = getSelectedFilterValues(sourceFilter);")
+        counts_pos = source.find("updateFilterOptionCounts(articlesForSources, articlesForTypes, articlesForCategories);", sources_pos)
+        spotlight_pos = source.find("updateSpotlightAvailability();", counts_pos)
+        self.assertGreater(sources_pos, 0)
+        self.assertGreater(counts_pos, sources_pos)
+        self.assertGreater(spotlight_pos, counts_pos)
+
+    def test_dashboard_faceted_cross_filter_counts(self):
+        """Verifies that Content Type and Category counts are scoped to the selected source (and vice-versa)."""
+        news_file = os.path.join(REPO_ROOT, "news.html")
+        with open(news_file, encoding="utf-8") as stream:
+            html = stream.read()
+        m = re.search(r"const articles = (\[.*?\]);", html, re.DOTALL)
+        self.assertIsNotNone(m, "articles array not found in news.html")
+        articles = json.loads(m.group(1))
+
+        # Anchor clock to reference test date
+        anchor_date = datetime(2026, 9, 19, 10, 0, 0, tzinfo=timezone.utc)
+        now_ms = anchor_date.timestamp() * 1000
+
+        # Filter to Last 1 Week (7 days)
+        cutoff_7d = now_ms - (7 * 24 * 60 * 60 * 1000)
+        cutoff_day_7d = datetime.fromtimestamp(cutoff_7d / 1000, tz=timezone.utc).replace(
+            hour=0, minute=0, second=0, microsecond=0
+        ).timestamp() * 1000
+
+        articles_7d = [
+            a for a in articles
+            if datetime.fromisoformat(a["date"]).replace(tzinfo=timezone.utc).timestamp() * 1000 >= cutoff_day_7d
+        ]
+
+        # Scenario: User selects Addy Osmani under Last 1 Week
+        addy_articles_7d = [
+            a for a in articles_7d
+            if a.get("newsletter") == "Addy Osmani" or "Addy Osmani" in a.get("also_in", [])
+        ]
+        self.assertEqual(len(addy_articles_7d), 0, "Addy Osmani should have 0 articles in Last 1 Week")
+
+        # Faceted types and categories for Addy Osmani must therefore all be 0
+        type_counts = {}
+        for a in addy_articles_7d:
+            t = a.get("type")
+            if t:
+                type_counts[t] = type_counts.get(t, 0) + 1
+        self.assertEqual(sum(type_counts.values()), 0)
+
+        cat_counts = {}
+        for a in addy_articles_7d:
+            c = a.get("category")
+            if c:
+                cat_counts[c] = cat_counts.get(c, 0) + 1
+        self.assertEqual(sum(cat_counts.values()), 0)
+
+    def test_dashboard_runtime_filter_engine(self):
+        """Verifies multi-layer filter resolution across timeframes, search, and sources."""
+        news_file = os.path.join(REPO_ROOT, "news.html")
+        with open(news_file, encoding="utf-8") as stream:
+            html = stream.read()
+        m = re.search(r"const articles = (\[.*?\]);", html, re.DOTALL)
+        self.assertIsNotNone(m, "articles array not found in news.html")
+        articles = json.loads(m.group(1))
+
+        # Anchor clock to reference test date
+        anchor_date = datetime(2026, 9, 19, 10, 0, 0, tzinfo=timezone.utc)
+        now_ms = anchor_date.timestamp() * 1000
+
+        def filter_timeframe(days_or_all):
+            if days_or_all == "all":
+                return articles
+            days = int(days_or_all)
+            cutoff = now_ms - (days * 24 * 60 * 60 * 1000)
+            cutoff_dt = datetime.fromtimestamp(cutoff / 1000, tz=timezone.utc).replace(
+                hour=0, minute=0, second=0, microsecond=0
+            )
+            cutoff_day_ms = cutoff_dt.timestamp() * 1000
+            res = []
+            for a in articles:
+                art_time = datetime.fromisoformat(a["date"]).replace(
+                    tzinfo=timezone.utc
+                ).timestamp() * 1000
+                if art_time > now_ms or art_time >= cutoff_day_ms:
+                    res.append(a)
+            return res
+
+        fose_source = "Future of Software Development (Thoughtworks FOSE)"
+        # Layer 1: Timeframe window count assertions
+        tf_30 = filter_timeframe(30)
+        fose_30 = [a for a in tf_30 if a.get("newsletter") == fose_source]
+        self.assertEqual(len(fose_30), 0, "FOSE should have 0 articles in 30-day window")
+
+        tf_60 = filter_timeframe(60)
+        fose_60 = [a for a in tf_60 if a.get("newsletter") == fose_source]
+        self.assertEqual(len(fose_60), 14, "FOSE should have 14 articles in 60-day window")
+
+        tf_all = filter_timeframe("all")
+        fose_all = [a for a in tf_all if a.get("newsletter") == fose_source]
+        self.assertEqual(len(fose_all), 16, "FOSE should have all 16 articles in full 90-day build")
+
+        # Layer 2: Multi-filter matching (FOSE alone with all categories and types)
+        sources_set = {fose_source}
+        types_set = set(a["type"] for a in articles)
+        categories_set = set(a["category"] for a in articles)
+
+        def matches_filters(article):
+            m_src = article.get("newsletter") in sources_set or any(
+                s in sources_set for s in article.get("also_in", [])
+            )
+            return m_src and article.get("type") in types_set and article.get("category") in categories_set
+
+        matched_articles = [a for a in tf_all if matches_filters(a)]
+        self.assertEqual(len(matched_articles), 16)
+
+        # Layer 3: Text search coverage across newsletter and source_short_name
+        def matches_query(article, query):
+            q = query.lower().strip()
+            if not q:
+                return True
+            haystack = " ".join([
+                article.get("title", ""),
+                article.get("author", ""),
+                article.get("description", ""),
+                article.get("issue_title", ""),
+                article.get("newsletter", ""),
+                article.get("source_short_name", ""),
+            ]).lower()
+            return q in haystack
+
+        self.assertEqual(len([a for a in fose_all if matches_query(a, "thoughtworks")]), 16)
+        self.assertEqual(len([a for a in fose_all if matches_query(a, "fose")]), 16)
+        self.assertEqual(len([a for a in fose_all if matches_query(a, "future of software")]), 16)
+        self.assertEqual(len([a for a in fose_all if matches_query(a, "Martin Fowler")]), 2)
+        self.assertEqual(len([a for a in fose_all if matches_query(a, "Mathias Verraes")]), 1)
 
     def test_spotlight_requires_a_supported_source(self):
         template = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")

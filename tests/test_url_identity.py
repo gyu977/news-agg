@@ -32,7 +32,7 @@ class CleanUrlTests(unittest.TestCase):
         )
 
     def test_strips_social_click_ids(self):
-        for param in ("fbclid", "gclid", "msclkid", "igshid", "twclid"):
+        for param in ("fbclid", "gclid", "msclkid", "igshid", "twclid", "mkt_tok", "spm", "r", "publication_id"):
             self.assertEqual(
                 self.s.clean_url(f"https://a.com/x?{param}=123"), "https://a.com/x",
                 f"{param} survived",
