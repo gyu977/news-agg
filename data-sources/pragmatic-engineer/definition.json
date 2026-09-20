@@ -5,8 +5,48 @@
   "official_site": "https://newsletter.pragmaticengineer.com/",
   "archive_url": "https://newsletter.pragmaticengineer.com/archive",
   "parsed_issues": {
-    "count": 28,
+    "count": 33,
     "issues": [
+      {
+        "id": "pe-2026-09-f5a472",
+        "date": "2026-09-17",
+        "date_str": "17 September 2026",
+        "title": "AI Skills with Matt Pocock",
+        "url": "https://newsletter.pragmaticengineer.com/p/ai-skills-with-matt-pocock",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-09-557dcb",
+        "date": "2026-09-15",
+        "date_str": "15 September 2026",
+        "title": "Inside OpenAI’s agentic software factory",
+        "url": "https://newsletter.pragmaticengineer.com/p/openai-software-factory",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-09-4a4ff0",
+        "date": "2026-09-10",
+        "date_str": "10 September 2026",
+        "title": "The Pulse #191: a new trend of CPU shortages",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-191-a-new-trend-of-cpu",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-09-bd9f59",
+        "date": "2026-09-09",
+        "date_str": "9 September 2026",
+        "title": "Building Codex with Tibo Sottiaux",
+        "url": "https://newsletter.pragmaticengineer.com/p/building-codex-with-tibo-sottiaux",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-09-8fca40",
+        "date": "2026-09-08",
+        "date_str": "8 September 2026",
+        "title": "What is happening with code reviews?",
+        "url": "https://newsletter.pragmaticengineer.com/p/what-is-happening-with-code-reviews",
+        "quotes": []
+      },
       {
         "id": "pe-2026-09-dec831",
         "date": "2026-09-03",
@@ -232,8 +272,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "pe-2026-09-dec831",
-    "last_parsed_date": "2026-09-03"
+    "last_parsed_issue": "pe-2026-09-f5a472",
+    "last_parsed_date": "2026-09-17"
   },
   "default_header": "### Gergely Orosz's The Pragmatic Engineer",
   "short_name": "Pragmatic Eng.",

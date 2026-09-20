@@ -1,5 +1,24 @@
 [
   {
+    "id": "addy-2026-09-7699fc",
+    "newsletter": "Addy Osmani",
+    "issue_number": null,
+    "issue_title": "September 2026 Blog Essays",
+    "issue_link": "https://addyosmani.com/blog/",
+    "date": "2026-09-14",
+    "date_str": "14 September 2026",
+    "title": "Brownfield Agentic Engineering",
+    "link": "https://addyo.substack.com/p/brownfield-agentic-engineering",
+    "author": "Addy Osmani",
+    "description": "What it takes to run agents in a codebase older than the team",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {}
+  },
+  {
     "id": "addy-2026-08-a3c48a",
     "newsletter": "Addy Osmani",
     "issue_number": null,

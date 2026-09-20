@@ -58,6 +58,7 @@ ID_PREFIXES = {
     "andriy-burkov-ai": "ab",
     "dear-architects": "da",
     "future-software-development": "fose",
+    "martin-fowler": "mf",
     "my-collected-articles": "others",
     "pragmatic-engineer": "pe",
     "simon-willison": "sw",

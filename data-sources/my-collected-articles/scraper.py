@@ -67,6 +67,8 @@ class MyCollectedArticlesScraper(BaseScraper):
         "incident.io": "incident.io",
         "adamtornhill.substack.com": "Adam Tornhill",
         "linkedin.com/pulse/100-most-watched": "Tech Talks Weekly",
+        "lucumr.pocoo.org": "Armin Ronacher",
+        "nick-tune.me": "Nick Tune",
     }
 
     def __init__(self):
@@ -344,8 +346,9 @@ class MyCollectedArticlesScraper(BaseScraper):
                 final_title = custom_title or web_meta["title"] or clean_url
                 if final_title.lower().startswith("home | "):
                     final_title = final_title.split("|", 1)[1].strip()
-                # Clean title suffixes like " | Dan Anthony" or " | Blog | incident.io"
+                # Clean title suffixes like " | Dan Anthony" or " | Blog | incident.io" or " - Nick Tune"
                 final_title = re.sub(r'\s*\|\s*(Blog\s*\|\s*)?[A-Za-z0-9\.\-\s]+$', '', final_title)
+                final_title = re.sub(r'\s*-\s*Nick Tune$', '', final_title)
                 final_title = final_title.strip()
 
                 final_author = custom_author or web_meta["author"]
@@ -381,7 +384,7 @@ class MyCollectedArticlesScraper(BaseScraper):
 
                 art = Article(
                     id=art_id,
-                    newsletter="On My Radar",
+                    newsletter="Editor's Radar",
                     issue_number=None,
                     issue_title=f"{issue_mon_year} Collected Articles",
                     issue_link="",

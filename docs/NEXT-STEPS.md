@@ -27,11 +27,18 @@ Based on the recommendations in [`docs/ui-expert-review-en.md`](docs/ui-expert-r
 
 ## 2. General Backlog (Future Considerations & Architectural Thresholds)
 
+- **Conference Type Icon Readability (UI Polish)**:
+  - *Context*: In dropdown filters and table badges, the current conference icon `🎟️` (admission tickets) renders at 13–15px as a tiny, low-contrast pink rectangle where details are illegible against dark backgrounds.
+  - *Goal*: Replace `🎟️` with a more legible, recognizable alternative that scales well at small font sizes (e.g. `🏛️` classical amphitheater/auditorium, `🎪` event pavilion, `🌐` summit, or an SVG badge/glyph) across `code/builders/news_template.html`, `code/common/constants.py`, and `docs/DEVELOPER-GUIDE.md`.
 - **Sticky Table Header Corner Bleed on Selected Rows (UI Polish)**:
   - *Scenario*: When rows are selected (e.g. "Select All") and the user scrolls down through the table.
   - *Issue*: The sticky table header (`th:first-child`) uses `border-top-left-radius: 12px;`, whereas selected rows (`.selected-row td:first-child`) have an accent indicator (`border-left: 3px solid #38bdf8`). When scrolling down, the blue strip of rows moving under the header visibly peeks out through the transparent curved corner radius.
   - *Proposed Fix Options*: Replace `border-left` with `box-shadow: inset 3px 0 0 #38bdf8;`, square the sticky header's corners when pinned / scrolled, or add an outer clipping wrapper around the scrollable body.
-- **Additional Feeds**: Martin Fowler (Bliki), ByteByteGo (Systems Design), Dan Luu (Performance). Use `code/tools/scaffold_source.py`.
+- **Next Week Priority — Migrate Andriy Burkov Source to Substack (`aiweekly.substack.com`)**:
+  - *Context*: Andriy Burkov cross-publishes the exact same weekly content under *True Positive Weekly* on Substack (`https://aiweekly.substack.com/api/v1/posts`).
+  - *Benefits*: Eliminates LinkedIn authwalls, HTTP 999 blocks, and manual imports; enables automated weekly refreshes (`--refresh --source andriy-burkov-ai`); guarantees 100% direct, un-gated destination URLs.
+  - *Implementation Notes*: Filter for posts starting with `True Positive Weekly` (ignoring occasional book chapter promos), parse `<ul><li><a href="...">` from `body_html`, keep `source_id: andriy-burkov-ai` and `short_name: Burkov AI`, and maintain existing signal-to-noise editorial rules (`hide: true` for consumer op-eds / detector controversies).
+- **Additional Feeds**: ByteByteGo (Systems Design), Dan Luu (Performance). Use `code/tools/scaffold_source.py` (Martin Fowler Bliki/feed added and active).
 - **Scheduled CI/CD**: Set up `.github/workflows/refresh.yml` to automate weekly newsletter ingestion on GitHub Actions.
 - **Bookmarks**: Browser `localStorage` bookmarking (`[★ Saved]`) for offline reading queues.
 - **Aggregated RSS Feed**: Add `code/builders/build_feed.py` to output a unified `output/feed.xml`.

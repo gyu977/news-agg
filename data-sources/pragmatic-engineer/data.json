@@ -1,5 +1,119 @@
 [
   {
+    "id": "pe-2026-09-f5a472",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-09-17",
+    "date_str": "17 September 2026",
+    "title": "AI Skills with Matt Pocock",
+    "link": "https://newsletter.pragmaticengineer.com/p/ai-skills-with-matt-pocock",
+    "author": "with Matt Pocock",
+    "description": "Matt Pocock explains how he uses AI coding skills and agents to plan and build software, and why engineering fundamentals matter more than ever.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "audience": "everyone",
+      "slug": "ai-skills-with-matt-pocock"
+    }
+  },
+  {
+    "id": "pe-2026-09-557dcb",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-09-15",
+    "date_str": "15 September 2026",
+    "title": "Inside OpenAI’s agentic software factory",
+    "link": "https://newsletter.pragmaticengineer.com/p/openai-software-factory",
+    "author": null,
+    "description": "A deepdive into how Codex has “taken over” OpenAI, how the frontier lab builds its agentic software factory, and the engineering challenges of one billion users. Details from inside OpenAI",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "openai-software-factory"
+    }
+  },
+  {
+    "id": "pe-2026-09-4a4ff0",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-09-10",
+    "date_str": "10 September 2026",
+    "title": "The Pulse #191: a new trend of CPU shortages",
+    "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-191-a-new-trend-of-cpu",
+    "author": null,
+    "description": "For compute-intensive services: it’s worth reserving more compute now. Also: growth dreams end for more COVID-era unicorns, engineers losing touch with systems when AI handles incidents, and more",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": false,
+    "type": "pulse",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "the-pulse-191-a-new-trend-of-cpu"
+    }
+  },
+  {
+    "id": "pe-2026-09-bd9f59",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-09-09",
+    "date_str": "9 September 2026",
+    "title": "Building Codex with Tibo Sottiaux",
+    "link": "https://newsletter.pragmaticengineer.com/p/building-codex-with-tibo-sottiaux",
+    "author": "with Tibo Sottiaux",
+    "description": "OpenAI’s Tibo Sottiaux shares how Codex was built, why it’s open source, how it’s used inside OpenAI, how it’s changing software development within the company",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "audience": "everyone",
+      "slug": "building-codex-with-tibo-sottiaux"
+    }
+  },
+  {
+    "id": "pe-2026-09-8fca40",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-09-08",
+    "date_str": "8 September 2026",
+    "title": "What is happening with code reviews?",
+    "link": "https://newsletter.pragmaticengineer.com/p/what-is-happening-with-code-reviews",
+    "author": null,
+    "description": "AI generates more code than devs can track in 2026, so will the code review process have to adapt – or is it doomed? A look into this decades-old practice and the approaches that could replace it",
+    "category": "Software Testing, Quality & Observability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "what-is-happening-with-code-reviews"
+    }
+  },
+  {
     "id": "pe-2026-09-dec831",
     "newsletter": "The Pragmatic Engineer",
     "issue_number": null,

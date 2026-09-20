@@ -1,5 +1,110 @@
 [
   {
+    "id": "da-308-10adf5",
+    "newsletter": "Dear Architects",
+    "issue_number": 308,
+    "issue_title": "Team AI shift explained - #308 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199047240132593630?signature=59f2c3253aaa259c7a1671312fb729cea59099aacb7f2c94eee33239fceff9d9",
+    "date": "2026-09-19",
+    "date_str": "19 September 2026",
+    "title": "Context Engineering at LinkedIn",
+    "link": "https://www.infoq.com/presentations/linkedin-context-engineering/",
+    "author": "Ajay Prakash",
+    "description": "Ajay Prakash discusses how LinkedIn overcomes AI agent limitations in large codebases. He explains Contextual Agent Playbooks (CAPs) which equip agents with explicit guidelines, domain knowledge, and tool access to generate reliable code aligned with enterprise standards.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": true,
+    "type": "presentation",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-308-b05d7c",
+    "newsletter": "Dear Architects",
+    "issue_number": 308,
+    "issue_title": "Team AI shift explained - #308 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199047240132593630?signature=59f2c3253aaa259c7a1671312fb729cea59099aacb7f2c94eee33239fceff9d9",
+    "date": "2026-09-19",
+    "date_str": "19 September 2026",
+    "title": "Becoming an AI Team",
+    "link": "https://medium.com/pinterest-engineering/becoming-an-ai-team-c7438fa538e1",
+    "author": "John Grass",
+    "description": "An AI team is fundamentally more than just a group whose members incorporate AI tools into their existing workflows. The journey to becoming an AI team necessitates a fundamental and comprehensive paradigm shift in how the team defines ownership, engages in strategic planning, and executes on core goals.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-308-e6f7b6",
+    "newsletter": "Dear Architects",
+    "issue_number": 308,
+    "issue_title": "Team AI shift explained - #308 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199047240132593630?signature=59f2c3253aaa259c7a1671312fb729cea59099aacb7f2c94eee33239fceff9d9",
+    "date": "2026-09-19",
+    "date_str": "19 September 2026",
+    "title": "We turned off Pub/Sub and nobody noticed",
+    "link": "https://incident.io/blog/we-turned-off-pub-sub-and-nobody-noticed",
+    "author": "incident.io",
+    "description": "incident.io wanted to remove a single point of failure from its messaging infrastructure, and walks through the abstractions, failover and production chaos testing that let them switch off Google Cloud Pub/Sub without customer impact.",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-308-8ed452",
+    "newsletter": "Dear Architects",
+    "issue_number": 308,
+    "issue_title": "Team AI shift explained - #308 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199047240132593630?signature=59f2c3253aaa259c7a1671312fb729cea59099aacb7f2c94eee33239fceff9d9",
+    "date": "2026-09-19",
+    "date_str": "19 September 2026",
+    "title": "The 13 Multi-Agent Orchestration Patterns, Implemented via the Reactive Reducer",
+    "link": "https://bradmurry.com/software/reactive-reducer-patterns/",
+    "author": "Brad Murry",
+    "description": "Most agent orchestration is non-deterministic by construction: the agents decide the control flow. This article explores 13 patterns for coordinating agents using a reactive reducer approach, providing a structured architectural vocabulary for multi-agent workflows.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-308-aeb3bb",
+    "newsletter": "Dear Architects",
+    "issue_number": 308,
+    "issue_title": "Team AI shift explained - #308 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199047240132593630?signature=59f2c3253aaa259c7a1671312fb729cea59099aacb7f2c94eee33239fceff9d9",
+    "date": "2026-09-19",
+    "date_str": "19 September 2026",
+    "title": "System Design for the LLM Era",
+    "link": "https://www.amazon.co.uk/dp/1807789934",
+    "author": null,
+    "description": "A guide taking a software architecture approach to LLM systems, covering resilience, cost, latency, security, fallback strategies, and event-driven architectures with real case studies connecting patterns to production systems.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "book",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "da-307-f1499d",
     "newsletter": "Dear Architects",
     "issue_number": 307,

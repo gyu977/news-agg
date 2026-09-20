@@ -492,7 +492,7 @@ class BuilderSafetyTests(unittest.TestCase):
             "andriy-burkov-ai": "Burkov AI",
             "dear-architects": "Dear Architects",
             "future-software-development": "Thoughtworks FOSE",
-            "my-collected-articles": "On My Radar",
+            "my-collected-articles": "Editor's Radar",
             "pragmatic-engineer": "Pragmatic Eng.",
             "token-by-token": "Token by Token",
         }
@@ -600,23 +600,24 @@ class BuilderSafetyTests(unittest.TestCase):
             if datetime.fromisoformat(a["date"]).replace(tzinfo=timezone.utc).timestamp() * 1000 >= cutoff_day_7d
         ]
 
-        # Scenario: User selects Addy Osmani under Last 1 Week
-        addy_articles_7d = [
+        # Scenario: User selects a source with 0 articles under Last 1 Week (e.g. FOSE)
+        fose_source = "Future of Software Development (Thoughtworks FOSE)"
+        fose_articles_7d = [
             a for a in articles_7d
-            if a.get("newsletter") == "Addy Osmani" or "Addy Osmani" in a.get("also_in", [])
+            if a.get("newsletter") == fose_source or fose_source in a.get("also_in", [])
         ]
-        self.assertEqual(len(addy_articles_7d), 0, "Addy Osmani should have 0 articles in Last 1 Week")
+        self.assertEqual(len(fose_articles_7d), 0, "FOSE should have 0 articles in Last 1 Week")
 
-        # Faceted types and categories for Addy Osmani must therefore all be 0
+        # Faceted types and categories for this 0-result source must therefore all be 0
         type_counts = {}
-        for a in addy_articles_7d:
+        for a in fose_articles_7d:
             t = a.get("type")
             if t:
                 type_counts[t] = type_counts.get(t, 0) + 1
         self.assertEqual(sum(type_counts.values()), 0)
 
         cat_counts = {}
-        for a in addy_articles_7d:
+        for a in fose_articles_7d:
             c = a.get("category")
             if c:
                 cat_counts[c] = cat_counts.get(c, 0) + 1

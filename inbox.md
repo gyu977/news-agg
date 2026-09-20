@@ -19,6 +19,14 @@ Supported formats:
 
 ## ✅ Processed Articles
 
+### Processed on 2026-09-20 19:11:
+- **Nick Tune** - [Architecture and model diffs via code conventions](https://nick-tune.me/blog/2026-09-08-architecture-and-model-diffs-via-conventions/)
+- **Nick Tune** - [Enforced application architecture for agents and humans](https://nick-tune.me/blog/2026-08-13-enforced-application-architecture-for-agents-and-humans-copy/)
+
+
+### Processed on 2026-09-20 15:49:
+- **Armin Ronacher** - [Astra for Coding: Why Are We Doing This Again?](https://lucumr.pocoo.org/2026/9/7/astra-why/) *(Tracked in Token by Token)*
+
 ### Processed on 2026-09-13 13:16:
 - **Clare Liguori** - [Frontier engineering](https://kiro.dev/topics/frontier-engineering/)
 - **Addy Osmani** - [Agentic Engineering](https://learning.oreilly.com/library/view/agentic-engineering/0642572392291/)

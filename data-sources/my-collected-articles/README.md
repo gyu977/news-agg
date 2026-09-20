@@ -1,7 +1,7 @@
-# On My Radar (Mihai V. Collected Articles)
+# Editor's Radar (Curated Articles)
 
 * **Source ID**: `my-collected-articles`
-* **Newsletter / Source Name**: On My Radar
+* **Newsletter / Source Name**: Editor's Radar
 * **Author / Curator**: Mihai V.
 * **Has Archive**: `false` (Curated Collection)
 * **Last Updated:** 2 September 2026

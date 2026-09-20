@@ -5,8 +5,16 @@
   "official_site": "https://www.tokenbytoken.ai/",
   "archive_url": "https://www.tokenbytoken.ai/",
   "parsed_issues": {
-    "count": 22,
+    "count": 23,
     "issues": [
+      {
+        "id": "23",
+        "date": "2026-09-17",
+        "date_str": "17 September 2026",
+        "title": "AI Agents: Beyond Demos - #23 token by token",
+        "url": "https://preview.mailerlite.io/emails/webview/2096144/198937329030661929?signature=4582830e3146967fea1fc10d6f42b04f9ddeca94c88f9b398fa1a383ff49c308",
+        "quotes": []
+      },
       {
         "id": "22",
         "date": "2026-09-10",
@@ -184,8 +192,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "22",
-    "last_parsed_date": "2026-09-10"
+    "last_parsed_issue": "23",
+    "last_parsed_date": "2026-09-17"
   },
   "default_header": "### Luca Mezzalira's Token by Token",
   "short_name": "Token by Token",

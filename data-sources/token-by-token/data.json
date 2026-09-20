@@ -1,5 +1,110 @@
 [
   {
+    "id": "tbt-23-777fb1",
+    "newsletter": "Token by Token",
+    "issue_number": 23,
+    "issue_title": "AI Agents: Beyond Demos - #23 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/198937329030661929?signature=4582830e3146967fea1fc10d6f42b04f9ddeca94c88f9b398fa1a383ff49c308",
+    "date": "2026-09-17",
+    "date_str": "17 September 2026",
+    "title": "How to set up your repository for AI coding agents",
+    "link": "https://ainativesoftware.engineering/harness",
+    "author": "Luca Mezzalira",
+    "description": "The harness has two parts: the tool around the model (Claude Code, Cursor, Codex) that controls how the agent reads and edits, and the environment that guides its judgment. Best practices for configuring repo instructions, tools, and constraints.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": true,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-23-8ed452",
+    "newsletter": "Token by Token",
+    "issue_number": 23,
+    "issue_title": "AI Agents: Beyond Demos - #23 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/198937329030661929?signature=4582830e3146967fea1fc10d6f42b04f9ddeca94c88f9b398fa1a383ff49c308",
+    "date": "2026-09-17",
+    "date_str": "17 September 2026",
+    "title": "The 13 Multi-Agent Orchestration Patterns",
+    "link": "https://bradmurry.com/software/reactive-reducer-patterns/",
+    "author": "Brad Murry",
+    "description": "These are the thirteen multi-agent orchestration patterns that keep showing up in real systems, and what each one looks like when implemented with a reactive reducer.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-23-2668f2",
+    "newsletter": "Token by Token",
+    "issue_number": 23,
+    "issue_title": "AI Agents: Beyond Demos - #23 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/198937329030661929?signature=4582830e3146967fea1fc10d6f42b04f9ddeca94c88f9b398fa1a383ff49c308",
+    "date": "2026-09-17",
+    "date_str": "17 September 2026",
+    "title": "When Spec-Driven Development Pays off",
+    "link": "https://www.infoq.com/articles/when-spec-driven-development-pays-off/",
+    "author": "Luca Mezzalira",
+    "description": "Spec-driven development introduces five control points that leave concrete architectural artifacts behind, preventing drift when developing with AI coding assistants.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-23-639fd8",
+    "newsletter": "Token by Token",
+    "issue_number": 23,
+    "issue_title": "AI Agents: Beyond Demos - #23 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/198937329030661929?signature=4582830e3146967fea1fc10d6f42b04f9ddeca94c88f9b398fa1a383ff49c308",
+    "date": "2026-09-17",
+    "date_str": "17 September 2026",
+    "title": "Multi-Agent AI Engineering",
+    "link": "https://www.amazon.co.uk/Multi-Agent-AI-Engineering-operate-coordinated/dp/180669087X",
+    "author": "Luca Mezzalira",
+    "description": "A comprehensive guide to designing, building, and operating coordinated multi-agent AI systems in enterprise production environments.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "book",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-23-369127",
+    "newsletter": "Token by Token",
+    "issue_number": 23,
+    "issue_title": "AI Agents: Beyond Demos - #23 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/198937329030661929?signature=4582830e3146967fea1fc10d6f42b04f9ddeca94c88f9b398fa1a383ff49c308",
+    "date": "2026-09-17",
+    "date_str": "17 September 2026",
+    "title": "Astra for Coding: Why Are We Doing This Again?",
+    "link": "https://lucumr.pocoo.org/2026/9/7/astra-why/",
+    "author": "Armin Ronacher",
+    "description": "Astra is by all accounts an incredibly impressive model. Armin Ronacher reflects on why developers keep building code generation harnesses, the trade-offs of large context windows, and whether the direction of coding agents is solving the right problems.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "tbt-22-81e43f",
     "newsletter": "Token by Token",
     "issue_number": 22,

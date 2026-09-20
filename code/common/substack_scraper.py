@@ -93,7 +93,7 @@ class SubstackScraper(BaseScraper):
         date_str = dt.strftime("%d %B %Y").lstrip("0")
 
         subtitle = post.get("subtitle", "") or ""
-        subtitle = subtitle.strip().replace('&amp;', 'and')
+        subtitle = " ".join(subtitle.split()).replace('&amp;', 'and')
 
         content_type = self.detect_content_type(post, raw_title)
         _, guest_author = self.extract_guest_author(raw_title)

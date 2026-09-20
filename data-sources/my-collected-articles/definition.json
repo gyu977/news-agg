@@ -1,6 +1,6 @@
 {
   "source_id": "my-collected-articles",
-  "name": "On My Radar",
+  "name": "Editor's Radar",
   "author": "Mihai V.",
   "official_site": "",
   "archive_url": "",
@@ -51,8 +51,8 @@
     "last_parsed_issue": "collected-october-2026",
     "last_parsed_date": "2026-10-20"
   },
-  "default_header": "### On My Radar (Collected by Mihai V.)",
-  "short_name": "On My Radar",
+  "default_header": "### Editor's Radar",
+  "short_name": "Editor's Radar",
   "sponsor_domains": [],
   "archive_retention_days": null,
   "has_archive": false,
@@ -61,5 +61,5 @@
   "refresh_disabled_reason": "",
   "selectors_spec": {},
   "article_id_prefix": "others",
-  "description": "Personal curated reading collection by Mihai V."
+  "description": "Handpicked articles, books, and conference talks on modern software engineering and architecture."
 }

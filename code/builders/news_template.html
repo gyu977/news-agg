@@ -871,6 +871,18 @@
       border: 1px solid rgba(235, 41, 140, 0.3);
     }
 
+    .badge-mf {
+      background: rgba(217, 119, 6, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+
+    .badge-sw {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
     .badge-spotlight {
       background: var(--accent-gold-rgba);
       color: var(--accent-gold);
@@ -1767,9 +1779,9 @@
         </div>
 
         <div class="filter-group">
-          <label class="filter-label">Content Type</label>
-          <details id="typeFilter" class="multi-filter" data-all-label="All Types">
-            <summary><span class="multi-filter-summary">All Types</span></summary>
+          <label class="filter-label">Categories</label>
+          <details id="categoryFilter" class="multi-filter" data-all-label="All Categories">
+            <summary><span class="multi-filter-summary">All Categories</span></summary>
             <div class="multi-filter-menu">
               <div class="multi-filter-actions">
                 <button type="button" class="multi-filter-action" data-filter-action="all">All</button>
@@ -1781,9 +1793,9 @@
         </div>
 
         <div class="filter-group">
-          <label class="filter-label">Categories</label>
-          <details id="categoryFilter" class="multi-filter" data-all-label="All Categories">
-            <summary><span class="multi-filter-summary">All Categories</span></summary>
+          <label class="filter-label">Content Type</label>
+          <details id="typeFilter" class="multi-filter" data-all-label="All Types">
+            <summary><span class="multi-filter-summary">All Types</span></summary>
             <div class="multi-filter-menu">
               <div class="multi-filter-actions">
                 <button type="button" class="multi-filter-action" data-filter-action="all">All</button>
@@ -2453,7 +2465,7 @@ function renderCategoryCounts(list) {
       });
     }
 
-    [timeframeDropdown, sourceFilter, typeFilter, categoryFilter].filter(Boolean).forEach(filter => {
+    [timeframeDropdown, sourceFilter, categoryFilter, typeFilter].filter(Boolean).forEach(filter => {
       filter.addEventListener('toggle', function() {
         if (filter.open) closeMultiFilters(filter);
       });
@@ -2739,6 +2751,8 @@ function renderCategoryCounts(list) {
           'andriy-burkov-ai': 'badge-ai',
           'addy-osmani': 'badge-addy',
           'future-software-development': 'badge-fose',
+          'martin-fowler': 'badge-mf',
+          'simon-willison': 'badge-sw',
           'my-collected-articles': 'badge-others'
         };
         const badgeClass = badgeClasses[article.source_id] || 'badge-tbt';

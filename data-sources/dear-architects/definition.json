@@ -5,8 +5,16 @@
   "official_site": "https://deararchitects.xyz/",
   "archive_url": "https://www.deararchitects.xyz/archive",
   "parsed_issues": {
-    "count": 89,
+    "count": 90,
     "issues": [
+      {
+        "id": "308",
+        "date": "2026-09-19",
+        "date_str": "19 September 2026",
+        "title": "Team AI shift explained - #308 Dear Architects",
+        "url": "https://preview.mailerlite.io/emails/webview/1235400/199047240132593630?signature=59f2c3253aaa259c7a1671312fb729cea59099aacb7f2c94eee33239fceff9d9",
+        "quotes": []
+      },
       {
         "id": "307",
         "date": "2026-09-12",
@@ -1150,8 +1158,8 @@
         ]
       }
     ],
-    "last_parsed_issue": "307",
-    "last_parsed_date": "2026-09-12"
+    "last_parsed_issue": "308",
+    "last_parsed_date": "2026-09-19"
   },
   "default_header": "### Luca Mezzalira's Dear Architects",
   "short_name": "Dear Architects",

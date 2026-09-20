@@ -1,5 +1,173 @@
 [
   {
+    "id": "ab-344-b52898",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 344,
+    "issue_title": "Artificial Intelligence #344",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+    "date": "2026-09-19",
+    "date_str": "19 September 2026",
+    "title": "A severe misalignment of AI in mathematics",
+    "link": "https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/",
+    "author": "Terence Tao",
+    "description": "A declaration by 25 Fields Medalists, including Terence Tao, arguing that AI companies and the mathematical community have misaligned goals: treating mathematics as a race to produce true/false benchmarks rather than conceptual discovery and transmission.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "ab-344-e07775",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 344,
+    "issue_title": "Artificial Intelligence #344",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+    "date": "2026-09-19",
+    "date_str": "19 September 2026",
+    "title": "Data science in the age of AI",
+    "link": "https://www.robinlinacre.com/data_science_age_ai/",
+    "author": "Robin Linacre",
+    "description": "The shift toward hybrid workflows where humans, AI agents, and structured logic collaborate, moving data science away from boilerplate toward system design and veridical problem-solving.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "ab-344-e4d60d",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 344,
+    "issue_title": "Artificial Intelligence #344",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+    "date": "2026-09-19",
+    "date_str": "19 September 2026",
+    "title": "A history of large language models",
+    "link": "https://gregorygundersen.com/blog/2025/10/01/large-language-models/",
+    "author": "Gregory Gundersen",
+    "description": "Tracing the academic and technical evolution of LLMs from distributed representations in the 1980s through transducers, attention mechanisms, the Transformer breakthrough, and generative pre-training scale.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "ab-344-13b476",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 344,
+    "issue_title": "Artificial Intelligence #344",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+    "date": "2026-09-19",
+    "date_str": "19 September 2026",
+    "title": "Learning from experience instead of curated datasets",
+    "link": "https://oaklab.ai/posts/learning-from-experience-instead-of-curated-datasets",
+    "author": "Oak Lab",
+    "description": "A research perspective on algorithms that learn from unfiltered noisy data streams rather than human-cleaned, static curated datasets, moving AI closer to real-time continuous learning.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "ab-344-5d906d",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 344,
+    "issue_title": "Artificial Intelligence #344",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+    "date": "2026-09-19",
+    "date_str": "19 September 2026",
+    "title": "Binary vector embeddings are so cool",
+    "link": "https://emschwartz.me/binary-vector-embeddings-are-so-cool/",
+    "author": "Evan Schwartz",
+    "description": "Binary quantization compresses 32-bit float embedding vectors into single bits, unlocking 32x compression and ~25x faster retrieval speeds with over 95% accuracy retention using hardware Hamming distance operations.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "ab-344-427212",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 344,
+    "issue_title": "Artificial Intelligence #344",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+    "date": "2026-09-19",
+    "date_str": "19 September 2026",
+    "title": "A primer to machine learning compilers",
+    "link": "https://aramesh10.github.io/ml-compilers-primer/ml-compilers-primer.html",
+    "author": "Adithya Ramesh",
+    "description": "How ML compilers bridge high-level frameworks (PyTorch, JAX) to heterogeneous hardware accelerators, detailing frontends, graph IR optimizers, operator fusion, and code generation.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "ab-344-f44767",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 344,
+    "issue_title": "Artificial Intelligence #344",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+    "date": "2026-09-19",
+    "date_str": "19 September 2026",
+    "title": "Measuring scientific progress",
+    "link": "https://diffuse.one/p/d1-012",
+    "author": "Andrew White",
+    "description": "Proposing to measure scientific progress by tracking the survival lifetime of scientific claims rather than publication volume, finding that the half-life of claims has dropped from 250 years to 70 years.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "ab-344-92002c",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 344,
+    "issue_title": "Artificial Intelligence #344",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+    "date": "2026-09-19",
+    "date_str": "19 September 2026",
+    "title": "Latent Thought Flows with Text Compression",
+    "link": "https://latent-thought-flows.vercel.app/",
+    "author": "Mihir Prabhudesai & Zhengyang Geng",
+    "description": "Compressing sequences of text tokens into continuous latent vectors and generating thoughts with a one-step flow model before autoregressive decoding, improving the inference-compute vs generation-quality Pareto frontier.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "ab-343-622f34",
     "newsletter": "Artificial Intelligence (Andriy Burkov)",
     "issue_number": 343,

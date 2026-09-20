@@ -1,7 +1,7 @@
 [
   {
     "id": "others-2026-10-0af851",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "October 2026 Collected Articles",
     "issue_link": "",
@@ -20,7 +20,7 @@
   },
   {
     "id": "others-2026-09-575b1d",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "September 2026 Collected Articles",
     "issue_link": "",
@@ -39,7 +39,7 @@
   },
   {
     "id": "others-2026-09-28be68",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "September 2026 Collected Articles",
     "issue_link": "",
@@ -58,7 +58,7 @@
   },
   {
     "id": "others-2026-09-98264c",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "September 2026 Collected Articles",
     "issue_link": "",
@@ -77,7 +77,7 @@
   },
   {
     "id": "others-2026-09-62bef3",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "September 2026 Collected Articles",
     "issue_link": "",
@@ -96,7 +96,7 @@
   },
   {
     "id": "others-2026-09-a4c80c",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "September 2026 Collected Articles",
     "issue_link": "",
@@ -114,10 +114,31 @@
     "metadata": {}
   },
   {
-    "id": "others-2026-09-20cc18",
-    "newsletter": "On My Radar",
+    "id": "others-2026-09-b7f59c",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
-    "issue_title": "On My Radar - September 2026",
+    "issue_title": "September 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-09-08",
+    "date_str": "8 September 2026",
+    "title": "Architecture and model diffs via code conventions",
+    "link": "https://nick-tune.me/blog/2026-09-08-architecture-and-model-diffs-via-conventions/",
+    "author": "Nick Tune",
+    "description": "Generating architecture diffs for your PRs based on strong codebase conventions",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "others-2026-09-20cc18",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "Editor's Radar - September 2026",
     "issue_link": "https://www.taylorfrancis.com/books/mono/10.1201/9781003589112/psychology-software-teams-cat-hicks",
     "date": "2026-09-02",
     "date_str": "2 September 2026",
@@ -134,9 +155,9 @@
   },
   {
     "id": "others-2026-09-bdd255",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
-    "issue_title": "On My Radar - September 2026",
+    "issue_title": "Editor's Radar - September 2026",
     "issue_link": "https://www.seangoedecke.com/local-models-will-not-win/",
     "date": "2026-09-02",
     "date_str": "2 September 2026",
@@ -153,9 +174,9 @@
   },
   {
     "id": "others-2026-09-818232",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
-    "issue_title": "On My Radar - September 2026",
+    "issue_title": "Editor's Radar - September 2026",
     "issue_link": "https://martinfowler.com/articles/exploring-gen-ai/an-accidental-blackboard.html",
     "date": "2026-09-02",
     "date_str": "2 September 2026",
@@ -174,9 +195,9 @@
   },
   {
     "id": "others-2026-09-8f1c6e",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
-    "issue_title": "On My Radar - September 2026",
+    "issue_title": "Editor's Radar - September 2026",
     "issue_link": "https://newsletter.getdx.com/p/the-quality-paradox-of-ai-generated",
     "date": "2026-09-02",
     "date_str": "2 September 2026",
@@ -193,7 +214,7 @@
   },
   {
     "id": "others-2026-08-86cf1b",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "August 2026 Collected Articles",
     "issue_link": "",
@@ -212,7 +233,7 @@
   },
   {
     "id": "others-2026-08-c14e20",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "August 2026 Collected Articles",
     "issue_link": "",
@@ -231,7 +252,7 @@
   },
   {
     "id": "others-2026-08-34b50b",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "August 2026 Collected Articles",
     "issue_link": "",
@@ -250,7 +271,7 @@
   },
   {
     "id": "others-2026-08-d55592",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "August 2026 Collected Articles",
     "issue_link": "",
@@ -269,7 +290,7 @@
   },
   {
     "id": "others-2026-08-e6f7b6",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "August 2026 Collected Articles",
     "issue_link": "",
@@ -288,7 +309,7 @@
   },
   {
     "id": "others-2026-08-c74267",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "August 2026 Collected Articles",
     "issue_link": "",
@@ -307,7 +328,7 @@
   },
   {
     "id": "others-2026-08-1e21bd",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "August 2026 Collected Articles",
     "issue_link": "",
@@ -326,7 +347,7 @@
   },
   {
     "id": "others-2026-08-89ff03",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "August 2026 Collected Articles",
     "issue_link": "",
@@ -345,7 +366,7 @@
   },
   {
     "id": "others-2026-08-f264f4",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "August 2026 Collected Articles",
     "issue_link": "",
@@ -363,8 +384,29 @@
     "metadata": {}
   },
   {
+    "id": "others-2026-08-af1b62",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "August 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-08-13",
+    "date_str": "13 August 2026",
+    "title": "Enforced application architecture for agents and humans",
+    "link": "https://nick-tune.me/blog/2026-08-13-enforced-application-architecture-for-agents-and-humans-copy/",
+    "author": "Nick Tune",
+    "description": "Enforcing application architecture instead of relying on markdown files",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "others-2026-08-45fd3c",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "August 2026 Collected Articles",
     "issue_link": "",
@@ -385,7 +427,7 @@
   },
   {
     "id": "others-2026-07-2abe8e",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "July 2026 Collected Articles",
     "issue_link": "",
@@ -404,7 +446,7 @@
   },
   {
     "id": "others-2026-07-125707",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "July 2026 Collected Articles",
     "issue_link": "",
@@ -423,7 +465,7 @@
   },
   {
     "id": "others-2026-07-24aaa3",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "July 2026 Collected Articles",
     "issue_link": "",
@@ -442,7 +484,7 @@
   },
   {
     "id": "others-2026-07-2b9575",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "July 2026 Collected Articles",
     "issue_link": "",
@@ -461,7 +503,7 @@
   },
   {
     "id": "others-2026-07-5dbec4",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "July 2026 Collected Articles",
     "issue_link": "",
@@ -480,7 +522,7 @@
   },
   {
     "id": "others-2026-07-410d2a",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "July 2026 Collected Articles",
     "issue_link": "",
@@ -499,7 +541,7 @@
   },
   {
     "id": "others-2026-07-d008f5",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "July 2026 Collected Articles",
     "issue_link": "",
@@ -518,7 +560,7 @@
   },
   {
     "id": "others-2025-09-6112af",
-    "newsletter": "On My Radar",
+    "newsletter": "Editor's Radar",
     "issue_number": null,
     "issue_title": "September 2025 Collected Articles",
     "issue_link": "",

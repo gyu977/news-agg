@@ -871,6 +871,18 @@
       border: 1px solid rgba(235, 41, 140, 0.3);
     }
 
+    .badge-mf {
+      background: rgba(217, 119, 6, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.25);
+    }
+
+    .badge-sw {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
     .badge-spotlight {
       background: var(--accent-gold-rgba);
       color: var(--accent-gold);
@@ -1710,7 +1722,8 @@
         <li data-source="Artificial Intelligence (Andriy Burkov)"><strong>AI (Andriy Burkov)</strong> — AI-focused newsletter.</li>
         <li data-source="Dear Architects"><strong>Dear Architects</strong> — Software architecture and systems design newsletter by Luca Mezzalira.</li>
         <li data-source="Future of Software Development (Thoughtworks FOSE)"><strong>Future of Software Development</strong> — FOSE 2026 retreat notes.</li>
-        <li data-source="On My Radar"><strong>On My Radar</strong> — Personal curated reading collection by Mihai V.</li>
+        <li data-source="Martin Fowler"><strong>Martin Fowler</strong> — Essays, Bliki entries, and architecture guides on software design, refactoring, agile practices, and distributed systems.</li>
+        <li data-source="Editor&#x27;s Radar"><strong>Editor&#x27;s Radar</strong> — Handpicked articles, books, and conference talks on modern software engineering and architecture.</li>
         <li data-source="The Pragmatic Engineer"><strong>The Pragmatic Engineer</strong> — Gergely Orosz&#x27;s newsletter covering the software engineering industry and developer careers.</li>
         <li data-source="Simon Willison&#x27;s Weblog"><strong>Simon Willison</strong> — Highlights and long-form blog entries on AI, LLMs, agents, and open-source architecture.</li>
         <li data-source="Token by Token"><strong>Token by Token</strong> — AI and technology newsletter by Luca Mezzalira.</li>
@@ -1774,9 +1787,9 @@
         </div>
 
         <div class="filter-group">
-          <label class="filter-label">Content Type</label>
-          <details id="typeFilter" class="multi-filter" data-all-label="All Types">
-            <summary><span class="multi-filter-summary">All Types</span></summary>
+          <label class="filter-label">Categories</label>
+          <details id="categoryFilter" class="multi-filter" data-all-label="All Categories">
+            <summary><span class="multi-filter-summary">All Categories</span></summary>
             <div class="multi-filter-menu">
               <div class="multi-filter-actions">
                 <button type="button" class="multi-filter-action" data-filter-action="all">All</button>
@@ -1788,9 +1801,9 @@
         </div>
 
         <div class="filter-group">
-          <label class="filter-label">Categories</label>
-          <details id="categoryFilter" class="multi-filter" data-all-label="All Categories">
-            <summary><span class="multi-filter-summary">All Categories</span></summary>
+          <label class="filter-label">Content Type</label>
+          <details id="typeFilter" class="multi-filter" data-all-label="All Types">
+            <summary><span class="multi-filter-summary">All Types</span></summary>
             <div class="multi-filter-menu">
               <div class="multi-filter-actions">
                 <button type="button" class="multi-filter-action" data-filter-action="all">All</button>
@@ -1897,8 +1910,8 @@
     {
         "id": "others-2026-10-0af851",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "October 2026 Collected Articles",
         "issue_link": "",
@@ -1913,10 +1926,391 @@
         "type": "conference"
     },
     {
+        "id": "da-308-b05d7c",
+        "source_id": "dear-architects",
+        "source_short_name": "Dear Architects",
+        "newsletter": "Dear Architects",
+        "issue_number": 308,
+        "issue_title": "Team AI shift explained - #308 Dear Architects",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199047240132593630?signature=59f2c3253aaa259c7a1671312fb729cea59099aacb7f2c94eee33239fceff9d9",
+        "date": "2026-09-19",
+        "date_str": "19 September 2026",
+        "title": "Becoming an AI Team",
+        "link": "https://medium.com/pinterest-engineering/becoming-an-ai-team-c7438fa538e1",
+        "author": "John Grass",
+        "description": "An AI team is fundamentally more than just a group whose members incorporate AI tools into their existing workflows. The journey to becoming an AI team necessitates a fundamental and comprehensive paradigm shift in how the team defines ownership, engages in strategic planning, and executes on core goals.",
+        "category": "Tech Industry, Jobs & Careers",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "da-308-aeb3bb",
+        "source_id": "dear-architects",
+        "source_short_name": "Dear Architects",
+        "newsletter": "Dear Architects",
+        "issue_number": 308,
+        "issue_title": "Team AI shift explained - #308 Dear Architects",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199047240132593630?signature=59f2c3253aaa259c7a1671312fb729cea59099aacb7f2c94eee33239fceff9d9",
+        "date": "2026-09-19",
+        "date_str": "19 September 2026",
+        "title": "System Design for the LLM Era",
+        "link": "https://www.amazon.co.uk/dp/1807789934",
+        "author": null,
+        "description": "A guide taking a software architecture approach to LLM systems, covering resilience, cost, latency, security, fallback strategies, and event-driven architectures with real case studies connecting patterns to production systems.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "book"
+    },
+    {
+        "id": "da-308-10adf5",
+        "source_id": "dear-architects",
+        "source_short_name": "Dear Architects",
+        "newsletter": "Dear Architects",
+        "issue_number": 308,
+        "issue_title": "Team AI shift explained - #308 Dear Architects",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199047240132593630?signature=59f2c3253aaa259c7a1671312fb729cea59099aacb7f2c94eee33239fceff9d9",
+        "date": "2026-09-19",
+        "date_str": "19 September 2026",
+        "title": "Context Engineering at LinkedIn",
+        "link": "https://www.infoq.com/presentations/linkedin-context-engineering/",
+        "author": "Ajay Prakash",
+        "description": "Ajay Prakash discusses how LinkedIn overcomes AI agent limitations in large codebases. He explains Contextual Agent Playbooks (CAPs) which equip agents with explicit guidelines, domain knowledge, and tool access to generate reliable code aligned with enterprise standards.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": true,
+        "type": "presentation"
+    },
+    {
+        "id": "ab-344-f44767",
+        "source_id": "andriy-burkov-ai",
+        "source_short_name": "Burkov AI",
+        "newsletter": "Artificial Intelligence (Andriy Burkov)",
+        "issue_number": 344,
+        "issue_title": "Artificial Intelligence #344",
+        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+        "date": "2026-09-19",
+        "date_str": "19 September 2026",
+        "title": "Measuring scientific progress",
+        "link": "https://diffuse.one/p/d1-012",
+        "author": "Andrew White",
+        "description": "Proposing to measure scientific progress by tracking the survival lifetime of scientific claims rather than publication volume, finding that the half-life of claims has dropped from 250 years to 70 years.",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "ab-344-e4d60d",
+        "source_id": "andriy-burkov-ai",
+        "source_short_name": "Burkov AI",
+        "newsletter": "Artificial Intelligence (Andriy Burkov)",
+        "issue_number": 344,
+        "issue_title": "Artificial Intelligence #344",
+        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+        "date": "2026-09-19",
+        "date_str": "19 September 2026",
+        "title": "A history of large language models",
+        "link": "https://gregorygundersen.com/blog/2025/10/01/large-language-models/",
+        "author": "Gregory Gundersen",
+        "description": "Tracing the academic and technical evolution of LLMs from distributed representations in the 1980s through transducers, attention mechanisms, the Transformer breakthrough, and generative pre-training scale.",
+        "category": "Large Language Models & Evaluation Infrastructure",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "ab-344-e07775",
+        "source_id": "andriy-burkov-ai",
+        "source_short_name": "Burkov AI",
+        "newsletter": "Artificial Intelligence (Andriy Burkov)",
+        "issue_number": 344,
+        "issue_title": "Artificial Intelligence #344",
+        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+        "date": "2026-09-19",
+        "date_str": "19 September 2026",
+        "title": "Data science in the age of AI",
+        "link": "https://www.robinlinacre.com/data_science_age_ai/",
+        "author": "Robin Linacre",
+        "description": "The shift toward hybrid workflows where humans, AI agents, and structured logic collaborate, moving data science away from boilerplate toward system design and veridical problem-solving.",
+        "category": "Tech Industry, Jobs & Careers",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "ab-344-b52898",
+        "source_id": "andriy-burkov-ai",
+        "source_short_name": "Burkov AI",
+        "newsletter": "Artificial Intelligence (Andriy Burkov)",
+        "issue_number": 344,
+        "issue_title": "Artificial Intelligence #344",
+        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+        "date": "2026-09-19",
+        "date_str": "19 September 2026",
+        "title": "A severe misalignment of AI in mathematics",
+        "link": "https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/",
+        "author": "Terence Tao",
+        "description": "A declaration by 25 Fields Medalists, including Terence Tao, arguing that AI companies and the mathematical community have misaligned goals: treating mathematics as a race to produce true/false benchmarks rather than conceptual discovery and transmission.",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "ab-344-92002c",
+        "source_id": "andriy-burkov-ai",
+        "source_short_name": "Burkov AI",
+        "newsletter": "Artificial Intelligence (Andriy Burkov)",
+        "issue_number": 344,
+        "issue_title": "Artificial Intelligence #344",
+        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+        "date": "2026-09-19",
+        "date_str": "19 September 2026",
+        "title": "Latent Thought Flows with Text Compression",
+        "link": "https://latent-thought-flows.vercel.app/",
+        "author": "Mihir Prabhudesai & Zhengyang Geng",
+        "description": "Compressing sequences of text tokens into continuous latent vectors and generating thoughts with a one-step flow model before autoregressive decoding, improving the inference-compute vs generation-quality Pareto frontier.",
+        "category": "Large Language Models & Evaluation Infrastructure",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "ab-344-5d906d",
+        "source_id": "andriy-burkov-ai",
+        "source_short_name": "Burkov AI",
+        "newsletter": "Artificial Intelligence (Andriy Burkov)",
+        "issue_number": 344,
+        "issue_title": "Artificial Intelligence #344",
+        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+        "date": "2026-09-19",
+        "date_str": "19 September 2026",
+        "title": "Binary vector embeddings are so cool",
+        "link": "https://emschwartz.me/binary-vector-embeddings-are-so-cool/",
+        "author": "Evan Schwartz",
+        "description": "Binary quantization compresses 32-bit float embedding vectors into single bits, unlocking 32x compression and ~25x faster retrieval speeds with over 95% accuracy retention using hardware Hamming distance operations.",
+        "category": "Large Language Models & Evaluation Infrastructure",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "ab-344-427212",
+        "source_id": "andriy-burkov-ai",
+        "source_short_name": "Burkov AI",
+        "newsletter": "Artificial Intelligence (Andriy Burkov)",
+        "issue_number": 344,
+        "issue_title": "Artificial Intelligence #344",
+        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+        "date": "2026-09-19",
+        "date_str": "19 September 2026",
+        "title": "A primer to machine learning compilers",
+        "link": "https://aramesh10.github.io/ml-compilers-primer/ml-compilers-primer.html",
+        "author": "Adithya Ramesh",
+        "description": "How ML compilers bridge high-level frameworks (PyTorch, JAX) to heterogeneous hardware accelerators, detailing frontends, graph IR optimizers, operator fusion, and code generation.",
+        "category": "Large Language Models & Evaluation Infrastructure",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "ab-344-13b476",
+        "source_id": "andriy-burkov-ai",
+        "source_short_name": "Burkov AI",
+        "newsletter": "Artificial Intelligence (Andriy Burkov)",
+        "issue_number": 344,
+        "issue_title": "Artificial Intelligence #344",
+        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
+        "date": "2026-09-19",
+        "date_str": "19 September 2026",
+        "title": "Learning from experience instead of curated datasets",
+        "link": "https://oaklab.ai/posts/learning-from-experience-instead-of-curated-datasets",
+        "author": "Oak Lab",
+        "description": "A research perspective on algorithms that learn from unfiltered noisy data streams rather than human-cleaned, static curated datasets, moving AI closer to real-time continuous learning.",
+        "category": "Large Language Models & Evaluation Infrastructure",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "tbt-23-8ed452",
+        "source_id": "token-by-token",
+        "source_short_name": "Token by Token",
+        "newsletter": "Token by Token",
+        "issue_number": 23,
+        "issue_title": "AI Agents: Beyond Demos - #23 token by token",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/198937329030661929?signature=4582830e3146967fea1fc10d6f42b04f9ddeca94c88f9b398fa1a383ff49c308",
+        "date": "2026-09-17",
+        "date_str": "17 September 2026",
+        "title": "The 13 Multi-Agent Orchestration Patterns",
+        "link": "https://bradmurry.com/software/reactive-reducer-patterns/",
+        "author": "Brad Murry",
+        "description": "These are the thirteen multi-agent orchestration patterns that keep showing up in real systems, and what each one looks like when implemented with a reactive reducer.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article",
+        "also_in": [
+            "Dear Architects"
+        ]
+    },
+    {
+        "id": "tbt-23-777fb1",
+        "source_id": "token-by-token",
+        "source_short_name": "Token by Token",
+        "newsletter": "Token by Token",
+        "issue_number": 23,
+        "issue_title": "AI Agents: Beyond Demos - #23 token by token",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/198937329030661929?signature=4582830e3146967fea1fc10d6f42b04f9ddeca94c88f9b398fa1a383ff49c308",
+        "date": "2026-09-17",
+        "date_str": "17 September 2026",
+        "title": "How to set up your repository for AI coding agents",
+        "link": "https://ainativesoftware.engineering/harness",
+        "author": "Luca Mezzalira",
+        "description": "The harness has two parts: the tool around the model (Claude Code, Cursor, Codex) that controls how the agent reads and edits, and the environment that guides its judgment. Best practices for configuring repo instructions, tools, and constraints.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": true,
+        "type": "article"
+    },
+    {
+        "id": "tbt-23-639fd8",
+        "source_id": "token-by-token",
+        "source_short_name": "Token by Token",
+        "newsletter": "Token by Token",
+        "issue_number": 23,
+        "issue_title": "AI Agents: Beyond Demos - #23 token by token",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/198937329030661929?signature=4582830e3146967fea1fc10d6f42b04f9ddeca94c88f9b398fa1a383ff49c308",
+        "date": "2026-09-17",
+        "date_str": "17 September 2026",
+        "title": "Multi-Agent AI Engineering",
+        "link": "https://www.amazon.co.uk/Multi-Agent-AI-Engineering-operate-coordinated/dp/180669087X",
+        "author": "Luca Mezzalira",
+        "description": "A comprehensive guide to designing, building, and operating coordinated multi-agent AI systems in enterprise production environments.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "book"
+    },
+    {
+        "id": "tbt-23-369127",
+        "source_id": "token-by-token",
+        "source_short_name": "Token by Token",
+        "newsletter": "Token by Token",
+        "issue_number": 23,
+        "issue_title": "AI Agents: Beyond Demos - #23 token by token",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/198937329030661929?signature=4582830e3146967fea1fc10d6f42b04f9ddeca94c88f9b398fa1a383ff49c308",
+        "date": "2026-09-17",
+        "date_str": "17 September 2026",
+        "title": "Astra for Coding: Why Are We Doing This Again?",
+        "link": "https://lucumr.pocoo.org/2026/9/7/astra-why/",
+        "author": "Armin Ronacher",
+        "description": "Astra is by all accounts an incredibly impressive model. Armin Ronacher reflects on why developers keep building code generation harnesses, the trade-offs of large context windows, and whether the direction of coding agents is solving the right problems.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "tbt-23-2668f2",
+        "source_id": "token-by-token",
+        "source_short_name": "Token by Token",
+        "newsletter": "Token by Token",
+        "issue_number": 23,
+        "issue_title": "AI Agents: Beyond Demos - #23 token by token",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/198937329030661929?signature=4582830e3146967fea1fc10d6f42b04f9ddeca94c88f9b398fa1a383ff49c308",
+        "date": "2026-09-17",
+        "date_str": "17 September 2026",
+        "title": "When Spec-Driven Development Pays off",
+        "link": "https://www.infoq.com/articles/when-spec-driven-development-pays-off/",
+        "author": "Luca Mezzalira",
+        "description": "Spec-driven development introduces five control points that leave concrete architectural artifacts behind, preventing drift when developing with AI coding assistants.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "pe-2026-09-f5a472",
+        "source_id": "pragmatic-engineer",
+        "source_short_name": "Pragmatic Eng.",
+        "newsletter": "The Pragmatic Engineer",
+        "issue_number": null,
+        "issue_title": "The Pragmatic Engineer",
+        "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+        "date": "2026-09-17",
+        "date_str": "17 September 2026",
+        "title": "AI Skills with Matt Pocock",
+        "link": "https://newsletter.pragmaticengineer.com/p/ai-skills-with-matt-pocock",
+        "author": "with Matt Pocock",
+        "description": "Matt Pocock explains how he uses AI coding skills and agents to plan and build software, and why engineering fundamentals matter more than ever.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "video"
+    },
+    {
+        "id": "mf-2026-09-bd4ec7",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "I don't like LLMs",
+        "issue_link": "https://martinfowler.com/articles/2026-dont-like-llms.html",
+        "date": "2026-09-17",
+        "date_str": "17 September 2026",
+        "title": "I don't like LLMs",
+        "link": "https://martinfowler.com/articles/2026-dont-like-llms.html",
+        "author": "Martin Fowler",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-09-bdbf44",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Fragments: September 16",
+        "issue_link": "https://martinfowler.com/fragments/2026-09-16.html",
+        "date": "2026-09-16",
+        "date_str": "16 September 2026",
+        "title": "Fragments: September 16",
+        "link": "https://martinfowler.com/fragments/2026-09-16.html",
+        "author": "Martin Fowler",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "pe-2026-09-557dcb",
+        "source_id": "pragmatic-engineer",
+        "source_short_name": "Pragmatic Eng.",
+        "newsletter": "The Pragmatic Engineer",
+        "issue_number": null,
+        "issue_title": "The Pragmatic Engineer",
+        "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+        "date": "2026-09-15",
+        "date_str": "15 September 2026",
+        "title": "Inside OpenAI’s agentic software factory",
+        "link": "https://newsletter.pragmaticengineer.com/p/openai-software-factory",
+        "author": null,
+        "description": "A deepdive into how Codex has “taken over” OpenAI, how the frontier lab builds its agentic software factory, and the engineering challenges of one billion users. Details from inside OpenAI",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-09-835619",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Nail the Narrative",
+        "issue_link": "https://martinfowler.com/articles/never-send-slides/nail-your-narrative.html",
+        "date": "2026-09-15",
+        "date_str": "15 September 2026",
+        "title": "Nail the Narrative",
+        "link": "https://martinfowler.com/articles/never-send-slides/nail-your-narrative.html",
+        "author": "Sumeet Gayathri Moghe",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
         "id": "others-2026-09-575b1d",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "September 2026 Collected Articles",
         "issue_link": "",
@@ -1931,10 +2325,28 @@
         "type": "presentation"
     },
     {
+        "id": "addy-2026-09-7699fc",
+        "source_id": "addy-osmani",
+        "source_short_name": "Addy Osmani",
+        "newsletter": "Addy Osmani",
+        "issue_number": null,
+        "issue_title": "September 2026 Blog Essays",
+        "issue_link": "https://addyosmani.com/blog/",
+        "date": "2026-09-14",
+        "date_str": "14 September 2026",
+        "title": "Brownfield Agentic Engineering",
+        "link": "https://addyo.substack.com/p/brownfield-agentic-engineering",
+        "author": "Addy Osmani",
+        "description": "What it takes to run agents in a codebase older than the team",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
         "id": "others-2026-09-28be68",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "September 2026 Collected Articles",
         "issue_link": "",
@@ -1987,8 +2399,8 @@
     {
         "id": "others-2026-09-98264c",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "September 2026 Collected Articles",
         "issue_link": "",
@@ -2301,10 +2713,28 @@
         "type": "video"
     },
     {
+        "id": "pe-2026-09-4a4ff0",
+        "source_id": "pragmatic-engineer",
+        "source_short_name": "Pragmatic Eng.",
+        "newsletter": "The Pragmatic Engineer",
+        "issue_number": null,
+        "issue_title": "The Pragmatic Engineer",
+        "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+        "date": "2026-09-10",
+        "date_str": "10 September 2026",
+        "title": "The Pulse #191: a new trend of CPU shortages",
+        "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-191-a-new-trend-of-cpu",
+        "author": null,
+        "description": "For compute-intensive services: it’s worth reserving more compute now. Also: growth dreams end for more COVID-era unicorns, engineers losing touch with systems when AI handles incidents, and more",
+        "category": "Cloud Infrastructure & System Reliability",
+        "is_spotlight": false,
+        "type": "pulse"
+    },
+    {
         "id": "others-2026-09-62bef3",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "September 2026 Collected Articles",
         "issue_link": "",
@@ -2319,10 +2749,28 @@
         "type": "article"
     },
     {
+        "id": "pe-2026-09-bd9f59",
+        "source_id": "pragmatic-engineer",
+        "source_short_name": "Pragmatic Eng.",
+        "newsletter": "The Pragmatic Engineer",
+        "issue_number": null,
+        "issue_title": "The Pragmatic Engineer",
+        "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+        "date": "2026-09-09",
+        "date_str": "9 September 2026",
+        "title": "Building Codex with Tibo Sottiaux",
+        "link": "https://newsletter.pragmaticengineer.com/p/building-codex-with-tibo-sottiaux",
+        "author": "with Tibo Sottiaux",
+        "description": "OpenAI’s Tibo Sottiaux shares how Codex was built, why it’s open source, how it’s used inside OpenAI, how it’s changing software development within the company",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "video"
+    },
+    {
         "id": "others-2026-09-a4c80c",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "September 2026 Collected Articles",
         "issue_link": "",
@@ -2333,6 +2781,24 @@
         "author": "Sharon Goldman",
         "description": "Nvidia is buying Hugging Face. OpenAI is building chips. Databricks, Salesforce and ServiceNow are sprawling across the AI technology stack. Good luck putting any of them in a box.",
         "category": "Tech Industry, Jobs & Careers",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-09-42b432",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Social Media Engagement: summer 2026",
+        "issue_link": "https://martinfowler.com/articles/2026-social-traffic.html",
+        "date": "2026-09-09",
+        "date_str": "9 September 2026",
+        "title": "Social Media Engagement: summer 2026",
+        "link": "https://martinfowler.com/articles/2026-social-traffic.html",
+        "author": "Martin Fowler",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
         "is_spotlight": false,
         "type": "article"
     },
@@ -2349,6 +2815,78 @@
         "title": "Some thoughts on the Navier–Stokes Millennium Prize Problem",
         "link": "https://simonwillison.net/2026/Sep/8/on-navier-stokes/",
         "author": "Simon Willison",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "pe-2026-09-8fca40",
+        "source_id": "pragmatic-engineer",
+        "source_short_name": "Pragmatic Eng.",
+        "newsletter": "The Pragmatic Engineer",
+        "issue_number": null,
+        "issue_title": "The Pragmatic Engineer",
+        "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+        "date": "2026-09-08",
+        "date_str": "8 September 2026",
+        "title": "What is happening with code reviews?",
+        "link": "https://newsletter.pragmaticengineer.com/p/what-is-happening-with-code-reviews",
+        "author": null,
+        "description": "AI generates more code than devs can track in 2026, so will the code review process have to adapt – or is it doomed? A look into this decades-old practice and the approaches that could replace it",
+        "category": "Software Testing, Quality & Observability",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "others-2026-09-b7f59c",
+        "source_id": "my-collected-articles",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
+        "issue_number": null,
+        "issue_title": "September 2026 Collected Articles",
+        "issue_link": "",
+        "date": "2026-09-08",
+        "date_str": "8 September 2026",
+        "title": "Architecture and model diffs via code conventions",
+        "link": "https://nick-tune.me/blog/2026-09-08-architecture-and-model-diffs-via-conventions/",
+        "author": "Nick Tune",
+        "description": "Generating architecture diffs for your PRs based on strong codebase conventions",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-09-fbcbe1",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Fragments: September 8",
+        "issue_link": "https://martinfowler.com/fragments/2026-09-08.html",
+        "date": "2026-09-08",
+        "date_str": "8 September 2026",
+        "title": "Fragments: September 8",
+        "link": "https://martinfowler.com/fragments/2026-09-08.html",
+        "author": "Martin Fowler",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-09-38e152",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Do you even need a presentation?",
+        "issue_link": "https://martinfowler.com/articles/never-send-slides/need-presentation.html",
+        "date": "2026-09-08",
+        "date_str": "8 September 2026",
+        "title": "Do you even need a presentation?",
+        "link": "https://martinfowler.com/articles/never-send-slides/need-presentation.html",
+        "author": "Sumeet Gayathri Moghe",
         "description": "",
         "category": "Engineering Philosophy & Estimation",
         "is_spotlight": false,
@@ -2637,10 +3175,10 @@
     {
         "id": "others-2026-09-8f1c6e",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
-        "issue_title": "On My Radar - September 2026",
+        "issue_title": "Editor's Radar - September 2026",
         "issue_link": "https://newsletter.getdx.com/p/the-quality-paradox-of-ai-generated",
         "date": "2026-09-02",
         "date_str": "2 September 2026",
@@ -2653,33 +3191,12 @@
         "type": "article"
     },
     {
-        "id": "others-2026-09-818232",
-        "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
-        "issue_number": null,
-        "issue_title": "On My Radar - September 2026",
-        "issue_link": "https://martinfowler.com/articles/exploring-gen-ai/an-accidental-blackboard.html",
-        "date": "2026-09-02",
-        "date_str": "2 September 2026",
-        "title": "An Accidental Blackboard",
-        "link": "https://martinfowler.com/articles/exploring-gen-ai/an-accidental-blackboard.html",
-        "author": "Giles Edwards-Alexander",
-        "description": "Thoughtworks assembled 10 engineers in Barcelona to build a mission-critical airline irregular operations (IROps) system using 'hyper-agentic' workflows. In doing so, they accidentally re-discovered the classic AI Blackboard architectural pattern for coordinating autonomous agents through a shared, observable workspace.",
-        "category": "Software Architecture & Distributed Systems",
-        "is_spotlight": false,
-        "type": "article",
-        "also_in": [
-            "Token by Token"
-        ]
-    },
-    {
         "id": "others-2026-09-20cc18",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
-        "issue_title": "On My Radar - September 2026",
+        "issue_title": "Editor's Radar - September 2026",
         "issue_link": "https://www.taylorfrancis.com/books/mono/10.1201/9781003589112/psychology-software-teams-cat-hicks",
         "date": "2026-09-02",
         "date_str": "2 September 2026",
@@ -2690,6 +3207,64 @@
         "category": "Tech Industry, Jobs & Careers",
         "is_spotlight": false,
         "type": "book"
+    },
+    {
+        "id": "mf-2026-09-818232",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "An Accidental Blackboard",
+        "issue_link": "https://martinfowler.com/articles/exploring-gen-ai/an-accidental-blackboard.html",
+        "date": "2026-09-02",
+        "date_str": "2 September 2026",
+        "title": "An Accidental Blackboard",
+        "link": "https://martinfowler.com/articles/exploring-gen-ai/an-accidental-blackboard.html",
+        "author": "Giles Edwards-Alexander",
+        "description": "",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "article",
+        "also_in": [
+            "Editor's Radar",
+            "Token by Token"
+        ]
+    },
+    {
+        "id": "mf-2026-09-6ccaaf",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Bliki: Paracelsus Maxim",
+        "issue_link": "https://martinfowler.com/bliki/ParacelsusMaxim.html",
+        "date": "2026-09-02",
+        "date_str": "2 September 2026",
+        "title": "Bliki: Paracelsus Maxim",
+        "link": "https://martinfowler.com/bliki/ParacelsusMaxim.html",
+        "author": "Martin Fowler",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-09-0ae88a",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Maybe We Shouldn't Be Reviewing All This Code",
+        "issue_link": "https://martinfowler.com/rachels-ramblings/code-review.html",
+        "date": "2026-09-02",
+        "date_str": "2 September 2026",
+        "title": "Maybe We Shouldn't Be Reviewing All This Code",
+        "link": "https://martinfowler.com/rachels-ramblings/code-review.html",
+        "author": "Rachel Laycock",
+        "description": "",
+        "category": "Software Testing, Quality & Observability",
+        "is_spotlight": false,
+        "type": "article"
     },
     {
         "id": "sw-2026-09-0e0a28",
@@ -2728,10 +3303,28 @@
         "type": "article"
     },
     {
+        "id": "mf-2026-09-ce78c5",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Fragments: September 1",
+        "issue_link": "https://martinfowler.com/fragments/2026-09-01.html",
+        "date": "2026-09-01",
+        "date_str": "1 September 2026",
+        "title": "Fragments: September 1",
+        "link": "https://martinfowler.com/fragments/2026-09-01.html",
+        "author": "Martin Fowler",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
         "id": "others-2026-08-86cf1b",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "August 2026 Collected Articles",
         "issue_link": "",
@@ -2798,27 +3391,6 @@
         "category": "Cloud Infrastructure & System Reliability",
         "is_spotlight": false,
         "type": "article"
-    },
-    {
-        "id": "da-305-d9866e",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 305,
-        "issue_title": "#305 - Architecture as a craft, data for agents, and the end of programming",
-        "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/197169616004319051?signature=6723b8131537e7b10a041701f3a7e5527cd00c443f42f86e1a7e66abc675cadc",
-        "date": "2026-08-29",
-        "date_str": "29 August 2026",
-        "title": "Making Your Data Ready for Agentic AI",
-        "link": "https://martinfowler.com/articles/making-data-ready-for-agentic-ai.html",
-        "author": "Martin Fowler",
-        "description": "Agentic systems can only act well on data they can actually find, interpret and trust. Preparing data for agents means investing in context, quality and clear semantics before adding more model capability.",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "article",
-        "also_in": [
-            "Token by Token"
-        ]
     },
     {
         "id": "da-305-bbb4c3",
@@ -2934,7 +3506,7 @@
         "is_spotlight": false,
         "type": "article",
         "also_in": [
-            "On My Radar"
+            "Editor's Radar"
         ]
     },
     {
@@ -3048,8 +3620,8 @@
     {
         "id": "others-2026-08-c14e20",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "August 2026 Collected Articles",
         "issue_link": "",
@@ -3190,6 +3762,28 @@
         "type": "pulse"
     },
     {
+        "id": "mf-2026-08-d9866e",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Making Your Data Ready for Agentic AI",
+        "issue_link": "https://martinfowler.com/articles/making-data-ready-for-agentic-ai.html",
+        "date": "2026-08-27",
+        "date_str": "27 August 2026",
+        "title": "Making Your Data Ready for Agentic AI",
+        "link": "https://martinfowler.com/articles/making-data-ready-for-agentic-ai.html",
+        "author": "Pramod Sadalage",
+        "description": "",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article",
+        "also_in": [
+            "Dear Architects",
+            "Token by Token"
+        ]
+    },
+    {
         "id": "addy-2026-08-183365",
         "source_id": "addy-osmani",
         "source_short_name": "Addy Osmani",
@@ -3249,8 +3843,8 @@
     {
         "id": "others-2026-08-34b50b",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "August 2026 Collected Articles",
         "issue_link": "",
@@ -3265,10 +3859,28 @@
         "type": "article"
     },
     {
+        "id": "mf-2026-08-8027db",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Fragments: August 24",
+        "issue_link": "https://martinfowler.com/fragments/2026-08-24.html",
+        "date": "2026-08-24",
+        "date_str": "24 August 2026",
+        "title": "Fragments: August 24",
+        "link": "https://martinfowler.com/fragments/2026-08-24.html",
+        "author": "Martin Fowler",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
         "id": "others-2026-08-e6f7b6",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "August 2026 Collected Articles",
         "issue_link": "",
@@ -3280,13 +3892,16 @@
         "description": "Our entire event-driven platform ran through a single message broker, which made it a single point of failure. So we added a second one. This is the story of building an event load balancer, the queueing theory behind it, and the chaos test where we turned off Pub/Sub in production and nobody noticed.",
         "category": "Cloud Infrastructure & System Reliability",
         "is_spotlight": false,
-        "type": "article"
+        "type": "article",
+        "also_in": [
+            "Dear Architects"
+        ]
     },
     {
         "id": "others-2026-08-d55592",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "August 2026 Collected Articles",
         "issue_link": "",
@@ -3303,8 +3918,8 @@
     {
         "id": "others-2026-08-c74267",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "August 2026 Collected Articles",
         "issue_link": "",
@@ -3509,8 +4124,8 @@
     {
         "id": "others-2026-08-1e21bd",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "August 2026 Collected Articles",
         "issue_link": "",
@@ -3690,6 +4305,42 @@
         "type": "video"
     },
     {
+        "id": "mf-2026-08-c0d3ea",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Citizens Build, Agents Execute, Experts Govern",
+        "issue_link": "https://martinfowler.com/rachels-ramblings/citizens-agents-experts.html",
+        "date": "2026-08-19",
+        "date_str": "19 August 2026",
+        "title": "Citizens Build, Agents Execute, Experts Govern",
+        "link": "https://martinfowler.com/rachels-ramblings/citizens-agents-experts.html",
+        "author": "Rachel Laycock",
+        "description": "",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-08-4f6ea3",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Practitioner Voice: The Writing Category Nobody has Named Yet",
+        "issue_link": "https://martinfowler.com/articles/practitioner-voice.html",
+        "date": "2026-08-19",
+        "date_str": "19 August 2026",
+        "title": "Practitioner Voice: The Writing Category Nobody has Named Yet",
+        "link": "https://martinfowler.com/articles/practitioner-voice.html",
+        "author": "Jim Highsmith",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
         "id": "pe-2026-08-4fe89b",
         "source_id": "pragmatic-engineer",
         "source_short_name": "Pragmatic Eng.",
@@ -3704,6 +4355,24 @@
         "author": null,
         "description": "Trend: more CTOs, VPEs, and Heads of Engineering are walking away from their high-status, in-demand positions. There are many reasons, mostly related to AI, and to \"founder mode\"",
         "category": "Tech Industry, Jobs & Careers",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-08-cfc192",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Fragments: August 18",
+        "issue_link": "https://martinfowler.com/fragments/2026-08-18.html",
+        "date": "2026-08-18",
+        "date_str": "18 August 2026",
+        "title": "Fragments: August 18",
+        "link": "https://martinfowler.com/fragments/2026-08-18.html",
+        "author": "Martin Fowler",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
         "is_spotlight": false,
         "type": "article"
     },
@@ -3728,8 +4397,8 @@
     {
         "id": "others-2026-08-f264f4",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "August 2026 Collected Articles",
         "issue_link": "",
@@ -3746,8 +4415,8 @@
     {
         "id": "others-2026-08-89ff03",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "August 2026 Collected Articles",
         "issue_link": "",
@@ -4043,25 +4712,22 @@
         "type": "article"
     },
     {
-        "id": "tbt-18-0d3bab",
-        "source_id": "token-by-token",
-        "source_short_name": "Token by Token",
-        "newsletter": "Token by Token",
-        "issue_number": 18,
-        "issue_title": "token by token",
-        "issue_link": "https://preview.mailerlite.io/preview/2096144/emails/195671534705050629",
+        "id": "others-2026-08-af1b62",
+        "source_id": "my-collected-articles",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
+        "issue_number": null,
+        "issue_title": "August 2026 Collected Articles",
+        "issue_link": "",
         "date": "2026-08-13",
         "date_str": "13 August 2026",
-        "title": "TDD inside the agent loop: theatre or actual value?",
-        "link": "https://martinfowler.com/articles/exploring-gen-ai/tdd-in-the-agent-loop.html",
-        "author": null,
-        "description": "Based on Opus's judgment of the quality of the outcomes, there was no clearly discernable difference based on TDD workflow versus no TDD workflow. On the contrary, more than once Opus ranked the non-TDD workflow solutions slightly higher in design and test quality. There was also no meaningful difference in mutation scores across the solutions.",
-        "category": "Software Testing, Quality & Observability",
-        "is_spotlight": true,
-        "type": "article",
-        "also_in": [
-            "Dear Architects"
-        ]
+        "title": "Enforced application architecture for agents and humans",
+        "link": "https://nick-tune.me/blog/2026-08-13-enforced-application-architecture-for-agents-and-humans-copy/",
+        "author": "Nick Tune",
+        "description": "Enforcing application architecture instead of relying on markdown files",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
     },
     {
         "id": "pe-2026-08-057303",
@@ -4102,8 +4768,8 @@
     {
         "id": "others-2026-08-45fd3c",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "August 2026 Collected Articles",
         "issue_link": "",
@@ -4116,6 +4782,28 @@
         "category": "Engineering Philosophy & Estimation",
         "is_spotlight": false,
         "type": "book"
+    },
+    {
+        "id": "mf-2026-08-0d3bab",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "TDD inside the agent loop - theater or actual value?",
+        "issue_link": "https://martinfowler.com/articles/exploring-gen-ai/tdd-in-the-agent-loop.html",
+        "date": "2026-08-11",
+        "date_str": "11 August 2026",
+        "title": "TDD inside the agent loop - theater or actual value?",
+        "link": "https://martinfowler.com/articles/exploring-gen-ai/tdd-in-the-agent-loop.html",
+        "author": "Birgitta Böckeler",
+        "description": "",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article",
+        "also_in": [
+            "Dear Architects",
+            "Token by Token"
+        ]
     },
     {
         "id": "da-302-c11e65",
@@ -4491,6 +5179,24 @@
         "type": "article"
     },
     {
+        "id": "mf-2026-08-b55700",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Fragments: August 4",
+        "issue_link": "https://martinfowler.com/fragments/2026-08-04.html",
+        "date": "2026-08-04",
+        "date_str": "4 August 2026",
+        "title": "Fragments: August 4",
+        "link": "https://martinfowler.com/fragments/2026-08-04.html",
+        "author": "Martin Fowler",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
         "id": "da-301-d19d25",
         "source_id": "dear-architects",
         "source_short_name": "Dear Architects",
@@ -4744,8 +5450,8 @@
     {
         "id": "others-2026-07-2abe8e",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "July 2026 Collected Articles",
         "issue_link": "",
@@ -4755,6 +5461,24 @@
         "link": "https://blog.zakaria.lu/topics/embabel",
         "author": "Zakaria",
         "description": "A structured learning path for building with the Embabel agentic framework, covering planning, testing without a model, tools usage, human-in-the-loop controls, tracing, and Model Context Protocol (MCP) integration.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-07-1130e9",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "The Conductor Developer",
+        "issue_link": "https://martinfowler.com/rachels-ramblings/conductor-developer.html",
+        "date": "2026-07-31",
+        "date_str": "31 July 2026",
+        "title": "The Conductor Developer",
+        "link": "https://martinfowler.com/rachels-ramblings/conductor-developer.html",
+        "author": "Rachel Laycock",
+        "description": "",
         "category": "AI-Native & Agentic Software Engineering",
         "is_spotlight": false,
         "type": "article"
@@ -4850,6 +5574,24 @@
         "type": "article"
     },
     {
+        "id": "mf-2026-07-dafe9a",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "The Economic Benefit of Refactoring",
+        "issue_link": "https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
+        "date": "2026-07-30",
+        "date_str": "30 July 2026",
+        "title": "The Economic Benefit of Refactoring",
+        "link": "https://martinfowler.com/articles/exploring-gen-ai/refactoring-economic-benefit.html",
+        "author": "Giles Edwards-Alexander",
+        "description": "",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
         "id": "pe-2026-07-89a356",
         "source_id": "pragmatic-engineer",
         "source_short_name": "Pragmatic Eng.",
@@ -4882,6 +5624,42 @@
         "author": null,
         "description": "A deepdive on what’s changed in how the leading AI lab makes software. Ever more code review and testing is done by AI, two-pizza teams very much alive, and more. Details from inside of Anthropic",
         "category": "Software Testing, Quality & Observability",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-07-8dc7a1",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Why I’m Writing Rachel’s Ramblings",
+        "issue_link": "https://martinfowler.com/rachels-ramblings/intro.html",
+        "date": "2026-07-28",
+        "date_str": "28 July 2026",
+        "title": "Why I’m Writing Rachel’s Ramblings",
+        "link": "https://martinfowler.com/rachels-ramblings/intro.html",
+        "author": "Rachel Laycock",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-07-62b7a2",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "The Orchestrator's Tax",
+        "issue_link": "https://martinfowler.com/articles/orchestrator-tax.html",
+        "date": "2026-07-28",
+        "date_str": "28 July 2026",
+        "title": "The Orchestrator's Tax",
+        "link": "https://martinfowler.com/articles/orchestrator-tax.html",
+        "author": "Rahul Garg",
+        "description": "",
+        "category": "AI-Native & Agentic Software Engineering",
         "is_spotlight": false,
         "type": "article"
     },
@@ -5364,24 +6142,6 @@
         "type": "book"
     },
     {
-        "id": "tbt-15-bbc024",
-        "source_id": "token-by-token",
-        "source_short_name": "Token by Token",
-        "newsletter": "Token by Token",
-        "issue_number": 15,
-        "issue_title": "token by token",
-        "issue_link": "https://preview.mailerlite.io/preview/2096144/emails/193678458183747036",
-        "date": "2026-07-23",
-        "date_str": "23 July 2026",
-        "title": "Viability of local models for coding",
-        "link": "https://martinfowler.com/articles/exploring-gen-ai/local-models-for-coding-factors.html",
-        "author": null,
-        "description": "Until recently I hadn't tried running models locally for quite a while, the disappointment had just always been too high when I did it. About a month ago though, I dove back in - there were just too many claims out there to ignore, about how far they have come, how it's now much more feasible to run them, and how some of them have become really good at coding. So this is my personal experience with using them, on and off, over the past 4 weeks or so. In this memo, I will start with a more general introduction and go through the factors that influence the viability of these models for coding. In a follow-up memo, I will describe my actual experiences in more detail.",
-        "category": "Large Language Models & Evaluation Infrastructure",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
         "id": "tbt-15-a293cb",
         "source_id": "token-by-token",
         "source_short_name": "Token by Token",
@@ -5438,8 +6198,8 @@
     {
         "id": "others-2026-07-125707",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "July 2026 Collected Articles",
         "issue_link": "",
@@ -5508,6 +6268,24 @@
         "type": "article"
     },
     {
+        "id": "mf-2026-07-341cad",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Fragments: July 21",
+        "issue_link": "https://martinfowler.com/fragments/2026-07-21.html",
+        "date": "2026-07-21",
+        "date_str": "21 July 2026",
+        "title": "Fragments: July 21",
+        "link": "https://martinfowler.com/fragments/2026-07-21.html",
+        "author": "Martin Fowler",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
         "id": "fose-2026-07-83ac93",
         "source_id": "future-software-development",
         "source_short_name": "Thoughtworks FOSE",
@@ -5528,8 +6306,8 @@
     {
         "id": "others-2026-07-24aaa3",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "July 2026 Collected Articles",
         "issue_link": "",
@@ -5902,24 +6680,6 @@
         "type": "video"
     },
     {
-        "id": "tbt-14-515622",
-        "source_id": "token-by-token",
-        "source_short_name": "Token by Token",
-        "newsletter": "Token by Token",
-        "issue_number": 14,
-        "issue_title": "token by token",
-        "issue_link": "https://preview.mailerlite.io/preview/2096144/emails/193032945353622823",
-        "date": "2026-07-16",
-        "date_str": "16 July 2026",
-        "title": "DSLs Enable Reliable Use of LLMs",
-        "link": "https://martinfowler.com/articles/llm-and-dsls.html",
-        "author": null,
-        "description": "LLMs generate code incredibly fast, but to ensure they generate exactly what is intended, they need clear boundaries. Abstractions and Domain-Specific Languages (DSLs) provide a strong harness that guides LLMs right from the start. The example of Tickloom - a domain model and DSL for illustrating distributed system behavior - shows how we can use an LLM as a partner to iteratively build a DSL and as a natural language interface to use it. Such a DSL can act as the key source of truth for software systems in the world of LLMs.",
-        "category": "Large Language Models & Evaluation Infrastructure",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
         "id": "pe-2026-07-1bed9f",
         "source_id": "pragmatic-engineer",
         "source_short_name": "Pragmatic Eng.",
@@ -5936,6 +6696,24 @@
         "category": "Cloud Infrastructure & System Reliability",
         "is_spotlight": false,
         "type": "pulse"
+    },
+    {
+        "id": "mf-2026-07-ae8121",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "The Archaeologist’s Copilot",
+        "issue_link": "https://martinfowler.com/articles/archaeologist-copilot.html",
+        "date": "2026-07-16",
+        "date_str": "16 July 2026",
+        "title": "The Archaeologist’s Copilot",
+        "link": "https://martinfowler.com/articles/archaeologist-copilot.html",
+        "author": "Nik Malykhin",
+        "description": "",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
     },
     {
         "id": "pe-2026-07-7003f7",
@@ -6010,6 +6788,27 @@
         "type": "article"
     },
     {
+        "id": "mf-2026-07-515622",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "DSLs Enable Reliable Use of LLMs",
+        "issue_link": "https://martinfowler.com/articles/llm-and-dsls.html",
+        "date": "2026-07-14",
+        "date_str": "14 July 2026",
+        "title": "DSLs Enable Reliable Use of LLMs",
+        "link": "https://martinfowler.com/articles/llm-and-dsls.html",
+        "author": "Unmesh Joshi",
+        "description": "",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "article",
+        "also_in": [
+            "Token by Token"
+        ]
+    },
+    {
         "id": "addy-2026-07-c41322",
         "source_id": "addy-osmani",
         "source_short_name": "Addy Osmani",
@@ -6030,8 +6829,8 @@
     {
         "id": "others-2026-07-2b9575",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "July 2026 Collected Articles",
         "issue_link": "",
@@ -6042,6 +6841,24 @@
         "author": "Salvatore Sanfilippo (antirez)",
         "description": "Argues that in the AI era, reviewing AI-generated code line-by-line is suboptimal and often pointless. Programmers should instead focus on controlling high-level design, conducting QA, and building robust test suites.",
         "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-07-767cbb",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Fragments: July 13",
+        "issue_link": "https://martinfowler.com/fragments/2026-07-13.html",
+        "date": "2026-07-13",
+        "date_str": "13 July 2026",
+        "title": "Fragments: July 13",
+        "link": "https://martinfowler.com/fragments/2026-07-13.html",
+        "author": "Martin Fowler",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
         "is_spotlight": false,
         "type": "article"
     },
@@ -6274,8 +7091,8 @@
     {
         "id": "others-2026-07-5dbec4",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "July 2026 Collected Articles",
         "issue_link": "",
@@ -6416,6 +7233,24 @@
         "type": "video"
     },
     {
+        "id": "mf-2026-07-43b30e",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Experiences with local models for coding",
+        "issue_link": "https://martinfowler.com/articles/exploring-gen-ai/local-models-for-coding-experiences.html",
+        "date": "2026-07-08",
+        "date_str": "8 July 2026",
+        "title": "Experiences with local models for coding",
+        "link": "https://martinfowler.com/articles/exploring-gen-ai/local-models-for-coding-experiences.html",
+        "author": "Birgitta Böckeler",
+        "description": "",
+        "category": "Large Language Models & Evaluation Infrastructure",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
         "id": "pe-2026-07-b3dd40",
         "source_id": "pragmatic-engineer",
         "source_short_name": "Pragmatic Eng.",
@@ -6430,6 +7265,45 @@
         "author": null,
         "description": "The market where nobody finds each other, the hottest market for AI-related positions, tough for engineering leaders, and more. Based on details from 50+ hiring managers & job seekers",
         "category": "Tech Industry, Jobs & Careers",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-07-bbc024",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Viability of local models for coding",
+        "issue_link": "https://martinfowler.com/articles/exploring-gen-ai/local-models-for-coding-factors.html",
+        "date": "2026-07-07",
+        "date_str": "7 July 2026",
+        "title": "Viability of local models for coding",
+        "link": "https://martinfowler.com/articles/exploring-gen-ai/local-models-for-coding-factors.html",
+        "author": "Birgitta Böckeler",
+        "description": "",
+        "category": "Large Language Models & Evaluation Infrastructure",
+        "is_spotlight": false,
+        "type": "article",
+        "also_in": [
+            "Token by Token"
+        ]
+    },
+    {
+        "id": "mf-2026-07-222d3c",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Fragments: July 6",
+        "issue_link": "https://martinfowler.com/fragments/2026-07-06.html",
+        "date": "2026-07-06",
+        "date_str": "6 July 2026",
+        "title": "Fragments: July 6",
+        "link": "https://martinfowler.com/fragments/2026-07-06.html",
+        "author": "Martin Fowler",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
         "is_spotlight": false,
         "type": "article"
     },
@@ -6813,8 +7687,8 @@
     {
         "id": "others-2026-07-d008f5",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "July 2026 Collected Articles",
         "issue_link": "",
@@ -6831,8 +7705,8 @@
     {
         "id": "others-2026-07-410d2a",
         "source_id": "my-collected-articles",
-        "source_short_name": "On My Radar",
-        "newsletter": "On My Radar",
+        "source_short_name": "Editor's Radar",
+        "newsletter": "Editor's Radar",
         "issue_number": null,
         "issue_title": "July 2026 Collected Articles",
         "issue_link": "",
@@ -7697,7 +8571,7 @@ function renderCategoryCounts(list) {
       });
     }
 
-    [timeframeDropdown, sourceFilter, typeFilter, categoryFilter].filter(Boolean).forEach(filter => {
+    [timeframeDropdown, sourceFilter, categoryFilter, typeFilter].filter(Boolean).forEach(filter => {
       filter.addEventListener('toggle', function() {
         if (filter.open) closeMultiFilters(filter);
       });
@@ -7983,6 +8857,8 @@ function renderCategoryCounts(list) {
           'andriy-burkov-ai': 'badge-ai',
           'addy-osmani': 'badge-addy',
           'future-software-development': 'badge-fose',
+          'martin-fowler': 'badge-mf',
+          'simon-willison': 'badge-sw',
           'my-collected-articles': 'badge-others'
         };
         const badgeClass = badgeClasses[article.source_id] || 'badge-tbt';
