@@ -36,10 +36,8 @@ Based on the recommendations in [`docs/ui-expert-review-en.md`](docs/ui-expert-r
     1. **Automated Scraper Unshortener (Option A)**: Ensure `MailerLiteScraper` (and shared unshortening routines) pass a standard browser `User-Agent` to resolve tracking redirects directly (`302 Found`) without triggering 403s.
     2. **Automated Link Verification Tool (Option A)**: Add a lightweight `validate_url` check in `code/tools/normalize_data.py` (or a dedicated `code/tools/check_links.py`) that performs a `HEAD`/`GET` probe to ensure newly ingested links resolve to `200 OK` (not `404` or `410`).
     3. **Assistant Operational Rule (Option B)**: If an HTTP error (e.g. 403, 429, 999) requires manual/search resolution, the final destination URL must be actively tested for HTTP validity (via `curl -ILs` or Python probe) before being saved to any `data.json`.
-- **Sticky Table Header Corner Bleed on Selected Rows (UI Polish)**:
-  - *Scenario*: When rows are selected (e.g. "Select All") and the user scrolls down through the table.
-  - *Issue*: The sticky table header (`th:first-child`) uses `border-top-left-radius: 12px;`, whereas selected rows (`.selected-row td:first-child`) have an accent indicator (`border-left: 3px solid #38bdf8`). When scrolling down, the blue strip of rows moving under the header visibly peeks out through the transparent curved corner radius.
-  - *Proposed Fix Options*: Replace `border-left` with `box-shadow: inset 3px 0 0 #38bdf8;`, square the sticky header's corners when pinned / scrolled, or add an outer clipping wrapper around the scrollable body.
+- **Sticky Table Header Corner Bleed on Selected Rows (UI Polish)**: ✅ **Done**
+  - *Resolution*: Replaced `border-left: 3px solid var(--accent-blue)` with `box-shadow: inset 3px 0 0 var(--accent-blue) !important;` on `tr.selected-row td:first-child`. The selection indicator is fully contained within the cell boundary, preventing bleed under the sticky header's curved corner during table scroll.
 - **Next Week Priority — Migrate Andriy Burkov Source to Substack (`aiweekly.substack.com`)**:
   - *Context*: Andriy Burkov cross-publishes the exact same weekly content under *True Positive Weekly* on Substack (`https://aiweekly.substack.com/api/v1/posts`).
   - *Benefits*: Eliminates LinkedIn authwalls, HTTP 999 blocks, and manual imports; enables automated weekly refreshes (`--refresh --source andriy-burkov-ai`); guarantees 100% direct, un-gated destination URLs.
@@ -50,12 +48,12 @@ Based on the recommendations in [`docs/ui-expert-review-en.md`](docs/ui-expert-r
 - **Aggregated RSS Feed**: Add `code/builders/build_feed.py` to output a unified `output/feed.xml`.
 - **Modern CSS Modernization ("CSS Reacts, JS Just Listens" Architecture)**:
   - *Context*: Based on Adam Argyle's reactive CSS architectural patterns (`prop-for-that`) and vetted by Claude Opus for browser standards, shifting UI state management from JavaScript DOM mutation to native CSS primitives:
-  - **Phase 1: Immediate Quick Wins (Zero Risk, Baseline Universal)**:
-    - *Pure CSS Search Clear Button*: Replace JS `input` listeners that toggle `.visible` on `#searchClearBtn` with `.search-wrapper:has(#searchInput:not(:placeholder-shown)) #searchClearBtn { opacity: 1; pointer-events: auto; }`.
-    - *Ambient UI & Battery/Performance Optimization*: Automatically strip heavy `backdrop-filter: blur(...)` and box-shadows under `@media (prefers-reduced-transparency: reduce)` and `(prefers-reduced-motion: reduce)` for silky smooth mobile rendering.
+  - **Phase 1: Immediate Quick Wins (Zero Risk, Baseline Universal)**: ✅ **Done**
+    - *Pure CSS Search Clear Button*: Search clear button visibility is now reactive via `.search-toolbar:has(#searchInput:not(:placeholder-shown)) .search-clear-btn` with smooth opacity/pointer-events transitions.
+    - *Ambient UI & Battery/Performance Optimization*: Added `@media (prefers-reduced-transparency: reduce)` stripping heavy `backdrop-filter: blur(...)` to solid backgrounds and `@media (prefers-reduced-motion: reduce)` for instant, battery-efficient rendering.
   - **Phase 2: Modernization & JS DOM Decoupling**:
-    - *True Zero-JS Checkbox Counters*: Use native CSS `counter-reset` and `tr:has(.row-selector:checked) { counter-increment: selected; }` so `.pill-selected` counts checked rows purely in the CSSOM without JS `textContent` mutations.
-    - *Compositor-Thread Reading Progress*: Add a subtle, hardware-accelerated 2px reading horizon bar under the sticky table header driven by CSS Scroll-Driven Animations (`animation-timeline: scroll()`) with zero main-thread scroll listeners.
+    - *Compositor-Thread Reading Progress*: ✅ **Done** Added a hardware-accelerated 2px gradient horizon bar (`#tableProgressBar`) under the sticky table header driven by CSS Scroll-Driven Animations (`animation-timeline: scroll()`) wrapped in `@supports (animation-timeline: scroll())` with zero main-thread JS scroll listeners.
+    - *True Zero-JS Checkbox Counters (Evaluated)*: Evaluated and deferred. Retained single source of truth in JavaScript (`selectedIds.size`) with motionless tabular numbers to ensure export payload and UI counter stay 100% in sync without dual-state discrepancies.
   - **Phase 3: Progressive Enhancement**:
     - *Faceted Filter Dimming via Style Queries*: Transition zero-match option dimming to `@container style(--matches: 0)` wrapped in `@supports (container: style(...))`, keeping class-based dimming as a graceful fallback.
 - **Architectural Triggers (Milestone Thresholds)**:

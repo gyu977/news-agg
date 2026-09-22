@@ -700,6 +700,44 @@ class FilterMatrixSimulationTests(unittest.TestCase):
         self.assertIn('"Deselect article"', html)
         self.assertIn('"Select article to export as Markdown or HTML"', html)
 
+    def test_scenario_16_modern_css_enhancements(self):
+        """Scenario 16: Verifies modern CSS architectural enhancements:
+        1. Pure CSS reactive search clear button using :has() and :not(:placeholder-shown).
+        2. Corner-bleed prevention for selected rows using inset box-shadow instead of border-left.
+        3. Accessibility overrides for prefers-reduced-transparency and prefers-reduced-motion."""
+        template_path = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
+        with open(template_path, encoding="utf-8") as stream:
+            html = stream.read()
+
+        # 1. Pure CSS search clear button reactive rule
+        self.assertIn(
+            ".search-toolbar:has(#searchInput:not(:placeholder-shown)) .search-clear-btn {",
+            html
+        )
+        self.assertIn("opacity: 1;", html)
+        self.assertIn("pointer-events: auto;", html)
+        self.assertIn("visibility: visible;", html)
+
+        # 2. Corner bleed fix on selected row
+        self.assertIn("box-shadow: inset 3px 0 0 var(--accent-blue) !important;", html)
+
+        # 3. Accessibility: prefers-reduced-transparency
+        self.assertIn("@media (prefers-reduced-transparency: reduce) {", html)
+        self.assertIn("backdrop-filter: none !important;", html)
+
+        # 4. Accessibility: prefers-reduced-motion
+        self.assertIn("@media (prefers-reduced-motion: reduce) {", html)
+        self.assertIn("animation: none !important;", html)
+        self.assertIn("scroll-behavior: auto !important;", html)
+
+        # 5. Scroll-driven reading progress bar
+        self.assertIn("@keyframes table-scroll-progress {", html)
+        self.assertIn("@supports (animation-timeline: scroll()) {", html)
+        self.assertIn("animation: table-scroll-progress linear;", html)
+        self.assertIn("animation-timeline: scroll();", html)
+        self.assertIn('<div class="table-progress-bar" id="tableProgressBar" aria-hidden="true"></div>', html)
+        self.assertIn(".table-progress-bar {\n        top: 0;\n      }", html)
+
 
 if __name__ == "__main__":
     unittest.main()
