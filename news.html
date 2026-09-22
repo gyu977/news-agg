@@ -923,8 +923,8 @@
     }
 
     .date-column {
-      width: 160px;
-      min-width: 160px;
+      width: 115px;
+      min-width: 115px;
     }
 
     .author-column {
@@ -1926,24 +1926,6 @@
         "type": "conference"
     },
     {
-        "id": "da-308-b05d7c",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 308,
-        "issue_title": "Team AI shift explained - #308 Dear Architects",
-        "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199047240132593630?signature=59f2c3253aaa259c7a1671312fb729cea59099aacb7f2c94eee33239fceff9d9",
-        "date": "2026-09-19",
-        "date_str": "19 September 2026",
-        "title": "Becoming an AI Team",
-        "link": "https://medium.com/pinterest-engineering/becoming-an-ai-team-c7438fa538e1",
-        "author": "John Grass",
-        "description": "An AI team is fundamentally more than just a group whose members incorporate AI tools into their existing workflows. The journey to becoming an AI team necessitates a fundamental and comprehensive paradigm shift in how the team defines ownership, engages in strategic planning, and executes on core goals.",
-        "category": "Tech Industry, Jobs & Careers",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
         "id": "da-308-aeb3bb",
         "source_id": "dear-architects",
         "source_short_name": "Dear Architects",
@@ -1960,6 +1942,24 @@
         "category": "Software Architecture & Distributed Systems",
         "is_spotlight": false,
         "type": "book"
+    },
+    {
+        "id": "da-308-adbaa7",
+        "source_id": "dear-architects",
+        "source_short_name": "Dear Architects",
+        "newsletter": "Dear Architects",
+        "issue_number": 308,
+        "issue_title": "Team AI shift explained - #308 Dear Architects",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199047240132593630?signature=59f2c3253aaa259c7a1671312fb729cea59099aacb7f2c94eee33239fceff9d9",
+        "date": "2026-09-19",
+        "date_str": "19 September 2026",
+        "title": "Becoming an AI Team",
+        "link": "https://medium.com/pinterest-engineering/becoming-an-ai-team-866d6b567803",
+        "author": "John Grass",
+        "description": "An AI team is fundamentally more than just a group whose members incorporate AI tools into their existing workflows. The journey to becoming an AI team necessitates a fundamental and comprehensive paradigm shift in how the team defines ownership, engages in strategic planning, and executes on core goals.",
+        "category": "Tech Industry, Jobs & Careers",
+        "is_spotlight": false,
+        "type": "article"
     },
     {
         "id": "da-308-10adf5",
@@ -7985,24 +7985,6 @@
         "category": "Tech Industry, Jobs & Careers",
         "is_spotlight": false,
         "type": "video"
-    },
-    {
-        "id": "pe-2026-06-ffbe77",
-        "source_id": "pragmatic-engineer",
-        "source_short_name": "Pragmatic Eng.",
-        "newsletter": "The Pragmatic Engineer",
-        "issue_number": null,
-        "issue_title": "The Pragmatic Engineer",
-        "issue_link": "https://newsletter.pragmaticengineer.com/archive",
-        "date": "2026-06-23",
-        "date_str": "23 June 2026",
-        "title": "Slow down to speed up: so much has changed in 6 months’ time",
-        "link": "https://newsletter.pragmaticengineer.com/p/slow-down-to-speed-up",
-        "author": null,
-        "description": "An overview of what’s changed in engineering during the last six months, how various tech companies are changing how they work, and why slowing down could be a sensible strategy",
-        "category": "Engineering Philosophy & Estimation",
-        "is_spotlight": false,
-        "type": "article"
     }
 ];
     /* ARTICLES_END */
@@ -8456,6 +8438,21 @@ function renderCategoryCounts(list) {
       return categoryDisplayAliases[canonicalCat] || canonicalCat;
     }
 
+    const shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    function formatDateDisplay(article) {
+      if (article.date && /^\d{4}-\d{2}-\d{2}$/.test(article.date)) {
+        const parts = article.date.split('-');
+        const year = parts[0];
+        const monthIdx = parseInt(parts[1], 10) - 1;
+        const day = parseInt(parts[2], 10);
+        if (monthIdx >= 0 && monthIdx < 12) {
+          return `${day} ${shortMonths[monthIdx]} ${year}`;
+        }
+      }
+      return article.date_str || article.date || '';
+    }
+
     function escapeMarkdownText(value) {
       return String(value == null ? '' : value)
         .replace(/\\/g, '\\\\')
@@ -8896,7 +8893,7 @@ function renderCategoryCounts(list) {
         const tdDate = document.createElement('td');
         tdDate.setAttribute('data-label', 'Date');
         tdDate.className = 'date-cell date-column';
-        tdDate.textContent = article.date_str;
+        tdDate.textContent = formatDateDisplay(article);
         tr.appendChild(tdDate);
 
         // 3. Author cell

@@ -923,8 +923,8 @@
     }
 
     .date-column {
-      width: 160px;
-      min-width: 160px;
+      width: 115px;
+      min-width: 115px;
     }
 
     .author-column {
@@ -2350,6 +2350,21 @@ function renderCategoryCounts(list) {
       return categoryDisplayAliases[canonicalCat] || canonicalCat;
     }
 
+    const shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    function formatDateDisplay(article) {
+      if (article.date && /^\d{4}-\d{2}-\d{2}$/.test(article.date)) {
+        const parts = article.date.split('-');
+        const year = parts[0];
+        const monthIdx = parseInt(parts[1], 10) - 1;
+        const day = parseInt(parts[2], 10);
+        if (monthIdx >= 0 && monthIdx < 12) {
+          return `${day} ${shortMonths[monthIdx]} ${year}`;
+        }
+      }
+      return article.date_str || article.date || '';
+    }
+
     function escapeMarkdownText(value) {
       return String(value == null ? '' : value)
         .replace(/\\/g, '\\\\')
@@ -2790,7 +2805,7 @@ function renderCategoryCounts(list) {
         const tdDate = document.createElement('td');
         tdDate.setAttribute('data-label', 'Date');
         tdDate.className = 'date-cell date-column';
-        tdDate.textContent = article.date_str;
+        tdDate.textContent = formatDateDisplay(article);
         tr.appendChild(tdDate);
 
         // 3. Author cell

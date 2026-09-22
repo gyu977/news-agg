@@ -641,8 +641,8 @@ class FilterMatrixSimulationTests(unittest.TestCase):
         self.assertIn("min-width: 185px;", html)
 
         self.assertIn(".date-column {", html)
-        self.assertIn("width: 160px;", html)
-        self.assertIn("min-width: 160px;", html)
+        self.assertIn("width: 115px;", html)
+        self.assertIn("min-width: 115px;", html)
 
         self.assertIn(".author-column {", html)
         self.assertIn("width: 170px;", html)
