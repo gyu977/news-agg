@@ -637,8 +637,8 @@ class FilterMatrixSimulationTests(unittest.TestCase):
         # 1. Verify CSS defines table-layout: fixed and column width / min-width constraints
         self.assertIn("table-layout: fixed;", html)
         self.assertIn(".source-column {", html)
-        self.assertIn("width: 185px;", html)
-        self.assertIn("min-width: 185px;", html)
+        self.assertIn("width: 165px;", html)
+        self.assertIn("min-width: 165px;", html)
 
         self.assertIn(".date-column {", html)
         self.assertIn("width: 115px;", html)
@@ -649,8 +649,8 @@ class FilterMatrixSimulationTests(unittest.TestCase):
         self.assertIn("min-width: 170px;", html)
 
         self.assertIn(".category-column {", html)
-        self.assertIn("width: 210px;", html)
-        self.assertIn("min-width: 210px;", html)
+        self.assertIn("width: 180px;", html)
+        self.assertIn("min-width: 180px;", html)
 
         # 2. Verify th elements have corresponding column classes
         self.assertIn('id="th-newsletter" class="source-column"', html)
@@ -737,6 +737,12 @@ class FilterMatrixSimulationTests(unittest.TestCase):
         self.assertIn("animation-timeline: scroll();", html)
         self.assertIn('<div class="table-progress-bar" id="tableProgressBar" aria-hidden="true"></div>', html)
         self.assertIn(".table-progress-bar {\n        top: 0;\n      }", html)
+
+        # 6. Reactive CSS counter for selected rows
+        self.assertIn("--selected-count: 0;", html)
+        self.assertIn("counter-reset: selected-articles var(--selected-count);", html)
+        self.assertIn(".pill-selected .count-num::after {\n      content: counter(selected-articles);\n    }", html)
+        self.assertIn("document.documentElement.style.setProperty('--selected-count', count);", html)
 
 
 if __name__ == "__main__":

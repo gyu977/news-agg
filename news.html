@@ -10,6 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <style>
+    /* Registered Custom Property for Type-Safe CSS Counters */
+    @property --selected-count {
+      syntax: '<integer>';
+      inherits: true;
+      initial-value: 0;
+    }
+
     /* Styling tokens and tokens system */
     :root {
       --bg-gradient: linear-gradient(135deg, #090d16 0%, #0f172a 100%);
@@ -28,6 +35,7 @@
       --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
       --shadow-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      --selected-count: 0;
     }
 
     * {
@@ -44,6 +52,7 @@
       min-height: 100vh;
       padding: 2.5rem 1.5rem;
       line-height: 1.6;
+      counter-reset: selected-articles var(--selected-count);
     }
 
     .container {
@@ -855,6 +864,9 @@
       font-weight: 600;
       letter-spacing: 0.01em;
       white-space: nowrap;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .badge-tbt {
@@ -936,6 +948,9 @@
       border-radius: 6px;
       display: inline-flex;
       align-items: center;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
       transition: var(--transition-smooth);
     }
 
@@ -946,8 +961,8 @@
     }
 
     .source-column {
-      width: 185px;
-      min-width: 185px;
+      width: 165px;
+      min-width: 165px;
     }
 
     .date-column {
@@ -961,8 +976,8 @@
     }
 
     .category-column {
-      width: 210px;
-      min-width: 210px;
+      width: 180px;
+      min-width: 180px;
     }
 
     .article-title-cell {
@@ -1189,6 +1204,10 @@
       color: #38bdf8;
       min-width: 146px;
       animation: fadeIn 0.15s ease-out;
+    }
+
+    .pill-selected .count-num::after {
+      content: counter(selected-articles);
     }
 
     .btn-clear-selection {
@@ -1938,8 +1957,9 @@
           <div class="count-pill pill-displayed" id="resultsCountPill">
             <span id="resultsCount"><strong class="count-num">0</strong> displayed</span>
           </div>
-          <div class="count-pill pill-selected" id="selectionCountPill" style="display: none;">
-            <span id="selectionCountText"><strong class="count-num">0</strong> selected</span>
+          <span class="sr-only" aria-live="polite" id="a11ySelectionCount">0 items selected</span>
+          <div class="count-pill pill-selected" id="selectionCountPill" aria-hidden="true" style="display: none;">
+            <span id="selectionCountText"><strong class="count-num"></strong> selected</span>
             <button type="button" class="btn-clear-selection" onclick="clearAllSelections()" title="Deselect all rows">Clear</button>
           </div>
         </div>
@@ -7959,114 +7979,6 @@
         "type": "article",
         "quote": "The best modules are deep. They allow a lot of functionality to be accessed through a simple interface.",
         "quote_author": "John Ousterhout"
-    },
-    {
-        "id": "tbt-11-f141aa",
-        "source_id": "token-by-token",
-        "source_short_name": "Token by Token",
-        "newsletter": "Token by Token",
-        "issue_number": 11,
-        "issue_title": "token by token - AI agents: Beyond the demo",
-        "issue_link": "https://preview.mailerlite.io/preview/2096144/emails/191189809995187280",
-        "date": "2026-06-25",
-        "date_str": "25 June 2026",
-        "title": "How to delegate 40% of tickets to AI",
-        "link": "https://thenewstack.io/delegate-tickets-to-ai/",
-        "author": "Zohar Einy",
-        "description": "AI beats us at coding. But it’s also better and faster at nearly everything else: planning, QA, working with all the tools in your SDLC. So why aren’t we letting agents take features and bugs all the way, from ticket to production? All we should have to do is decide what to build and let agents do what they do best.",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "tbt-11-eeb9ec",
-        "source_id": "token-by-token",
-        "source_short_name": "Token by Token",
-        "newsletter": "Token by Token",
-        "issue_number": 11,
-        "issue_title": "token by token - AI agents: Beyond the demo",
-        "issue_link": "https://preview.mailerlite.io/preview/2096144/emails/191189809995187280",
-        "date": "2026-06-25",
-        "date_str": "25 June 2026",
-        "title": "Loop library",
-        "link": "https://signals.forwardfuture.com/loop-library/",
-        "author": null,
-        "description": "An agent loop is a task with a check. The agent does some work, checks the result, and then continues or stops. In practice, the agent observes the current state, takes one action, checks what happened, and decides what to do next. Use a loop when the result of one step should change the next step. If it will not, use a one-time task instead.",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "tbt-11-dcec33",
-        "source_id": "token-by-token",
-        "source_short_name": "Token by Token",
-        "newsletter": "Token by Token",
-        "issue_number": 11,
-        "issue_title": "token by token - AI agents: Beyond the demo",
-        "issue_link": "https://preview.mailerlite.io/preview/2096144/emails/191189809995187280",
-        "date": "2026-06-25",
-        "date_str": "25 June 2026",
-        "title": "The Hidden Cost of Agentic Code Generation",
-        "link": "https://hackernoon.com/the-hidden-cost-of-agentic-code-generation",
-        "author": null,
-        "description": "The efficiencies agentic code generation are real, but the true costs are poorly understood. An agent writes a service in four minutes that would have cost a senior engineer two days, and the line item drops from two days of salary to a few dollars of tokens. That money didn’t disappear. It moved downstream, into the build farm, the test fleet, the release pipeline, and the pager rotation. This is the part of the agentic-engineering pitch that nobody puts on the slide. The productivity is genuine and the savings on code generation are genuine, and both are measured at exactly the wrong point in the system. You booked the discount at the keyboard. The bill arrives everywhere else.",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "tbt-11-73a116",
-        "source_id": "token-by-token",
-        "source_short_name": "Token by Token",
-        "newsletter": "Token by Token",
-        "issue_number": 11,
-        "issue_title": "token by token - AI agents: Beyond the demo",
-        "issue_link": "https://preview.mailerlite.io/preview/2096144/emails/191189809995187280",
-        "date": "2026-06-25",
-        "date_str": "25 June 2026",
-        "title": "Agentic Testing: Where Agents Fit in the E2E Testing Stack",
-        "link": "https://slack.engineering/agentic-testing-where-agents-fit-in-the-e2e-testing-stack/",
-        "author": null,
-        "description": "Agent-driven end-to-end (E2E) tests add a new exploratory layer to testing, but should they replace traditional deterministic tests? We ran more than 200 agentic E2E workflows using the Playwright MCP, Playwright CLI, and agent-generated Playwright tests in test workspaces using non-production data to find out how agentic testing could fit into both our and your testing stacks.",
-        "category": "Software Testing, Quality & Observability",
-        "is_spotlight": true,
-        "type": "article"
-    },
-    {
-        "id": "tbt-11-3dd696",
-        "source_id": "token-by-token",
-        "source_short_name": "Token by Token",
-        "newsletter": "Token by Token",
-        "issue_number": 11,
-        "issue_title": "token by token - AI agents: Beyond the demo",
-        "issue_link": "https://preview.mailerlite.io/preview/2096144/emails/191189809995187280",
-        "date": "2026-06-25",
-        "date_str": "25 June 2026",
-        "title": "AI Agents: The Definitive Guide",
-        "link": "https://amzn.to/4g3IuZu",
-        "author": null,
-        "description": "Written by Nicole Koenigstein, a leader in agentic AI with deep experience across finance, research, and engineering, this book offers the practical, system-level foundations needed to build robust, scalable, and secure agentic systems.",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "book"
-    },
-    {
-        "id": "pe-2026-06-4e8837",
-        "source_id": "pragmatic-engineer",
-        "source_short_name": "Pragmatic Eng.",
-        "newsletter": "The Pragmatic Engineer",
-        "issue_number": null,
-        "issue_title": "The Pragmatic Engineer",
-        "issue_link": "https://newsletter.pragmaticengineer.com/archive",
-        "date": "2026-06-24",
-        "date_str": "24 June 2026",
-        "title": "Tech interviews with NeetCode",
-        "link": "https://newsletter.pragmaticengineer.com/p/tech-interviews-with-neetcode",
-        "author": null,
-        "description": "NeetCode shares his journey from Amazon and Google to building a startup, and why deep expertise still matters in the age of AI.",
-        "category": "Tech Industry, Jobs & Careers",
-        "is_spotlight": false,
-        "type": "video"
     }
 ];
     /* ARTICLES_END */
@@ -8328,13 +8240,17 @@ function renderCategoryCounts(list) {
     const selectionActionsCluster = document.getElementById('selectionActionsCluster');
     const selectionCountPill = document.getElementById('selectionCountPill');
     const selectionCountText = document.getElementById('selectionCountText');
+    const a11ySelectionCount = document.getElementById('a11ySelectionCount');
 
     function updateSelectionUI() {
       const count = selectedIds.size;
+      document.documentElement.style.setProperty('--selected-count', count);
+      if (a11ySelectionCount) {
+        a11ySelectionCount.textContent = `${count} ${count === 1 ? 'article' : 'articles'} selected`;
+      }
       if (count > 0) {
         if (selectionActionsCluster) selectionActionsCluster.style.display = 'flex';
         if (selectionCountPill) selectionCountPill.style.display = 'inline-flex';
-        if (selectionCountText) selectionCountText.innerHTML = `<strong class="count-num">${count}</strong> selected`;
       } else {
         if (selectionActionsCluster) selectionActionsCluster.style.display = 'none';
         if (selectionCountPill) selectionCountPill.style.display = 'none';
@@ -8681,7 +8597,7 @@ function renderCategoryCounts(list) {
         book: 'Books (📖)',
         pulse: 'Pulses (⚡)',
         presentation: 'Presentations/Talks (🎤)',
-        conference: 'Conferences (🎟️)'
+        conference: 'Conferences (🏛️)'
       };
       const uniqueTypes = new Set(articles.map(a => a.type).filter(Boolean));
       const typeOptions = Array.from(uniqueTypes)
@@ -9002,7 +8918,7 @@ function renderCategoryCounts(list) {
         if (article.type === 'book') icon = '📖';
         if (article.type === 'pulse') icon = '⚡';
         if (article.type === 'presentation') icon = '🎤';
-        if (article.type === 'conference') icon = '🎟️';
+        if (article.type === 'conference') icon = '🏛️';
 
         const isSpotlightBadge = article.is_spotlight 
           ? `<span class="badge badge-spotlight">★ Spotlight</span>` 
@@ -9092,7 +9008,7 @@ function renderCategoryCounts(list) {
         if (a.type === 'book') icon = '📖';
         if (a.type === 'pulse') icon = '⚡';
         if (a.type === 'presentation') icon = '🎤';
-        if (a.type === 'conference') icon = '🎟️';
+        if (a.type === 'conference') icon = '🏛️';
 
         const sourceBadge = a.issue_number ? `#${escapeHtml(a.issue_number)} ${escapeHtml(a.newsletter)}` : escapeHtml(a.newsletter);
         const alsoInNames = additionalSourceNames(a);
@@ -9251,7 +9167,7 @@ function renderCategoryCounts(list) {
         if (a.type === 'book') icon = '📖';
         if (a.type === 'pulse') icon = '⚡';
         if (a.type === 'presentation') icon = '🎤';
-        if (a.type === 'conference') icon = '🎟️';
+        if (a.type === 'conference') icon = '🏛️';
         
         const sourceBadge = escapeMarkdownText(
           a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter

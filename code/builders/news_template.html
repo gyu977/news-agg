@@ -10,6 +10,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <style>
+    /* Registered Custom Property for Type-Safe CSS Counters */
+    @property --selected-count {
+      syntax: '<integer>';
+      inherits: true;
+      initial-value: 0;
+    }
+
     /* Styling tokens and tokens system */
     :root {
       --bg-gradient: linear-gradient(135deg, #090d16 0%, #0f172a 100%);
@@ -28,6 +35,7 @@
       --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
       --shadow-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      --selected-count: 0;
     }
 
     * {
@@ -44,6 +52,7 @@
       min-height: 100vh;
       padding: 2.5rem 1.5rem;
       line-height: 1.6;
+      counter-reset: selected-articles var(--selected-count);
     }
 
     .container {
@@ -855,6 +864,9 @@
       font-weight: 600;
       letter-spacing: 0.01em;
       white-space: nowrap;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .badge-tbt {
@@ -936,6 +948,9 @@
       border-radius: 6px;
       display: inline-flex;
       align-items: center;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
       transition: var(--transition-smooth);
     }
 
@@ -946,8 +961,8 @@
     }
 
     .source-column {
-      width: 185px;
-      min-width: 185px;
+      width: 165px;
+      min-width: 165px;
     }
 
     .date-column {
@@ -961,8 +976,8 @@
     }
 
     .category-column {
-      width: 210px;
-      min-width: 210px;
+      width: 180px;
+      min-width: 180px;
     }
 
     .article-title-cell {
@@ -1189,6 +1204,10 @@
       color: #38bdf8;
       min-width: 146px;
       animation: fadeIn 0.15s ease-out;
+    }
+
+    .pill-selected .count-num::after {
+      content: counter(selected-articles);
     }
 
     .btn-clear-selection {
@@ -1930,8 +1949,9 @@
           <div class="count-pill pill-displayed" id="resultsCountPill">
             <span id="resultsCount"><strong class="count-num">0</strong> displayed</span>
           </div>
-          <div class="count-pill pill-selected" id="selectionCountPill" style="display: none;">
-            <span id="selectionCountText"><strong class="count-num">0</strong> selected</span>
+          <span class="sr-only" aria-live="polite" id="a11ySelectionCount">0 items selected</span>
+          <div class="count-pill pill-selected" id="selectionCountPill" aria-hidden="true" style="display: none;">
+            <span id="selectionCountText"><strong class="count-num"></strong> selected</span>
             <button type="button" class="btn-clear-selection" onclick="clearAllSelections()" title="Deselect all rows">Clear</button>
           </div>
         </div>
@@ -2240,13 +2260,17 @@ function renderCategoryCounts(list) {
     const selectionActionsCluster = document.getElementById('selectionActionsCluster');
     const selectionCountPill = document.getElementById('selectionCountPill');
     const selectionCountText = document.getElementById('selectionCountText');
+    const a11ySelectionCount = document.getElementById('a11ySelectionCount');
 
     function updateSelectionUI() {
       const count = selectedIds.size;
+      document.documentElement.style.setProperty('--selected-count', count);
+      if (a11ySelectionCount) {
+        a11ySelectionCount.textContent = `${count} ${count === 1 ? 'article' : 'articles'} selected`;
+      }
       if (count > 0) {
         if (selectionActionsCluster) selectionActionsCluster.style.display = 'flex';
         if (selectionCountPill) selectionCountPill.style.display = 'inline-flex';
-        if (selectionCountText) selectionCountText.innerHTML = `<strong class="count-num">${count}</strong> selected`;
       } else {
         if (selectionActionsCluster) selectionActionsCluster.style.display = 'none';
         if (selectionCountPill) selectionCountPill.style.display = 'none';
@@ -2593,7 +2617,7 @@ function renderCategoryCounts(list) {
         book: 'Books (📖)',
         pulse: 'Pulses (⚡)',
         presentation: 'Presentations/Talks (🎤)',
-        conference: 'Conferences (🎟️)'
+        conference: 'Conferences (🏛️)'
       };
       const uniqueTypes = new Set(articles.map(a => a.type).filter(Boolean));
       const typeOptions = Array.from(uniqueTypes)
@@ -2914,7 +2938,7 @@ function renderCategoryCounts(list) {
         if (article.type === 'book') icon = '📖';
         if (article.type === 'pulse') icon = '⚡';
         if (article.type === 'presentation') icon = '🎤';
-        if (article.type === 'conference') icon = '🎟️';
+        if (article.type === 'conference') icon = '🏛️';
 
         const isSpotlightBadge = article.is_spotlight 
           ? `<span class="badge badge-spotlight">★ Spotlight</span>` 
@@ -3004,7 +3028,7 @@ function renderCategoryCounts(list) {
         if (a.type === 'book') icon = '📖';
         if (a.type === 'pulse') icon = '⚡';
         if (a.type === 'presentation') icon = '🎤';
-        if (a.type === 'conference') icon = '🎟️';
+        if (a.type === 'conference') icon = '🏛️';
 
         const sourceBadge = a.issue_number ? `#${escapeHtml(a.issue_number)} ${escapeHtml(a.newsletter)}` : escapeHtml(a.newsletter);
         const alsoInNames = additionalSourceNames(a);
@@ -3163,7 +3187,7 @@ function renderCategoryCounts(list) {
         if (a.type === 'book') icon = '📖';
         if (a.type === 'pulse') icon = '⚡';
         if (a.type === 'presentation') icon = '🎤';
-        if (a.type === 'conference') icon = '🎟️';
+        if (a.type === 'conference') icon = '🏛️';
         
         const sourceBadge = escapeMarkdownText(
           a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter

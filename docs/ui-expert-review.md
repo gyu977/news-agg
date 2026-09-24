@@ -186,5 +186,5 @@ Conducted by Senior Staff UI/UX Architect (Claude Opus / Frontier Model Review):
 | **Engineering Quality & Resilience** | **10 / 10** | Zero runtime dependencies; pure vanilla HTML/CSS/JS; event delegation on `tbody` ensures $O(1)$ listener overhead regardless of row count; clean static build pipeline. |
 
 ### Architectural Recommendations for Future Polish:
-1. **Header Corner Bleed Fix**: Switch `.selected-row td:first-child` from `border-left: 3px solid var(--accent-blue);` to `box-shadow: inset 3px 0 0 var(--accent-blue);` to contain the highlight within the cell boundary and eliminate corner peeking on scroll.
+1. **Header Corner Bleed Fix (Open)**: The visual bleed of the first-column selection marker under the sticky header remains an active issue. The initial switch to `box-shadow: inset 3px 0 0` did not eliminate the effect due to header background translucency (`rgba(15, 23, 42, 0.95)`) and corner radius masking (`border-top-left-radius: 15px`). Tracked in `NEXT-STEPS.md` Section 2.
 2. **Virtualization Milestone**: Re-evaluate DOM virtualization (`IntersectionObserver` or chunked rendering) when total archive size approaches 1,500–2,000 items.

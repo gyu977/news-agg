@@ -19,7 +19,7 @@ VISUAL_MARKERS = {
     "video": "▶️",
     "pulse": "⚡",
     "presentation": "🎤",
-    "conference": "🎟️",
+    "conference": "🏛️",
     "article": ""
 }
 

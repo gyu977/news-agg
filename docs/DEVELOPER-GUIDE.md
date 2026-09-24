@@ -155,7 +155,7 @@ The system applies visual markers across Markdown outputs and the HTML dashboard
 
 | Type Identifier | Visual Icon | Used For | Detection Rules |
 | :--- | :---: | :--- | :--- |
-| `conference` | **🎟️** | Conferences, Summits, Codecamps | `conference`, `summit`, `codecon`, `codecamp` |
+| `conference` | **🏛️** | Conferences, Summits, Codecamps | `conference`, `summit`, `codecon`, `codecamp` |
 | `presentation` | **🎤** | Talks, Webinars, Masterclasses, Keynotes | `talk`, `webinar`, `presentation`, `masterclass` |
 | `book` | **📖** | Books & Early Release Manuscripts | `manning.com`, `oreilly.com`, `amazon.com` |
 | `video` | **▶️** | Recorded Talks, Podcasts, YouTube | `youtube.com`, `youtu.be`, `podcast` |

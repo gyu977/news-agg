@@ -1,7 +1,7 @@
 """
 Smart Inbox Processor & Ingestor for Collected Articles (Mihai V.).
 Reads raw links and markdown notes from inbox files, enriches metadata from the web,
-auto-categorizes, assigns visual markers (📖 Book, ▶️ Video, ⚡ Pulse, 🎤 Presentation, 🎟️ Conference),
+auto-categorizes, assigns visual markers (📖 Book, ▶️ Video, ⚡ Pulse, 🎤 Presentation, 🏛️ Conference),
 merges into data.json, and rebuilds presentations.
 """
 

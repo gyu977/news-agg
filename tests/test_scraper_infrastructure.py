@@ -477,7 +477,7 @@ class BuilderSafetyTests(unittest.TestCase):
         self.assertIn('<label class="filter-label">Categories</label>', source)
         self.assertIn('aria-label="Sort by category">Category', source)
         self.assertIn('aria-label="Sort by article title">Article', source)
-        self.assertIn("min-width: 210px;", source)
+        self.assertIn("min-width: 180px;", source)
         self.assertIn("function compareArticlesForSort(a, b, column, direction)", source)
         self.assertIn("String(a[column] ?? '').trim()", source)
         self.assertIn(".sort((a, b) => a.label.localeCompare(b.label))", source)
