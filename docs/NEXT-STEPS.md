@@ -21,7 +21,7 @@ Based on the recommendations in [`docs/ui-expert-review.md`](ui-expert-review.md
 | **3.1** | **True Viewport Sticky Table Header** | ✅ **Done** | Unconstrained `.table-container` (`overflow: visible`), removed parent backdrop filter, and added inner cell radii |
 | **3.2** | **Consolidated Action & Export Toolbar** | ✅ **Done** | Moved search input adjacent to table results with fixed 350px width; added inline `✕` clear button (supports click, input sync, Esc key); symmetric displayed/selected count badges with fixed minimum widths (`.pill-displayed: 116px`, `.pill-selected: 146px`), 25px right-aligned `.count-num` slots, and `tabular-nums` making both the capsules and their inner text 100% motionless; compact 34px export controls (Markdown `.md`, HTML `.html`) with 8px border radius; tightened vertical spacing between filter controls and table toolbar |
 | **3.3** | **Dynamic Faceted Filter Counts & Dimming** | ✅ **Done** | Multidimensional cross-filtering: live match counts inside dropdowns reflect the intersection of all other active filters (timeframe, sources, types, categories) with zero-match dimming; fixed filter widths (`timeframe: 180px`, `sources: 200px`, `types: 180px`, `categories: 210px`) and unified `.toggles-wrapper` prevent toolbar shift and line wrapping |
-| **3.4** | **Table Column Layout & Typography Stability** | ✅ **Done** | Implemented `table-layout: fixed` to completely eliminate horizontal layout shift when filtering; calibrated fixed metadata column widths (`.select-col: 48px`, `.source-column: 165px`, `.date-column: 115px` with concise `20 Oct 2026` format, `.author-column: 170px`, `.category-column: 180px`, article title `width: auto` flex gaining 95px total); defensive truncation (`text-overflow: ellipsis`) on badges; top-aligned select checkboxes and content-type icons; inline article title and spotlight badge flow preventing spurious wrapping |
+| **3.4** | **Table Column Layout & Typography Stability** | ✅ **Done** | Implemented `table-layout: fixed` to completely eliminate horizontal layout shift when filtering; calibrated fixed metadata column widths (`.select-col: 44px` meeting WCAG AAA, `.date-column: 110px` pulled tight with `0.5rem` padding, `.source-column: 205px`, `.category-column: 170px` with asymmetric `0.4rem` gutters creating a cohesive metadata tag cluster, `.author-column: 170px`, article title flex `width: auto` gaining horizontal breathing room); defensive truncation (`text-overflow: ellipsis`) on badges; top-aligned select checkboxes; calibrated content-type emoji icon alignment (`vertical-align: -0.02em`) centering glyphs with text cap-height; inline article title and spotlight badge flow preventing spurious wrapping |
 
 ---
 
@@ -40,6 +40,11 @@ Based on the recommendations in [`docs/ui-expert-review.md`](ui-expert-review.md
   - *Goal*: Add an inline `Show only` / `Show all` toggle directly inside the `.pill-selected` capsule (`[ 3 selected | 👁️ Show only | Clear ]`), keeping selection management in a single, motionless capsule that vanishes when no rows are checked.
 - **Unified Export for Active Filtered Views (UI Polish Candidate)**: ⏳ **Planned**
   - *Context*: Currently, export buttons appear only when $\ge 1$ item is selected. When 0 rows are selected, users might want to export the entire currently filtered view (e.g. `Export View (322)`) directly from the table toolbar.
+- **Author Column Quality Audit & Representation Review**: ⏳ **Planned**
+  - *Context*: Some rows currently have missing authors or unexpected/weird values (e.g. publisher credits, scraping artifacts). This may stem from parsing errors or imprecise extraction heuristics in certain newsletter scrapers.
+  - *Planned Action*:
+    1. **Parsing & Root-Cause Audit**: Audit individual scrapers (MailerLite, Substack, RSS feeds) and `BaseScraper._is_plausible_author` in `normalize_data.py` to identify where authors are dropped or misparsed and tighten author extraction rules.
+    2. **Layout & Byline Evaluation**: Revisit whether author deserves a standalone table column or should be consolidated into the `Article` cell as an inline byline (e.g., *Title — by Author*), which would eliminate empty cell gaps and expand horizontal space for titles and descriptions.
 
 ---
 
@@ -47,16 +52,14 @@ Based on the recommendations in [`docs/ui-expert-review.md`](ui-expert-review.md
 
 - **Conference Type Icon Readability (UI Polish)**: ✅ **Done**
   - *Resolution*: Replaced low-contrast `🎟️` with high-contrast auditorium `🏛️` across `code/common/constants.py`, `code/builders/news_template.html`, `data-sources/my-collected-articles/scraper.py`, and `docs/DEVELOPER-GUIDE.md` for crisp legibility at 14px on dark backgrounds.
-- **URL Validation & Unshortener Hardening (Prevent Broken/Hallucinated Links)**:
-  - *Context*: When unshortening newsletter tracking links (e.g. MailerLite `clicks.mlsend.com`), standard `urllib` requests can fail with `HTTP Error 403: Forbidden` due to default script User-Agents. If an assistant or fallback process resorts to web search or manual lookup, reconstructed slugs (like Medium's 12-hex post ID) risk hallucinating broken URLs.
-  - *Planned Action*:
-    1. **Automated Scraper Unshortener (Option A)**: Ensure `MailerLiteScraper` (and shared unshortening routines) pass a standard browser `User-Agent` to resolve tracking redirects directly (`302 Found`) without triggering 403s.
-    2. **Automated Link Verification Tool (Option A)**: Add a lightweight `validate_url` check in `code/tools/normalize_data.py` (or a dedicated `code/tools/check_links.py`) that performs a `HEAD`/`GET` probe to ensure newly ingested links resolve to `200 OK` (not `404` or `410`).
-    3. **Assistant Operational Rule (Option B)**: If an HTTP error (e.g. 403, 429, 999) requires manual/search resolution, the final destination URL must be actively tested for HTTP validity (via `curl -ILs` or Python probe) before being saved to any `data.json`.
-- **Next Week Priority — Migrate Andriy Burkov Source to Substack (`aiweekly.substack.com`)**:
-  - *Context*: Andriy Burkov cross-publishes the exact same weekly content under *True Positive Weekly* on Substack (`https://aiweekly.substack.com/api/v1/posts`).
-  - *Benefits*: Eliminates LinkedIn authwalls, HTTP 999 blocks, and manual imports; enables automated weekly refreshes (`--refresh --source andriy-burkov-ai`); guarantees 100% direct, un-gated destination URLs.
-  - *Implementation Notes*: Filter for posts starting with `True Positive Weekly` (ignoring occasional book chapter promos), parse `<ul><li><a href="...">` from `body_html`, keep `source_id: andriy-burkov-ai` and `short_name: Burkov AI`, and maintain existing signal-to-noise editorial rules (`hide: true` for consumer op-eds / detector controversies).
+- **URL Validation & Unshortener Hardening (Prevent Broken/Hallucinated Links)**: ✅ **Done**
+  - *Delivered*:
+    1. **`code/common/url_utils.py`**: Browser User-Agent redirect follower `unshorten_url()`, two-tier reachability probe `validate_url()` (HEAD with GET range fallback), and tracking query sanitizer `clean_tracking_params()`.
+    2. **Scraper Pipeline Hardening**: `BaseScraper` class methods (`unshorten_url()`, `validate_url()`, `is_tracking_redirect()`), and `MailerLiteScraper.parse_issue_html()` auto-unshortening resolving `clicks.mlsend.com` redirect links directly into true destinations before creating `Article` records.
+    3. **CLI Health & Audit Utility (`code/tools/check_links.py`)**: Multi-threaded tool supporting `--url`, `--source`, `--all`, and `--fix-tracking` to audit link health and repair tracking redirect links in place.
+    4. **Unit Tests (`tests/test_url_validation.py`)**: Full test coverage across redirect following, authwalls, 405 fallbacks, and scraper integration (all 198 tests passing).
+- **Andriy Burkov Source Authoritative Channel**:
+  - *Resolution*: Substack migration dropped. Andriy Burkov updates Substack with significant delays, whereas LinkedIn is published promptly and remains the authoritative source. Retain LinkedIn issue import workflow with active editorial curation (`hide: true` on non-engineering fluff, preserving math/deep technical articles).
 - **Additional Feeds**: ByteByteGo (Systems Design), Dan Luu (Performance). Use `code/tools/scaffold_source.py` (Martin Fowler Bliki/feed added and active).
 - **Scheduled CI/CD**: Set up `.github/workflows/refresh.yml` to automate weekly newsletter ingestion on GitHub Actions.
 - **Bookmarks**: Browser `localStorage` bookmarking (`[★ Saved]`) for offline reading queues.

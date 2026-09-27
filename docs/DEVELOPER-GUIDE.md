@@ -126,11 +126,13 @@ data-sources/<source-id>/
   `BaseScraper.make_article_id(prefix, issue, link, title)` — never with a positional index, which
   produces collisions whenever the index restarts per issue. `{issue}` is the issue number, or the
   article's `YYYY-MM` for sources without issue numbers. Current prefixes: `da`, `tbt`, `ab`,
-  `addy`, `pe`, `fose`, `others`.
+  `addy`, `pe`, `fose`, `mf`, `sw`, `infoq`, `java`, `others`.
 * `link`: Cleaned by `BaseScraper.clean_url()`, which strips tracking parameters (`utm_*`, `si`,
   `fbclid`, `gclid`, `ref`, `mc_*`, …) while preserving meaningful ones such as `s`, `v` and `id`.
-  `BaseScraper.canonical_link()` goes further (lowercased host, no `www.`, no fragment, sorted
-  query) and is used **only** for identity comparison — the stored `link` stays user-facing.
+  Intermediary tracking redirects (`clicks.mlsend.com`, `link.mail.beehiiv.com`, `t.co`, `bit.ly`, etc.)
+  are automatically unshortened with browser headers via `BaseScraper.unshorten_url()` (`code/common/url_utils.py`)
+  prior to record creation. `BaseScraper.canonical_link()` goes further (lowercased host, no `www.`,
+  no fragment, sorted query) and is used **only** for identity comparison — the stored `link` stays user-facing.
 * `date`: ISO 8601 string (`YYYY-MM-DD`) required for reliable chronological sorting across sources.
 * `category`: Must match one of the **7 Canonical Categories** (see below).
 * `type`: Content type identifier (`article`, `book`, `video`, `pulse`, `presentation`, `conference`).
@@ -295,6 +297,25 @@ python3 code/build.py --news-page
 
 # Build a specific source only
 python3 code/build.py --source dear-architects
+```
+
+### Data Integrity & Link Audit Utilities
+
+```bash
+# Normalize IDs, clean URLs, and report suspicious records across all data.json files
+python3 code/tools/normalize_data.py --check
+
+# Validate link health and detect tracking redirects for a single source
+python3 code/tools/check_links.py --source dear-architects
+
+# Resolve tracking redirect links in data.json in place (concurrency: 6)
+python3 code/tools/check_links.py --source dear-architects --only-tracking --fix-tracking
+
+# Check/unshorten a single URL interactively
+python3 code/tools/check_links.py --url "https://clicks.mlsend.com/link/c/ABC123XYZ"
+
+# Audit all registered sources across the repository
+python3 code/tools/check_links.py --all --concurrency 8
 ```
 
 ---

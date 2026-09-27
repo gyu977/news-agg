@@ -5,8 +5,21 @@
   "official_site": "https://deararchitects.xyz/",
   "archive_url": "https://www.deararchitects.xyz/archive",
   "parsed_issues": {
-    "count": 90,
+    "count": 91,
     "issues": [
+      {
+        "id": "309",
+        "date": "2026-09-26",
+        "date_str": "26 September 2026",
+        "title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+        "url": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+        "quotes": [
+          {
+            "text": "First make the change easy (warning: this might be hard), then make the easy change.",
+            "author": "Kent Beck"
+          }
+        ]
+      },
       {
         "id": "308",
         "date": "2026-09-19",
@@ -1158,8 +1171,8 @@
         ]
       }
     ],
-    "last_parsed_issue": "308",
-    "last_parsed_date": "2026-09-19"
+    "last_parsed_issue": "309",
+    "last_parsed_date": "2026-09-26"
   },
   "default_header": "### Luca Mezzalira's Dear Architects",
   "short_name": "Dear Architects",

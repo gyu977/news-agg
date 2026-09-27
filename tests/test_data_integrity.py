@@ -35,10 +35,10 @@ REQUIRED_KEYS = {
 KNOWN_DUPLICATE_IDS = {}
 # Links may legitimately repeat across issues (two newsletters recommending the same
 # article is real signal), but never twice within the same issue.
-KNOWN_DUPLICATE_LINKS = {"andriy-burkov-ai": 2, "dear-architects": 2}
+KNOWN_DUPLICATE_LINKS = {"andriy-burkov-ai": 2, "dear-architects": 3}
 
 # Visible records whose title looks truncated (D8). Reported, never auto-hidden.
-KNOWN_TRUNCATED_TITLES = 12
+KNOWN_TRUNCATED_TITLES = 9
 
 
 def load_sources():

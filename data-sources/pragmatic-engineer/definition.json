@@ -5,8 +5,32 @@
   "official_site": "https://newsletter.pragmaticengineer.com/",
   "archive_url": "https://newsletter.pragmaticengineer.com/archive",
   "parsed_issues": {
-    "count": 33,
+    "count": 36,
     "issues": [
+      {
+        "id": "pe-2026-09-53a9cb",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "The Pulse: RoR creator sparks new “death of coding by hand” debate",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-end-of-coding-by-hand",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-09-3a3542",
+        "date": "2026-09-23",
+        "date_str": "23 September 2026",
+        "title": "Design Engineering with Maggie Appleton",
+        "url": "https://newsletter.pragmaticengineer.com/p/design-engineering-with-maggie-appleton",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-09-a1905b",
+        "date": "2026-09-22",
+        "date_str": "22 September 2026",
+        "title": "How will AI change operating systems? Part 2: Windows",
+        "url": "https://newsletter.pragmaticengineer.com/p/windows-and-ai",
+        "quotes": []
+      },
       {
         "id": "pe-2026-09-f5a472",
         "date": "2026-09-17",
@@ -272,8 +296,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "pe-2026-09-f5a472",
-    "last_parsed_date": "2026-09-17"
+    "last_parsed_issue": "pe-2026-09-53a9cb",
+    "last_parsed_date": "2026-09-24"
   },
   "default_header": "### Gergely Orosz's The Pragmatic Engineer",
   "short_name": "Pragmatic Eng.",

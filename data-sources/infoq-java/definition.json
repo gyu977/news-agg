@@ -1,0 +1,38 @@
+{
+  "source_id": "infoq-java",
+  "name": "InfoQ Java",
+  "short_name": "InfoQ Java",
+  "author": "Michael Redlich",
+  "official_site": "https://www.infoq.com/java/news/",
+  "archive_url": "https://feed.infoq.com/java/news/",
+  "default_header": "InfoQ Java News",
+  "description": "Weekly roundups, JEP milestones, and enterprise JVM ecosystem updates from InfoQ.",
+  "article_id_prefix": "java",
+  "parsed_issues": {
+    "count": 2,
+    "issues": [
+      {
+        "id": "2026-09",
+        "date": "2026-09-21",
+        "date_str": "21 September 2026",
+        "title": "InfoQ Java - September 2026",
+        "url": "https://www.infoq.com/java/news/",
+        "quotes": []
+      },
+      {
+        "id": "2026-08",
+        "date": "2026-08-31",
+        "date_str": "31 August 2026",
+        "title": "InfoQ Java - August 2026",
+        "url": "https://www.infoq.com/java/news/",
+        "quotes": []
+      }
+    ],
+    "last_parsed_issue": "2026-09",
+    "last_parsed_date": "2026-09-21"
+  },
+  "sponsor_domains": [],
+  "has_archive": true,
+  "static": false,
+  "refresh_enabled": true
+}

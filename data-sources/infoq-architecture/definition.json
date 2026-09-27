@@ -1,0 +1,49 @@
+{
+  "source_id": "infoq-architecture",
+  "name": "InfoQ Architecture",
+  "short_name": "InfoQ Architecture",
+  "author": "InfoQ Editorial Team",
+  "official_site": "https://www.infoq.com/software-architects-newsletter/",
+  "archive_url": "https://assets.infoq.com/newsletter/architect/en/template/architect_infoq_pastIssues_desktop.html",
+  "default_header": "The Software Architects' Newsletter",
+  "description": "Curated software architecture presentations, case studies, and engineering deep dives from InfoQ.",
+  "article_id_prefix": "infoq",
+  "parsed_issues": {
+    "count": 3,
+    "issues": [
+      {
+        "id": "110",
+        "date": "2026-09-25",
+        "date_str": "25 September 2026",
+        "title": "Issue #110: Building Data and AI Platforms",
+        "url": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/110Architects_NL_September-2026.html",
+        "quotes": []
+      },
+      {
+        "id": "109",
+        "date": "2026-08-28",
+        "date_str": "28 August 2026",
+        "title": "Issue #109: Building Data and AI Platforms",
+        "url": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/109Architects_NL_August-2026.html",
+        "quotes": []
+      },
+      {
+        "id": "108",
+        "date": "2026-07-31",
+        "date_str": "31 July 2026",
+        "title": "Issue #108: Building Data Platforms: Design, Architecture, and Enablement",
+        "url": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/108Architects_NL_July-2026.html",
+        "quotes": []
+      }
+    ],
+    "last_parsed_issue": "110",
+    "last_parsed_date": "2026-09-25"
+  },
+  "sponsor_domains": [
+    "certification.qconferences.com",
+    "timescale.com"
+  ],
+  "has_archive": true,
+  "static": false,
+  "refresh_enabled": true
+}

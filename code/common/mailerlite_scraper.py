@@ -313,6 +313,8 @@ class MailerLiteScraper(BaseScraper):
             if not anchor or not anchor.get("href"):
                 continue
             clean_link = self.clean_url(anchor["href"].strip())
+            if self.is_tracking_redirect(clean_link) or "mlsend.com" in clean_link:
+                clean_link = self.unshorten_url(clean_link)
             lower_link = clean_link.lower()
             if (
                 not clean_link

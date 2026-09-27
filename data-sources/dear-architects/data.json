@@ -1,5 +1,152 @@
 [
   {
+    "id": "da-309-5b22ca",
+    "newsletter": "Dear Architects",
+    "issue_number": 309,
+    "issue_title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+    "date": "2026-09-26",
+    "date_str": "26 September 2026",
+    "title": "Killing the ivory tower: how Jumbo rebuilt architecture around teams and not titles!",
+    "link": "https://www.youtube.com/watch?v=j_paFwVqEEE",
+    "author": "Luca Mezzalira & Onur",
+    "description": "If you're an architect or engineer trying to figure out what your role looks like when the ivory tower comes down, this one gives you the trenches version, not the conference talk version.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": true,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-309-248995",
+    "newsletter": "Dear Architects",
+    "issue_number": 309,
+    "issue_title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+    "date": "2026-09-26",
+    "date_str": "26 September 2026",
+    "title": "Zero-Trust access built for engineering speed",
+    "link": "https://goteleport.com/use-cases/engineering/",
+    "author": "Teleport",
+    "description": "Your engineers ship faster when access isn’t a bottleneck. Teleport gives every human, machine, and AI agent a cryptographic identity with short-lived privileges issued on demand. One unified access layer spans servers, Kubernetes, databases, MCP tools, and cloud consoles, with every session captured in a centralized audit log that exports directly to your SIEM.",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-309-7a73da",
+    "newsletter": "Dear Architects",
+    "issue_number": 309,
+    "issue_title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+    "date": "2026-09-26",
+    "date_str": "26 September 2026",
+    "title": "Beyond Relevance: A Governance-First Architecture for Enterprise Personalization",
+    "link": "https://www.infoq.com/articles/architecture-enterprise-personalization-relevance-governance/",
+    "author": "Jerald Selvaraj",
+    "description": "This article examines the limitations of personalization systems and proposes a governance-first architecture that integrates stateful memory, policy-driven AI orchestration, and explainable scoring.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-309-c9e4f2",
+    "newsletter": "Dear Architects",
+    "issue_number": 309,
+    "issue_title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+    "date": "2026-09-26",
+    "date_str": "26 September 2026",
+    "title": "InfoQ Certified Architect Program cohort starts Oct 9",
+    "link": "https://certification.qconferences.com/architecture",
+    "author": "InfoQ",
+    "description": "Designed for senior engineers and architects with a current decision involving resilience, decentralized architecture, platform engineering, or AI architecture. The cohort meets live for 5 weeks to apply frameworks to production systems.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-309-b2f910",
+    "newsletter": "Dear Architects",
+    "issue_number": 309,
+    "issue_title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+    "date": "2026-09-26",
+    "date_str": "26 September 2026",
+    "title": "Signals and Levers: Systems Thinking Tools to Unblock Software Delivery",
+    "link": "https://www.amazon.com/dp/1966280297",
+    "author": "Joel Tosi & Elisabeth Hendrickson",
+    "description": "Using tools from statistical process control, systems thinking, and economic theory, they show you how to identify real problems and find the levers that create lasting change. Each chapter delivers practical techniques.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "book",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-309-1df7bb",
+    "newsletter": "Dear Architects",
+    "issue_number": 309,
+    "issue_title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+    "date": "2026-09-26",
+    "date_str": "26 September 2026",
+    "title": "Does it matter how you feed an agent its context?",
+    "link": "https://tech.olx.com/does-it-matter-how-you-feed-an-agent-its-context-ee1519586520",
+    "author": "Raymond Gitonga",
+    "description": "One job, four setups, three runs each: same model, same task, same scoring, testing whether feeding context via single prompts, folders, or delegating orchestrators produces the best cost and accuracy tradeoffs.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-309-fa7926",
+    "newsletter": "Dear Architects",
+    "issue_number": 309,
+    "issue_title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+    "date": "2026-09-26",
+    "date_str": "26 September 2026",
+    "title": "Cracking the Code: Culture Clashes Between Agilists, Managers, and Architects",
+    "link": "https://www.youtube.com/watch?v=sDF1jkALRII",
+    "author": "Jonathan Frankenberger & Jonathan Reißig",
+    "description": "Agile teams often run into friction not only with management, but also with software architects. While managers are seen as too directive and control-oriented, architects are sometimes perceived as overly focused on stability, long-term consistency, or compliance concerns that can feel like brakes on fast delivery.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "da-308-10adf5",
     "newsletter": "Dear Architects",
     "issue_number": 308,

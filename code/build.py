@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Master CLI Build Orchestrator.
 Builds the 3-Month Latest Markdown files, Compact Lists, Cumulative Archives (Full & Compact), and Interactive News Page.

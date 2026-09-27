@@ -637,20 +637,20 @@ class FilterMatrixSimulationTests(unittest.TestCase):
         # 1. Verify CSS defines table-layout: fixed and column width / min-width constraints
         self.assertIn("table-layout: fixed;", html)
         self.assertIn(".source-column {", html)
-        self.assertIn("width: 165px;", html)
-        self.assertIn("min-width: 165px;", html)
+        self.assertIn("width: 205px;", html)
+        self.assertIn("min-width: 205px;", html)
 
         self.assertIn(".date-column {", html)
-        self.assertIn("width: 115px;", html)
-        self.assertIn("min-width: 115px;", html)
+        self.assertIn("width: 110px;", html)
+        self.assertIn("min-width: 110px;", html)
 
         self.assertIn(".author-column {", html)
         self.assertIn("width: 170px;", html)
         self.assertIn("min-width: 170px;", html)
 
         self.assertIn(".category-column {", html)
-        self.assertIn("width: 180px;", html)
-        self.assertIn("min-width: 180px;", html)
+        self.assertIn("width: 170px;", html)
+        self.assertIn("min-width: 170px;", html)
 
         # 2. Verify th elements have corresponding column classes
         self.assertIn('id="th-newsletter" class="source-column"', html)
@@ -666,13 +666,13 @@ class FilterMatrixSimulationTests(unittest.TestCase):
         self.assertIn(".source-column,\n      .date-column,\n      .author-column,\n      .category-column", html)
 
         # 5. Verify select-col alignment: top-aligned for data rows, centered for table header
-        self.assertIn(".select-col {\n      width: 48px;\n      min-width: 48px;\n      max-width: 48px;\n      text-align: center;\n      vertical-align: top;", html)
+        self.assertIn(".select-col {\n      width: 44px;\n      min-width: 44px;\n      max-width: 44px;\n      text-align: center;\n      vertical-align: top;", html)
         self.assertIn("th.select-col {\n      vertical-align: middle;\n    }", html)
 
         # 6. Verify content type icon alignment and inline badge flow on multi-line wraps
         self.assertIn(".article-header-row {\n      display: block;\n      line-height: 1.4;\n    }", html)
         self.assertIn(".article-link {\n      color: var(--text-main);\n      font-weight: 700;\n      text-decoration: none;\n      transition: var(--transition-smooth);\n      display: inline;\n      line-height: 1.4;\n    }", html)
-        self.assertIn(".article-type-icon {\n      display: inline-block;\n      vertical-align: -0.1em;\n      margin-right: 0.35rem;\n      line-height: 1;\n      font-size: 0.95em;\n    }", html)
+        self.assertIn(".article-type-icon {\n      display: inline-block;\n      vertical-align: -0.02em;\n      margin-right: 0.35rem;\n      line-height: 1;\n      font-size: 0.95em;\n    }", html)
         self.assertIn('<span class="article-type-icon">${icon}</span>', html)
         self.assertIn(".badge-spotlight {\n      background: var(--accent-gold-rgba);\n      color: var(--accent-gold);\n      border: 1px solid rgba(251, 191, 36, 0.3);\n      vertical-align: middle;\n      display: inline-flex;\n      align-items: center;\n      margin-left: 0.45rem;\n      white-space: nowrap;\n    }", html)
 

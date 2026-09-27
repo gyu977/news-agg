@@ -5,8 +5,16 @@
   "official_site": "https://www.tokenbytoken.ai/",
   "archive_url": "https://www.tokenbytoken.ai/",
   "parsed_issues": {
-    "count": 23,
+    "count": 24,
     "issues": [
+      {
+        "id": "24",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "Token by Token #24 - AI's next frontier",
+        "url": "https://preview.mailerlite.io/emails/webview/2096144/199470711683679341?signature=3bbbfd945588367e0b5fcddc6d7398603df61b5cc4ade6fc75ef1b5984330d48",
+        "quotes": []
+      },
       {
         "id": "23",
         "date": "2026-09-17",
@@ -192,8 +200,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "23",
-    "last_parsed_date": "2026-09-17"
+    "last_parsed_issue": "24",
+    "last_parsed_date": "2026-09-24"
   },
   "default_header": "### Luca Mezzalira's Token by Token",
   "short_name": "Token by Token",

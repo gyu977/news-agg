@@ -490,10 +490,27 @@
       gap: 0.2rem;
       max-height: calc(100vh - 220px);
       overflow-y: auto;
+      --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+      --scrollbar-track: transparent;
+      scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+      scrollbar-width: thin;
+    }
+
+    @supports not (scrollbar-color: auto) {
+      .multi-filter-options::-webkit-scrollbar {
+        width: 6px;
+      }
+      .multi-filter-options::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb);
+        border-radius: 3px;
+      }
+      .multi-filter-options::-webkit-scrollbar-track {
+        background: var(--scrollbar-track);
+      }
     }
 
     .multi-filter-options.scrollable {
-      max-height: min(300px, calc(100vh - 220px));
+      max-height: min(420px, calc(100vh - 220px));
     }
 
     .multi-filter-options .checkbox-label {
@@ -824,13 +841,13 @@
     }
 
     .select-col {
-      width: 48px;
-      min-width: 48px;
-      max-width: 48px;
+      width: 44px;
+      min-width: 44px;
+      max-width: 44px;
       text-align: center;
       vertical-align: top;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
     }
 
     th.select-col {
@@ -923,6 +940,18 @@
       border: 1px solid rgba(16, 185, 129, 0.25);
     }
 
+    .badge-infoq {
+      background: rgba(2, 132, 199, 0.15);
+      color: #0284c7;
+      border: 1px solid rgba(2, 132, 199, 0.3);
+    }
+
+    .badge-java {
+      background: rgba(234, 88, 12, 0.15);
+      color: #ea580c;
+      border: 1px solid rgba(234, 88, 12, 0.3);
+    }
+
     .badge-spotlight {
       background: var(--accent-gold-rgba);
       color: var(--accent-gold);
@@ -961,13 +990,16 @@
     }
 
     .source-column {
-      width: 165px;
-      min-width: 165px;
+      width: 205px;
+      min-width: 205px;
+      padding-left: 0.75rem;
+      padding-right: 0.4rem;
     }
 
     .date-column {
-      width: 115px;
-      min-width: 115px;
+      width: 110px;
+      min-width: 110px;
+      padding-left: 0.5rem;
     }
 
     .author-column {
@@ -976,8 +1008,10 @@
     }
 
     .category-column {
-      width: 180px;
-      min-width: 180px;
+      width: 170px;
+      min-width: 170px;
+      padding-left: 0.4rem;
+      padding-right: 0.75rem;
     }
 
     .article-title-cell {
@@ -1002,7 +1036,7 @@
 
     .article-type-icon {
       display: inline-block;
-      vertical-align: -0.1em;
+      vertical-align: -0.02em;
       margin-right: 0.35rem;
       line-height: 1;
       font-size: 0.95em;
@@ -1719,6 +1753,8 @@
       .category-column {
         width: auto;
         min-width: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
 
       .select-col {
@@ -1726,6 +1762,8 @@
         min-width: 0 !important;
         max-width: none !important;
         text-align: left !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
       }
 
       .select-cell-inner {
@@ -1822,6 +1860,8 @@
         <li data-source="Artificial Intelligence (Andriy Burkov)"><strong>AI (Andriy Burkov)</strong> — AI-focused newsletter.</li>
         <li data-source="Dear Architects"><strong>Dear Architects</strong> — Software architecture and systems design newsletter by Luca Mezzalira.</li>
         <li data-source="Future of Software Development (Thoughtworks FOSE)"><strong>Future of Software Development</strong> — FOSE 2026 retreat notes.</li>
+        <li data-source="InfoQ Architecture"><strong>InfoQ Architecture</strong> — Curated software architecture presentations, case studies, and engineering deep dives from InfoQ.</li>
+        <li data-source="InfoQ Java"><strong>InfoQ Java</strong> — Weekly roundups, JEP milestones, and enterprise JVM ecosystem updates from InfoQ.</li>
         <li data-source="Martin Fowler"><strong>Martin Fowler</strong> — Essays, Bliki entries, and architecture guides on software design, refactoring, agile practices, and distributed systems.</li>
         <li data-source="Editor&#x27;s Radar"><strong>Editor&#x27;s Radar</strong> — Handpicked articles, books, and conference talks on modern software engineering and architecture.</li>
         <li data-source="The Pragmatic Engineer"><strong>The Pragmatic Engineer</strong> — Gergely Orosz&#x27;s newsletter covering the software engineering industry and developer careers.</li>
@@ -1989,10 +2029,10 @@
         <thead>
           <tr>
             <th class="select-col" title="Select all visible articles to export as Markdown or HTML"><input type="checkbox" id="selectAllToggle" title="Select all visible articles to export as Markdown or HTML" aria-label="Select all visible articles to export as Markdown or HTML"></th>
-            <th onclick="handleSort('newsletter')" id="th-newsletter" class="source-column" tabindex="0" role="button" aria-label="Sort by source">Source <span class="sort-indicator"></span></th>
             <th onclick="handleSort('date')" id="th-date" class="date-column active-sort" tabindex="0" role="button" aria-label="Sort by date">Date <span class="sort-indicator">&#x25BC;</span></th>
-            <th onclick="handleSort('author')" id="th-author" class="author-column" tabindex="0" role="button" aria-label="Sort by author">Author <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('newsletter')" id="th-newsletter" class="source-column" tabindex="0" role="button" aria-label="Sort by source">Source <span class="sort-indicator"></span></th>
             <th onclick="handleSort('category')" id="th-category" class="category-column" tabindex="0" role="button" aria-label="Sort by category">Category <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('author')" id="th-author" class="author-column" tabindex="0" role="button" aria-label="Sort by author">Author <span class="sort-indicator"></span></th>
             <th onclick="handleSort('title')" id="th-title" tabindex="0" role="button" aria-label="Sort by article title">Article <span class="sort-indicator"></span></th>
           </tr>
         </thead>
@@ -2028,6 +2068,558 @@
         "type": "conference"
     },
     {
+        "id": "da-309-fa7926",
+        "source_id": "dear-architects",
+        "source_short_name": "Dear Architects",
+        "newsletter": "Dear Architects",
+        "issue_number": 309,
+        "issue_title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+        "date": "2026-09-26",
+        "date_str": "26 September 2026",
+        "title": "Cracking the Code: Culture Clashes Between Agilists, Managers, and Architects",
+        "link": "https://www.youtube.com/watch?v=sDF1jkALRII",
+        "author": "Jonathan Frankenberger & Jonathan Reißig",
+        "description": "Agile teams often run into friction not only with management, but also with software architects. While managers are seen as too directive and control-oriented, architects are sometimes perceived as overly focused on stability, long-term consistency, or compliance concerns that can feel like brakes on fast delivery.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "video",
+        "quote": "First make the change easy (warning: this might be hard), then make the easy change.",
+        "quote_author": "Kent Beck"
+    },
+    {
+        "id": "da-309-b2f910",
+        "source_id": "dear-architects",
+        "source_short_name": "Dear Architects",
+        "newsletter": "Dear Architects",
+        "issue_number": 309,
+        "issue_title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+        "date": "2026-09-26",
+        "date_str": "26 September 2026",
+        "title": "Signals and Levers: Systems Thinking Tools to Unblock Software Delivery",
+        "link": "https://www.amazon.com/dp/1966280297",
+        "author": "Joel Tosi & Elisabeth Hendrickson",
+        "description": "Using tools from statistical process control, systems thinking, and economic theory, they show you how to identify real problems and find the levers that create lasting change. Each chapter delivers practical techniques.",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "book",
+        "quote": "First make the change easy (warning: this might be hard), then make the easy change.",
+        "quote_author": "Kent Beck"
+    },
+    {
+        "id": "da-309-7a73da",
+        "source_id": "dear-architects",
+        "source_short_name": "Dear Architects",
+        "newsletter": "Dear Architects",
+        "issue_number": 309,
+        "issue_title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+        "date": "2026-09-26",
+        "date_str": "26 September 2026",
+        "title": "Beyond Relevance: A Governance-First Architecture for Enterprise Personalization",
+        "link": "https://www.infoq.com/articles/architecture-enterprise-personalization-relevance-governance/",
+        "author": "Jerald Selvaraj",
+        "description": "This article examines the limitations of personalization systems and proposes a governance-first architecture that integrates stateful memory, policy-driven AI orchestration, and explainable scoring.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "article",
+        "quote": "First make the change easy (warning: this might be hard), then make the easy change.",
+        "quote_author": "Kent Beck"
+    },
+    {
+        "id": "da-309-5b22ca",
+        "source_id": "dear-architects",
+        "source_short_name": "Dear Architects",
+        "newsletter": "Dear Architects",
+        "issue_number": 309,
+        "issue_title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+        "date": "2026-09-26",
+        "date_str": "26 September 2026",
+        "title": "Killing the ivory tower: how Jumbo rebuilt architecture around teams and not titles!",
+        "link": "https://www.youtube.com/watch?v=j_paFwVqEEE",
+        "author": "Luca Mezzalira & Onur",
+        "description": "If you're an architect or engineer trying to figure out what your role looks like when the ivory tower comes down, this one gives you the trenches version, not the conference talk version.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": true,
+        "type": "video",
+        "quote": "First make the change easy (warning: this might be hard), then make the easy change.",
+        "quote_author": "Kent Beck"
+    },
+    {
+        "id": "da-309-248995",
+        "source_id": "dear-architects",
+        "source_short_name": "Dear Architects",
+        "newsletter": "Dear Architects",
+        "issue_number": 309,
+        "issue_title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+        "date": "2026-09-26",
+        "date_str": "26 September 2026",
+        "title": "Zero-Trust access built for engineering speed",
+        "link": "https://goteleport.com/use-cases/engineering/",
+        "author": "Teleport",
+        "description": "Your engineers ship faster when access isn’t a bottleneck. Teleport gives every human, machine, and AI agent a cryptographic identity with short-lived privileges issued on demand. One unified access layer spans servers, Kubernetes, databases, MCP tools, and cloud consoles, with every session captured in a centralized audit log that exports directly to your SIEM.",
+        "category": "Cloud Infrastructure & System Reliability",
+        "is_spotlight": false,
+        "type": "article",
+        "quote": "First make the change easy (warning: this might be hard), then make the easy change.",
+        "quote_author": "Kent Beck"
+    },
+    {
+        "id": "da-309-1df7bb",
+        "source_id": "dear-architects",
+        "source_short_name": "Dear Architects",
+        "newsletter": "Dear Architects",
+        "issue_number": 309,
+        "issue_title": "Architecture beyond the ivory tower - #309 - Dear Architects",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/199707022898234750?signature=61bd7ca65fb07302ce84e9920a785635708ce5ab362a94a4f98ebca95ea5af3f",
+        "date": "2026-09-26",
+        "date_str": "26 September 2026",
+        "title": "Does it matter how you feed an agent its context?",
+        "link": "https://tech.olx.com/does-it-matter-how-you-feed-an-agent-its-context-ee1519586520",
+        "author": "Raymond Gitonga",
+        "description": "One job, four setups, three runs each: same model, same task, same scoring, testing whether feeding context via single prompts, folders, or delegating orchestrators produces the best cost and accuracy tradeoffs.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article",
+        "quote": "First make the change easy (warning: this might be hard), then make the easy change.",
+        "quote_author": "Kent Beck"
+    },
+    {
+        "id": "infoq-110-f0edd1",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 110,
+        "issue_title": "Issue #110: Building Data and AI Platforms",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/110Architects_NL_September-2026.html",
+        "date": "2026-09-25",
+        "date_str": "25 September 2026",
+        "title": "From Retrieval to Reasoning: Building Production-Ready Agentic AI Systems with Knowledge Graphs",
+        "link": "https://www.infoq.com/presentations/knowledge-graphs-agentic-systems-patterns/",
+        "author": "Cassie Shum",
+        "description": "Cassie Shum explains why knowledge graphs are a critical foundation for agentic systems. Moving beyond basic RAG, she explains four practical architectural patterns: context bundling, decision provenance, code as truth, and agent visibility, demonstrating an engineering harness to streamline feedback loops and maintain system reliability.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "presentation"
+    },
+    {
+        "id": "infoq-110-935fa0",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 110,
+        "issue_title": "Issue #110: Building Data and AI Platforms",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/110Architects_NL_September-2026.html",
+        "date": "2026-09-25",
+        "date_str": "25 September 2026",
+        "title": "Beyond Offset Lag: Computing Time in Queue for Apache Hudi Data Lake Pipelines at Petabyte Scale",
+        "link": "https://www.infoq.com/articles/beyond-offset-lag-kafka-apache-hudi/",
+        "author": "Srikanth Mamidala",
+        "description": "Srikanth Mamidala explains how Twilio improved monitoring of its Kafka and Apache Hudi pipelines by complementing traditional offset lag with a time-in-queue metric that measures data staleness, enabling clearer visibility and early SLA warnings.",
+        "category": "Software Testing, Quality & Observability",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "infoq-110-45276d",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 110,
+        "issue_title": "Issue #110: Building Data and AI Platforms",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/110Architects_NL_September-2026.html",
+        "date": "2026-09-25",
+        "date_str": "25 September 2026",
+        "title": "From S3 to GPU in One Copy: Rethinking Data Loading for ML Training",
+        "link": "https://www.infoq.com/presentations/vortex-columnar-file-format-gpu-streaming/",
+        "author": "Onur Satici",
+        "description": "Onur Satici introduces Vortex, an open-source columnar file format designed to stream data from cloud object storage directly to GPUs at up to 60 Gbps without upfront preprocessing, eliminating CPU and NVMe bottlenecks.",
+        "category": "Cloud Infrastructure & System Reliability",
+        "is_spotlight": false,
+        "type": "presentation"
+    },
+    {
+        "id": "infoq-110-44e60f",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 110,
+        "issue_title": "Issue #110: Building Data and AI Platforms",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/110Architects_NL_September-2026.html",
+        "date": "2026-09-25",
+        "date_str": "25 September 2026",
+        "title": "Platform Engineering in the Age of AI",
+        "link": "https://www.infoq.com/presentations/ai-platform-engineering-roundtable/",
+        "author": "InfoQ Live Panel",
+        "description": "Panelists explore how internal platform teams adapt to support AI-assisted engineering workloads, balancing developer autonomy against standardization while establishing security guardrails, cost controls, and self-service capabilities.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "presentation"
+    },
+    {
+        "id": "infoq-110-2a20fe",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 110,
+        "issue_title": "Issue #110: Building Data and AI Platforms",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/110Architects_NL_September-2026.html",
+        "date": "2026-09-25",
+        "date_str": "25 September 2026",
+        "title": "Implementing Durable Workflows on Postgres Without an External Orchestrator",
+        "link": "https://www.infoq.com/articles/durable-workflows-postgres/",
+        "author": "Raman Varma",
+        "description": "Case Study: Raman Varma details an architectural pattern to implement resilient, durable workflows natively within PostgreSQL using state machines and transactional boundaries, avoiding the operational overhead of external workflow engines.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": true,
+        "type": "article"
+    },
+    {
+        "id": "infoq-110-15d230",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 110,
+        "issue_title": "Issue #110: Building Data and AI Platforms",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/110Architects_NL_September-2026.html",
+        "date": "2026-09-25",
+        "date_str": "25 September 2026",
+        "title": "Your Next DSL Author Is a Language Model",
+        "link": "https://www.infoq.com/articles/next-dsl-author-language-model/",
+        "author": "Irakli Betchvaia",
+        "description": "Irakli Betchvaia argues that LLMs struggle with domain-specific languages due to underrepresentation in training data, proposing Typed Domain Grounding—embedding DSLs in typed host languages like Kotlin or TypeScript so compilers catch syntax errors and repair output iteratively.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "tbt-24-d93ae6",
+        "source_id": "token-by-token",
+        "source_short_name": "Token by Token",
+        "newsletter": "Token by Token",
+        "issue_number": 24,
+        "issue_title": "Token by Token #24 - AI's next frontier",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/199470711683679341?signature=3bbbfd945588367e0b5fcddc6d7398603df61b5cc4ade6fc75ef1b5984330d48",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "What Is Jev AI?",
+        "link": "https://huggingface.co/blog/sora-2/what-is-jev-ai-a-practical-guide-to-system-one-and",
+        "author": "Sora",
+        "description": "A practical guide explaining what Jev AI is, how System One models differ from generative LLMs, how to connect to its API, and how to utilize typed state and questions to output structured choices, scores, and probability signals.",
+        "category": "Large Language Models & Evaluation Infrastructure",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "tbt-24-c98fb6",
+        "source_id": "token-by-token",
+        "source_short_name": "Token by Token",
+        "newsletter": "Token by Token",
+        "issue_number": 24,
+        "issue_title": "Token by Token #24 - AI's next frontier",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/199470711683679341?signature=3bbbfd945588367e0b5fcddc6d7398603df61b5cc4ade6fc75ef1b5984330d48",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "AI Needs Its Own Layer in the Stack",
+        "link": "https://coder.com/ai-operating-layer",
+        "author": "Coder",
+        "description": "Despite touching applications, data, and compute, AI fits none of these layers, leaving most organizations running it ungoverned. Coder outlines five core requirements for an \"AI Operating Layer\": containment, scoped access, model governance, audit, and cost control.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "tbt-24-91736b",
+        "source_id": "token-by-token",
+        "source_short_name": "Token by Token",
+        "newsletter": "Token by Token",
+        "issue_number": 24,
+        "issue_title": "Token by Token #24 - AI's next frontier",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/199470711683679341?signature=3bbbfd945588367e0b5fcddc6d7398603df61b5cc4ade6fc75ef1b5984330d48",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "How to Prepare for AI-Driven Code Modernization Projects",
+        "link": "https://claude.com/blog/how-to-prepare-for-ai-driven-code-modernization-projects",
+        "author": "Anthropic",
+        "description": "Examines the essential preparation enterprises must complete prior to AI-driven modernization: defining acceptance criteria, establishing verification evidence, determining production certification pipelines, and staging repositories.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "tbt-24-642a14",
+        "source_id": "token-by-token",
+        "source_short_name": "Token by Token",
+        "newsletter": "Token by Token",
+        "issue_number": 24,
+        "issue_title": "Token by Token #24 - AI's next frontier",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/199470711683679341?signature=3bbbfd945588367e0b5fcddc6d7398603df61b5cc4ade6fc75ef1b5984330d48",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "Introducing System One Models and Jev",
+        "link": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+        "author": "TypeSafe AI",
+        "description": "After two years in stealth, TypeSafe AI releases their first System One Model: a new class of frontier models designed to make fast, structured decisions for direct software consumption, featuring a parallel sampler and Reinforcement Learning for Calibrated Decisions.",
+        "category": "Large Language Models & Evaluation Infrastructure",
+        "is_spotlight": true,
+        "type": "article"
+    },
+    {
+        "id": "tbt-24-1f5e8a",
+        "source_id": "token-by-token",
+        "source_short_name": "Token by Token",
+        "newsletter": "Token by Token",
+        "issue_number": 24,
+        "issue_title": "Token by Token #24 - AI's next frontier",
+        "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/199470711683679341?signature=3bbbfd945588367e0b5fcddc6d7398603df61b5cc4ade6fc75ef1b5984330d48",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "How AI Teams Build on Document Intelligence",
+        "link": "https://www.youtube.com/watch?v=0I07YAuF8xA",
+        "author": null,
+        "description": "Explores how agent harnesses combine code interpreters and repeated self-checks to turn line charts into structured tables, navigating precision tradeoffs and giving agents direct filesystem access rather than fixed pipelines.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "video"
+    },
+    {
+        "id": "pe-2026-09-53a9cb",
+        "source_id": "pragmatic-engineer",
+        "source_short_name": "Pragmatic Eng.",
+        "newsletter": "The Pragmatic Engineer",
+        "issue_number": null,
+        "issue_title": "The Pragmatic Engineer",
+        "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "The Pulse: RoR creator sparks new “death of coding by hand” debate",
+        "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-end-of-coding-by-hand",
+        "author": "Gergely Orosz",
+        "description": "37signals – the creator of Ruby on Rails (RoR) – moves over to agents generating nearly all its code. Also: Amazon and Meta struggle to hire engineers, code reviews will probably also go away and more",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "pulse"
+    },
+    {
+        "id": "mf-2026-09-563a50",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Healthy Feedback",
+        "issue_link": "https://martinfowler.com/articles/healthy-peer-feedback.html",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "Healthy Feedback",
+        "link": "https://martinfowler.com/articles/healthy-peer-feedback.html",
+        "author": "Anuja Karnik and Sumeet Gayathri Moghe",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-09-1edd9c",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Fragments: September 24",
+        "issue_link": "https://martinfowler.com/fragments/2026-09-24.html",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "Fragments: September 24",
+        "link": "https://martinfowler.com/fragments/2026-09-24.html",
+        "author": "Martin Fowler",
+        "description": "",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "ab-345-f5fa25",
+        "source_id": "andriy-burkov-ai",
+        "source_short_name": "Burkov AI",
+        "newsletter": "Artificial Intelligence (Andriy Burkov)",
+        "issue_number": 345,
+        "issue_title": "Artificial Intelligence #345",
+        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-345-andriy-burkov-awsyc/",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "llm-d: Deploying a 753B Open Model on NVIDIA H100 GPUs",
+        "link": "https://research.ibm.com/blog/running-open-models-on-h100-gpus-with-llmd",
+        "author": "IBM Research",
+        "description": "IBM Research introduces llm-d, a distributed serving architecture designed to run a 753B parameter open model on NVIDIA H100 GPUs, serving thousands of concurrent coding agents at 5-10x higher throughput and 65-75% lower cost compared to vLLM and TensorRT-LLM.",
+        "category": "Large Language Models & Evaluation Infrastructure",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "ab-345-85a001",
+        "source_id": "andriy-burkov-ai",
+        "source_short_name": "Burkov AI",
+        "newsletter": "Artificial Intelligence (Andriy Burkov)",
+        "issue_number": 345,
+        "issue_title": "Artificial Intelligence #345",
+        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-345-andriy-burkov-awsyc/",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "An Interactive Introduction to Fourier Transforms",
+        "link": "https://www.jezzamon.com/fourier/index.html",
+        "author": "Jez Swanson",
+        "description": "A visual, interactive exploration of Fourier transforms, breaking down complex signals into sinusoidal components with intuitive animations and mathematical foundations.",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "ab-345-450207",
+        "source_id": "andriy-burkov-ai",
+        "source_short_name": "Burkov AI",
+        "newsletter": "Artificial Intelligence (Andriy Burkov)",
+        "issue_number": 345,
+        "issue_title": "Artificial Intelligence #345",
+        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-345-andriy-burkov-awsyc/",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "Fine-Tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps",
+        "link": "https://huggingface.co/blog/grpo-with-trl-ifstruct",
+        "author": "Hugging Face",
+        "description": "Demonstrates using Group Relative Policy Optimization (GRPO) with TRL to fine-tune compact 350M models, achieving superior structured JSON/schema generation with minimal compute in only 100 optimization steps.",
+        "category": "Large Language Models & Evaluation Infrastructure",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "ab-345-174fce",
+        "source_id": "andriy-burkov-ai",
+        "source_short_name": "Burkov AI",
+        "newsletter": "Artificial Intelligence (Andriy Burkov)",
+        "issue_number": 345,
+        "issue_title": "Artificial Intelligence #345",
+        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-345-andriy-burkov-awsyc/",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "GPUs: Rent vs. Buy",
+        "link": "https://cloud-gpus.com/rent-vs-buy/",
+        "author": null,
+        "description": "A practical guide and economic framework comparing total cost of ownership, utilization thresholds, hardware obsolescence, and deployment flexibility when renting cloud GPUs versus on-premise capital expenditure.",
+        "category": "Cloud Infrastructure & System Reliability",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "ab-345-1219e0",
+        "source_id": "andriy-burkov-ai",
+        "source_short_name": "Burkov AI",
+        "newsletter": "Artificial Intelligence (Andriy Burkov)",
+        "issue_number": 345,
+        "issue_title": "Artificial Intelligence #345",
+        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-345-andriy-burkov-awsyc/",
+        "date": "2026-09-24",
+        "date_str": "24 September 2026",
+        "title": "An Agentic Data Science Story",
+        "link": "https://www.allendowney.com/blog/2026/09/20/an-agentic-data-science-story/",
+        "author": "Allen Downey",
+        "description": "Allen Downey explores using autonomous LLM coding agents to conduct end-to-end data analysis workflows, reflecting on productivity gains, verification strategies, and agentic autonomy.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "pe-2026-09-3a3542",
+        "source_id": "pragmatic-engineer",
+        "source_short_name": "Pragmatic Eng.",
+        "newsletter": "The Pragmatic Engineer",
+        "issue_number": null,
+        "issue_title": "The Pragmatic Engineer",
+        "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+        "date": "2026-09-23",
+        "date_str": "23 September 2026",
+        "title": "Design Engineering with Maggie Appleton",
+        "link": "https://newsletter.pragmaticengineer.com/p/design-engineering-with-maggie-appleton",
+        "author": "with Maggie Appleton",
+        "description": "Maggie Appleton on what engineers can learn from designers, working with AI agents, and why human judgment still matters.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "video"
+    },
+    {
+        "id": "sw-2026-09-4a34b4",
+        "source_id": "simon-willison",
+        "source_short_name": "Simon Willison",
+        "newsletter": "Simon Willison's Weblog",
+        "issue_number": null,
+        "issue_title": "Claude Opus 5.5, GPT-6 Sol, GPT-6 Luna, and a new price war",
+        "issue_link": "https://simonwillison.net/2026/Sep/22/opus-and-sol-and-luna/",
+        "date": "2026-09-22",
+        "date_str": "22 September 2026",
+        "title": "Claude Opus 5.5, GPT-6 Sol, GPT-6 Luna, and a new price war",
+        "link": "https://simonwillison.net/2026/Sep/22/opus-and-sol-and-luna/",
+        "author": "Simon Willison",
+        "description": "",
+        "category": "Large Language Models & Evaluation Infrastructure",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "pe-2026-09-a1905b",
+        "source_id": "pragmatic-engineer",
+        "source_short_name": "Pragmatic Eng.",
+        "newsletter": "The Pragmatic Engineer",
+        "issue_number": null,
+        "issue_title": "The Pragmatic Engineer",
+        "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+        "date": "2026-09-22",
+        "date_str": "22 September 2026",
+        "title": "How will AI change operating systems? Part 2: Windows",
+        "link": "https://newsletter.pragmaticengineer.com/p/windows-and-ai",
+        "author": "Gergely Orosz",
+        "description": "Deepdive into the Windows team’s efforts to make the OS “AI agent-friendly” and win back developers by going all-in on Linux on Windows, local models, GPUs, & more",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "sw-2026-09-82b7c1",
+        "source_id": "simon-willison",
+        "source_short_name": "Simon Willison",
+        "newsletter": "Simon Willison's Weblog",
+        "issue_number": null,
+        "issue_title": "Jev introduces a new shape of LLM - System One, aka Decision Models",
+        "issue_link": "https://simonwillison.net/2026/Sep/21/jev/",
+        "date": "2026-09-21",
+        "date_str": "21 September 2026",
+        "title": "Jev introduces a new shape of LLM - System One, aka Decision Models",
+        "link": "https://simonwillison.net/2026/Sep/21/jev/",
+        "author": "Simon Willison",
+        "description": "",
+        "category": "Large Language Models & Evaluation Infrastructure",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "java-2026-09-24aa75",
+        "source_id": "infoq-java",
+        "source_short_name": "InfoQ Java",
+        "newsletter": "InfoQ Java",
+        "issue_number": null,
+        "issue_title": "InfoQ Java - 21 September 2026",
+        "issue_link": "https://www.infoq.com/news/2026/09/java-news-roundup-sep14-2026/",
+        "date": "2026-09-21",
+        "date_str": "21 September 2026",
+        "title": "Java News Roundup: JDK 27, Open J Proxy, A2A Jakarta, Azul Payara, BoxLang, Netflix ja",
+        "link": "https://www.infoq.com/news/2026/09/java-news-roundup-sep14-2026/",
+        "author": "Michael Redlich",
+        "description": "Highlights the GA release of JDK 27, LibericaJDK 27, Open J Proxy 1.0 and A2A Jakarta 1.0; point releases of Azul Payara, JHipster, JetBrains Ktor and BoxLang; and introduces Netflix ja, a modern JMS command-line development experience for Java developers.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
         "id": "da-308-aeb3bb",
         "source_id": "dear-architects",
         "source_short_name": "Dear Architects",
@@ -2043,7 +2635,10 @@
         "description": "A guide taking a software architecture approach to LLM systems, covering resilience, cost, latency, security, fallback strategies, and event-driven architectures with real case studies connecting patterns to production systems.",
         "category": "Software Architecture & Distributed Systems",
         "is_spotlight": false,
-        "type": "book"
+        "type": "book",
+        "also_in": [
+            "Token by Token"
+        ]
     },
     {
         "id": "da-308-adbaa7",
@@ -2079,7 +2674,10 @@
         "description": "Ajay Prakash discusses how LinkedIn overcomes AI agent limitations in large codebases. He explains Contextual Agent Playbooks (CAPs) which equip agents with explicit guidelines, domain knowledge, and tool access to generate reliable code aligned with enterprise standards.",
         "category": "AI-Native & Agentic Software Engineering",
         "is_spotlight": true,
-        "type": "presentation"
+        "type": "presentation",
+        "also_in": [
+            "InfoQ Architecture"
+        ]
     },
     {
         "id": "ab-344-f44767",
@@ -2185,24 +2783,6 @@
         "link": "https://emschwartz.me/binary-vector-embeddings-are-so-cool/",
         "author": "Evan Schwartz",
         "description": "Binary quantization compresses 32-bit float embedding vectors into single bits, unlocking 32x compression and ~25x faster retrieval speeds with over 95% accuracy retention using hardware Hamming distance operations.",
-        "category": "Large Language Models & Evaluation Infrastructure",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "ab-344-427212",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 344,
-        "issue_title": "Artificial Intelligence #344",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-344-andriy-burkov-umvkc/",
-        "date": "2026-09-19",
-        "date_str": "19 September 2026",
-        "title": "A primer to machine learning compilers",
-        "link": "https://aramesh10.github.io/ml-compilers-primer/ml-compilers-primer.html",
-        "author": "Adithya Ramesh",
-        "description": "How ML compilers bridge high-level frameworks (PyTorch, JAX) to heterogeneous hardware accelerators, detailing frontends, graph IR optimizers, operator fusion, and code generation.",
         "category": "Large Language Models & Evaluation Infrastructure",
         "is_spotlight": false,
         "type": "article"
@@ -2373,6 +2953,24 @@
         "type": "article"
     },
     {
+        "id": "java-2026-09-2f239d",
+        "source_id": "infoq-java",
+        "source_short_name": "InfoQ Java",
+        "newsletter": "InfoQ Java",
+        "issue_number": null,
+        "issue_title": "InfoQ Java - 16 September 2026",
+        "issue_link": "https://www.infoq.com/news/2026/09/java27-released/",
+        "date": "2026-09-16",
+        "date_str": "16 September 2026",
+        "title": "Java 27 Delivers Post-Quantum Cryptography, Future Language Innovation, Helidon 27, JavaFX 27",
+        "link": "https://www.infoq.com/news/2026/09/java27-released/",
+        "author": "Michael Redlich",
+        "description": "Oracle releases version 27 of Java and the JVM. Featuring nine JEPs, this milestone focuses on strengthening post-quantum cryptographic security, future language innovations, and advancements in Helidon 27 and JavaFX 27 under the Java Verified Portfolio.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": true,
+        "type": "article"
+    },
+    {
         "id": "pe-2026-09-557dcb",
         "source_id": "pragmatic-engineer",
         "source_short_name": "Pragmatic Eng.",
@@ -2425,6 +3023,24 @@
         "category": "Software Architecture & Distributed Systems",
         "is_spotlight": false,
         "type": "presentation"
+    },
+    {
+        "id": "java-2026-09-ff6afc",
+        "source_id": "infoq-java",
+        "source_short_name": "InfoQ Java",
+        "newsletter": "InfoQ Java",
+        "issue_number": null,
+        "issue_title": "InfoQ Java - 14 September 2026",
+        "issue_link": "https://www.infoq.com/news/2026/09/java-news-roundup-sep07-2026/",
+        "date": "2026-09-14",
+        "date_str": "14 September 2026",
+        "title": "Java News Roundup: New OpenJDK JEPs, CDI 5.0, Spring, Open Liberty, RefactorFirst, ADK for Kotlin",
+        "link": "https://www.infoq.com/news/2026/09/java-news-roundup-sep07-2026/",
+        "author": "Michael Redlich",
+        "description": "Highlights new JEPs for ahead-of-time compilation and structured concurrency; GA releases of Jakarta CDI 5.0 and ADK for Kotlin 1.0; Open Liberty September 2026 edition; point releases of TornadoVM and RefactorFirst; and release candidates of Groovy 6.0 and Gradle 9.8.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "article"
     },
     {
         "id": "addy-2026-09-7699fc",
@@ -2995,6 +3611,24 @@
         "type": "article"
     },
     {
+        "id": "java-2026-09-22e002",
+        "source_id": "infoq-java",
+        "source_short_name": "InfoQ Java",
+        "newsletter": "InfoQ Java",
+        "issue_number": null,
+        "issue_title": "InfoQ Java - 7 September 2026",
+        "issue_link": "https://www.infoq.com/news/2026/09/java-news-roundup-aug31-2026/",
+        "date": "2026-09-07",
+        "date_str": "7 September 2026",
+        "title": "Java News Roundup: TornadoVM 6, JReleaser, LangChain4j, Java Operator SDK, JHipster, Yupiik Fusion",
+        "link": "https://www.infoq.com/news/2026/09/java-news-roundup-aug31-2026/",
+        "author": "Michael Redlich",
+        "description": "Features the GA release of TornadoVM 6.0 for hardware-accelerated Java; point releases of JReleaser, LangChain4j for LLM integrations, the Java Operator SDK for Kubernetes, JHipster, and Yupiik Fusion.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
         "id": "da-306-c8c136",
         "source_id": "dear-architects",
         "source_short_name": "Dear Architects",
@@ -3441,6 +4075,24 @@
         "type": "conference"
     },
     {
+        "id": "java-2026-08-f56629",
+        "source_id": "infoq-java",
+        "source_short_name": "InfoQ Java",
+        "newsletter": "InfoQ Java",
+        "issue_number": null,
+        "issue_title": "InfoQ Java - 31 August 2026",
+        "issue_link": "https://www.infoq.com/news/2026/08/java-news-roundup-aug24-2026/",
+        "date": "2026-08-31",
+        "date_str": "31 August 2026",
+        "title": "Java News Roundup: GraalVM, Jakarta Data, JNoSQL, Azul Payara, WildFly, Quarkus, Atmosphere",
+        "link": "https://www.infoq.com/news/2026/08/java-news-roundup-aug24-2026/",
+        "author": "Michael Redlich",
+        "description": "Highlights the GA release of Atmosphere 4.0; point releases of GraalVM, Azul Payara, and WildFly; and milestones for Jakarta Data, Eclipse JNoSQL, and Quarkus cloud-native runtimes.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
         "id": "addy-2026-08-a3c48a",
         "source_id": "addy-osmani",
         "source_short_name": "Addy Osmani",
@@ -3738,6 +4390,96 @@
         "type": "book"
     },
     {
+        "id": "infoq-109-f4e621",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 109,
+        "issue_title": "Issue #109: Building Data and AI Platforms",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/109Architects_NL_August-2026.html",
+        "date": "2026-08-28",
+        "date_str": "28 August 2026",
+        "title": "The Right 300 Tokens Beat 100k Noisy Ones: The Architecture of Context Engineering",
+        "link": "https://www.infoq.com/presentations/architecture-context-engineering/",
+        "author": "Baruch Sadogursky & Patrick Debois",
+        "description": "In this QCon London talk recording, Baruch Sadogursky and Patrick Debois discuss why coding agents fail due to bloated context windows and stuffed prompts. They explain practical context engineering fixes: lazy-loaded skills, versioned context artifacts, externalized memory banks, and LLM-as-a-judge evals.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "presentation"
+    },
+    {
+        "id": "infoq-109-b90418",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 109,
+        "issue_title": "Issue #109: Building Data and AI Platforms",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/109Architects_NL_August-2026.html",
+        "date": "2026-08-28",
+        "date_str": "28 August 2026",
+        "title": "Harper Argues against the Multi-System Stack and Releases 5.2",
+        "link": "https://www.infoq.com/news/2026/08/harper-vercel-benchmark/",
+        "author": "Renato Losio",
+        "description": "The database platform Harper advocates for a single-runtime architecture that keeps application code and data together, with its benchmark against a Vercel-based stack reporting significantly better performance on live, personalized-data workloads, alongside a new record cache and higher throughput in version 5.2.",
+        "category": "Cloud Infrastructure & System Reliability",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "infoq-109-960960",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 109,
+        "issue_title": "Issue #109: Building Data and AI Platforms",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/109Architects_NL_August-2026.html",
+        "date": "2026-08-28",
+        "date_str": "28 August 2026",
+        "title": "How Artificial Intelligence Disrupts Engineering Progression",
+        "link": "https://www.infoq.com/news/2026/08/AI-disrupts-engineering-progress/",
+        "author": "Ben Linders",
+        "description": "Alasdair Allan explains at QCon London how AI disrupts engineering career progression by eliminating learning opportunities at each rung while helping people perform above their experience level, slowing entry-level hiring and altering junior-to-senior team dynamics.",
+        "category": "Tech Industry, Jobs & Careers",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "infoq-109-838eca",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 109,
+        "issue_title": "Issue #109: Building Data and AI Platforms",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/109Architects_NL_August-2026.html",
+        "date": "2026-08-28",
+        "date_str": "28 August 2026",
+        "title": "Spotify Builds External Index to Enable Low Latency Point Queries on its Data Lake",
+        "link": "https://www.infoq.com/news/2026/08/spotify-data-lake-point-queries/",
+        "author": "Leela Kumili",
+        "description": "Spotify introduced Random Access Parquet (RAP), a storage architecture that facilitates writing low-latency point queries directly against data stored in its data lake, allowing online services and AI applications to retrieve individual records without replicating datasets into operational databases.",
+        "category": "Cloud Infrastructure & System Reliability",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "infoq-109-0ec9da",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 109,
+        "issue_title": "Issue #109: Building Data and AI Platforms",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/109Architects_NL_August-2026.html",
+        "date": "2026-08-28",
+        "date_str": "28 August 2026",
+        "title": "Netflix Open-Sources Agentic Workflow for Causal Inference",
+        "link": "https://www.infoq.com/news/2026/08/netflix-oci-agent/",
+        "author": "Anthony Alford",
+        "description": "Netflix open-sourced an agentic workflow for Observational Causal Inference (OCI) that reduces toil in causal analysis. Given observational data and the user's analysis plan, the agent uses an actor-critic loop to estimate causality, write a report, and suggest next steps.",
+        "category": "AI-Native & Agentic Software Engineering",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
         "id": "tbt-20-c4a44b",
         "source_id": "token-by-token",
         "source_short_name": "Token by Token",
@@ -3884,6 +4626,24 @@
             "Dear Architects",
             "Token by Token"
         ]
+    },
+    {
+        "id": "java-2026-08-a5f38b",
+        "source_id": "infoq-java",
+        "source_short_name": "InfoQ Java",
+        "newsletter": "InfoQ Java",
+        "issue_number": null,
+        "issue_title": "InfoQ Java - 27 August 2026",
+        "issue_link": "https://www.infoq.com/news/2026/08/spring-news-roundup-aug17-2026/",
+        "date": "2026-08-27",
+        "date_str": "27 August 2026",
+        "title": "Spring News Roundup: First Milestone Releases for Boot, Framework, Data, Security, Modulith, Batch",
+        "link": "https://www.infoq.com/news/2026/08/spring-news-roundup-aug17-2026/",
+        "author": "Michael Redlich",
+        "description": "After a 10-week hiatus, the Spring team releases first milestone builds for Spring Boot 4.0, Spring Framework 7.0, Spring Data, Spring Security, Spring Modulith, and Spring Batch, setting the architectural foundation for the next generation of enterprise Java applications.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": true,
+        "type": "article"
     },
     {
         "id": "addy-2026-08-183365",
@@ -4184,24 +4944,6 @@
         "author": "IEEE",
         "description": "",
         "category": "Engineering Philosophy & Estimation",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "ab-340-72a170",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 340,
-        "issue_title": "Artificial Intelligence #340",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-340-andriy-burkov-xlmpc",
-        "date": "2026-08-22",
-        "date_str": "22 August 2026",
-        "title": "How the LLM watermarking works",
-        "link": "https://www.chapterpal.com/s/21382885/scalable-watermarking-for-identifying-large-language-model-outputs",
-        "author": "Nature",
-        "description": "",
-        "category": "Large Language Models & Evaluation Infrastructure",
         "is_spotlight": false,
         "type": "article"
     },
@@ -4614,24 +5356,6 @@
         "type": "article",
         "quote": "A product often becomes more useful if the costs are lowered without harming the quality",
         "quote_author": "Charles Eames"
-    },
-    {
-        "id": "ab-339-f1afe2",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 339,
-        "issue_title": "Artificial Intelligence #339",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-339-andriy-burkov-igh9c",
-        "date": "2026-08-15",
-        "date_str": "15 August 2026",
-        "title": "Qwen3.8-Max",
-        "link": "https://qwen.ai/blog?id=qwen3.8",
-        "author": "Open model",
-        "description": "",
-        "category": "Large Language Models & Evaluation Infrastructure",
-        "is_spotlight": false,
-        "type": "article"
     },
     {
         "id": "ab-339-da0f94",
@@ -5119,24 +5843,6 @@
         "type": "article"
     },
     {
-        "id": "ab-338-254757",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 338,
-        "issue_title": "Artificial Intelligence #338",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-338-andriy-burkov-3pwpc",
-        "date": "2026-08-08",
-        "date_str": "8 August 2026",
-        "title": "Flint",
-        "link": "https://microsoft.github.io/flint-chart/",
-        "author": null,
-        "description": "",
-        "category": "Engineering Philosophy & Estimation",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
         "id": "ab-338-247ca3",
         "source_id": "andriy-burkov-ai",
         "source_short_name": "Burkov AI",
@@ -5399,7 +6105,10 @@
         "is_spotlight": true,
         "type": "article",
         "quote": "In the beginner's mind there are many possibilities; in the expert's mind there are few.",
-        "quote_author": "Shunryu Suzuki"
+        "quote_author": "Shunryu Suzuki",
+        "also_in": [
+            "InfoQ Architecture"
+        ]
     },
     {
         "id": "da-301-47e394",
@@ -5583,6 +6292,114 @@
         "description": "",
         "category": "AI-Native & Agentic Software Engineering",
         "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "infoq-108-ec04c5",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 108,
+        "issue_title": "Issue #108: Building Data Platforms: Design, Architecture, and Enablement",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/108Architects_NL_July-2026.html",
+        "date": "2026-07-31",
+        "date_str": "31 July 2026",
+        "title": "Cloudflare Details Unified Data Platform Where Billing Workloads Account for 53% of Queries",
+        "link": "https://www.infoq.com/news/2026/07/cloudflare-unified-data-platform/",
+        "author": "Leela Kumili",
+        "description": "Cloudflare detailed Town Lake, its internal unified data platform, and Skipper, an AI-powered analytics agent, unifying access to operational, billing, security, and business data previously fragmented across disparate systems.",
+        "category": "Cloud Infrastructure & System Reliability",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "infoq-108-ea32a0",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 108,
+        "issue_title": "Issue #108: Building Data Platforms: Design, Architecture, and Enablement",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/108Architects_NL_July-2026.html",
+        "date": "2026-07-31",
+        "date_str": "31 July 2026",
+        "title": "Challenging Google Analytics: Building a Scalable, Cost-Effective User Tracking Service",
+        "link": "https://www.infoq.com/presentations/mobile-user-tracking-service/",
+        "author": "Alina Krasavina",
+        "description": "In an InfoQ Dev Summit talk recording, Alina Krasavina explains how Delivery Hero deprecated Google Analytics to build an internal tracking service handling 10x more load and capturing 97% of tracking data with a simple, cost-effective distributed architecture.",
+        "category": "Software Testing, Quality & Observability",
+        "is_spotlight": false,
+        "type": "presentation"
+    },
+    {
+        "id": "infoq-108-8c0aef",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 108,
+        "issue_title": "Issue #108: Building Data Platforms: Design, Architecture, and Enablement",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/108Architects_NL_July-2026.html",
+        "date": "2026-07-31",
+        "date_str": "31 July 2026",
+        "title": "Anthropic Reports Claude Now Handles 95% of Internal Analytics Queries",
+        "link": "https://www.infoq.com/news/2026/06/anthropic-claude-analytics/",
+        "author": "Renato Losio",
+        "description": "Anthropic reports that Claude now handles 95% of its internal analytics requests, allowing employees to query business data independently by prioritizing rigorous data governance and semantic definitions over raw model size.",
+        "category": "Software Testing, Quality & Observability",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "infoq-108-42fa8e",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 108,
+        "issue_title": "Issue #108: Building Data Platforms: Design, Architecture, and Enablement",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/108Architects_NL_July-2026.html",
+        "date": "2026-07-31",
+        "date_str": "31 July 2026",
+        "title": "Neobank Monzo Builds Governed Data Mesh across 100 Teams and 12000 dbt Models",
+        "link": "https://www.infoq.com/news/2026/05/monzo-data-mesh/",
+        "author": "Renato Losio",
+        "description": "Monzo redesigned its data warehouse into a governed, meshy architecture supporting over 100 teams and 12,000 dbt models, cutting warehouse operating costs by 40% while improving data delivery speed by 25%.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "infoq-108-33640e",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 108,
+        "issue_title": "Issue #108: Building Data Platforms: Design, Architecture, and Enablement",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/108Architects_NL_July-2026.html",
+        "date": "2026-07-31",
+        "date_str": "31 July 2026",
+        "title": "Compiling Workflows into Databases: the Architecture That Shouldn't Work (But Does)",
+        "link": "https://www.infoq.com/presentations/dbos/",
+        "author": "Jeremy Edberg & Qian Li",
+        "description": "Jeremy Edberg and Qian Li demonstrate DBOS Transact, showing how standard SQL tables, SKIP LOCKED queues, and unique primary keys can achieve durable workflow execution natively inside existing databases without external orchestrators.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "presentation"
+    },
+    {
+        "id": "infoq-108-2988d1",
+        "source_id": "infoq-architecture",
+        "source_short_name": "InfoQ Architecture",
+        "newsletter": "InfoQ Architecture",
+        "issue_number": 108,
+        "issue_title": "Issue #108: Building Data Platforms: Design, Architecture, and Enablement",
+        "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/108Architects_NL_July-2026.html",
+        "date": "2026-07-31",
+        "date_str": "31 July 2026",
+        "title": "From Batch to Micro-Batch Streaming: Lessons Learned the Hard Way in a Delta Index Pipeline",
+        "link": "https://www.infoq.com/articles/micro-batch-streaming-lessons-learned/",
+        "author": "Parveen Saini",
+        "description": "Case Study: Parveen Saini details the migration of a production ads and search delta-index pipeline from scheduled batch jobs to continuously running micro-batch streaming, cutting freshness lag from 10 minutes to 30 seconds.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": true,
         "type": "article"
     },
     {
@@ -7514,42 +8331,6 @@
         "quote_author": "Zhamak Dehghani"
     },
     {
-        "id": "ab-333-f40f90",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 333,
-        "issue_title": "Artificial Intelligence #333",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-333-andriy-burkov-bnjbf/",
-        "date": "2026-07-04",
-        "date_str": "4 July 2026",
-        "title": "How evaluation-driven development (EDD) works",
-        "link": "https://www.decodingai.com/p/5b766861-0001-494f-a37f-4d4eb104dcfa",
-        "author": "Decoding AI",
-        "description": "",
-        "category": "Large Language Models & Evaluation Infrastructure",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "ab-333-f122f7",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 333,
-        "issue_title": "Artificial Intelligence #333",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-333-andriy-burkov-bnjbf/",
-        "date": "2026-07-04",
-        "date_str": "4 July 2026",
-        "title": "Google is using Nvidia’s playbook",
-        "link": "https://www.wsj.com/tech/ai/google-is-using-nvidias-playbook-to-build-a-rival-ai-chip-business-1eac86f9",
-        "author": "WSJ",
-        "description": "",
-        "category": "Tech Industry, Jobs & Careers",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
         "id": "ab-333-d3574e",
         "source_id": "andriy-burkov-ai",
         "source_short_name": "Burkov AI",
@@ -7582,24 +8363,6 @@
         "author": "Jianxiang Mo",
         "description": "",
         "category": "Engineering Philosophy & Estimation",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "ab-333-2ea3cc",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 333,
-        "issue_title": "Artificial Intelligence #333",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-333-andriy-burkov-bnjbf/",
-        "date": "2026-07-04",
-        "date_str": "4 July 2026",
-        "title": "GLM-5.2",
-        "link": "https://z.ai/blog/glm-5.2",
-        "author": "Z.ai",
-        "description": "",
-        "category": "Large Language Models & Evaluation Infrastructure",
         "is_spotlight": false,
         "type": "article"
     },
@@ -7839,146 +8602,6 @@
         "category": "AI-Native & Agentic Software Engineering",
         "is_spotlight": false,
         "type": "article"
-    },
-    {
-        "id": "da-296-b734db",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 296,
-        "issue_title": "Dear Architects - AI governance & design docs",
-        "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/191460974962673241",
-        "date": "2026-06-28",
-        "date_str": "28 June 2026",
-        "title": "Who Does What? Team Topologies for the Agentic Platform",
-        "link": "https://blog.owulveryck.info/2026/06/24/who-does-what-team-topologies-for-the-agentic-platform.html",
-        "author": null,
-        "description": "This post proposes an organizational model for building and operating an agentic AI platform, mapping responsibilities across teams using the Team Topologies framework.",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "article",
-        "quote": "The best modules are deep. They allow a lot of functionality to be accessed through a simple interface.",
-        "quote_author": "John Ousterhout"
-    },
-    {
-        "id": "da-296-97679b",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 296,
-        "issue_title": "Dear Architects - AI governance & design docs",
-        "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/191460974962673241",
-        "date": "2026-06-28",
-        "date_str": "28 June 2026",
-        "title": "Write an Effective Design Doc",
-        "link": "https://refactoringenglish.com/excerpts/write-an-effective-design-doc/",
-        "author": null,
-        "description": "A design doc is the most important document a software developer writes. It forces the author to think through a problem rigorously and communicates the proposed solution to the rest of the team.",
-        "category": "Engineering Philosophy & Estimation",
-        "is_spotlight": false,
-        "type": "article",
-        "quote": "The best modules are deep. They allow a lot of functionality to be accessed through a simple interface.",
-        "quote_author": "John Ousterhout"
-    },
-    {
-        "id": "da-296-874837",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 296,
-        "issue_title": "Dear Architects - AI governance & design docs",
-        "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/191460974962673241",
-        "date": "2026-06-28",
-        "date_str": "28 June 2026",
-        "title": "Sam Newman on Microservices, Monoliths, and Building Resilient Distributed Systems",
-        "link": "https://www.youtube.com/watch?v=XV1hf8BwvXc",
-        "author": null,
-        "description": "Sam Newman is a consultant, specialized in service architecture. He's the author of the books Building Microservices and Monolith to Microservices, and has helped many companies make informed choices about their service architecture.",
-        "category": "Software Architecture & Distributed Systems",
-        "is_spotlight": false,
-        "type": "video",
-        "quote": "The best modules are deep. They allow a lot of functionality to be accessed through a simple interface.",
-        "quote_author": "John Ousterhout"
-    },
-    {
-        "id": "da-296-6dcedd",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 296,
-        "issue_title": "Dear Architects - AI governance & design docs",
-        "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/191460974962673241",
-        "date": "2026-06-28",
-        "date_str": "28 June 2026",
-        "title": "Build dashboards using native components in web apps.",
-        "link": "https://app.livestorm.co/ag-grid/whats-new-in-ag-studio-20?s=b645eb00-8d9a-43b1-996e-4aef2ac53b3e",
-        "author": null,
-        "description": "AG Studio is a dashboarding framework from AG Grid. It lets analysts build interactive dashboards directly inside your web app, with AG Grid, AG charts and custom components. Join us on 28 July to see how it works in practice.",
-        "category": "Engineering Philosophy & Estimation",
-        "is_spotlight": false,
-        "type": "article",
-        "quote": "The best modules are deep. They allow a lot of functionality to be accessed through a simple interface.",
-        "quote_author": "John Ousterhout"
-    },
-    {
-        "id": "da-296-61f663",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 296,
-        "issue_title": "Dear Architects - AI governance & design docs",
-        "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/191460974962673241",
-        "date": "2026-06-28",
-        "date_str": "28 June 2026",
-        "title": "Build dashboards using native components in web apps.",
-        "link": "https://app.livestorm.co/ag-grid/whats-new-in-ag-studio-20",
-        "author": null,
-        "description": "AG Studio is a dashboarding framework from AG Grid. It lets analysts build interactive dashboards directly inside your web app, with AG Grid, AG charts and custom components. Join us on 28 July to see how it works in practice.",
-        "category": "Engineering Philosophy & Estimation",
-        "is_spotlight": false,
-        "type": "article",
-        "quote": "The best modules are deep. They allow a lot of functionality to be accessed through a simple interface.",
-        "quote_author": "John Ousterhout"
-    },
-    {
-        "id": "da-296-5d8df8",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 296,
-        "issue_title": "Dear Architects - AI governance & design docs",
-        "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/191460974962673241",
-        "date": "2026-06-28",
-        "date_str": "28 June 2026",
-        "title": "AI Agents: The Definitive Guide",
-        "link": "https://amzn.to/4eA8A5g",
-        "author": null,
-        "description": "",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "book",
-        "quote": "The best modules are deep. They allow a lot of functionality to be accessed through a simple interface.",
-        "quote_author": "John Ousterhout"
-    },
-    {
-        "id": "da-296-30f1eb",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 296,
-        "issue_title": "Dear Architects - AI governance & design docs",
-        "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/191460974962673241",
-        "date": "2026-06-28",
-        "date_str": "28 June 2026",
-        "title": "Governing AI in the Cloud: a Practical Guide for Architects",
-        "link": "https://www.infoq.com/articles/governing-ai-cloud-guide/",
-        "author": null,
-        "description": "Cloud-based AI governance isn't just about compliance checkboxes—it's about building trust, managing risk, and ensuring that AI systems remain fair, transparent, and accountable throughout their lifecycle.",
-        "category": "Software Architecture & Distributed Systems",
-        "is_spotlight": true,
-        "type": "article",
-        "quote": "The best modules are deep. They allow a lot of functionality to be accessed through a simple interface.",
-        "quote_author": "John Ousterhout"
     }
 ];
     /* ARTICLES_END */
@@ -8482,7 +9105,7 @@ function renderCategoryCounts(list) {
 
     function populateMultiFilter(filter, options) {
       const container = filter.querySelector('.multi-filter-options');
-      container.classList.toggle('scrollable', options.length > 10);
+      container.classList.toggle('scrollable', options.length > 14);
       container.innerHTML = options.map(option => `
         <label class="checkbox-label">
           <span class="checkbox-label-text">
@@ -8849,12 +9472,15 @@ function renderCategoryCounts(list) {
           'future-software-development': 'badge-fose',
           'martin-fowler': 'badge-mf',
           'simon-willison': 'badge-sw',
+          'infoq-architecture': 'badge-infoq',
+          'infoq-java': 'badge-java',
           'my-collected-articles': 'badge-others'
         };
         const badgeClass = badgeClasses[article.source_id] || 'badge-tbt';
         const sourceLabel = article.source_short_name || article.newsletter;
         
         const issueDisplay = article.issue_number ? `#${escapeHtml(article.issue_number)} ` : '';
+        const issueTooltip = article.issue_title || (article.issue_number ? `#${article.issue_number} ${article.newsletter}` : `View ${article.newsletter} issue`);
         // Articles recommended by more than one newsletter are shown once, credited to
         // whoever ran them first, with the other sources noted here.
         const alsoInNames = additionalSourceNames(article);
@@ -8864,7 +9490,7 @@ function renderCategoryCounts(list) {
         if (article.issue_link) {
           tdSource.innerHTML = `
             <div class="source-badges">
-              <a href="${safeUrl(article.issue_link)}" target="_blank" rel="noopener noreferrer" class="badge ${badgeClass}" title="View ${escapeHtml(article.newsletter)} issue">
+              <a href="${safeUrl(article.issue_link)}" target="_blank" rel="noopener noreferrer" class="badge ${badgeClass}" title="${escapeHtml(issueTooltip)}">
                 ${issueDisplay}${escapeHtml(sourceLabel)}
               </a>
               ${alsoIn}
@@ -8873,30 +9499,24 @@ function renderCategoryCounts(list) {
         } else {
           tdSource.innerHTML = `
             <div class="source-badges">
-              <span class="badge ${badgeClass}" title="${escapeHtml(article.newsletter)}">
+              <span class="badge ${badgeClass}" title="${escapeHtml(issueTooltip)}">
                 ${issueDisplay}${escapeHtml(sourceLabel)}
               </span>
               ${alsoIn}
             </div>
           `;
         }
-        tr.appendChild(tdSource);
-
-        // 2. Date cell
+        // 1. Date cell
         const tdDate = document.createElement('td');
         tdDate.setAttribute('data-label', 'Date');
         tdDate.className = 'date-cell date-column';
         tdDate.textContent = formatDateDisplay(article);
         tr.appendChild(tdDate);
 
-        // 3. Author cell
-        const tdAuthor = document.createElement('td');
-        tdAuthor.setAttribute('data-label', 'Author');
-        tdAuthor.className = 'author-cell author-column';
-        tdAuthor.textContent = article.author || '';
-        tr.appendChild(tdAuthor);
+        // 2. Source cell
+        tr.appendChild(tdSource);
 
-        // 3.5 Category cell
+        // 3. Category cell
         const tdCategory = document.createElement('td');
         tdCategory.setAttribute('data-label', 'Category');
         tdCategory.className = 'category-column';
@@ -8907,6 +9527,13 @@ function renderCategoryCounts(list) {
           </span>
         `;
         tr.appendChild(tdCategory);
+
+        // 4. Author cell
+        const tdAuthor = document.createElement('td');
+        tdAuthor.setAttribute('data-label', 'Author');
+        tdAuthor.className = 'author-cell author-column';
+        tdAuthor.textContent = article.author || '';
+        tr.appendChild(tdAuthor);
 
         // 4. Details cell (Title, Icon, Quote, Description)
         const tdDetails = document.createElement('td');

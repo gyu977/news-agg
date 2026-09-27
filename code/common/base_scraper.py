@@ -17,9 +17,11 @@ from typing import List, Dict, Any, Optional
 try:
     from common.models import Article, SourceDefinition, Quote, ParsedIssueInfo
     from common.constants import CATEGORIES, DOMAIN_MARKER_RULES, SPONSOR_DOMAINS, SPONSOR_WHITELIST_TERMS, BOILERPLATE_TITLES, MIN_TITLE_LENGTH, NON_ARTICLE_SCHEMES
+    from common.url_utils import unshorten_url as _unshorten_url, validate_url as _validate_url, is_tracking_redirect_domain
 except ImportError:
     from code.common.models import Article, SourceDefinition, Quote, ParsedIssueInfo
     from code.common.constants import CATEGORIES, DOMAIN_MARKER_RULES, SPONSOR_DOMAINS, SPONSOR_WHITELIST_TERMS, BOILERPLATE_TITLES, MIN_TITLE_LENGTH, NON_ARTICLE_SCHEMES
+    from code.common.url_utils import unshorten_url as _unshorten_url, validate_url as _validate_url, is_tracking_redirect_domain
 
 class BaseScraper:
     USER_AGENT = "news-agg/1.0 (+https://github.com/gyu977/news-agg; contact via GitHub issues)"
@@ -101,7 +103,7 @@ class BaseScraper:
         url: str,
         max_retries: int = 3,
         timeout: int = 15,
-        accept: str = "text/html,application/xhtml+xml",
+        accept: str = "text/html,application/xhtml+xml,application/xml;q=0.9,text/xml;q=0.9,*/*;q=0.8",
     ) -> bytes:
         """Fetch a URL with robots checks, an honest UA, throttling, and retry backoff."""
         if not self._robots_allowed(url):
@@ -181,6 +183,27 @@ class BaseScraper:
             lowered in cls.TRACKING_PARAMS
             or lowered.startswith(cls.TRACKING_PREFIXES)
         )
+
+    @classmethod
+    def unshorten_url(cls, url: str, timeout: int = 10, max_hops: int = 5, force: bool = False) -> str:
+        """
+        Resolves tracking redirects (e.g. clicks.mlsend.com, bit.ly, t.co) to true
+        destination URLs with browser headers to avoid 403 blocks.
+        """
+        return _unshorten_url(url, timeout=timeout, max_hops=max_hops, force=force)
+
+    @classmethod
+    def validate_url(cls, url: str, timeout: int = 10) -> Tuple[bool, int, str]:
+        """
+        Probes URL reachability via HEAD (falling back to GET on 405/403).
+        Returns (is_valid, status_code, destination_or_message).
+        """
+        return _validate_url(url, timeout=timeout)
+
+    @classmethod
+    def is_tracking_redirect(cls, url: str) -> bool:
+        """Returns True if the URL points to a known tracking or redirect domain."""
+        return is_tracking_redirect_domain(url)
 
     @classmethod
     def canonical_link(cls, url: str) -> str:

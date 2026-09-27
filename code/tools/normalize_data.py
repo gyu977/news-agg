@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Normalize data-sources/*/data.json in place.
 
@@ -58,6 +59,8 @@ ID_PREFIXES = {
     "andriy-burkov-ai": "ab",
     "dear-architects": "da",
     "future-software-development": "fose",
+    "infoq-architecture": "infoq",
+    "infoq-java": "java",
     "martin-fowler": "mf",
     "my-collected-articles": "others",
     "pragmatic-engineer": "pe",

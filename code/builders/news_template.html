@@ -490,10 +490,27 @@
       gap: 0.2rem;
       max-height: calc(100vh - 220px);
       overflow-y: auto;
+      --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+      --scrollbar-track: transparent;
+      scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+      scrollbar-width: thin;
+    }
+
+    @supports not (scrollbar-color: auto) {
+      .multi-filter-options::-webkit-scrollbar {
+        width: 6px;
+      }
+      .multi-filter-options::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb);
+        border-radius: 3px;
+      }
+      .multi-filter-options::-webkit-scrollbar-track {
+        background: var(--scrollbar-track);
+      }
     }
 
     .multi-filter-options.scrollable {
-      max-height: min(300px, calc(100vh - 220px));
+      max-height: min(420px, calc(100vh - 220px));
     }
 
     .multi-filter-options .checkbox-label {
@@ -824,13 +841,13 @@
     }
 
     .select-col {
-      width: 48px;
-      min-width: 48px;
-      max-width: 48px;
+      width: 44px;
+      min-width: 44px;
+      max-width: 44px;
       text-align: center;
       vertical-align: top;
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
     }
 
     th.select-col {
@@ -923,6 +940,18 @@
       border: 1px solid rgba(16, 185, 129, 0.25);
     }
 
+    .badge-infoq {
+      background: rgba(2, 132, 199, 0.15);
+      color: #0284c7;
+      border: 1px solid rgba(2, 132, 199, 0.3);
+    }
+
+    .badge-java {
+      background: rgba(234, 88, 12, 0.15);
+      color: #ea580c;
+      border: 1px solid rgba(234, 88, 12, 0.3);
+    }
+
     .badge-spotlight {
       background: var(--accent-gold-rgba);
       color: var(--accent-gold);
@@ -961,13 +990,16 @@
     }
 
     .source-column {
-      width: 165px;
-      min-width: 165px;
+      width: 205px;
+      min-width: 205px;
+      padding-left: 0.75rem;
+      padding-right: 0.4rem;
     }
 
     .date-column {
-      width: 115px;
-      min-width: 115px;
+      width: 110px;
+      min-width: 110px;
+      padding-left: 0.5rem;
     }
 
     .author-column {
@@ -976,8 +1008,10 @@
     }
 
     .category-column {
-      width: 180px;
-      min-width: 180px;
+      width: 170px;
+      min-width: 170px;
+      padding-left: 0.4rem;
+      padding-right: 0.75rem;
     }
 
     .article-title-cell {
@@ -1002,7 +1036,7 @@
 
     .article-type-icon {
       display: inline-block;
-      vertical-align: -0.1em;
+      vertical-align: -0.02em;
       margin-right: 0.35rem;
       line-height: 1;
       font-size: 0.95em;
@@ -1719,6 +1753,8 @@
       .category-column {
         width: auto;
         min-width: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
 
       .select-col {
@@ -1726,6 +1762,8 @@
         min-width: 0 !important;
         max-width: none !important;
         text-align: left !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
       }
 
       .select-cell-inner {
@@ -1981,10 +2019,10 @@
         <thead>
           <tr>
             <th class="select-col" title="Select all visible articles to export as Markdown or HTML"><input type="checkbox" id="selectAllToggle" title="Select all visible articles to export as Markdown or HTML" aria-label="Select all visible articles to export as Markdown or HTML"></th>
-            <th onclick="handleSort('newsletter')" id="th-newsletter" class="source-column" tabindex="0" role="button" aria-label="Sort by source">Source <span class="sort-indicator"></span></th>
             <th onclick="handleSort('date')" id="th-date" class="date-column active-sort" tabindex="0" role="button" aria-label="Sort by date">Date <span class="sort-indicator">&#x25BC;</span></th>
-            <th onclick="handleSort('author')" id="th-author" class="author-column" tabindex="0" role="button" aria-label="Sort by author">Author <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('newsletter')" id="th-newsletter" class="source-column" tabindex="0" role="button" aria-label="Sort by source">Source <span class="sort-indicator"></span></th>
             <th onclick="handleSort('category')" id="th-category" class="category-column" tabindex="0" role="button" aria-label="Sort by category">Category <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('author')" id="th-author" class="author-column" tabindex="0" role="button" aria-label="Sort by author">Author <span class="sort-indicator"></span></th>
             <th onclick="handleSort('title')" id="th-title" tabindex="0" role="button" aria-label="Sort by article title">Article <span class="sort-indicator"></span></th>
           </tr>
         </thead>
@@ -2502,7 +2540,7 @@ function renderCategoryCounts(list) {
 
     function populateMultiFilter(filter, options) {
       const container = filter.querySelector('.multi-filter-options');
-      container.classList.toggle('scrollable', options.length > 10);
+      container.classList.toggle('scrollable', options.length > 14);
       container.innerHTML = options.map(option => `
         <label class="checkbox-label">
           <span class="checkbox-label-text">
@@ -2869,12 +2907,15 @@ function renderCategoryCounts(list) {
           'future-software-development': 'badge-fose',
           'martin-fowler': 'badge-mf',
           'simon-willison': 'badge-sw',
+          'infoq-architecture': 'badge-infoq',
+          'infoq-java': 'badge-java',
           'my-collected-articles': 'badge-others'
         };
         const badgeClass = badgeClasses[article.source_id] || 'badge-tbt';
         const sourceLabel = article.source_short_name || article.newsletter;
         
         const issueDisplay = article.issue_number ? `#${escapeHtml(article.issue_number)} ` : '';
+        const issueTooltip = article.issue_title || (article.issue_number ? `#${article.issue_number} ${article.newsletter}` : `View ${article.newsletter} issue`);
         // Articles recommended by more than one newsletter are shown once, credited to
         // whoever ran them first, with the other sources noted here.
         const alsoInNames = additionalSourceNames(article);
@@ -2884,7 +2925,7 @@ function renderCategoryCounts(list) {
         if (article.issue_link) {
           tdSource.innerHTML = `
             <div class="source-badges">
-              <a href="${safeUrl(article.issue_link)}" target="_blank" rel="noopener noreferrer" class="badge ${badgeClass}" title="View ${escapeHtml(article.newsletter)} issue">
+              <a href="${safeUrl(article.issue_link)}" target="_blank" rel="noopener noreferrer" class="badge ${badgeClass}" title="${escapeHtml(issueTooltip)}">
                 ${issueDisplay}${escapeHtml(sourceLabel)}
               </a>
               ${alsoIn}
@@ -2893,30 +2934,24 @@ function renderCategoryCounts(list) {
         } else {
           tdSource.innerHTML = `
             <div class="source-badges">
-              <span class="badge ${badgeClass}" title="${escapeHtml(article.newsletter)}">
+              <span class="badge ${badgeClass}" title="${escapeHtml(issueTooltip)}">
                 ${issueDisplay}${escapeHtml(sourceLabel)}
               </span>
               ${alsoIn}
             </div>
           `;
         }
-        tr.appendChild(tdSource);
-
-        // 2. Date cell
+        // 1. Date cell
         const tdDate = document.createElement('td');
         tdDate.setAttribute('data-label', 'Date');
         tdDate.className = 'date-cell date-column';
         tdDate.textContent = formatDateDisplay(article);
         tr.appendChild(tdDate);
 
-        // 3. Author cell
-        const tdAuthor = document.createElement('td');
-        tdAuthor.setAttribute('data-label', 'Author');
-        tdAuthor.className = 'author-cell author-column';
-        tdAuthor.textContent = article.author || '';
-        tr.appendChild(tdAuthor);
+        // 2. Source cell
+        tr.appendChild(tdSource);
 
-        // 3.5 Category cell
+        // 3. Category cell
         const tdCategory = document.createElement('td');
         tdCategory.setAttribute('data-label', 'Category');
         tdCategory.className = 'category-column';
@@ -2927,6 +2962,13 @@ function renderCategoryCounts(list) {
           </span>
         `;
         tr.appendChild(tdCategory);
+
+        // 4. Author cell
+        const tdAuthor = document.createElement('td');
+        tdAuthor.setAttribute('data-label', 'Author');
+        tdAuthor.className = 'author-cell author-column';
+        tdAuthor.textContent = article.author || '';
+        tr.appendChild(tdAuthor);
 
         // 4. Details cell (Title, Icon, Quote, Description)
         const tdDetails = document.createElement('td');

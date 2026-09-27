@@ -1,5 +1,169 @@
 [
   {
+    "id": "ab-345-174fce",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 345,
+    "issue_title": "Artificial Intelligence #345",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-345-andriy-burkov-awsyc/",
+    "date": "2026-09-24",
+    "date_str": "24 September 2026",
+    "title": "GPUs: Rent vs. Buy",
+    "link": "https://cloud-gpus.com/rent-vs-buy/",
+    "author": null,
+    "description": "A practical guide and economic framework comparing total cost of ownership, utilization thresholds, hardware obsolescence, and deployment flexibility when renting cloud GPUs versus on-premise capital expenditure.",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {}
+  },
+  {
+    "id": "ab-345-1219e0",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 345,
+    "issue_title": "Artificial Intelligence #345",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-345-andriy-burkov-awsyc/",
+    "date": "2026-09-24",
+    "date_str": "24 September 2026",
+    "title": "An Agentic Data Science Story",
+    "link": "https://www.allendowney.com/blog/2026/09/20/an-agentic-data-science-story/",
+    "author": "Allen Downey",
+    "description": "Allen Downey explores using autonomous LLM coding agents to conduct end-to-end data analysis workflows, reflecting on productivity gains, verification strategies, and agentic autonomy.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {}
+  },
+  {
+    "id": "ab-345-f5fa25",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 345,
+    "issue_title": "Artificial Intelligence #345",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-345-andriy-burkov-awsyc/",
+    "date": "2026-09-24",
+    "date_str": "24 September 2026",
+    "title": "llm-d: Deploying a 753B Open Model on NVIDIA H100 GPUs",
+    "link": "https://research.ibm.com/blog/running-open-models-on-h100-gpus-with-llmd",
+    "author": "IBM Research",
+    "description": "IBM Research introduces llm-d, a distributed serving architecture designed to run a 753B parameter open model on NVIDIA H100 GPUs, serving thousands of concurrent coding agents at 5-10x higher throughput and 65-75% lower cost compared to vLLM and TensorRT-LLM.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {}
+  },
+  {
+    "id": "ab-345-450207",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 345,
+    "issue_title": "Artificial Intelligence #345",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-345-andriy-burkov-awsyc/",
+    "date": "2026-09-24",
+    "date_str": "24 September 2026",
+    "title": "Fine-Tuning a 350M Model for Better Structured Outputs in 100 GRPO Steps",
+    "link": "https://huggingface.co/blog/grpo-with-trl-ifstruct",
+    "author": "Hugging Face",
+    "description": "Demonstrates using Group Relative Policy Optimization (GRPO) with TRL to fine-tune compact 350M models, achieving superior structured JSON/schema generation with minimal compute in only 100 optimization steps.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {}
+  },
+  {
+    "id": "ab-345-7986af",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 345,
+    "issue_title": "Artificial Intelligence #345",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-345-andriy-burkov-awsyc/",
+    "date": "2026-09-24",
+    "date_str": "24 September 2026",
+    "title": "DeepSeek-V4.1-Flash: Open-Weight Vision and Coding Model",
+    "link": "https://deepseek.com/en/news/deepseek-v4-1-flash/",
+    "author": "DeepSeek",
+    "description": "DeepSeek releases DeepSeek-V4.1-Flash, an open-weight multimodal model supporting image inputs, optimized for coding tasks, and operating at 20x lower inference cost compared to proprietary closed-weight frontier models.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "Short 400-word corporate marketing / API price release"
+    }
+  },
+  {
+    "id": "ab-345-85a001",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 345,
+    "issue_title": "Artificial Intelligence #345",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-345-andriy-burkov-awsyc/",
+    "date": "2026-09-24",
+    "date_str": "24 September 2026",
+    "title": "An Interactive Introduction to Fourier Transforms",
+    "link": "https://www.jezzamon.com/fourier/index.html",
+    "author": "Jez Swanson",
+    "description": "A visual, interactive exploration of Fourier transforms, breaking down complex signals into sinusoidal components with intuitive animations and mathematical foundations.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {}
+  },
+  {
+    "id": "ab-345-f8ccd2",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 345,
+    "issue_title": "Artificial Intelligence #345",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-345-andriy-burkov-awsyc/",
+    "date": "2026-09-24",
+    "date_str": "24 September 2026",
+    "title": "Random Attention: Rethinking KV Cache Eviction for Efficient Reasoning",
+    "link": "https://www.chapterpal.com/s/99d56f88/random-attention-rethinking-kv-cache-eviction-for-efficient-reasoning",
+    "author": null,
+    "description": "Examines Random Attention, a novel approach to KV cache eviction during long-context LLM reasoning that reduces memory footprint while preserving task accuracy across complex multi-step reasoning benchmarks.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "ChapterPal paywall / private reading app login gate"
+    }
+  },
+  {
+    "id": "ab-345-fdba04",
+    "newsletter": "Artificial Intelligence (Andriy Burkov)",
+    "issue_number": 345,
+    "issue_title": "Artificial Intelligence #345",
+    "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-345-andriy-burkov-awsyc/",
+    "date": "2026-09-24",
+    "date_str": "24 September 2026",
+    "title": "Physics-Based Deep Learning Book",
+    "link": "https://www.chapterpal.com/book/4d08ce3b-3a8a-4bd7-a684-1a0a722f986d/physics-based-deep-learning-book",
+    "author": "Nils Thuerey et al.",
+    "description": "An open educational book covering the integration of physical principles, differential equations, and numerical solvers with modern deep learning and neural network architectures.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "book",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "ChapterPal paywall / private reading app login gate"
+    }
+  },
+  {
     "id": "ab-344-b52898",
     "newsletter": "Artificial Intelligence (Andriy Burkov)",
     "issue_number": 344,
@@ -119,11 +283,14 @@
     "category": "Large Language Models & Evaluation Infrastructure",
     "is_spotlight": false,
     "type": "article",
-    "hide": false,
+    "hide": true,
     "user_overrides": [
-      "category"
+      "category",
+      "hide"
     ],
-    "metadata": {}
+    "metadata": {
+      "hide_reason": "Empty 16-word slide landing stub with dead download"
+    }
   },
   {
     "id": "ab-344-f44767",
@@ -660,11 +827,14 @@
     "category": "Large Language Models & Evaluation Infrastructure",
     "is_spotlight": false,
     "type": "article",
-    "hide": false,
+    "hide": true,
     "user_overrides": [
-      "category"
+      "category",
+      "hide"
     ],
-    "metadata": {}
+    "metadata": {
+      "hide_reason": "ChapterPal paywall / private reading app login gate"
+    }
   },
   {
     "id": "ab-340-393c13",
@@ -965,11 +1135,14 @@
     "category": "Large Language Models & Evaluation Infrastructure",
     "is_spotlight": false,
     "type": "article",
-    "hide": false,
+    "hide": true,
     "user_overrides": [
-      "category"
+      "category",
+      "hide"
     ],
-    "metadata": {}
+    "metadata": {
+      "hide_reason": "Dead 1-word blog redirect stub (qwen.ai/blog?id=qwen3.8)"
+    }
   },
   {
     "id": "ab-338-e0c9f9",
@@ -1085,9 +1258,13 @@
     "category": "Engineering Philosophy & Estimation",
     "is_spotlight": false,
     "type": "article",
-    "hide": false,
-    "user_overrides": [],
-    "metadata": {}
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "Empty 8-word chart placeholder (microsoft.github.io/flint-chart/)"
+    }
   },
   {
     "id": "ab-338-5c3c4b",
@@ -1904,11 +2081,14 @@
     "category": "Tech Industry, Jobs & Careers",
     "is_spotlight": false,
     "type": "article",
-    "hide": false,
+    "hide": true,
     "user_overrides": [
-      "category"
+      "category",
+      "hide"
     ],
-    "metadata": {}
+    "metadata": {
+      "hide_reason": "Wall Street Journal hard paywall"
+    }
   },
   {
     "id": "ab-333-150daf",
@@ -1965,9 +2145,13 @@
     "category": "Large Language Models & Evaluation Infrastructure",
     "is_spotlight": false,
     "type": "article",
-    "hide": false,
-    "user_overrides": [],
-    "metadata": {}
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "49-word paywalled newsletter stub"
+    }
   },
   {
     "id": "ab-333-44c6aa",
@@ -2045,9 +2229,13 @@
     "category": "Large Language Models & Evaluation Infrastructure",
     "is_spotlight": false,
     "type": "article",
-    "hide": false,
-    "user_overrides": [],
-    "metadata": {}
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "Dead 0-word link (z.ai/blog/glm-5.2)"
+    }
   },
   {
     "id": "ab-333-2541d0",

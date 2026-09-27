@@ -183,7 +183,10 @@ class RSSFeedScraper(BaseScraper):
             return 0
 
         print(f"[{self.log_name}] Fetching feed from {self.feed_url}...")
-        response = self.fetch_url(self.feed_url)
+        response = self.fetch_url(
+            self.feed_url,
+            accept="application/rss+xml,application/atom+xml,application/xml,text/xml,*/*;q=0.8",
+        )
         if not response:
             print(f"[{self.log_name}] Failed to fetch feed.")
             return 0
