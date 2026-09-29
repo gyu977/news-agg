@@ -1,0 +1,187 @@
+[
+  {
+    "id": "twa-40-cbcaf1",
+    "newsletter": "The Week Ahead",
+    "issue_number": 40,
+    "issue_title": "Week 40: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+    "date": "2026-09-28",
+    "date_str": "28 September 2026",
+    "title": "GOTO Copenhagen 2026: Masterclasses in Architecture, Distributed Systems, and Reliable Tech",
+    "link": "https://gotocph.com/2026",
+    "author": "Above",
+    "description": "28 Sep–2 Oct 2026 · Copenhagen. Developers, architects, and engineering leaders gather in Copenhagen for five days of talks and masterclasses on software architecture, distributed systems, AI, and resilient system design. Keynotes and speakers include Sam Newman, Alex Ewerlöf, and Kevlin Henney.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": true,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Copenhagen",
+      "dates": "28 Sep–2 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-40-7d743b",
+    "newsletter": "The Week Ahead",
+    "issue_number": 40,
+    "issue_title": "Week 40: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+    "date": "2026-09-29",
+    "date_str": "29 September 2026",
+    "title": "CoreWeave Fully Connected (San Francisco): Compute, Networking, and Storage for AI at Scale",
+    "link": "https://www.coreweave.com/",
+    "author": "Above",
+    "description": "29 Sep–1 Oct 2026 · San Francisco. A summit for leaders and infrastructure engineers building AI clusters at scale, focusing on compute, high-speed networking, distributed storage, and developer experience. Keynotes include Michael Intrator, Lukas Biewald, Ian Buck, and Fei-Fei Li.",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "San Francisco",
+      "dates": "29 Sep–1 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-40-ca2041",
+    "newsletter": "The Week Ahead",
+    "issue_number": 40,
+    "issue_title": "Week 40: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+    "date": "2026-09-29",
+    "date_str": "29 September 2026",
+    "title": "The AI Conference (San Francisco): Rapid Product-Building and Production Model Infrastructure",
+    "link": "https://aiconference.com/",
+    "author": "Above",
+    "description": "29 Sep–1 Oct 2026 · San Francisco. Researchers, builders, and business leaders meet in San Francisco around the next wave of AI applications, model development, and the infrastructure needed to take them into production. Features Brian Yang (OpenAI) speaking on rapid product building.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "San Francisco",
+      "dates": "29 Sep–1 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-40-00be97",
+    "newsletter": "The Week Ahead",
+    "issue_number": 40,
+    "issue_title": "Week 40: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+    "date": "2026-09-28",
+    "date_str": "28 September 2026",
+    "title": "Boston AI Week: Exploring Real-World Business and Healthcare AI Transformation",
+    "link": "https://www.linkedin.com/company/bostonaiweek",
+    "author": "Above",
+    "description": "28 Sep–2 Oct 2026 · Boston. The annual festival brings together researchers, founders, and technologists across the Boston innovation community to explore how AI is changing industry and everyday life, with sessions from Radhika Dutt and Alex Condoleon.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Boston",
+      "dates": "24 Sep–2 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-40-160a68",
+    "newsletter": "The Week Ahead",
+    "issue_number": 40,
+    "issue_title": "Week 40: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+    "date": "2026-10-01",
+    "date_str": "1 October 2026",
+    "title": "SOFTER Digital Futures (Rødvig): Building Democratic, Creative, and Caring Tech Ecosystems",
+    "link": "https://dk.linkedin.com/company/softerdigitalfutures",
+    "author": "Above",
+    "description": "1–3 Oct 2026 · Rødvig. An intimate gathering in Rødvig for designers, creative technologists, and engineers, featuring workshops and conversations on building more democratic, creative, and caring digital futures (curated by Ida Lissner & Nicole Jonasson).",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Rødvig",
+      "dates": "1–3 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-40-0e53f0",
+    "newsletter": "The Week Ahead",
+    "issue_number": 40,
+    "issue_title": "Week 40: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+    "date": "2026-09-28",
+    "date_str": "28 September 2026",
+    "title": "VidSummit 2026 (Dallas)",
+    "link": "https://www.linkedin.com/company/vidsummit",
+    "author": "Above",
+    "description": "29 Sep–1 Oct 2026 · Dallas. B2B gathering for creators, brands, and digital entrepreneurs in Dallas.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "creator/video marketing conference outside software engineering/AI scope",
+      "location": "Dallas",
+      "dates": "29 Sep–1 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-40-59a876",
+    "newsletter": "The Week Ahead",
+    "issue_number": 40,
+    "issue_title": "Week 40: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+    "date": "2026-10-01",
+    "date_str": "1 October 2026",
+    "title": "FilmFest Hamburg Explorer Konferenz",
+    "link": "https://de.linkedin.com/company/filmfesthamburg",
+    "author": "Above",
+    "description": "1 Oct 2026 · Hamburg. One-day industry conference for producers, financiers, and streaming platforms in Hamburg.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "film and streaming financing conference outside software engineering/AI scope",
+      "location": "Hamburg",
+      "dates": "1 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-40-d1140f",
+    "newsletter": "The Week Ahead",
+    "issue_number": 40,
+    "issue_title": "Week 40: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+    "date": "2026-09-28",
+    "date_str": "28 September 2026",
+    "title": "Nashville Film Festival Creators Conference",
+    "link": "https://www.linkedin.com/company/nashville-film-festival",
+    "author": "Above",
+    "description": "28 Sep 2026 · Nashville. Conference programming for filmmakers, screenwriters, and creative-industry professionals in Nashville.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "film production conference outside software engineering/AI scope",
+      "location": "Nashville",
+      "dates": "28 Sep 2026"
+    }
+  }
+]

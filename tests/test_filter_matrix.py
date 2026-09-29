@@ -183,6 +183,7 @@ def run_filter_engine(
     selected_types=None,
     selected_categories=None,
     spotlight_only=False,
+    show_future_events=True,
 ):
     """
     Simulates the exact JavaScript filter engine in news_template.html.
@@ -198,19 +199,25 @@ def run_filter_engine(
     categories = ALL_CATEGORIES if selected_categories is None else set(selected_categories)
 
     now_ms = anchor_dt.timestamp() * 1000
+    start_of_today_dt = anchor_dt.replace(hour=0, minute=0, second=0, microsecond=0)
+    start_of_today_ms = start_of_today_dt.timestamp() * 1000
 
     # 1. Articles matching active timeframe
     def matches_timeframe(art):
+        art_time = datetime.fromisoformat(art["date"]).replace(tzinfo=timezone.utc).timestamp() * 1000
+        is_future = art_time > start_of_today_ms
+        if is_future and not show_future_events:
+            return False
+
         if timeframe == "all":
             return True
         days = int(timeframe)
-        art_time = datetime.fromisoformat(art["date"]).replace(tzinfo=timezone.utc).timestamp() * 1000
         cutoff = now_ms - (days * 24 * 60 * 60 * 1000)
         cutoff_day_dt = datetime.fromtimestamp(cutoff / 1000, tz=timezone.utc).replace(
             hour=0, minute=0, second=0, microsecond=0
         )
         cutoff_day_ms = cutoff_day_dt.timestamp() * 1000
-        return art_time > now_ms or art_time >= cutoff_day_ms
+        return art_time >= cutoff_day_ms or (is_future and show_future_events)
 
     timeframe_filtered = [a for a in articles if matches_timeframe(a)]
 
@@ -677,11 +684,11 @@ class FilterMatrixSimulationTests(unittest.TestCase):
         self.assertIn(".badge-spotlight {\n      background: var(--accent-gold-rgba);\n      color: var(--accent-gold);\n      border: 1px solid rgba(251, 191, 36, 0.3);\n      vertical-align: middle;\n      display: inline-flex;\n      align-items: center;\n      margin-left: 0.45rem;\n      white-space: nowrap;\n    }", html)
 
         # 7. Verify timeframe and filter dropdowns are fixed width, preventing rightside UI shifts
-        self.assertIn("#timeframeFilterDropdown {\n      width: 180px;\n    }", html)
-        self.assertIn("#sourceFilter {\n      width: 200px;\n    }", html)
-        self.assertIn("#typeFilter {\n      width: 180px;\n    }", html)
-        self.assertIn("#categoryFilter {\n      width: 210px;\n    }", html)
-        self.assertIn(".toggles-wrapper {\n      display: flex;\n      align-items: center;\n      gap: 1.25rem;\n      white-space: nowrap;\n    }", html)
+        self.assertIn("#timeframeFilterDropdown {\n      width: 160px;\n    }", html)
+        self.assertIn("#sourceFilter {\n      width: 195px;\n    }", html)
+        self.assertIn("#typeFilter {\n      width: 170px;\n    }", html)
+        self.assertIn("#categoryFilter {\n      width: 200px;\n    }", html)
+        self.assertIn(".toggles-wrapper {\n      display: flex;\n      align-items: center;\n      gap: 1rem;\n      white-space: nowrap;\n    }", html)
 
         # 8. Verify count pills have fixed minimum widths, motionless number slot, and tabular figures
         self.assertIn(".count-pill {\n      display: inline-flex;\n      align-items: center;\n      justify-content: center;\n      gap: 0.35rem;\n      padding: 0.35rem 0.85rem;\n      border-radius: 9999px;\n      font-size: 0.82rem;\n      font-weight: 600;\n      white-space: nowrap;\n      font-variant-numeric: tabular-nums;\n      box-sizing: border-box;\n    }", html)
@@ -743,6 +750,56 @@ class FilterMatrixSimulationTests(unittest.TestCase):
         self.assertIn("counter-reset: selected-articles var(--selected-count);", html)
         self.assertIn(".pill-selected .count-num::after {\n      content: counter(selected-articles);\n    }", html)
         self.assertIn("document.documentElement.style.setProperty('--selected-count', count);", html)
+
+    def test_the_week_ahead_badge_and_source_mapping(self):
+        """Verifies The Week Ahead source badge CSS and badgeClasses mapping."""
+        template_path = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
+        with open(template_path, encoding="utf-8") as stream:
+            html = stream.read()
+        self.assertIn(".badge-week-ahead {", html)
+        self.assertIn("'the-week-ahead': 'badge-week-ahead'", html)
+
+    def test_scenario_17_future_events_toggle(self):
+        """Scenario 17: Verifies Future Events switch filtering and template contract:
+        1. When show_future_events is False, future-dated events (m-2) are excluded.
+        2. When show_future_events is True, future-dated events (m-2) are included.
+        3. Template markup has Descriptions first, Spotlight Only second, Future Events third.
+        4. Tooltips accurately describe each toggle's purpose."""
+        # 1. Simulator verification
+        res_hidden = run_filter_engine(timeframe="30", show_future_events=False)
+        ids_hidden = [a["id"] for a in res_hidden["filtered_articles"]]
+        self.assertNotIn("m-2", ids_hidden, "Future event m-2 must be excluded when future_events is False")
+
+        res_shown = run_filter_engine(timeframe="30", show_future_events=True)
+        ids_shown = [a["id"] for a in res_shown["filtered_articles"]]
+        self.assertIn("m-2", ids_shown, "Future event m-2 must be included when future_events is True")
+
+        # 2. Template contract verification
+        template_path = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
+        with open(template_path, encoding="utf-8") as stream:
+            html = stream.read()
+
+        # Switch IDs and labels
+        self.assertIn('id="descriptionToggle"', html)
+        self.assertIn('id="spotlightToggle"', html)
+        self.assertIn('id="futureEventsToggle"', html)
+        self.assertIn('Descriptions\n            </label>', html)
+        self.assertIn('Spotlights\n            </label>', html)
+        self.assertIn('Future Events\n            </label>', html)
+
+        # Tooltips
+        self.assertIn('title="Toggle article descriptions and synopses"', html)
+        self.assertIn('title="Show only editor-curated spotlight articles and keynote summits (★)"', html)
+        self.assertIn('title="Include upcoming conferences and summits scheduled after today"', html)
+
+        # Ordering: Descriptions appears before Spotlights, which appears before Future Events
+        desc_idx = html.index('id="descriptionToggle"')
+        spot_idx = html.index('id="spotlightToggle"')
+        fut_idx = html.index('id="futureEventsToggle"')
+        self.assertTrue(desc_idx < spot_idx < fut_idx, "Expected order: Descriptions -> Spotlights -> Future Events")
+
+        # Event listener wiring
+        self.assertIn("futureEventsToggle.addEventListener('change', function()", html)
 
 
 if __name__ == "__main__":

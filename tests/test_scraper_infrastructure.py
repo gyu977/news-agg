@@ -494,6 +494,7 @@ class BuilderSafetyTests(unittest.TestCase):
             "future-software-development": "Thoughtworks FOSE",
             "my-collected-articles": "Editor's Radar",
             "pragmatic-engineer": "Pragmatic Eng.",
+            "the-week-ahead": "The Week Ahead",
             "token-by-token": "Token by Token",
         }
         for source_id, short_name in expected.items():

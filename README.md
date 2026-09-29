@@ -90,6 +90,7 @@ python3 -m unittest discover -s tests
 | **9** | **Martin Fowler** | Martin Fowler & Thoughtworks | RSS Feed (Architecture Essays) | Unlimited |
 | **10** | **InfoQ Architecture** | InfoQ Editorial Team | Web Scraper & Newsletter Archive | Unlimited |
 | **11** | **InfoQ Java** | Michael Redlich / InfoQ | Web Scraper & RSS Feed | Curated (30 Days Rolling) |
+| **12** | **The Week Ahead** | Above | Curated Radar & LinkedIn | Curated Radar |
 
 ---
 
@@ -133,7 +134,8 @@ news-agg/
 │   ├── simon-willison/         # definition.json, data.json, scraper.py
 │   ├── martin-fowler/          # definition.json, data.json, scraper.py
 │   ├── infoq-architecture/     # definition.json, data.json, scraper.py
-│   └── infoq-java/             # definition.json, data.json, scraper.py
+│   ├── infoq-java/             # definition.json, data.json, scraper.py
+│   └── the-week-ahead/         # definition.json, data.json, scraper.py
 │
 └── generated/                  # Generated Markdown deliverables (local, git-ignored)
     ├── dear-architects.md              # 90-day detailed digest

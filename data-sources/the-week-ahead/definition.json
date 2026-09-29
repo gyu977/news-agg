@@ -1,0 +1,31 @@
+{
+  "source_id": "the-week-ahead",
+  "name": "The Week Ahead",
+  "short_name": "The Week Ahead",
+  "author": "Above",
+  "official_site": "https://dk.linkedin.com/company/aboveimpacts",
+  "archive_url": "https://www.linkedin.com/company/aboveimpacts/posts/",
+  "default_header": "### The Week Ahead in Media + Tech",
+  "description": "Weekly radar forecasting landmark software engineering, AI infrastructure, and creative tech conferences and summits.",
+  "article_id_prefix": "twa",
+  "parsed_issues": {
+    "count": 1,
+    "issues": [
+      {
+        "id": "40",
+        "date": "2026-09-28",
+        "date_str": "28 September 2026",
+        "title": "Week 40: The Week Ahead in Media + Tech",
+        "url": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+        "quotes": []
+      }
+    ],
+    "last_parsed_issue": "40",
+    "last_parsed_date": "2026-09-28"
+  },
+  "sponsor_domains": [],
+  "has_archive": true,
+  "static": true,
+  "refresh_enabled": false,
+  "refresh_disabled_reason": "Curated event series; manual issue ingestion avoids automated LinkedIn bot rate-limits (HTTP 999)."
+}

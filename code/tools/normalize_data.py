@@ -65,6 +65,7 @@ ID_PREFIXES = {
     "my-collected-articles": "others",
     "pragmatic-engineer": "pe",
     "simon-willison": "sw",
+    "the-week-ahead": "twa",
     "token-by-token": "tbt",
 }
 

@@ -45,6 +45,14 @@ Based on the recommendations in [`docs/ui-expert-review.md`](ui-expert-review.md
   - *Planned Action*:
     1. **Parsing & Root-Cause Audit**: Audit individual scrapers (MailerLite, Substack, RSS feeds) and `BaseScraper._is_plausible_author` in `normalize_data.py` to identify where authors are dropped or misparsed and tighten author extraction rules.
     2. **Layout & Byline Evaluation**: Revisit whether author deserves a standalone table column or should be consolidated into the `Article` cell as an inline byline (e.g., *Title — by Author*), which would eliminate empty cell gaps and expand horizontal space for titles and descriptions.
+- **Onboard "The Week Ahead" (`the-week-ahead`) as a Dedicated Curated Source**: ✅ **Done**
+  - *Context*: A high-signal weekly events and conference radar published by *Above* (Above Impacts), forecasting upcoming landmark software architecture, AI infrastructure, and engineering conferences (e.g., GOTO Copenhagen, CoreWeave Fully Connected, The AI Conference).
+  - *Delivered*:
+    1. Dedicated source directory `data-sources/the-week-ahead/` (`definition.json`, `data.json`, `scraper.py`, `README.md`) with Week 40 edition ingested.
+    2. Filtering policy enforcing `hide: true` on non-engineering summits (film festivals, creator marketing) while retaining core architecture and AI infrastructure events.
+    3. UI styling `.badge-week-ahead` and `badgeClasses` mapping in `code/builders/news_template.html`.
+    4. Normalizer registration in `code/tools/normalize_data.py` (`"the-week-ahead": "twa"`).
+    5. Test coverage in `tests/test_filter_matrix.py` and `tests/test_scraper_infrastructure.py`.
 
 ---
 
