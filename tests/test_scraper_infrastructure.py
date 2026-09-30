@@ -525,6 +525,29 @@ class BuilderSafetyTests(unittest.TestCase):
         self.assertNotIn('src="news-icon.svg"', html)
         self.assertEqual(html.count("data:image/svg+xml;base64,"), 2)
 
+    def test_guide_dialog_source_links(self):
+        output = os.path.join(REPO_ROOT, "news.html")
+        with open(output, encoding="utf-8") as stream:
+            html = stream.read()
+
+        # External links present for sources with official_site
+        self.assertIn('<a href="https://deararchitects.xyz/" target="_blank" rel="noopener noreferrer" class="source-guide-link"', html)
+        self.assertIn('<a href="https://dk.linkedin.com/company/aboveimpacts" target="_blank" rel="noopener noreferrer" class="source-guide-link"', html)
+        self.assertIn('<a href="https://addyosmani.com/blog/" target="_blank" rel="noopener noreferrer" class="source-guide-link"', html)
+        self.assertIn('<a href="https://www.tokenbytoken.ai/" target="_blank" rel="noopener noreferrer" class="source-guide-link"', html)
+        self.assertIn('<a href="https://martinfowler.com/" target="_blank" rel="noopener noreferrer" class="source-guide-link"', html)
+        self.assertIn('<svg class="external-link-icon"', html)
+
+        # Editor's Radar has no official_site, remains plain strong text without an anchor
+        self.assertIn('<li data-source="Editor&#x27;s Radar"><strong>Editor&#x27;s Radar</strong> —', html)
+
+        # news_template.html contains CSS styling for .source-guide-link
+        template = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
+        with open(template, encoding="utf-8") as stream:
+            tmpl = stream.read()
+        self.assertIn(".source-guide-link {", tmpl)
+        self.assertIn(".source-guide-link .external-link-icon", tmpl)
+
     def test_dashboard_explains_and_exports_cross_source_attribution(self):
         template = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
         with open(template, encoding="utf-8") as stream:

@@ -81,7 +81,8 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
                             display_name = "AI (Andriy Burkov)"
                         elif src_name == "Future of Software Development (Thoughtworks FOSE)":
                             display_name = "Future of Software Development"
-                        source_descriptions[src_name] = (display_name, def_data["description"])
+                        official_site = (def_data.get("official_site") or "").strip()
+                        source_descriptions[src_name] = (display_name, def_data["description"], official_site)
                     if not def_data.get("static") and def_data.get("refresh_enabled", True):
                         has_refreshable_source = True
                     issues_list = def_data.get("parsed_issues", {}).get("issues", [])
@@ -188,12 +189,31 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
     desc_lines = []
     for s_name, s_val in source_descriptions.items():
         if isinstance(s_val, tuple):
-            s_display, s_desc = s_val
+            if len(s_val) == 3:
+                s_display, s_desc, s_url = s_val
+            else:
+                s_display, s_desc = s_val
+                s_url = ""
         else:
             s_display, s_desc = s_name, s_val
+            s_url = ""
+
+        if s_url:
+            title_html = (
+                f'<a href="{html_lib.escape(s_url)}" target="_blank" rel="noopener noreferrer" class="source-guide-link" title="Visit {html_lib.escape(s_display)}">'
+                f'<strong>{html_lib.escape(s_display)}</strong>'
+                f'<svg class="external-link-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'
+                f'<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>'
+                f'<polyline points="15 3 21 3 21 9"></polyline>'
+                f'<line x1="10" y1="14" x2="21" y2="3"></line>'
+                f'</svg></a>'
+            )
+        else:
+            title_html = f'<strong>{html_lib.escape(s_display)}</strong>'
+
         desc_lines.append(
             f'        <li data-source="{html_lib.escape(s_name)}">'
-            f'<strong>{html_lib.escape(s_display)}</strong> — {html_lib.escape(s_desc)}</li>'
+            f'{title_html} — {html_lib.escape(s_desc)}</li>'
         )
     html = html.replace("{{SOURCE_DESCRIPTIONS_HTML}}", "\n".join(desc_lines))
 

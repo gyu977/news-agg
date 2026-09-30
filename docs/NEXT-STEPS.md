@@ -21,7 +21,7 @@ Based on the recommendations in [`docs/ui-expert-review.md`](ui-expert-review.md
 | **3.1** | **True Viewport Sticky Table Header** | ✅ **Done** | Unconstrained `.table-container` (`overflow: visible`), removed parent backdrop filter, and added inner cell radii |
 | **3.2** | **Consolidated Action & Export Toolbar** | ✅ **Done** | Moved search input adjacent to table results with fixed 350px width; added inline `✕` clear button (supports click, input sync, Esc key); symmetric displayed/selected count badges with fixed minimum widths (`.pill-displayed: 116px`, `.pill-selected: 146px`), 25px right-aligned `.count-num` slots, and `tabular-nums` making both the capsules and their inner text 100% motionless; compact 34px export controls (Markdown `.md`, HTML `.html`) with 8px border radius; tightened vertical spacing between filter controls and table toolbar |
 | **3.3** | **Dynamic Faceted Filter Counts & Dimming** | ✅ **Done** | Multidimensional cross-filtering: live match counts inside dropdowns reflect the intersection of all other active filters (timeframe, sources, types, categories) with zero-match dimming; fixed filter widths (`timeframe: 180px`, `sources: 200px`, `types: 180px`, `categories: 210px`) and unified `.toggles-wrapper` prevent toolbar shift and line wrapping |
-| **3.4** | **Table Column Layout & Typography Stability** | ✅ **Done** | Implemented `table-layout: fixed` to completely eliminate horizontal layout shift when filtering; calibrated fixed metadata column widths (`.select-col: 44px` meeting WCAG AAA, `.date-column: 110px` pulled tight with `0.5rem` padding, `.source-column: 205px`, `.category-column: 170px` with asymmetric `0.4rem` gutters creating a cohesive metadata tag cluster, `.author-column: 170px`, article title flex `width: auto` gaining horizontal breathing room); defensive truncation (`text-overflow: ellipsis`) on badges; top-aligned select checkboxes; calibrated content-type emoji icon alignment (`vertical-align: -0.02em`) centering glyphs with text cap-height; inline article title and spotlight badge flow preventing spurious wrapping |
+| **3.4** | **Table Column Layout & Typography Stability** | ✅ **Done** | Implemented `table-layout: fixed` to completely eliminate horizontal layout shift when filtering; calibrated fixed metadata column widths (`.select-col: 44px` meeting WCAG AAA, `.date-column: 110px` pulled tight with `0.5rem` padding, `.source-column: 205px`, `.category-column: 192px` with calibrated gutters ensuring long badges like *Eng Philosophy & Culture* fit unclipped, `.author-column: 170px`, article title flex `width: auto` gaining horizontal breathing room); defensive truncation (`text-overflow: ellipsis`) on badges; top-aligned select checkboxes; calibrated content-type emoji icon alignment (`vertical-align: -0.02em`) centering glyphs with text cap-height; inline article title and spotlight badge flow preventing spurious wrapping |
 
 ---
 
@@ -45,6 +45,33 @@ Based on the recommendations in [`docs/ui-expert-review.md`](ui-expert-review.md
   - *Planned Action*:
     1. **Parsing & Root-Cause Audit**: Audit individual scrapers (MailerLite, Substack, RSS feeds) and `BaseScraper._is_plausible_author` in `normalize_data.py` to identify where authors are dropped or misparsed and tighten author extraction rules.
     2. **Layout & Byline Evaluation**: Revisit whether author deserves a standalone table column or should be consolidated into the `Article` cell as an inline byline (e.g., *Title — by Author*), which would eliminate empty cell gaps and expand horizontal space for titles and descriptions.
+- **Auto-Disable "Future Events" Toggle When No Future-Dated Items Exist (UI Polish)**: ⏳ **Planned**
+  - *Context*: The "Future Events" switch toggles articles dated strictly after local today midnight (`todayLocalMidnight`). Currently, Codecamp Cluj-Napoca 2026 (`2026-10-20`) and SOFTER (`2026-10-01`) ensure upcoming events exist. After October 20, 2026 (or when active filter combinations like "Articles only" or specific sources yield zero future events), flipping the switch produces no visual changes, risking a "dead control" UX impression.
+  - *Planned Action*:
+    1. Implement `updateFutureEventsAvailability()` mirroring the pattern in `updateSpotlightAvailability()`.
+    2. Check if any future-dated articles exist within the current filter scope (or dataset). If count is 0:
+       - Set `futureEventsToggle.disabled = true;`
+       - Set `futureEventsToggle.checked = false;`
+       - Add `.disabled` class and `aria-disabled="true"` to `futureEventsLabel` (leveraging existing opacity 0.45 and `cursor: not-allowed` styling).
+       - Update `title` tooltip to explain why it is disabled (e.g. *"No upcoming events scheduled beyond today"*).
+    3. Invoke `updateFutureEventsAvailability()` on initial load and whenever filter selections change.
+- **Add "Legend & Tips" Tab to Guide Dialog (UX Polish Candidate)**: ⏳ **Planned**
+  - *Context*: While core dashboard interactions (filtering, search, row selection) present themselves clearly by design, certain editorial concepts and power-user superpowers benefit from a consolidated reference:
+    - **★ Spotlights**: Curator-selected keynote essays and deep-dives.
+    - **🏛️ / 📅 Future Events**: Conference & summit radar scheduled after today.
+    - **🏷️ Also In**: Cross-source deduplication when high-signal articles appear in multiple newsletters.
+    - **Curator Export**: Markdown (.md) formatted for seamless paste into personal knowledge graphs (Obsidian, Notion, Logseq).
+    - **Keyboard Shortcuts**: `Esc` clears active search and closes dialogs.
+  - *Planned Action*:
+    1. Add a 3rd tab `<button id="tabBtnLegend" class="modal-tab" role="tab">Legend &amp; Tips</button>` to `guideDialog`.
+    2. Add `<div id="tabContentLegend" class="tab-content" role="tabpanel">` with concise definition cards / visual legend.
+    3. Update tab switching logic in `news_template.html` to support 3 tabs cleanly with keyboard accessibility.
+- **Guide Dialog Background Scroll Lock & Scroll-Chaining Prevention (UX Polish / Bug)**: ⏳ **Planned**
+  - *Context*: When the Guide dialog (`#guideDialog`) is open, moving the mouse wheel or trackpad over the dialog backdrop, headers, or boundary edges causes the main background page to scroll underneath ("background scroll bleed" / scroll chaining). Closing the modal leaves the user disoriented at an unexpected scroll offset down the table.
+  - *Planned Action*:
+    1. **Body Scroll Lock**: Toggle a `modal-open` class on `document.body` (`overflow: hidden`) whenever the dialog opens or closes (handling close button, backdrop click, Escape key, and native dialog `close` event).
+    2. **Layout Shift Prevention**: Ensure `html { scrollbar-gutter: stable; }` prevents horizontal content shift when the vertical scrollbar is locked.
+    3. **Scroll-Chaining Prevention**: Apply `overscroll-behavior: contain;` to `.guide-dialog` and `.modal-body` to terminate boundary scroll chaining inside the modal container.
 - **Onboard "The Week Ahead" (`the-week-ahead`) as a Dedicated Curated Source**: ✅ **Done**
   - *Context*: A high-signal weekly events and conference radar published by *Above* (Above Impacts), forecasting upcoming landmark software architecture, AI infrastructure, and engineering conferences (e.g., GOTO Copenhagen, CoreWeave Fully Connected, The AI Conference).
   - *Delivered*:

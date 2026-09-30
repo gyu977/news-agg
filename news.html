@@ -980,10 +980,10 @@
       font-weight: 600;
       white-space: nowrap;
       line-height: 1.35;
-      padding: 0.28rem 0.6rem;
+      padding: 0.25rem 0.55rem;
       border-radius: 6px;
-      display: inline-flex;
-      align-items: center;
+      display: inline-block;
+      vertical-align: middle;
       max-width: 100%;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -1015,10 +1015,10 @@
     }
 
     .category-column {
-      width: 170px;
-      min-width: 170px;
+      width: 192px;
+      min-width: 192px;
       padding-left: 0.4rem;
-      padding-right: 0.75rem;
+      padding-right: 0.6rem;
     }
 
     .article-title-cell {
@@ -1556,6 +1556,43 @@
       font-weight: 600;
     }
 
+    .source-guide-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition-smooth);
+    }
+
+    .source-guide-link strong {
+      color: inherit;
+    }
+
+    .source-guide-link:hover {
+      color: var(--accent-blue);
+    }
+
+    .source-guide-link:focus-visible {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    .source-guide-link .external-link-icon {
+      color: var(--text-muted);
+      opacity: 0.7;
+      transition: var(--transition-smooth);
+      flex-shrink: 0;
+    }
+
+    .source-guide-link:hover .external-link-icon {
+      color: var(--accent-blue);
+      opacity: 1;
+      transform: translate(1px, -1px);
+    }
+
     .cat-count {
       display: inline-block;
       background: var(--accent-indigo-rgba);
@@ -1863,18 +1900,18 @@
         <div id="tabContentSources" class="tab-content active" role="tabpanel" aria-labelledby="tabBtnSources">
           <div id="sourceDesc">
             <ul class="source-list">
-        <li data-source="Addy Osmani"><strong>Addy Osmani</strong> — Personal blog essays on agentic engineering, software factories, and developer judgment.</li>
-        <li data-source="Artificial Intelligence (Andriy Burkov)"><strong>AI (Andriy Burkov)</strong> — AI-focused newsletter.</li>
-        <li data-source="Dear Architects"><strong>Dear Architects</strong> — Software architecture and systems design newsletter by Luca Mezzalira.</li>
-        <li data-source="Future of Software Development (Thoughtworks FOSE)"><strong>Future of Software Development</strong> — FOSE 2026 retreat notes.</li>
-        <li data-source="InfoQ Architecture"><strong>InfoQ Architecture</strong> — Curated software architecture presentations, case studies, and engineering deep dives from InfoQ.</li>
-        <li data-source="InfoQ Java"><strong>InfoQ Java</strong> — Weekly roundups, JEP milestones, and enterprise JVM ecosystem updates from InfoQ.</li>
-        <li data-source="Martin Fowler"><strong>Martin Fowler</strong> — Essays, Bliki entries, and architecture guides on software design, refactoring, agile practices, and distributed systems.</li>
+        <li data-source="Addy Osmani"><a href="https://addyosmani.com/blog/" target="_blank" rel="noopener noreferrer" class="source-guide-link" title="Visit Addy Osmani"><strong>Addy Osmani</strong><svg class="external-link-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> — Personal blog essays on agentic engineering, software factories, and developer judgment.</li>
+        <li data-source="Artificial Intelligence (Andriy Burkov)"><a href="https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/" target="_blank" rel="noopener noreferrer" class="source-guide-link" title="Visit AI (Andriy Burkov)"><strong>AI (Andriy Burkov)</strong><svg class="external-link-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> — AI-focused newsletter.</li>
+        <li data-source="Dear Architects"><a href="https://deararchitects.xyz/" target="_blank" rel="noopener noreferrer" class="source-guide-link" title="Visit Dear Architects"><strong>Dear Architects</strong><svg class="external-link-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> — Software architecture and systems design newsletter by Luca Mezzalira.</li>
+        <li data-source="Future of Software Development (Thoughtworks FOSE)"><a href="https://www.thoughtworks.com/en-us/about-us/events/the-future-of-software-development-europe-2026" target="_blank" rel="noopener noreferrer" class="source-guide-link" title="Visit Future of Software Development"><strong>Future of Software Development</strong><svg class="external-link-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> — FOSE 2026 retreat notes.</li>
+        <li data-source="InfoQ Architecture"><a href="https://www.infoq.com/software-architects-newsletter/" target="_blank" rel="noopener noreferrer" class="source-guide-link" title="Visit InfoQ Architecture"><strong>InfoQ Architecture</strong><svg class="external-link-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> — Curated software architecture presentations, case studies, and engineering deep dives from InfoQ.</li>
+        <li data-source="InfoQ Java"><a href="https://www.infoq.com/java/news/" target="_blank" rel="noopener noreferrer" class="source-guide-link" title="Visit InfoQ Java"><strong>InfoQ Java</strong><svg class="external-link-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> — Weekly roundups, JEP milestones, and enterprise JVM ecosystem updates from InfoQ.</li>
+        <li data-source="Martin Fowler"><a href="https://martinfowler.com/" target="_blank" rel="noopener noreferrer" class="source-guide-link" title="Visit Martin Fowler"><strong>Martin Fowler</strong><svg class="external-link-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> — Essays, Bliki entries, and architecture guides on software design, refactoring, agile practices, and distributed systems.</li>
         <li data-source="Editor&#x27;s Radar"><strong>Editor&#x27;s Radar</strong> — Handpicked articles, books, and conference talks on modern software engineering and architecture.</li>
-        <li data-source="The Pragmatic Engineer"><strong>The Pragmatic Engineer</strong> — Gergely Orosz&#x27;s newsletter covering the software engineering industry and developer careers.</li>
-        <li data-source="Simon Willison&#x27;s Weblog"><strong>Simon Willison</strong> — Highlights and long-form blog entries on AI, LLMs, agents, and open-source architecture.</li>
-        <li data-source="The Week Ahead"><strong>The Week Ahead</strong> — Weekly radar forecasting landmark software engineering, AI infrastructure, and creative tech conferences and summits.</li>
-        <li data-source="Token by Token"><strong>Token by Token</strong> — AI and technology newsletter by Luca Mezzalira.</li>
+        <li data-source="The Pragmatic Engineer"><a href="https://newsletter.pragmaticengineer.com/" target="_blank" rel="noopener noreferrer" class="source-guide-link" title="Visit The Pragmatic Engineer"><strong>The Pragmatic Engineer</strong><svg class="external-link-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> — Gergely Orosz&#x27;s newsletter covering the software engineering industry and developer careers.</li>
+        <li data-source="Simon Willison&#x27;s Weblog"><a href="https://simonwillison.net/" target="_blank" rel="noopener noreferrer" class="source-guide-link" title="Visit Simon Willison"><strong>Simon Willison</strong><svg class="external-link-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> — Highlights and long-form blog entries on AI, LLMs, agents, and open-source architecture.</li>
+        <li data-source="The Week Ahead"><a href="https://dk.linkedin.com/company/aboveimpacts" target="_blank" rel="noopener noreferrer" class="source-guide-link" title="Visit The Week Ahead"><strong>The Week Ahead</strong><svg class="external-link-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> — Weekly radar forecasting landmark software engineering, AI infrastructure, and creative tech conferences and summits.</li>
+        <li data-source="Token by Token"><a href="https://www.tokenbytoken.ai/" target="_blank" rel="noopener noreferrer" class="source-guide-link" title="Visit Token by Token"><strong>Token by Token</strong><svg class="external-link-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> — AI and technology newsletter by Luca Mezzalira.</li>
             </ul>
           </div>
         </div>
@@ -8635,60 +8672,6 @@
         "category": "AI-Native & Agentic Software Engineering",
         "is_spotlight": false,
         "type": "article"
-    },
-    {
-        "id": "pe-2026-07-5ed8c5",
-        "source_id": "pragmatic-engineer",
-        "source_short_name": "Pragmatic Eng.",
-        "newsletter": "The Pragmatic Engineer",
-        "issue_number": null,
-        "issue_title": "The Pragmatic Engineer",
-        "issue_link": "https://newsletter.pragmaticengineer.com/archive",
-        "date": "2026-07-01",
-        "date_str": "1 July 2026",
-        "title": "How Kent Beck shapes the software engineering industry",
-        "link": "https://newsletter.pragmaticengineer.com/p/how-kent-beck-shapes-the-software",
-        "author": "with Kent Beck",
-        "description": "Kent Beck reflects on Agile, TDD, and why building trust—not just generating code—will define the future of software engineering. And why humans > computers for a successful career in tech.",
-        "category": "Tech Industry, Jobs & Careers",
-        "is_spotlight": false,
-        "type": "video"
-    },
-    {
-        "id": "others-2026-07-d008f5",
-        "source_id": "my-collected-articles",
-        "source_short_name": "Editor's Radar",
-        "newsletter": "Editor's Radar",
-        "issue_number": null,
-        "issue_title": "July 2026 Collected Articles",
-        "issue_link": "",
-        "date": "2026-07-01",
-        "date_str": "July 2026",
-        "title": "AI For Smarties",
-        "link": "https://www.ai-for-smarties.com/",
-        "author": "Bertrand Meyer",
-        "description": "A clear and serious introduction to artificial intelligence, neural networks, and Large Language Models, focusing on separating enduring scientific ideas from current market hype and explaining what can and cannot be guaranteed.",
-        "category": "Large Language Models & Evaluation Infrastructure",
-        "is_spotlight": false,
-        "type": "book"
-    },
-    {
-        "id": "others-2026-07-410d2a",
-        "source_id": "my-collected-articles",
-        "source_short_name": "Editor's Radar",
-        "newsletter": "Editor's Radar",
-        "issue_number": null,
-        "issue_title": "July 2026 Collected Articles",
-        "issue_link": "",
-        "date": "2026-07-01",
-        "date_str": "July 2026",
-        "title": "Learning AI-Native Software Engineering",
-        "link": "https://www.alfonsograziano.it/book",
-        "author": "Alfonso Graziano",
-        "description": "A practical guide to AI-Native Engineering, covering context engineering, spec-driven development, Model Context Protocol, and agent orchestration for production software.",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "book"
     }
 ];
     /* ARTICLES_END */
@@ -8930,7 +8913,8 @@ function renderCategoryCounts(list) {
     if (!badge) {
       badge = document.createElement('span');
       badge.className = 'cat-count';
-      li.querySelector('strong').after(badge);
+      const target = li.querySelector('.source-guide-link') || li.querySelector('strong');
+      target.after(badge);
     }
     badge.textContent = srcCounts[li.dataset.source] || 0;
   });
