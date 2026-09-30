@@ -423,3 +423,31 @@ When modifying, adding, or shortening display labels for **Sources** or **Catego
 4. **Automated Test Invariants (`tests/test_scraper_infrastructure.py`)**:
    - Verify `test_dashboard_filters_support_multiple_values` and `test_dashboard_uses_definition_short_names_for_table_badges` pass after any label or template adjustment.
 
+---
+
+## 11. Multi-Channel Article Contract & In-Source Deduplication
+
+When a creator publishes across multiple distribution channels simultaneously (e.g., a self-hosted blog and a Substack/Medium newsletter), our ingestion architecture implements the **Multi-Channel Article Contract** to guarantee zero duplication and canonical link fidelity.
+
+### 1. The Multi-Channel Problem
+Authors such as Addy Osmani maintain both a personal blog (`addyosmani.com/blog/<slug>`) and a Substack publication (`addyo.substack.com/p/<slug>`). Because each platform issues a completely different URL for the exact same article, standard URL-based deduplication treats them as separate records, producing duplicate rows in Markdown summaries and `news.html`.
+
+### 2. Article Contract Principles
+1. **Semantic Identity**: An article's identity within a source is defined by `(normalized_title, author)` rather than its URL.
+2. **Channel Hierarchy**:
+   - `primary_channel`: The author's personal canonical domain (e.g., `https://addyosmani.com/blog/`).
+   - `fallback_channel`: The syndicated platform (e.g., `https://addyo.substack.com/`).
+   These channels are explicitly declared in `definition.json`.
+3. **Fallback Ingestion**: The scraper ingests the primary channel first, accumulating `seen_titles`. The fallback channel is queried strictly to backfill essays missing from the primary listing.
+4. **Canonical Promotion**: If an article originally ingested via a fallback channel is later published to the primary blog, `merge_articles()` promotes its `link`, `id`, and issue links to the primary canonical URL while preserving all `user_overrides`.
+
+### 3. Multi-Layer Defense-in-Depth
+- **Source Scraper (`scraper.py`)**:
+  - Implements `normalize_title(title)` stripping leading/trailing whitespace, punctuation, and case variance.
+  - Dedupes incoming batches against existing records by title key and promotes URLs.
+- **Normalization Utility (`code/tools/normalize_data.py`)**:
+  - Detects duplicate normalized titles within the same `data.json` file.
+  - Automatically retains the primary channel link and drops secondary syndicated mirrors.
+- **Page Builder (`code/builders/build_news_page.py`)**:
+  - Tracks `seen_in_source_titles = set()` during generation to safeguard `news.html` against in-source duplicates even before cross-source deduplication runs.
+

@@ -225,6 +225,57 @@ class ConcreteSourceAdapterTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "every listing-page request failed"):
                 scraper.extract_issues()
 
+    def test_addy_multi_channel_merge_promotes_primary_blog_link(self):
+        module = load_source_module("addy-osmani")
+        scraper = module.AddyOsmaniScraper()
+        from common.models import Article
+        fallback_art = Article(
+            id="addy-2026-09-sub",
+            newsletter="Addy Osmani",
+            issue_number=None,
+            issue_title="Brownfield Agentic Engineering",
+            issue_link="https://addyo.substack.com/p/brownfield-agentic-engineering",
+            date="2026-09-20",
+            date_str="20 September 2026",
+            title="Brownfield Agentic Engineering",
+            link="https://addyo.substack.com/p/brownfield-agentic-engineering",
+            author="Addy Osmani",
+            description="Fallback substack post",
+            category="AI-Native & Agentic Software Engineering",
+            is_spotlight=False,
+            type="article",
+            hide=False,
+            user_overrides=[],
+            metadata={}
+        )
+        scraper.articles = [fallback_art]
+
+        primary_art = Article(
+            id="addy-2026-09-blog",
+            newsletter="Addy Osmani",
+            issue_number=None,
+            issue_title="Brownfield Agentic Engineering",
+            issue_link="https://addyosmani.com/blog/",
+            date="2026-09-20",
+            date_str="20 September 2026",
+            title="Brownfield Agentic Engineering",
+            link="https://addyosmani.com/blog/brownfield-agentic-engineering/",
+            author="Addy Osmani",
+            description="Canonical blog post",
+            category="AI-Native & Agentic Software Engineering",
+            is_spotlight=False,
+            type="article",
+            hide=False,
+            user_overrides=[],
+            metadata={}
+        )
+
+        scraper.merge_articles([primary_art])
+        self.assertEqual(len(scraper.articles), 1)
+        self.assertEqual(scraper.articles[0].link, "https://addyosmani.com/blog/brownfield-agentic-engineering/")
+        self.assertEqual(scraper.articles[0].id, "addy-2026-09-blog")
+        self.assertEqual(scraper.articles[0].description, "Canonical blog post")
+
     def test_mailerlite_adapters_are_concrete(self):
         dear = load_source_module("dear-architects").DearArchitectsScraper()
         token = load_source_module("token-by-token").TokenByTokenScraper()

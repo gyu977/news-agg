@@ -1,5 +1,27 @@
 [
   {
+    "id": "pe-2026-09-04392c",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-09-29",
+    "date_str": "29 September 2026",
+    "title": "Why has Shopify dropped React Native?",
+    "link": "https://newsletter.pragmaticengineer.com/p/shopify-native-mobile",
+    "author": null,
+    "description": "It’s only been a year since the e-commerce platform declared it was very happy with React Native, but now Shopify is dumping it – and the reason, unsurprisingly, is AI",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "shopify-native-mobile"
+    }
+  },
+  {
     "id": "pe-2026-09-53a9cb",
     "newsletter": "The Pragmatic Engineer",
     "issue_number": null,

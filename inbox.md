@@ -19,6 +19,10 @@ Supported formats:
 
 ## ✅ Processed Articles
 
+### Processed on 2026-09-30 10:28:
+- **Anthropic** - [GLM-5.3 and the spread of advanced cyber capabilities](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
+
+
 ### Processed on 2026-09-20 19:11:
 - **Nick Tune** - [Architecture and model diffs via code conventions](https://nick-tune.me/blog/2026-09-08-architecture-and-model-diffs-via-conventions/)
 - **Nick Tune** - [Enforced application architecture for agents and humans](https://nick-tune.me/blog/2026-08-13-enforced-application-architecture-for-agents-and-humans-copy/)

@@ -111,23 +111,47 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
 
                     all_source_articles.append(a)
 
-    # 2. Collapse cross-source duplicates: the same article recommended by several
-    #    newsletters should appear once, credited to whoever ran it first, with the
-    #    other sources listed. Deduping here (rather than in data.json) keeps each
-    #    source's own archive complete.
+    # 2. Collapse duplicates:
+    #    a) Cross-source duplicates sharing the same canonical link
+    #    b) In-source duplicates from multi-channel syndication sharing the same normalized title
     by_link = {}
+    by_source_title = {}
     deduped = []
     for art in all_source_articles:
         canon = BaseScraper.canonical_link(art.get("link") or "")
-        if not canon:
-            deduped.append(art)
+        src_id = art.get("source_id") or art.get("newsletter") or ""
+        norm_t = re.sub(r"[^a-z0-9]+", " ", (art.get("title") or "").lower()).strip()
+        st_key = (src_id, norm_t) if norm_t else None
+
+        # Check in-source title duplicate from multi-channel syndication
+        if st_key and st_key in by_source_title:
+            first_idx, first = by_source_title[st_key]
+            first_link = first.get("link") or ""
+            art_link = art.get("link") or ""
+            # Promote primary channel over secondary syndication (e.g. blog over substack)
+            if "substack.com" in first_link and "substack.com" not in art_link:
+                deduped[first_idx] = art
+                by_source_title[st_key] = (first_idx, art)
+                if canon:
+                    by_link[canon] = (first_idx, art)
             continue
+
+        if not canon:
+            idx = len(deduped)
+            deduped.append(art)
+            if st_key:
+                by_source_title[st_key] = (idx, art)
+            continue
+
         first_entry = by_link.get(canon)
         if first_entry is None:
             idx = len(deduped)
             deduped.append(art)
             by_link[canon] = (idx, art)
+            if st_key:
+                by_source_title[st_key] = (idx, art)
             continue
+
         first_idx, first = first_entry
         # Keep the earliest-dated record; credit the later one as an "also in" source.
         earlier, later = (first, art)
@@ -135,6 +159,8 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
             earlier, later = (art, first)
             deduped[first_idx] = art
             by_link[canon] = (first_idx, art)
+            if st_key:
+                by_source_title[st_key] = (first_idx, art)
         others = earlier.setdefault("also_in", [])
         name = later.get("newsletter", "")
         if name and name != earlier.get("newsletter") and name not in others:

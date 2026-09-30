@@ -71,15 +71,23 @@ class AddyOsmaniScraper(BaseScraper):
             print(f"[AddyOsmani] Warning fetching metadata for {url}: {e}")
         return meta
 
+    @staticmethod
+    def normalize_title(title: str) -> str:
+        """Strip non-alphanumeric characters and normalize spaces for semantic identity."""
+        if not title:
+            return ""
+        return re.sub(r"[^a-z0-9]+", " ", title.lower()).strip()
+
     def extract_issues(self) -> List[Article]:
         pages = [
             "https://addyosmani.com/blog/",
             "https://addyosmani.com/blog/page2/"
         ]
         
-        print("[AddyOsmani] Crawling blog pages...")
+        print("[AddyOsmani] Crawling primary blog pages...")
         extracted_posts = []
         seen_links = set()
+        seen_titles = set()
         successful_pages = 0
 
         for page_url in pages:
@@ -128,6 +136,9 @@ class AddyOsmaniScraper(BaseScraper):
                 date_str = dt.strftime("%d %B %Y").lstrip("0")
 
                 seen_links.add(full_link)
+                norm_t = self.normalize_title(title_listing)
+                if norm_t:
+                    seen_titles.add(norm_t)
                 extracted_posts.append({
                     "title": title_listing,
                     "link": full_link,
@@ -138,16 +149,24 @@ class AddyOsmaniScraper(BaseScraper):
         if successful_pages == 0:
             raise RuntimeError("Addy Osmani: every listing-page request failed")
 
-        # Also discover recent posts from Addy's Substack
+        # Multi-Channel Contract: Query Substack archive strictly as a fallback channel
+        # for essays that have not yet been published to addyosmani.com/blog/
         try:
-            print("[AddyOsmani] Querying Substack archive...")
+            print("[AddyOsmani] Querying fallback Substack archive...")
             substack_api = "https://addyo.substack.com/api/v1/archive?sort=new&limit=50"
             raw = self.fetch_url(substack_api, accept="application/json")
             posts = json.loads(raw.decode("utf-8"))
+            fallback_added = 0
             for p in posts:
                 canonical = p.get("canonical_url")
                 if not canonical or canonical in seen_links:
                     continue
+                title = p.get("title", "").strip()
+                norm_t = self.normalize_title(title)
+                # If already ingested via primary blog, do not duplicate!
+                if norm_t and norm_t in seen_titles:
+                    continue
+
                 post_date_raw = p.get("post_date")
                 if not post_date_raw:
                     continue
@@ -159,9 +178,10 @@ class AddyOsmaniScraper(BaseScraper):
                     continue
                 date_iso = dt_naive.strftime("%Y-%m-%d")
                 date_str = dt_naive.strftime("%d %B %Y").lstrip("0")
-                title = p.get("title", "").strip()
                 desc = (p.get("subtitle") or p.get("description") or "").strip()
                 seen_links.add(canonical)
+                if norm_t:
+                    seen_titles.add(norm_t)
                 extracted_posts.append({
                     "title": title,
                     "link": canonical,
@@ -169,6 +189,8 @@ class AddyOsmaniScraper(BaseScraper):
                     "date_str": date_str,
                     "description": desc,
                 })
+                fallback_added += 1
+            print(f"[AddyOsmani] Ingested {fallback_added} fallback essay(s) from Substack.")
         except Exception as e:
             print(f"[AddyOsmani] Warning: could not fetch Substack archive: {e}")
 
@@ -262,6 +284,40 @@ class AddyOsmaniScraper(BaseScraper):
             self.sync_parsed_issues(list(issue_groups.values()))
 
         return articles
+
+    def merge_articles(self, incoming_articles: List[Article]) -> int:
+        """
+        Multi-Channel Article Contract:
+        Matches articles by normalized title so personal blog and Substack syndicate to the same record.
+        Promotes fallback Substack URLs to primary blog URLs when published to addyosmani.com/blog/.
+        """
+        existing_by_title = {self.normalize_title(a.title): a for a in self.articles if a.title}
+        updated_count = 0
+        for new_art in incoming_articles:
+            t_key = self.normalize_title(new_art.title)
+            match = existing_by_title.get(t_key)
+            if match:
+                # If existing record used fallback Substack link and new record has primary blog link, promote!
+                if "addyosmani.com" in (new_art.link or "") and "substack.com" in (match.link or ""):
+                    match.link = new_art.link
+                    match.id = new_art.id
+                    match.issue_title = new_art.issue_title
+                    match.issue_link = new_art.issue_link
+                # Update fields while strictly preserving user overrides
+                for field in ["category", "hide", "description", "author", "type", "is_spotlight"]:
+                    if field in match.user_overrides:
+                        continue
+                    new_val = getattr(new_art, field)
+                    if new_val and (not isinstance(new_val, str) or new_val.strip()):
+                        setattr(match, field, new_val)
+                updated_count += 1
+            else:
+                self.articles.append(new_art)
+                existing_by_title[t_key] = new_art
+                updated_count += 1
+
+        self.articles.sort(key=lambda x: str(x.date or ""), reverse=True)
+        return updated_count
 
     def run(self):
         new_articles = self.extract_issues()

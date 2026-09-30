@@ -5,8 +5,16 @@
   "official_site": "https://newsletter.pragmaticengineer.com/",
   "archive_url": "https://newsletter.pragmaticengineer.com/archive",
   "parsed_issues": {
-    "count": 36,
+    "count": 37,
     "issues": [
+      {
+        "id": "pe-2026-09-04392c",
+        "date": "2026-09-29",
+        "date_str": "29 September 2026",
+        "title": "Why has Shopify dropped React Native?",
+        "url": "https://newsletter.pragmaticengineer.com/p/shopify-native-mobile",
+        "quotes": []
+      },
       {
         "id": "pe-2026-09-53a9cb",
         "date": "2026-09-24",
@@ -296,8 +304,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "pe-2026-09-53a9cb",
-    "last_parsed_date": "2026-09-24"
+    "last_parsed_issue": "pe-2026-09-04392c",
+    "last_parsed_date": "2026-09-29"
   },
   "default_header": "### Gergely Orosz's The Pragmatic Engineer",
   "short_name": "Pragmatic Eng.",

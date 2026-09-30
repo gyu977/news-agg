@@ -30,6 +30,7 @@ import json
 import os
 import re
 import sys
+import urllib.parse
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 CODE_DIR = os.path.dirname(CURRENT_DIR)
@@ -169,6 +170,35 @@ def normalize_source(source_id, records, definition=None):
         else:
             merge_records(existing, rec)
             stats["duplicates_merged"] += 1
+
+    # For sources with a primary channel (or official site), collapse duplicate titles
+    # across multiple syndication channels (e.g. blog vs. Substack), giving precedence to the primary channel.
+    primary_channel = (definition.get("primary_channel") or definition.get("official_site")) if definition else None
+    if primary_channel:
+        primary_host = urllib.parse.urlparse(primary_channel).netloc.lower()
+        by_title = {}
+        filtered_result = []
+        for rec in result:
+            norm_t = re.sub(r"[^a-z0-9]+", " ", (rec.get("title") or "").lower()).strip()
+            if not norm_t:
+                filtered_result.append(rec)
+                continue
+            existing = by_title.get(norm_t)
+            if existing is None:
+                by_title[norm_t] = rec
+                filtered_result.append(rec)
+            else:
+                rec_is_primary = primary_host in (rec.get("link") or "").lower()
+                ex_is_primary = primary_host in (existing.get("link") or "").lower()
+                if rec_is_primary and not ex_is_primary:
+                    merge_records(rec, existing)
+                    idx = filtered_result.index(existing)
+                    filtered_result[idx] = rec
+                    by_title[norm_t] = rec
+                else:
+                    merge_records(existing, rec)
+                stats["duplicates_merged"] += 1
+        result = filtered_result
 
     for rec in result:
         new_id = BaseScraper.make_article_id(

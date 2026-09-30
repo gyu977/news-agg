@@ -5,7 +5,7 @@
   "official_site": "https://addyosmani.com/blog/",
   "archive_url": "https://addyosmani.com/blog/",
   "parsed_issues": {
-    "count": 15,
+    "count": 11,
     "issues": [
       {
         "id": "addy-2026-09",
@@ -17,8 +17,8 @@
       },
       {
         "id": "addy-2026-08",
-        "date": "2026-08-21",
-        "date_str": "21 August 2026",
+        "date": "2026-08-31",
+        "date_str": "31 August 2026",
         "title": "August 2026 Blog Essays",
         "url": "https://addyosmani.com/blog/",
         "quotes": []
@@ -89,41 +89,9 @@
       },
       {
         "id": "addy-2025-11",
-        "date": "2025-11-30",
-        "date_str": "30 November 2025",
+        "date": "2025-11-25",
+        "date_str": "25 November 2025",
         "title": "November 2025 Blog Essays",
-        "url": "https://addyosmani.com/blog/",
-        "quotes": []
-      },
-      {
-        "id": "addy-2025-10",
-        "date": "2025-10-28",
-        "date_str": "28 October 2025",
-        "title": "October 2025 Blog Essays",
-        "url": "https://addyosmani.com/blog/",
-        "quotes": []
-      },
-      {
-        "id": "addy-2025-09",
-        "date": "2025-09-25",
-        "date_str": "25 September 2025",
-        "title": "September 2025 Blog Essays",
-        "url": "https://addyosmani.com/blog/",
-        "quotes": []
-      },
-      {
-        "id": "addy-2025-07",
-        "date": "2025-07-25",
-        "date_str": "25 July 2025",
-        "title": "July 2025 Blog Essays",
-        "url": "https://addyosmani.com/blog/",
-        "quotes": []
-      },
-      {
-        "id": "addy-2025-04",
-        "date": "2025-04-05",
-        "date_str": "5 April 2025",
-        "title": "April 2025 Blog Essays",
         "url": "https://addyosmani.com/blog/",
         "quotes": []
       }

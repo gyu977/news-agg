@@ -19,6 +19,25 @@
     "metadata": {}
   },
   {
+    "id": "others-2026-09-ee711e",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "September 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-09-29",
+    "date_str": "29 September 2026",
+    "title": "GLM-5.3 and the spread of advanced cyber capabilities",
+    "link": "https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities",
+    "author": "Anthropic",
+    "description": "GLM-5.3 can autonomously build end-to-end cyber exploits, but unlike other frontier models, it was released without meaningful safeguards to limit misuse.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {}
+  },
+  {
     "id": "others-2026-09-575b1d",
     "newsletter": "Editor's Radar",
     "issue_number": null,
