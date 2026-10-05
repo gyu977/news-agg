@@ -1,5 +1,27 @@
 [
   {
+    "id": "java-2026-10-620c7f",
+    "newsletter": "InfoQ Java",
+    "issue_number": null,
+    "issue_title": "Java News Roundup: JobRunr 9, OpenXava 8, Quarkus, LangChain4j, JNoSQL, Introducing Lathe",
+    "issue_link": "https://www.infoq.com/news/2026/10/java-news-roundup-sep28-2026/",
+    "date": "2026-10-05",
+    "date_str": "5 October 2026",
+    "title": "Java News Roundup: JobRunr 9, OpenXava 8, Quarkus, LangChain4j, JNoSQL, Introducing Lathe",
+    "link": "https://www.infoq.com/news/2026/10/java-news-roundup-sep28-2026/",
+    "author": "Michael Redlich",
+    "description": "This week's Java roundup for September 28th, 2026, features news highlighting: the GA releases of JobRunr 9.0 and OpenXava 8.0; point releases for Quarkus, Micronaut, LangChain4j, Eclipse JNoSQL; ADK for Java and ADK for Kotlin; and introducing Lathe, a new Java language server.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category",
+      "description"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "java-2026-09-050d29",
     "newsletter": "InfoQ Java",
     "issue_number": null,

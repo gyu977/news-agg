@@ -5,8 +5,16 @@
   "official_site": "https://simonwillison.net/",
   "archive_url": "https://simonwillison.net/atom/entries/",
   "parsed_issues": {
-    "count": 3,
+    "count": 4,
     "issues": [
+      {
+        "id": "2026-10",
+        "date": "2026-10-03",
+        "date_str": "3 October 2026",
+        "title": "October 2026 Blog Posts",
+        "url": "https://simonwillison.net/2026/Oct/",
+        "quotes": []
+      },
       {
         "id": "2026-09",
         "date": "2026-09-12",
@@ -32,8 +40,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "2026-09",
-    "last_parsed_date": "2026-09-12"
+    "last_parsed_issue": "2026-10",
+    "last_parsed_date": "2026-10-03"
   },
   "default_header": "### Simon Willison",
   "short_name": "Simon Willison",

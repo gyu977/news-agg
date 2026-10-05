@@ -5,8 +5,24 @@
   "official_site": "https://newsletter.pragmaticengineer.com/",
   "archive_url": "https://newsletter.pragmaticengineer.com/archive",
   "parsed_issues": {
-    "count": 37,
+    "count": 39,
     "issues": [
+      {
+        "id": "pe-2026-10-593fe8",
+        "date": "2026-10-01",
+        "date_str": "1 October 2026",
+        "title": "The Pulse: Firebase’s global outage & poor response",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-firebases-global-outage",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-09-3ae274",
+        "date": "2026-09-30",
+        "date_str": "30 September 2026",
+        "title": "Distributed databases with Peter Mattis",
+        "url": "https://newsletter.pragmaticengineer.com/p/distributed-databases-with-peter",
+        "quotes": []
+      },
       {
         "id": "pe-2026-09-04392c",
         "date": "2026-09-29",
@@ -304,8 +320,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "pe-2026-09-04392c",
-    "last_parsed_date": "2026-09-29"
+    "last_parsed_issue": "pe-2026-10-593fe8",
+    "last_parsed_date": "2026-10-01"
   },
   "default_header": "### Gergely Orosz's The Pragmatic Engineer",
   "short_name": "Pragmatic Eng.",

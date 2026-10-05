@@ -5,8 +5,21 @@
   "official_site": "https://deararchitects.xyz/",
   "archive_url": "https://www.deararchitects.xyz/archive",
   "parsed_issues": {
-    "count": 91,
+    "count": 92,
     "issues": [
+      {
+        "id": "310",
+        "date": "2026-10-03",
+        "date_str": "3 October 2026",
+        "title": "Mapping your complex systems - #310 Dear Architects",
+        "url": "https://preview.mailerlite.io/emails/webview/1235400/200338558652777848",
+        "quotes": [
+          {
+            "text": "Emotions are essential parts of human intelligence. Without emotional intelligence, Artificial Intelligence will remain incomplete.",
+            "author": "Amit Ray"
+          }
+        ]
+      },
       {
         "id": "309",
         "date": "2026-09-26",
@@ -1171,8 +1184,8 @@
         ]
       }
     ],
-    "last_parsed_issue": "309",
-    "last_parsed_date": "2026-09-26"
+    "last_parsed_issue": "310",
+    "last_parsed_date": "2026-10-03"
   },
   "default_header": "### Luca Mezzalira's Dear Architects",
   "short_name": "Dear Architects",

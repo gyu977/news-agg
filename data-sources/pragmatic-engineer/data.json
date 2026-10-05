@@ -1,5 +1,55 @@
 [
   {
+    "id": "pe-2026-10-593fe8",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-10-01",
+    "date_str": "1 October 2026",
+    "title": "The Pulse: Firebase’s global outage & poor response",
+    "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-firebases-global-outage",
+    "author": "Gergely Orosz",
+    "description": "Also: OpenAI’s platform play that has similarities to AWS, more data on companies moving to open models, and more",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": false,
+    "type": "pulse",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "the-pulse-firebases-global-outage"
+    }
+  },
+  {
+    "id": "pe-2026-09-3ae274",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-09-30",
+    "date_str": "30 September 2026",
+    "title": "Distributed databases with Peter Mattis",
+    "link": "https://newsletter.pragmaticengineer.com/p/distributed-databases-with-peter",
+    "author": "Peter Mattis",
+    "description": "Cockroach Labs co-founder Peter Mattis discusses building reliable distributed systems and how AI helps him write more code without sacrificing quality.",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {
+      "audience": "everyone",
+      "slug": "distributed-databases-with-peter"
+    }
+  },
+  {
     "id": "pe-2026-09-04392c",
     "newsletter": "The Pragmatic Engineer",
     "issue_number": null,
@@ -15,7 +65,9 @@
     "is_spotlight": false,
     "type": "article",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "category"
+    ],
     "metadata": {
       "audience": "only_paid",
       "slug": "shopify-native-mobile"

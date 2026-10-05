@@ -1,5 +1,46 @@
 [
   {
+    "id": "mf-2026-10-f6ff5f",
+    "newsletter": "Martin Fowler",
+    "issue_number": null,
+    "issue_title": "Fragments: October 4",
+    "issue_link": "https://martinfowler.com/fragments/2026-10-04.html",
+    "date": "2026-10-04",
+    "date_str": "4 October 2026",
+    "title": "Fragments: October 4",
+    "link": "https://martinfowler.com/fragments/2026-10-04.html",
+    "author": "Martin Fowler",
+    "description": "Martin Fowler reflects on the deportation of software activist Ola Bini, discusses conceptual modeling with Eric Evans, analyzes whether higher-level languages remain the true notation of intent when agents compile to bedrock, and notes Gemini 4 Argon's ultra-low hallucination rate on Artificial Analysis benchmarks.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category",
+      "description"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "mf-2026-09-5c34ef",
+    "newsletter": "Martin Fowler",
+    "issue_number": null,
+    "issue_title": "Principles for effective slides",
+    "issue_link": "https://martinfowler.com/articles/never-send-slides/slide-principles.html",
+    "date": "2026-09-30",
+    "date_str": "30 September 2026",
+    "title": "Principles for effective slides",
+    "link": "https://martinfowler.com/articles/never-send-slides/slide-principles.html",
+    "author": "Sumeet Gayathri Moghe",
+    "description": "Not every presentation needs slides, but when they earn their place, they work as a visual channel that complements the speaker rather than replacing them. Sumeet Gayathri Moghe outlines core principles: pacing knowledge exposition, tight coupling with the speaker, minimalism by default, and never sending slides in advance.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {}
+  },
+  {
     "id": "mf-2026-09-6102ac",
     "newsletter": "Martin Fowler",
     "issue_number": null,

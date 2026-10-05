@@ -1,5 +1,121 @@
 [
   {
+    "id": "twa-41-1e4c07",
+    "newsletter": "The Week Ahead",
+    "issue_number": 41,
+    "issue_title": "Week 41: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
+    "date": "2026-10-05",
+    "date_str": "5 October 2026",
+    "title": "Tech Week by a16z (San Francisco): AI Agents, Enterprise Software, and Future Infrastructure",
+    "link": "https://www.tech-week.com/",
+    "author": "Above",
+    "description": "5–11 Oct 2026 · San Francisco. More than 1,500 independently hosted events bring founders, investors, and operators together across San Francisco. AI agents are a major central theme, alongside enterprise software, media, fintech, and cybersecurity. Speakers include A. Dylan Jadeja, Tom Hale, Arvind Krishna, David Haber, and Anish Acharya.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": true,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "San Francisco",
+      "dates": "5–11 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-41-93831a",
+    "newsletter": "The Week Ahead",
+    "issue_number": 41,
+    "issue_title": "Week 41: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
+    "date": "2026-10-07",
+    "date_str": "7 October 2026",
+    "title": "World Summit AI (Amsterdam): 10th Anniversary Gathering on Frontier AI, Governance, and Agentic Systems",
+    "link": "https://worldsummit.ai/",
+    "author": "Above",
+    "description": "7–8 Oct 2026 · Amsterdam. The tenth-anniversary edition of one of Europe’s largest AI gatherings convenes over 300 speakers across research, business, and policy. Featured speakers include OpenAI board member Zico Kolter, insitro founder Daphne Koller, LangChain co-founder Harrison Chase, former Taiwanese digital minister Audrey Tang, and Sony AI governance lead Alice Xiang.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Amsterdam",
+      "dates": "7–8 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-41-e5ada5",
+    "newsletter": "The Week Ahead",
+    "issue_number": 41,
+    "issue_title": "Week 41: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
+    "date": "2026-10-07",
+    "date_str": "7 October 2026",
+    "title": "Frontier AI Innovation Summit (Stuttgart): Turning Frontier Research into Economic and Systemic Impact",
+    "link": "https://tuebingen.ai/",
+    "author": "Above",
+    "description": "7–8 Oct 2026 · Stuttgart. A significant European research gathering hosted by the Tübingen AI Center focused on translating frontier AI into economic and societal impact. Headlines Google DeepMind VP of Research Raia Hadsell, Oxford’s Jakob Foerster, climate-AI researcher Veronika Eyring, and EPFL’s Marianne Hartley.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Stuttgart",
+      "dates": "7–8 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-41-78babb",
+    "newsletter": "The Week Ahead",
+    "issue_number": 41,
+    "issue_title": "Week 41: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
+    "date": "2026-10-05",
+    "date_str": "5 October 2026",
+    "title": "Advertising Week New York",
+    "link": "https://advertisingweek.com/",
+    "author": "Above",
+    "description": "5–8 Oct 2026 · New York. Marketing, media, and commerce conference in Manhattan covering brand strategy, creator economies, and platform advertising.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "advertising and creator marketing conference outside software engineering/AI scope",
+      "location": "New York",
+      "dates": "5–8 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-41-b413dc",
+    "newsletter": "The Week Ahead",
+    "issue_number": 41,
+    "issue_title": "Week 41: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
+    "date": "2026-10-06",
+    "date_str": "6 October 2026",
+    "title": "Jupiter Festival Miami",
+    "link": "https://jupiterfestival.com/",
+    "author": "Above",
+    "description": "6–9 Oct 2026 · Miami. Business forum for media, studio entertainment, and sports rights-holders with leaders from FOX, streaming platforms, and brands.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "entertainment, sports, and studio business forum outside software engineering/AI scope",
+      "location": "Miami",
+      "dates": "6–9 Oct 2026"
+    }
+  },
+  {
     "id": "twa-40-cbcaf1",
     "newsletter": "The Week Ahead",
     "issue_number": 40,

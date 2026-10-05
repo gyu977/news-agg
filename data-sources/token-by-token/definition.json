@@ -5,8 +5,16 @@
   "official_site": "https://www.tokenbytoken.ai/",
   "archive_url": "https://www.tokenbytoken.ai/",
   "parsed_issues": {
-    "count": 24,
+    "count": 25,
     "issues": [
+      {
+        "id": "25",
+        "date": "2026-10-01",
+        "date_str": "1 October 2026",
+        "title": "Token by Token #25 - Is your AI strategy ready?",
+        "url": "https://preview.mailerlite.io/emails/webview/2096144/200132261056611774",
+        "quotes": []
+      },
       {
         "id": "24",
         "date": "2026-09-24",
@@ -200,8 +208,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "24",
-    "last_parsed_date": "2026-09-24"
+    "last_parsed_issue": "25",
+    "last_parsed_date": "2026-10-01"
   },
   "default_header": "### Luca Mezzalira's Token by Token",
   "short_name": "Token by Token",

@@ -1,6 +1,33 @@
 
 ===
 
+# news-agg v2026.10.04
+
+### 🌟 Access the Dashboard
+* **[Open Live Web Dashboard](https://gyu977.github.io/news-agg/)**
+
+---
+
+### 🎣 What's New: Fresh weekly catch
+
+#### 🏛️ The Week Ahead (Week 41: 5–11 October 2026)
+* 🏛️ **[Tech Week by a16z (San Francisco)](https://www.tech-week.com/)** *(The Week Ahead #41 · Spotlight)*  
+  > 5–11 Oct 2026 · San Francisco. Over 1,500 independently hosted events across San Francisco with AI agents, enterprise software, media, fintech, and cybersecurity as central themes.
+* 🏛️ **[World Summit AI (Amsterdam)](https://worldsummit.ai/)** *(The Week Ahead #41)*  
+  > 7–8 Oct 2026 · Amsterdam. 10th-anniversary edition of one of Europe’s flagship AI gatherings, featuring Zico Kolter, Daphne Koller, Harrison Chase, Audrey Tang, and Alice Xiang.
+* 🏛️ **[Frontier AI Innovation Summit (Stuttgart)](https://tuebingen.ai/)** *(The Week Ahead #41)*  
+  > 7–8 Oct 2026 · Stuttgart. European research summit by Tübingen AI Center translating frontier AI into economic impact, headlined by Raia Hadsell (Google DeepMind) and Jakob Foerster (Oxford).
+
+#### 📰 Fresh Curated Newsletters & Analyses (20 New Articles)
+* **Dear Architects #310**: Rappi's *Cartographer* living service map via MCP, managing async APIs at scale, agent execution harnesses, and continuous modernization.
+* **Token by Token #25**: DORA's ROI framework for AI-assisted software delivery, Elisabeth Hendrickson & Joel Tosi's *Signals & Levers*, Extreme Programming checkpoints for coding agents, and Spotify's evaluation of LLMs in A/B testing.
+* **Artificial Intelligence #346 (Andriy Burkov)**: Using agentic AI to secure infrastructure code (Google Cloud), UK AISI benchmark reproducibility schemas, physical Ising-glass LLM pruning, and OpenHands self-hosted developer control center.
+* **The Pragmatic Engineer**: Deep dive into the Firebase SDK global outage and Google's incident communication, alongside distributed database architecture with Cockroach Labs co-founder Peter Mattis.
+* **Martin Fowler**: *Principles for effective slides* by Sumeet Gayathri Moghe, exploring visual knowledge exposition and presentation craft.
+* **Simon Willison's Weblog**: The critical necessity of default hard budget caps on APIs and cloud services to contain autonomous background agents.
+
+===
+
 # news-agg v2026.09.27
 
 ### 🌟 Access the Dashboard

@@ -9,8 +9,16 @@
   "description": "Weekly radar forecasting landmark software engineering, AI infrastructure, and creative tech conferences and summits.",
   "article_id_prefix": "twa",
   "parsed_issues": {
-    "count": 1,
+    "count": 2,
     "issues": [
+      {
+        "id": "41",
+        "date": "2026-10-05",
+        "date_str": "5 October 2026",
+        "title": "Week 41: The Week Ahead in Media + Tech",
+        "url": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
+        "quotes": []
+      },
       {
         "id": "40",
         "date": "2026-09-28",
@@ -20,8 +28,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "40",
-    "last_parsed_date": "2026-09-28"
+    "last_parsed_issue": "41",
+    "last_parsed_date": "2026-10-05"
   },
   "sponsor_domains": [],
   "has_archive": true,

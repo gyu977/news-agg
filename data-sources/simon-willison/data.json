@@ -1,5 +1,24 @@
 [
   {
+    "id": "sw-2026-10-3ba896",
+    "newsletter": "Simon Willison's Weblog",
+    "issue_number": null,
+    "issue_title": "We're going to need default hard budget caps on pretty much everything",
+    "issue_link": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/",
+    "date": "2026-10-03",
+    "date_str": "3 October 2026",
+    "title": "We're going to need default hard budget caps on pretty much everything",
+    "link": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/",
+    "author": "Simon Willison",
+    "description": "As autonomous coding and personal agents make it trivial to spin up services that call paid APIs or allocate cloud compute, Simon Willison argues that platforms must implement default hard budget caps that cut off usage and return errors rather than passive soft warnings that allow runaway overnight spend.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {}
+  },
+  {
     "id": "sw-2026-09-f7665b",
     "newsletter": "Simon Willison's Weblog",
     "issue_number": null,
