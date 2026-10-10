@@ -2070,11 +2070,11 @@
         <thead>
           <tr>
             <th class="select-col" title="Select all visible articles to export as Markdown or HTML"><input type="checkbox" id="selectAllToggle" title="Select all visible articles to export as Markdown or HTML" aria-label="Select all visible articles to export as Markdown or HTML"></th>
-            <th onclick="handleSort('date')" id="th-date" class="date-column active-sort" tabindex="0" role="button" aria-label="Sort by date">Date <span class="sort-indicator">&#x25BC;</span></th>
-            <th onclick="handleSort('newsletter')" id="th-newsletter" class="source-column" tabindex="0" role="button" aria-label="Sort by source">Source <span class="sort-indicator"></span></th>
-            <th onclick="handleSort('category')" id="th-category" class="category-column" tabindex="0" role="button" aria-label="Sort by category">Category <span class="sort-indicator"></span></th>
-            <th onclick="handleSort('author')" id="th-author" class="author-column" tabindex="0" role="button" aria-label="Sort by author">Author <span class="sort-indicator"></span></th>
-            <th onclick="handleSort('title')" id="th-title" tabindex="0" role="button" aria-label="Sort by article title">Article <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('date')" id="th-date" class="date-column active-sort" tabindex="0" role="button" aria-label="Sort by date" aria-sort="descending">Date <span class="sort-indicator">&#x25BC;</span></th>
+            <th onclick="handleSort('newsletter')" id="th-newsletter" class="source-column" tabindex="0" role="button" aria-label="Sort by source" aria-sort="none">Source <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('category')" id="th-category" class="category-column" tabindex="0" role="button" aria-label="Sort by category" aria-sort="none">Category <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('author')" id="th-author" class="author-column" tabindex="0" role="button" aria-label="Sort by author" aria-sort="none">Author <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('title')" id="th-title" tabindex="0" role="button" aria-label="Sort by article title" aria-sort="none">Article <span class="sort-indicator"></span></th>
           </tr>
         </thead>
         <tbody id="tableBody">
@@ -2120,10 +2120,6 @@
     const tableBody = document.getElementById('tableBody');
     const resultsCount = document.getElementById('resultsCount');
     const crossSourceTooltip = document.getElementById('crossSourceTooltip');
-
-    function syncSearchClearBtn() {
-      // Visibility is handled natively by CSS: .search-toolbar:has(#searchInput:not(:placeholder-shown)) .search-clear-btn
-    }
 
     // Event Listeners
     let searchDebounceTimer = null;
@@ -2549,6 +2545,30 @@ function renderCategoryCounts(list) {
       return categoryDisplayAliases[canonicalCat] || canonicalCat;
     }
 
+    const badgeClasses = {
+      'dear-architects': 'badge-da',
+      'token-by-token': 'badge-tbt',
+      'pragmatic-engineer': 'badge-pe',
+      'andriy-burkov-ai': 'badge-ai',
+      'addy-osmani': 'badge-addy',
+      'future-software-development': 'badge-fose',
+      'martin-fowler': 'badge-mf',
+      'simon-willison': 'badge-sw',
+      'infoq-architecture': 'badge-infoq',
+      'infoq-java': 'badge-java',
+      'the-week-ahead': 'badge-week-ahead',
+      'my-collected-articles': 'badge-others'
+    };
+
+    const TYPE_ICONS = {
+      video: '▶️',
+      book: '📖',
+      pulse: '⚡',
+      presentation: '🎤',
+      conference: '🏛️',
+      article: ''
+    };
+
     const shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     function formatDateDisplay(article) {
@@ -2734,7 +2754,11 @@ function renderCategoryCounts(list) {
         .map(category => ({ value: category, label: getCategoryDisplayName(category) })));
     }
 
-    const spotlightSources = new Set(['Dear Architects', 'Token by Token']);
+    const spotlightSources = new Set(
+      articles
+        .filter(a => a.is_spotlight)
+        .flatMap(a => [a.newsletter, ...(a.also_in || [])].filter(Boolean))
+    );
 
     function hasSpotlightSource(selectedSources) {
       return Array.from(spotlightSources).some(source => selectedSources.has(source));
@@ -2819,10 +2843,6 @@ function renderCategoryCounts(list) {
       }
     }
 
-    function updateSelectionCount(count) {
-      updateSelectionUI();
-    }
-
     // Initial render
     if (timeframeFilter) {
       timeframeFilter.value = '30';
@@ -2843,7 +2863,6 @@ function renderCategoryCounts(list) {
     updateSpotlightAvailability();
     render();
     updateDescriptionVisibility();
-    syncSearchClearBtn();
 
     function render() {
       const query = searchInput.value.toLowerCase().trim();
@@ -2975,20 +2994,6 @@ function renderCategoryCounts(list) {
         tdSource.setAttribute('data-label', 'Source');
         tdSource.className = 'source-column';
         
-        const badgeClasses = {
-          'dear-architects': 'badge-da',
-          'token-by-token': 'badge-tbt',
-          'pragmatic-engineer': 'badge-pe',
-          'andriy-burkov-ai': 'badge-ai',
-          'addy-osmani': 'badge-addy',
-          'future-software-development': 'badge-fose',
-          'martin-fowler': 'badge-mf',
-          'simon-willison': 'badge-sw',
-          'infoq-architecture': 'badge-infoq',
-          'infoq-java': 'badge-java',
-          'the-week-ahead': 'badge-week-ahead',
-          'my-collected-articles': 'badge-others'
-        };
         const badgeClass = badgeClasses[article.source_id] || 'badge-tbt';
         const sourceLabel = article.source_short_name || article.newsletter;
         
@@ -3053,12 +3058,7 @@ function renderCategoryCounts(list) {
         tdDetails.setAttribute('data-label', 'Details');
         
         // Get type visual icon
-        let icon = '';
-        if (article.type === 'video') icon = '▶️';
-        if (article.type === 'book') icon = '📖';
-        if (article.type === 'pulse') icon = '⚡';
-        if (article.type === 'presentation') icon = '🎤';
-        if (article.type === 'conference') icon = '🏛️';
+        const icon = TYPE_ICONS[article.type] || '';
 
         const isSpotlightBadge = article.is_spotlight 
           ? `<span class="badge badge-spotlight">★ Spotlight</span>` 
@@ -3111,9 +3111,11 @@ function renderCategoryCounts(list) {
             sortDirection = column === 'date' ? 'desc' : 'asc'; // date defaults to desc, others to asc
           }
           indicator.textContent = sortDirection === 'asc' ? '\u25B2' : '\u25BC';
+          th.setAttribute('aria-sort', sortDirection === 'asc' ? 'ascending' : 'descending');
         } else {
           th.classList.remove('active-sort');
           indicator.textContent = '';
+          th.setAttribute('aria-sort', 'none');
         }
       });
 
@@ -3138,17 +3140,13 @@ function renderCategoryCounts(list) {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      setTimeout(() => URL.revokeObjectURL(url), 100);
     }
 
     function generateArticlesHTML(titleText, articleList) {
       let rows = '';
       articleList.forEach(a => {
-        let icon = '';
-        if (a.type === 'video') icon = '▶️';
-        if (a.type === 'book') icon = '📖';
-        if (a.type === 'pulse') icon = '⚡';
-        if (a.type === 'presentation') icon = '🎤';
-        if (a.type === 'conference') icon = '🏛️';
+        const icon = TYPE_ICONS[a.type] || '';
 
         const sourceBadge = a.issue_number ? `#${escapeHtml(a.issue_number)} ${escapeHtml(a.newsletter)}` : escapeHtml(a.newsletter);
         const alsoInNames = additionalSourceNames(a);
@@ -3299,15 +3297,10 @@ function renderCategoryCounts(list) {
       
       // Sort selected articles by date descending
       const selectedArticles = articles.filter(a => selectedIds.has(String(a.id)));
-      selectedArticles.sort((a, b) => parseArticleDate(b.date) - parseArticleDate(a.date));
+      selectedArticles.sort((a, b) => compareArticlesForSort(a, b, 'date', 'desc'));
       
       selectedArticles.forEach(a => {
-        let icon = '';
-        if (a.type === 'video') icon = '▶️';
-        if (a.type === 'book') icon = '📖';
-        if (a.type === 'pulse') icon = '⚡';
-        if (a.type === 'presentation') icon = '🎤';
-        if (a.type === 'conference') icon = '🏛️';
+        const icon = TYPE_ICONS[a.type] || '';
         
         const sourceBadge = escapeMarkdownText(
           a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter
@@ -3341,7 +3334,7 @@ function renderCategoryCounts(list) {
     function exportSelectionToHTML() {
       if (selectedIds.size === 0) return;
       const selectedArticles = articles.filter(a => selectedIds.has(String(a.id)));
-      selectedArticles.sort((a, b) => parseArticleDate(b.date) - parseArticleDate(a.date));
+      selectedArticles.sort((a, b) => compareArticlesForSort(a, b, 'date', 'desc'));
       const htmlContent = generateArticlesHTML("Selected Articles", selectedArticles);
       triggerDownload(htmlContent, "selected-articles.html", "text/html");
     }

@@ -40,6 +40,7 @@ for _p in (CODE_DIR, PROJECT_ROOT):
         sys.path.insert(0, _p)
 
 from common.base_scraper import BaseScraper  # noqa: E402
+from common.file_utils import atomic_write_json  # noqa: E402
 
 SOURCES_DIR = os.path.join(PROJECT_ROOT, "data-sources")
 
@@ -283,8 +284,7 @@ def main():
                   f"authors_cleared={stats['authors_cleared']}, "
                   f"boilerplate_hidden={stats['boilerplate_hidden']})")
             if not args.check:
-                with open(path, "w", encoding="utf-8") as f:
-                    json.dump(new_records, f, indent=2, ensure_ascii=False)
+                atomic_write_json(path, new_records)
         else:
             print(f"[normalize] {name}: already normalized ({len(records)} records)")
 

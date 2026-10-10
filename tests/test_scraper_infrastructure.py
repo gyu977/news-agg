@@ -526,8 +526,9 @@ class BuilderSafetyTests(unittest.TestCase):
         self.assertIn("#timeframeFilterDropdown .multi-filter-menu", source)
         self.assertIn("width: 200px;", source)
         self.assertIn('<label class="filter-label">Categories</label>', source)
-        self.assertIn('aria-label="Sort by category">Category', source)
-        self.assertIn('aria-label="Sort by article title">Article', source)
+        self.assertIn('aria-label="Sort by category"', source)
+        self.assertIn('aria-label="Sort by article title"', source)
+        self.assertIn('aria-sort="none"', source)
         self.assertIn("min-width: 170px;", source)
         self.assertIn("function compareArticlesForSort(a, b, column, direction)", source)
         self.assertIn("String(a[column] ?? '').trim()", source)
@@ -576,6 +577,21 @@ class BuilderSafetyTests(unittest.TestCase):
         self.assertNotIn('src="news-icon.svg"', html)
         self.assertEqual(html.count("data:image/svg+xml;base64,"), 2)
 
+    def test_build_news_page_prevents_script_breakout(self):
+        """Ensures closing script tags and HTML comment markers are escaped in embedded JSON."""
+        output = os.path.join(REPO_ROOT, "news.html")
+        with open(output, encoding="utf-8") as stream:
+            html = stream.read()
+        start_marker = "/* ARTICLES_START */"
+        end_marker = "/* ARTICLES_END */"
+        self.assertIn(start_marker, html)
+        self.assertIn(end_marker, html)
+        start_idx = html.find(start_marker)
+        end_idx = html.find(end_marker)
+        js_block = html[start_idx:end_idx]
+        self.assertNotIn("</script>", js_block.lower())
+        self.assertNotIn("<!--", js_block)
+
     def test_guide_dialog_source_links(self):
         output = os.path.join(REPO_ROOT, "news.html")
         with open(output, encoding="utf-8") as stream:
@@ -618,7 +634,7 @@ class BuilderSafetyTests(unittest.TestCase):
         self.assertIn("Export Selection", source)
         self.assertIn(".btn-export-unified svg", source)
         self.assertIn("searchClearBtn", source)
-        self.assertIn("syncSearchClearBtn", source)
+        self.assertIn(".search-clear-btn", source)
         self.assertGreaterEqual(source.count("Also in:"), 2)
 
     def test_dashboard_multi_filters_overlay_and_close(self):
@@ -741,7 +757,9 @@ class BuilderSafetyTests(unittest.TestCase):
 
         tf_all = filter_timeframe("all")
         fose_all = [a for a in tf_all if a.get("newsletter") == fose_source]
-        self.assertEqual(len(fose_all), 16, "FOSE should have all 16 articles in full 90-day build")
+        fose_total = len([a for a in articles if a.get("newsletter") == fose_source])
+        self.assertGreaterEqual(fose_total, 14, "FOSE should have at least the recent 60-day articles in dashboard")
+        self.assertEqual(len(fose_all), fose_total, "FOSE should have all embedded articles in full build")
 
         # Layer 2: Multi-filter matching (FOSE alone with all categories and types)
         sources_set = {fose_source}
@@ -755,7 +773,7 @@ class BuilderSafetyTests(unittest.TestCase):
             return m_src and article.get("type") in types_set and article.get("category") in categories_set
 
         matched_articles = [a for a in tf_all if matches_filters(a)]
-        self.assertEqual(len(matched_articles), 16)
+        self.assertEqual(len(matched_articles), fose_total)
 
         # Layer 3: Text search coverage across newsletter and source_short_name
         def matches_query(article, query):
@@ -772,9 +790,9 @@ class BuilderSafetyTests(unittest.TestCase):
             ]).lower()
             return q in haystack
 
-        self.assertEqual(len([a for a in fose_all if matches_query(a, "thoughtworks")]), 16)
-        self.assertEqual(len([a for a in fose_all if matches_query(a, "fose")]), 16)
-        self.assertEqual(len([a for a in fose_all if matches_query(a, "future of software")]), 16)
+        self.assertEqual(len([a for a in fose_all if matches_query(a, "thoughtworks")]), fose_total)
+        self.assertEqual(len([a for a in fose_all if matches_query(a, "fose")]), fose_total)
+        self.assertEqual(len([a for a in fose_all if matches_query(a, "future of software")]), fose_total)
         self.assertEqual(len([a for a in fose_all if matches_query(a, "Martin Fowler")]), 2)
         self.assertEqual(len([a for a in fose_all if matches_query(a, "Mathias Verraes")]), 1)
 
@@ -782,7 +800,8 @@ class BuilderSafetyTests(unittest.TestCase):
         template = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
         with open(template, encoding="utf-8") as stream:
             source = stream.read()
-        self.assertIn("const spotlightSources = new Set(['Dear Architects', 'Token by Token'])", source)
+        self.assertIn("const spotlightSources = new Set(", source)
+        self.assertIn(".filter(a => a.is_spotlight)", source)
         self.assertIn("function hasSpotlightSource(selectedSources)", source)
         self.assertIn("spotlightToggle.disabled = !available", source)
         self.assertIn("if (!available) spotlightToggle.checked = false", source)

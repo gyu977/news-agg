@@ -2081,11 +2081,11 @@
         <thead>
           <tr>
             <th class="select-col" title="Select all visible articles to export as Markdown or HTML"><input type="checkbox" id="selectAllToggle" title="Select all visible articles to export as Markdown or HTML" aria-label="Select all visible articles to export as Markdown or HTML"></th>
-            <th onclick="handleSort('date')" id="th-date" class="date-column active-sort" tabindex="0" role="button" aria-label="Sort by date">Date <span class="sort-indicator">&#x25BC;</span></th>
-            <th onclick="handleSort('newsletter')" id="th-newsletter" class="source-column" tabindex="0" role="button" aria-label="Sort by source">Source <span class="sort-indicator"></span></th>
-            <th onclick="handleSort('category')" id="th-category" class="category-column" tabindex="0" role="button" aria-label="Sort by category">Category <span class="sort-indicator"></span></th>
-            <th onclick="handleSort('author')" id="th-author" class="author-column" tabindex="0" role="button" aria-label="Sort by author">Author <span class="sort-indicator"></span></th>
-            <th onclick="handleSort('title')" id="th-title" tabindex="0" role="button" aria-label="Sort by article title">Article <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('date')" id="th-date" class="date-column active-sort" tabindex="0" role="button" aria-label="Sort by date" aria-sort="descending">Date <span class="sort-indicator">&#x25BC;</span></th>
+            <th onclick="handleSort('newsletter')" id="th-newsletter" class="source-column" tabindex="0" role="button" aria-label="Sort by source" aria-sort="none">Source <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('category')" id="th-category" class="category-column" tabindex="0" role="button" aria-label="Sort by category" aria-sort="none">Category <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('author')" id="th-author" class="author-column" tabindex="0" role="button" aria-label="Sort by author" aria-sort="none">Author <span class="sort-indicator"></span></th>
+            <th onclick="handleSort('title')" id="th-title" tabindex="0" role="button" aria-label="Sort by article title" aria-sort="none">Article <span class="sort-indicator"></span></th>
           </tr>
         </thead>
         <tbody id="tableBody">
@@ -2172,6 +2172,42 @@
         "category": "AI-Native & Agentic Software Engineering",
         "is_spotlight": true,
         "type": "conference"
+    },
+    {
+        "id": "java-2026-10-620c7f",
+        "source_id": "infoq-java",
+        "source_short_name": "InfoQ Java",
+        "newsletter": "InfoQ Java",
+        "issue_number": null,
+        "issue_title": "Java News Roundup: JobRunr 9, OpenXava 8, Quarkus, LangChain4j, JNoSQL, Introducing Lathe",
+        "issue_link": "https://www.infoq.com/news/2026/10/java-news-roundup-sep28-2026/",
+        "date": "2026-10-05",
+        "date_str": "5 October 2026",
+        "title": "Java News Roundup: JobRunr 9, OpenXava 8, Quarkus, LangChain4j, JNoSQL, Introducing Lathe",
+        "link": "https://www.infoq.com/news/2026/10/java-news-roundup-sep28-2026/",
+        "author": "Michael Redlich",
+        "description": "This week's Java roundup for September 28th, 2026, features news highlighting: the GA releases of JobRunr 9.0 and OpenXava 8.0; point releases for Quarkus, Micronaut, LangChain4j, Eclipse JNoSQL; ADK for Java and ADK for Kotlin; and introducing Lathe, a new Java language server.",
+        "category": "Software Architecture & Distributed Systems",
+        "is_spotlight": false,
+        "type": "article"
+    },
+    {
+        "id": "mf-2026-10-f6ff5f",
+        "source_id": "martin-fowler",
+        "source_short_name": "Martin Fowler",
+        "newsletter": "Martin Fowler",
+        "issue_number": null,
+        "issue_title": "Fragments: October 4",
+        "issue_link": "https://martinfowler.com/fragments/2026-10-04.html",
+        "date": "2026-10-04",
+        "date_str": "4 October 2026",
+        "title": "Fragments: October 4",
+        "link": "https://martinfowler.com/fragments/2026-10-04.html",
+        "author": "Martin Fowler",
+        "description": "Martin Fowler reflects on the deportation of software activist Ola Bini, discusses conceptual modeling with Eric Evans, analyzes whether higher-level languages remain the true notation of intent when agents compile to bedrock, and notes Gemini 4 Argon's ultra-low hallucination rate on Artificial Analysis benchmarks.",
+        "category": "Engineering Philosophy & Estimation",
+        "is_spotlight": false,
+        "type": "article"
     },
     {
         "id": "sw-2026-10-3ba896",
@@ -8451,376 +8487,6 @@
         "category": "Engineering Philosophy & Estimation",
         "is_spotlight": false,
         "type": "article"
-    },
-    {
-        "id": "da-298-ef1cad",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 298,
-        "issue_title": "Dear Architects - AI and Microservices: The Future?",
-        "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/192706982105319322",
-        "date": "2026-07-11",
-        "date_str": "11 July 2026",
-        "title": "The Skeleton Architecture: How to Grow a Working System from Day One",
-        "link": "https://www.infoq.com/articles/skeleton-architecture/",
-        "author": "Patrick Farry",
-        "description": "The Skeleton Architecture is a thin slice of working system, connected and deployed, that forms the backbone for growing software. It gives teams a concrete structure to build on from day one.",
-        "category": "Software Architecture & Distributed Systems",
-        "is_spotlight": false,
-        "type": "article",
-        "quote": "Software architecture isn't just boxes and diagrams. It's the arrows between them.",
-        "quote_author": "Sam Newman"
-    },
-    {
-        "id": "da-298-927d2a",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 298,
-        "issue_title": "Dear Architects - AI and Microservices: The Future?",
-        "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/192706982105319322",
-        "date": "2026-07-11",
-        "date_str": "11 July 2026",
-        "title": "ADRs in a Post-Flip World",
-        "link": "https://gshutler.com/2026/06/adrs-in-a-post-flip-world/",
-        "author": "Garry Shutler",
-        "description": "The value of ADRs isn't in the document itself, it's in forcing people to think through a decision and to gather and incorporate feedback from others before committing to a path.",
-        "category": "Software Architecture & Distributed Systems",
-        "is_spotlight": false,
-        "type": "article",
-        "quote": "Software architecture isn't just boxes and diagrams. It's the arrows between them.",
-        "quote_author": "Sam Newman"
-    },
-    {
-        "id": "da-298-641793",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 298,
-        "issue_title": "Dear Architects - AI and Microservices: The Future?",
-        "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/192706982105319322",
-        "date": "2026-07-11",
-        "date_str": "11 July 2026",
-        "title": "Migrating to Micro Frontends",
-        "link": "https://gitnation.com/contents/migrating-to-micro-frontends",
-        "author": "Luca Mezzalira",
-        "description": "This talk covers how to break a monolithic frontend into micro frontends, addressing challenges like shared state, routing, and independent deployment across teams.",
-        "category": "Software Architecture & Distributed Systems",
-        "is_spotlight": false,
-        "type": "video",
-        "quote": "Software architecture isn't just boxes and diagrams. It's the arrows between them.",
-        "quote_author": "Sam Newman"
-    },
-    {
-        "id": "da-298-25e27f",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 298,
-        "issue_title": "Dear Architects - AI and Microservices: The Future?",
-        "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/192706982105319322",
-        "date": "2026-07-11",
-        "date_str": "11 July 2026",
-        "title": "Sitar Agent: Building a Reliable Dynamic Configuration Sidecar at Scale",
-        "link": "https://medium.com/airbnb-engineering/sitar-agent-building-a-reliable-dynamic-configuration-sidecar-at-scale-b7e00c152068",
-        "author": "Airbnb Engineering",
-        "description": "Sitar Agent is a sidecar that provides reliable dynamic configuration to hundreds of services at Airbnb, handling both flagging and experimentation use cases with a unified architecture.",
-        "category": "Cloud Infrastructure & System Reliability",
-        "is_spotlight": false,
-        "type": "article",
-        "quote": "Software architecture isn't just boxes and diagrams. It's the arrows between them.",
-        "quote_author": "Sam Newman"
-    },
-    {
-        "id": "da-298-0b0e5f",
-        "source_id": "dear-architects",
-        "source_short_name": "Dear Architects",
-        "newsletter": "Dear Architects",
-        "issue_number": 298,
-        "issue_title": "Dear Architects - AI and Microservices: The Future?",
-        "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/192706982105319322",
-        "date": "2026-07-11",
-        "date_str": "11 July 2026",
-        "title": "Microservices, AI and... Chris Richardson",
-        "link": "https://youtu.be/0FF5r8ebuZQ",
-        "author": "Chris Richardson (with Luca Mezzalira)",
-        "description": "In this episode of Dear Architects, Luca sits down with Chris Richardson, author of Microservices Patterns and the creator of microservices.io, for a wide-ranging, no-hype conversation about where microservices actually stand in 2026, and what Gen AI does (and doesn't) change about how we design systems.",
-        "category": "Software Architecture & Distributed Systems",
-        "is_spotlight": true,
-        "type": "video",
-        "quote": "Software architecture isn't just boxes and diagrams. It's the arrows between them.",
-        "quote_author": "Sam Newman"
-    },
-    {
-        "id": "ab-334-d2e08d",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 334,
-        "issue_title": "Artificial Intelligence #334",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-334-andriy-burkov-m4xcc/",
-        "date": "2026-07-11",
-        "date_str": "11 July 2026",
-        "title": "Loop engineering",
-        "link": "https://x.com/akshay_pachaar/status/2069118430582866051",
-        "author": "Akshay Pachaar",
-        "description": "",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "ab-334-7f1a19",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 334,
-        "issue_title": "Artificial Intelligence #334",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-334-andriy-burkov-m4xcc/",
-        "date": "2026-07-11",
-        "date_str": "11 July 2026",
-        "title": "Run a vLLM server on HF Jobs",
-        "link": "https://huggingface.co/blog/vllm-jobs",
-        "author": "HuggingFace",
-        "description": "",
-        "category": "Large Language Models & Evaluation Infrastructure",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "ab-334-76ebe1",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 334,
-        "issue_title": "Artificial Intelligence #334",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-334-andriy-burkov-m4xcc/",
-        "date": "2026-07-11",
-        "date_str": "11 July 2026",
-        "title": "detects reward hacking during training",
-        "link": "https://github.com/AvAdiii/rewardspy",
-        "author": "AvAdiii (rewardspy)",
-        "description": "",
-        "category": "Large Language Models & Evaluation Infrastructure",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "ab-334-5f1f3b",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 334,
-        "issue_title": "Artificial Intelligence #334",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-334-andriy-burkov-m4xcc/",
-        "date": "2026-07-11",
-        "date_str": "11 July 2026",
-        "title": "removed an LM's ability to speak German",
-        "link": "https://threadreaderapp.com/thread/2070181051801235463.html",
-        "author": "Thread Reader",
-        "description": "",
-        "category": "Large Language Models & Evaluation Infrastructure",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "ab-334-4b71ef",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 334,
-        "issue_title": "Artificial Intelligence #334",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-334-andriy-burkov-m4xcc/",
-        "date": "2026-07-11",
-        "date_str": "11 July 2026",
-        "title": "Mastering agentic techniques",
-        "link": "https://developer.nvidia.com/blog/mastering-agentic-techniques-ai-agent-reinforcement-learning/",
-        "author": "Nvidia",
-        "description": "",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "ab-334-4b4534",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 334,
-        "issue_title": "Artificial Intelligence #334",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-334-andriy-burkov-m4xcc/",
-        "date": "2026-07-11",
-        "date_str": "11 July 2026",
-        "title": "state of the AI economy",
-        "link": "https://www.exponentialview.co/p/the-state-of-the-ai-economy",
-        "author": "Azeem Azhar (Exponential View)",
-        "description": "",
-        "category": "Tech Industry, Jobs & Careers",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "ab-334-480567",
-        "source_id": "andriy-burkov-ai",
-        "source_short_name": "Burkov AI",
-        "newsletter": "Artificial Intelligence (Andriy Burkov)",
-        "issue_number": 334,
-        "issue_title": "Artificial Intelligence #334",
-        "issue_link": "https://www.linkedin.com/pulse/artificial-intelligence-334-andriy-burkov-m4xcc/",
-        "date": "2026-07-11",
-        "date_str": "11 July 2026",
-        "title": "Scaling laws",
-        "link": "https://lilianweng.github.io/posts/2026-06-24-scaling-laws/",
-        "author": "Lilian Weng",
-        "description": "",
-        "category": "Large Language Models & Evaluation Infrastructure",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "others-2026-07-5dbec4",
-        "source_id": "my-collected-articles",
-        "source_short_name": "Editor's Radar",
-        "newsletter": "Editor's Radar",
-        "issue_number": null,
-        "issue_title": "July 2026 Collected Articles",
-        "issue_link": "",
-        "date": "2026-07-10",
-        "date_str": "10 July 2026",
-        "title": "Five studies changing how I think about AI in software engineering",
-        "link": "https://newsletter.getdx.com/p/five-studies-that-are-changing-how",
-        "author": "Abi Noda (GetDX)",
-        "description": "Examines five empirical studies on AI's impact on software engineering, noting that while AI compresses upstream work (coding), it increases the downstream burden of verification, testing, and system complexity.",
-        "category": "Software Testing, Quality & Observability",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "tbt-13-cb93fd",
-        "source_id": "token-by-token",
-        "source_short_name": "Token by Token",
-        "newsletter": "Token by Token",
-        "issue_number": 13,
-        "issue_title": "token by token - AI loops: Decode this week",
-        "issue_link": "https://preview.mailerlite.io/preview/2096144/emails/192456772739401351",
-        "date": "2026-07-09",
-        "date_str": "9 July 2026",
-        "title": "Getting started with loops",
-        "link": "https://x.com/ClaudeDevs/status/2074208949205881033",
-        "author": null,
-        "description": "On the Claude Code team, we define loops as agents repeating cycles of work until a stop condition is met . We categorize a few different types of loops based on: We’ll cover the main loop types, when to use each, and how to maintain code quality while managing token usage. Not all tasks require complex loops; start with the simplest solution and use these patterns selectively.",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": true,
-        "type": "article"
-    },
-    {
-        "id": "tbt-13-4ab35d",
-        "source_id": "token-by-token",
-        "source_short_name": "Token by Token",
-        "newsletter": "Token by Token",
-        "issue_number": 13,
-        "issue_title": "token by token - AI loops: Decode this week",
-        "issue_link": "https://preview.mailerlite.io/preview/2096144/emails/192456772739401351",
-        "date": "2026-07-09",
-        "date_str": "9 July 2026",
-        "title": "AI-native engineering canvas",
-        "link": "https://alfonsograziano.it/aine-canvas",
-        "author": "Alfonso Graziano",
-        "description": "A blank is signal , not failure. It marks something the team hasn’t figured out yet and should stay open. You’re describing reality and finding its gaps, not committing to a plan. It also works async : drop it in a repo doc or a Slack thread, let everyone annotate on their own time, then meet only to resolve the points you disagree on. The value is the shared vocabulary and the disagreements it surfaces, not the meeting itself.",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "article"
-    },
-    {
-        "id": "tbt-13-1eebaf",
-        "source_id": "token-by-token",
-        "source_short_name": "Token by Token",
-        "newsletter": "Token by Token",
-        "issue_number": 13,
-        "issue_title": "token by token - AI loops: Decode this week",
-        "issue_link": "https://preview.mailerlite.io/preview/2096144/emails/192456772739401351",
-        "date": "2026-07-09",
-        "date_str": "9 July 2026",
-        "title": "Goodbye slop; welcome determinism",
-        "link": "https://youtu.be/uMvTAF280so",
-        "author": null,
-        "description": "Vibe coding feels productive until you have to maintain it. Behind the agent \"thinking...\" you ignore and the code you never opened lies a growing pile of wasted tokens, nondeterministic behavior, and compounding errors hiding in plain sight. This talk pushes back on the status quo: elaborate agent architectures, \"prompting astrology\", overnight automation loops burning through context windows and credit cards. Come for the critique, leave with a framework for using AI to build software you actually understand.",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "video"
-    },
-    {
-        "id": "pe-2026-07-2acbe8",
-        "source_id": "pragmatic-engineer",
-        "source_short_name": "Pragmatic Eng.",
-        "newsletter": "The Pragmatic Engineer",
-        "issue_number": null,
-        "issue_title": "The Pragmatic Engineer",
-        "issue_link": "https://newsletter.pragmaticengineer.com/archive",
-        "date": "2026-07-09",
-        "date_str": "9 July 2026",
-        "title": "The Pulse: What can we learn from Bun’s rapid Rust rewrite with AI?",
-        "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-what-can-we-learn-from",
-        "author": null,
-        "description": "A rewrite done in 11 days that would have taken a small team a year to complete, for $165K in tokens. Also: coding LLM “wars” heat up, AI fakers from North Korea still a problem when hiring, and more",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "pulse"
-    },
-    {
-        "id": "fose-2026-07-8344d1",
-        "source_id": "future-software-development",
-        "source_short_name": "Thoughtworks FOSE",
-        "newsletter": "Future of Software Development (Thoughtworks FOSE)",
-        "issue_number": null,
-        "issue_title": "FOSE 2026 Reflections - July 2026",
-        "issue_link": "https://www.thoughtworks.com/en-us/about-us/events/the-future-of-software-development-europe-2026",
-        "date": "2026-07-09",
-        "date_str": "9 July 2026",
-        "title": "Reflections from the Future of Software Development Retreat",
-        "link": "https://www.thoughtworks.com/insights/podcasts/technology-podcasts/future-of-software-development-retreat-reflections",
-        "author": "Ken Mugrage, Kief Morris & Andrew Harmel-Law",
-        "description": "Thoughtworks Technology Podcast discussing key debates from the retreat: harness engineering, deterministic guardrails, verification as the primary bottleneck, and shifting human roles.",
-        "category": "AI-Native & Agentic Software Engineering",
-        "is_spotlight": false,
-        "type": "video"
-    },
-    {
-        "id": "pe-2026-07-b73c8f",
-        "source_id": "pragmatic-engineer",
-        "source_short_name": "Pragmatic Eng.",
-        "newsletter": "The Pragmatic Engineer",
-        "issue_number": null,
-        "issue_title": "The Pragmatic Engineer",
-        "issue_link": "https://newsletter.pragmaticengineer.com/archive",
-        "date": "2026-07-08",
-        "date_str": "8 July 2026",
-        "title": "The Pragmatic Engineer AMA",
-        "link": "https://newsletter.pragmaticengineer.com/p/the-pragmatic-engineer-ama",
-        "author": null,
-        "description": "In this AMA episode, I answer listener questions on AI, engineering, hiring, and careers.",
-        "category": "Tech Industry, Jobs & Careers",
-        "is_spotlight": false,
-        "type": "video"
-    },
-    {
-        "id": "mf-2026-07-43b30e",
-        "source_id": "martin-fowler",
-        "source_short_name": "Martin Fowler",
-        "newsletter": "Martin Fowler",
-        "issue_number": null,
-        "issue_title": "Experiences with local models for coding",
-        "issue_link": "https://martinfowler.com/articles/exploring-gen-ai/local-models-for-coding-experiences.html",
-        "date": "2026-07-08",
-        "date_str": "8 July 2026",
-        "title": "Experiences with local models for coding",
-        "link": "https://martinfowler.com/articles/exploring-gen-ai/local-models-for-coding-experiences.html",
-        "author": "Birgitta Böckeler",
-        "description": "",
-        "category": "Large Language Models & Evaluation Infrastructure",
-        "is_spotlight": false,
-        "type": "article"
     }
 ];
     /* ARTICLES_END */
@@ -8853,10 +8519,6 @@
     const tableBody = document.getElementById('tableBody');
     const resultsCount = document.getElementById('resultsCount');
     const crossSourceTooltip = document.getElementById('crossSourceTooltip');
-
-    function syncSearchClearBtn() {
-      // Visibility is handled natively by CSS: .search-toolbar:has(#searchInput:not(:placeholder-shown)) .search-clear-btn
-    }
 
     // Event Listeners
     let searchDebounceTimer = null;
@@ -9282,6 +8944,30 @@ function renderCategoryCounts(list) {
       return categoryDisplayAliases[canonicalCat] || canonicalCat;
     }
 
+    const badgeClasses = {
+      'dear-architects': 'badge-da',
+      'token-by-token': 'badge-tbt',
+      'pragmatic-engineer': 'badge-pe',
+      'andriy-burkov-ai': 'badge-ai',
+      'addy-osmani': 'badge-addy',
+      'future-software-development': 'badge-fose',
+      'martin-fowler': 'badge-mf',
+      'simon-willison': 'badge-sw',
+      'infoq-architecture': 'badge-infoq',
+      'infoq-java': 'badge-java',
+      'the-week-ahead': 'badge-week-ahead',
+      'my-collected-articles': 'badge-others'
+    };
+
+    const TYPE_ICONS = {
+      video: '▶️',
+      book: '📖',
+      pulse: '⚡',
+      presentation: '🎤',
+      conference: '🏛️',
+      article: ''
+    };
+
     const shortMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     function formatDateDisplay(article) {
@@ -9467,7 +9153,11 @@ function renderCategoryCounts(list) {
         .map(category => ({ value: category, label: getCategoryDisplayName(category) })));
     }
 
-    const spotlightSources = new Set(['Dear Architects', 'Token by Token']);
+    const spotlightSources = new Set(
+      articles
+        .filter(a => a.is_spotlight)
+        .flatMap(a => [a.newsletter, ...(a.also_in || [])].filter(Boolean))
+    );
 
     function hasSpotlightSource(selectedSources) {
       return Array.from(spotlightSources).some(source => selectedSources.has(source));
@@ -9552,10 +9242,6 @@ function renderCategoryCounts(list) {
       }
     }
 
-    function updateSelectionCount(count) {
-      updateSelectionUI();
-    }
-
     // Initial render
     if (timeframeFilter) {
       timeframeFilter.value = '30';
@@ -9576,7 +9262,6 @@ function renderCategoryCounts(list) {
     updateSpotlightAvailability();
     render();
     updateDescriptionVisibility();
-    syncSearchClearBtn();
 
     function render() {
       const query = searchInput.value.toLowerCase().trim();
@@ -9708,20 +9393,6 @@ function renderCategoryCounts(list) {
         tdSource.setAttribute('data-label', 'Source');
         tdSource.className = 'source-column';
         
-        const badgeClasses = {
-          'dear-architects': 'badge-da',
-          'token-by-token': 'badge-tbt',
-          'pragmatic-engineer': 'badge-pe',
-          'andriy-burkov-ai': 'badge-ai',
-          'addy-osmani': 'badge-addy',
-          'future-software-development': 'badge-fose',
-          'martin-fowler': 'badge-mf',
-          'simon-willison': 'badge-sw',
-          'infoq-architecture': 'badge-infoq',
-          'infoq-java': 'badge-java',
-          'the-week-ahead': 'badge-week-ahead',
-          'my-collected-articles': 'badge-others'
-        };
         const badgeClass = badgeClasses[article.source_id] || 'badge-tbt';
         const sourceLabel = article.source_short_name || article.newsletter;
         
@@ -9786,12 +9457,7 @@ function renderCategoryCounts(list) {
         tdDetails.setAttribute('data-label', 'Details');
         
         // Get type visual icon
-        let icon = '';
-        if (article.type === 'video') icon = '▶️';
-        if (article.type === 'book') icon = '📖';
-        if (article.type === 'pulse') icon = '⚡';
-        if (article.type === 'presentation') icon = '🎤';
-        if (article.type === 'conference') icon = '🏛️';
+        const icon = TYPE_ICONS[article.type] || '';
 
         const isSpotlightBadge = article.is_spotlight 
           ? `<span class="badge badge-spotlight">★ Spotlight</span>` 
@@ -9844,9 +9510,11 @@ function renderCategoryCounts(list) {
             sortDirection = column === 'date' ? 'desc' : 'asc'; // date defaults to desc, others to asc
           }
           indicator.textContent = sortDirection === 'asc' ? '\u25B2' : '\u25BC';
+          th.setAttribute('aria-sort', sortDirection === 'asc' ? 'ascending' : 'descending');
         } else {
           th.classList.remove('active-sort');
           indicator.textContent = '';
+          th.setAttribute('aria-sort', 'none');
         }
       });
 
@@ -9871,17 +9539,13 @@ function renderCategoryCounts(list) {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      setTimeout(() => URL.revokeObjectURL(url), 100);
     }
 
     function generateArticlesHTML(titleText, articleList) {
       let rows = '';
       articleList.forEach(a => {
-        let icon = '';
-        if (a.type === 'video') icon = '▶️';
-        if (a.type === 'book') icon = '📖';
-        if (a.type === 'pulse') icon = '⚡';
-        if (a.type === 'presentation') icon = '🎤';
-        if (a.type === 'conference') icon = '🏛️';
+        const icon = TYPE_ICONS[a.type] || '';
 
         const sourceBadge = a.issue_number ? `#${escapeHtml(a.issue_number)} ${escapeHtml(a.newsletter)}` : escapeHtml(a.newsletter);
         const alsoInNames = additionalSourceNames(a);
@@ -10032,15 +9696,10 @@ function renderCategoryCounts(list) {
       
       // Sort selected articles by date descending
       const selectedArticles = articles.filter(a => selectedIds.has(String(a.id)));
-      selectedArticles.sort((a, b) => parseArticleDate(b.date) - parseArticleDate(a.date));
+      selectedArticles.sort((a, b) => compareArticlesForSort(a, b, 'date', 'desc'));
       
       selectedArticles.forEach(a => {
-        let icon = '';
-        if (a.type === 'video') icon = '▶️';
-        if (a.type === 'book') icon = '📖';
-        if (a.type === 'pulse') icon = '⚡';
-        if (a.type === 'presentation') icon = '🎤';
-        if (a.type === 'conference') icon = '🏛️';
+        const icon = TYPE_ICONS[a.type] || '';
         
         const sourceBadge = escapeMarkdownText(
           a.issue_number ? `#${a.issue_number} ${a.newsletter}` : a.newsletter
@@ -10074,7 +9733,7 @@ function renderCategoryCounts(list) {
     function exportSelectionToHTML() {
       if (selectedIds.size === 0) return;
       const selectedArticles = articles.filter(a => selectedIds.has(String(a.id)));
-      selectedArticles.sort((a, b) => parseArticleDate(b.date) - parseArticleDate(a.date));
+      selectedArticles.sort((a, b) => compareArticlesForSort(a, b, 'date', 'desc'));
       const htmlContent = generateArticlesHTML("Selected Articles", selectedArticles);
       triggerDownload(htmlContent, "selected-articles.html", "text/html");
     }

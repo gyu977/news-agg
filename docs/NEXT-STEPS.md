@@ -4,9 +4,9 @@ This document tracks immediate active tasks, implementation status for dashboard
 
 ---
 
-## 1. Dashboard UI Modernization (UI Expert Review)
+## 1. Dashboard UI Modernization
 
-Based on the recommendations in [`docs/ui-expert-review.md`](ui-expert-review.md).
+Completed UI modernization recommendations and enhancements.
 
 | # | Feature / Recommendation | Status | Notes |
 | :--- | :--- | :---: | :--- |

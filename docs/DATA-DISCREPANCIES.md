@@ -1,6 +1,6 @@
 # Data Discrepancies — Deferred Fixes
 
-**Recorded:** 2026-08-25 · **Status:** D1, D6, D7 and D9 resolved; D2–D5 and D8 remain data work · **Owner issues:** H9, C5, M8, M9 and re-review R7 in [`CODE-REVIEW.md`](CODE-REVIEW.md)
+**Recorded:** 2026-08-25 · **Status:** D1, D6, D7 and D9 resolved; D2–D5 and D8 remain data work · **Owner issues:** H9, C5, M8, M9 and re-review R7
 
 This file records **data-level** defects — wrong values in `data-sources/*/data.json` and `definition.json` — as distinct from code defects. They are deliberately deferred so that code fixes can land first without mixing large data rewrites into the same commits.
 

@@ -12,16 +12,18 @@ import urllib.request
 import urllib.parse
 import urllib.error
 import urllib.robotparser
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 
 try:
     from common.models import Article, SourceDefinition, Quote, ParsedIssueInfo
     from common.constants import CATEGORIES, DOMAIN_MARKER_RULES, SPONSOR_DOMAINS, SPONSOR_WHITELIST_TERMS, BOILERPLATE_TITLES, MIN_TITLE_LENGTH, NON_ARTICLE_SCHEMES
     from common.url_utils import unshorten_url as _unshorten_url, validate_url as _validate_url, is_tracking_redirect_domain
+    from common.file_utils import atomic_write_json
 except ImportError:
     from code.common.models import Article, SourceDefinition, Quote, ParsedIssueInfo
     from code.common.constants import CATEGORIES, DOMAIN_MARKER_RULES, SPONSOR_DOMAINS, SPONSOR_WHITELIST_TERMS, BOILERPLATE_TITLES, MIN_TITLE_LENGTH, NON_ARTICLE_SCHEMES
     from code.common.url_utils import unshorten_url as _unshorten_url, validate_url as _validate_url, is_tracking_redirect_domain
+    from code.common.file_utils import atomic_write_json
 
 class BaseScraper:
     USER_AGENT = "news-agg/1.0 (+https://github.com/gyu977/news-agg; contact via GitHub issues)"
@@ -55,13 +57,9 @@ class BaseScraper:
                 track.count = len(track.issues)
                 track.last_parsed_issue = str(track.issues[0].id)
                 track.last_parsed_date = str(track.issues[0].date)
-            with open(self.definition_path, "w", encoding="utf-8") as f:
-                json.dump(self.definition.to_dict(), f, indent=2, ensure_ascii=False)
-                f.write("\n")
+            atomic_write_json(self.definition_path, self.definition.to_dict())
 
-        with open(self.data_path, "w", encoding="utf-8") as f:
-            json.dump([a.to_dict() for a in self.articles], f, indent=2, ensure_ascii=False)
-            f.write("\n")
+        atomic_write_json(self.data_path, [a.to_dict() for a in self.articles])
 
     def _robots_allowed(self, url: str) -> bool:
         """Return whether this scraper may fetch URL according to the site's robots.txt."""
@@ -263,14 +261,19 @@ class BaseScraper:
         if any(term.lower() in haystack for term in whitelist):
             return False
 
-        lower_url = url.lower()
-        # A source's own list *extends* the global one; it must never shadow it, or a
-        # stale per-source entry silently disables every globally-known ad domain.
+        parsed = urllib.parse.urlparse(url or "")
+        host = (parsed.netloc or "").lower()
+        if ":" in host:
+            host = host.split(":", 1)[0]
+        if host.startswith("www."):
+            host = host[4:]
+
         source_sponsors = list(SPONSOR_DOMAINS)
         if self.definition and self.definition.sponsor_domains:
             source_sponsors += [d for d in self.definition.sponsor_domains if d not in source_sponsors]
         for sp_domain in source_sponsors:
-            if sp_domain in lower_url:
+            sp_clean = sp_domain.rstrip("/").lower()
+            if host == sp_clean or host.endswith("." + sp_clean):
                 return True
         return False
 
@@ -339,9 +342,18 @@ class BaseScraper:
 
     def detect_content_type(self, url: str) -> str:
         """Detect content type based on URL domain patterns."""
+        if not url:
+            return "article"
+        parsed = urllib.parse.urlparse(url)
+        host = (parsed.netloc or "").lower()
+        if ":" in host:
+            host = host.split(":", 1)[0]
+        if host.startswith("www."):
+            host = host[4:]
         for domains, content_type in DOMAIN_MARKER_RULES:
             for d in domains:
-                if d in url.lower():
+                d_clean = d.lower()
+                if host == d_clean or host.endswith("." + d_clean):
                     return content_type
         return "article"
 

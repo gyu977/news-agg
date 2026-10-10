@@ -26,7 +26,7 @@ VISUAL_MARKERS = {
 # Domain-based marker rules
 DOMAIN_MARKER_RULES = [
     (["youtube.com", "youtu.be", "gitnation.com"], "video"),
-    (["manning.com", "oreilly.com", "amazon.com", "amzn.to", "link.amazon"], "book")
+    (["manning.com", "oreilly.com", "amazon.com", "amazon.co.uk", "amazon.de", "amzn.to", "link.amazon"], "book")
 ]
 
 # Excluded sponsors / tracking domains unless explicitly whitelisted.
@@ -41,7 +41,7 @@ SPONSOR_DOMAINS = [
     # they hide the destination from every other heuristic here.
     "bit.ly",
     "tinyurl.com",
-    "t.co/",
+    "t.co",
     "lnkd.in",
 ]
 

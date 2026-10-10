@@ -22,13 +22,14 @@ for p in [code_root, project_root]:
         sys.path.insert(0, p)
 
 from common.base_scraper import BaseScraper
+from common.file_utils import atomic_write_text
 
 sys.path.insert(0, current_dir)
 from builder_core import warn_if_stale
 
 DEFAULT_NEWS_DAYS_WINDOW = 90
 
-def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, source_id: Optional[str] = None) -> str:
+def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, source_id: Optional[str] = None, now: Optional[datetime] = None) -> str:
     # The canonical template is required; falling back to the generated news.html
     # would silently re-inject into stale output and compound drift.
     template_path = os.path.join(current_dir, "news_template.html")
@@ -154,13 +155,22 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
 
         first_idx, first = first_entry
         # Keep the earliest-dated record; credit the later one as an "also in" source.
+        # Fallback to "9999-99-99" ensures undated articles never displace dated primary articles.
+        art_date = art.get("date") or "9999-99-99"
+        first_date = first.get("date") or "9999-99-99"
         earlier, later = (first, art)
-        if str(art.get("date", "")) < str(first.get("date", "")):
+        if art_date < first_date:
+            existing_also_in = list(first.get("also_in", []))
             earlier, later = (art, first)
             deduped[first_idx] = art
             by_link[canon] = (first_idx, art)
             if st_key:
                 by_source_title[st_key] = (first_idx, art)
+            # Carry over any existing also_in credits from the displaced record
+            others = earlier.setdefault("also_in", [])
+            for s in existing_also_in:
+                if s and s != earlier.get("newsletter") and s not in others:
+                    others.append(s)
         others = earlier.setdefault("also_in", [])
         name = later.get("newsletter", "")
         if name and name != earlier.get("newsletter") and name not in others:
@@ -200,7 +210,8 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
     # 4. Optional days window filter. Defaults to 90 days (last 3 months).
     #    If days_window is None or <= 0, all articles are embedded (full archive).
     if days_window and days_window > 0:
-        cutoff_str = (datetime.now() - timedelta(days=days_window)).strftime("%Y-%m-%d")
+        ref_time = now if now is not None else datetime.now()
+        cutoff_str = (ref_time - timedelta(days=days_window)).strftime("%Y-%m-%d")
         latest_articles = [a for a in final_articles if a.get("date", "") >= cutoff_str]
     else:
         latest_articles = final_articles
@@ -244,6 +255,8 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
     html = html.replace("{{SOURCE_DESCRIPTIONS_HTML}}", "\n".join(desc_lines))
 
     json_articles_formatted = json.dumps(latest_articles, indent=4, ensure_ascii=False)
+    # Prevent HTML parser breakout in inline script block (OWASP / RFC 8259 compliant unicode escaping)
+    json_articles_formatted = json_articles_formatted.replace("<", "\\u003c").replace(">", "\\u003e")
     new_articles_js = f"/* ARTICLES_START */\n    const articles = {json_articles_formatted};\n    /* ARTICLES_END */"
     
     # Locate replacement zone using explicit boundary markers
@@ -260,9 +273,7 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
     end_idx = html.find(end_marker) + len(end_marker)
     new_html = html[:start_idx] + new_articles_js + html[end_idx:]
 
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    with open(output_path, "w", encoding="utf-8") as f:
-        f.write(new_html)
+    atomic_write_text(output_path, new_html)
 
     dedupe_note = f", {dupes_removed} cross-source duplicates merged" if dupes_removed else ""
     window_note = f"last {days_window} days" if days_window else "full archive"

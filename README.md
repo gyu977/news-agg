@@ -104,8 +104,9 @@ news-agg/
 │
 ├── docs/                       # 📚 Dedicated documentation
 │   ├── DEVELOPER-GUIDE.md      # Architecture, schemas, and extension guide
-│   ├── CODE-REVIEW.md          # Implementation review & issue tracker
-│   └── DATA-DISCREPANCIES.md   # Known data-level defects, deferred
+│   ├── DATA-DISCREPANCIES.md   # Known data-level defects, deferred
+│   ├── NEXT-STEPS.md           # Roadmap & milestone tracker
+│   └── releases.md             # Changelog & release highlights
 │
 ├── code/                       # ⚙️ Core engine and generators
 │   ├── build.py                # ⚡ Master CLI build runner

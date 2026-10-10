@@ -34,6 +34,7 @@ from common.url_utils import (  # noqa: E402
     unshorten_url,
     validate_url,
 )
+from common.file_utils import atomic_write_json  # noqa: E402
 
 SOURCES_DIR = os.path.join(PROJECT_ROOT, "data-sources")
 
@@ -169,11 +170,7 @@ def audit_source_links(
 
     # Save changes if fix_tracking modified any records
     if fix_tracking and modified:
-        tmp_fd, tmp_path = tempfile.mkstemp(dir=source_path, prefix="data_", suffix=".tmp")
-        with open(tmp_fd, "w", encoding="utf-8") as f:
-            json.dump(articles, f, indent=2, ensure_ascii=False)
-            f.write("\n")
-        os.replace(tmp_path, data_file)
+        atomic_write_json(data_file, articles)
         print(f"[{source_id}] Successfully updated {stats['tracking_fixed']} links in data.json")
 
     print(
