@@ -5,8 +5,21 @@
   "official_site": "https://deararchitects.xyz/",
   "archive_url": "https://www.deararchitects.xyz/archive",
   "parsed_issues": {
-    "count": 92,
+    "count": 93,
     "issues": [
+      {
+        "id": "311",
+        "date": "2026-10-10",
+        "date_str": "10 October 2026",
+        "title": "The real AI SDLC playbook from Atlassian - #311 Dear Architects",
+        "url": "https://preview.mailerlite.io/emails/webview/1235400/200957954648704390",
+        "quotes": [
+          {
+            "text": "One accurate measurement is worth a thousand expert opinions.",
+            "author": "Grace Hopper"
+          }
+        ]
+      },
       {
         "id": "310",
         "date": "2026-10-03",
@@ -1184,8 +1197,8 @@
         ]
       }
     ],
-    "last_parsed_issue": "310",
-    "last_parsed_date": "2026-10-03"
+    "last_parsed_issue": "311",
+    "last_parsed_date": "2026-10-10"
   },
   "default_header": "### Luca Mezzalira's Dear Architects",
   "short_name": "Dear Architects",

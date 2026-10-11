@@ -5,8 +5,16 @@
   "official_site": "https://www.tokenbytoken.ai/",
   "archive_url": "https://www.tokenbytoken.ai/",
   "parsed_issues": {
-    "count": 25,
+    "count": 26,
     "issues": [
+      {
+        "id": "26",
+        "date": "2026-10-08",
+        "date_str": "8 October 2026",
+        "title": "Cut AI costs without losing performance - #26 token by token",
+        "url": "https://preview.mailerlite.io/emails/webview/2096144/200795509941602103",
+        "quotes": []
+      },
       {
         "id": "25",
         "date": "2026-10-01",
@@ -208,8 +216,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "25",
-    "last_parsed_date": "2026-10-01"
+    "last_parsed_issue": "26",
+    "last_parsed_date": "2026-10-08"
   },
   "default_header": "### Luca Mezzalira's Token by Token",
   "short_name": "Token by Token",

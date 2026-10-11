@@ -1,16 +1,16 @@
 [
   {
-    "id": "twa-41-1e4c07",
+    "id": "twa-42-688ad5",
     "newsletter": "The Week Ahead",
-    "issue_number": 41,
-    "issue_title": "Week 41: The Week Ahead in Media + Tech",
-    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
-    "date": "2026-10-05",
-    "date_str": "5 October 2026",
-    "title": "Tech Week by a16z (San Francisco): AI Agents, Enterprise Software, and Future Infrastructure",
-    "link": "https://www.tech-week.com/",
+    "issue_number": 42,
+    "issue_title": "Week 42: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_from-santa-monica-to-south-of-france-activity-7515010222252277773-C0sa",
+    "date": "2026-10-13",
+    "date_str": "13 October 2026",
+    "title": "TechCrunch Disrupt (San Francisco): AI, Infrastructure, and Next-Cycle Technology",
+    "link": "https://techcrunch.com/events/tc-disrupt-2026/",
     "author": "Above",
-    "description": "5–11 Oct 2026 · San Francisco. More than 1,500 independently hosted events bring founders, investors, and operators together across San Francisco. AI agents are a major central theme, alongside enterprise software, media, fintech, and cybersecurity. Speakers include A. Dylan Jadeja, Tom Hale, Arvind Krishna, David Haber, and Anish Acharya.",
+    "description": "13–15 Oct 2026 · San Francisco. A major gathering for founders, investors, and operators with a strong focus on AI, infrastructure, and developer ecosystems. Speakers include Replit CEO Amjad Masad, Anthropic’s Cat de Jong, OpenAI’s Tara Seshan, Reddit CPO Maria Angelidou-Smith, and Rivian founder RJ Scaringe.",
     "category": "AI-Native & Agentic Software Engineering",
     "is_spotlight": true,
     "type": "conference",
@@ -18,7 +18,101 @@
     "user_overrides": [],
     "metadata": {
       "location": "San Francisco",
-      "dates": "5–11 Oct 2026"
+      "dates": "13–15 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-42-161f90",
+    "newsletter": "The Week Ahead",
+    "issue_number": 42,
+    "issue_title": "Week 42: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_from-santa-monica-to-south-of-france-activity-7515010222252277773-C0sa",
+    "date": "2026-10-13",
+    "date_str": "13 October 2026",
+    "title": "SEMICON West (San Francisco): AI Chips, Advanced Packaging, and Compute Infrastructure",
+    "link": "https://www.semiconwest.org/",
+    "author": "Above",
+    "description": "13–15 Oct 2026 · San Francisco. A major convening point for the semiconductor industry as AI drives investment across chips, advanced packaging, and compute infrastructure. Executive speakers include NVIDIA’s Timothy Costa, Synopsys President and CEO Sassine Ghazi, Intel Foundry’s Lalitha Immaneni, and Micron’s Scott Gatzemeier.",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "San Francisco",
+      "dates": "13–15 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-42-5f1f3b",
+    "newsletter": "The Week Ahead",
+    "issue_number": 42,
+    "issue_title": "Week 42: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_from-santa-monica-to-south-of-france-activity-7515010222252277773-C0sa",
+    "date": "2026-10-12",
+    "date_str": "12 October 2026",
+    "title": "VIEW Conference (Turin): Immersive Media, VFX, and Generative AI Filmmaking",
+    "link": "https://www.viewconference.it/",
+    "author": "Above",
+    "description": "12–16 Oct 2026 · Turin. A leading European gathering for computer graphics, VFX, immersive media, and AI filmmaking. Featured speakers include NVIDIA VP of Omniverse Richard Kerris and Runway co-founder Cristóbal Valenzuela.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Turin",
+      "dates": "12–16 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-42-3da96f",
+    "newsletter": "The Week Ahead",
+    "issue_number": 42,
+    "issue_title": "Week 42: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_from-santa-monica-to-south-of-france-activity-7515010222252277773-C0sa",
+    "date": "2026-10-12",
+    "date_str": "12 October 2026",
+    "title": "MIP Markets (Cannes): Global Entertainment & Content Market",
+    "link": "https://www.mipcom.com/",
+    "author": "Above",
+    "description": "12–15 Oct 2026 · Cannes. The global content market bringing together studios, broadcasters, streamers, creators, and distributors to discuss the next phase of entertainment. Headliners include Netflix CCO Bela Bajaria, YouTube’s Pedro Pina, BBC’s Zai Bennett, and Dhar Mann.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "television, broadcasting, and entertainment content market outside software engineering/AI scope",
+      "location": "Cannes",
+      "dates": "12–15 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-42-2ffc66",
+    "newsletter": "The Week Ahead",
+    "issue_number": 42,
+    "issue_title": "Week 42: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_from-santa-monica-to-south-of-france-activity-7515010222252277773-C0sa",
+    "date": "2026-10-12",
+    "date_str": "12 October 2026",
+    "title": "BFI London Film Festival Industry Forum (London): The Business of Screen Storytelling",
+    "link": "https://whatson.bfi.org.uk/lff/",
+    "author": "Above",
+    "description": "8–15 Oct 2026 · London. The industry programme running alongside the London Film Festival bringing together producers, distributors, financiers, and film leaders around the business and future of screen storytelling, featuring producer Pippa Harris and director Danny Boyle.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "film festival industry forum outside software engineering/AI scope",
+      "location": "London",
+      "dates": "8–15 Oct 2026"
     }
   },
   {
@@ -66,31 +160,6 @@
     }
   },
   {
-    "id": "twa-41-78babb",
-    "newsletter": "The Week Ahead",
-    "issue_number": 41,
-    "issue_title": "Week 41: The Week Ahead in Media + Tech",
-    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
-    "date": "2026-10-05",
-    "date_str": "5 October 2026",
-    "title": "Advertising Week New York",
-    "link": "https://advertisingweek.com/",
-    "author": "Above",
-    "description": "5–8 Oct 2026 · New York. Marketing, media, and commerce conference in Manhattan covering brand strategy, creator economies, and platform advertising.",
-    "category": "Tech Industry, Jobs & Careers",
-    "is_spotlight": false,
-    "type": "conference",
-    "hide": true,
-    "user_overrides": [
-      "hide"
-    ],
-    "metadata": {
-      "hide_reason": "advertising and creator marketing conference outside software engineering/AI scope",
-      "location": "New York",
-      "dates": "5–8 Oct 2026"
-    }
-  },
-  {
     "id": "twa-41-b413dc",
     "newsletter": "The Week Ahead",
     "issue_number": 41,
@@ -116,25 +185,97 @@
     }
   },
   {
-    "id": "twa-40-cbcaf1",
+    "id": "twa-41-1e4c07",
     "newsletter": "The Week Ahead",
-    "issue_number": 40,
-    "issue_title": "Week 40: The Week Ahead in Media + Tech",
-    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
-    "date": "2026-09-28",
-    "date_str": "28 September 2026",
-    "title": "GOTO Copenhagen 2026: Masterclasses in Architecture, Distributed Systems, and Reliable Tech",
-    "link": "https://gotocph.com/2026",
+    "issue_number": 41,
+    "issue_title": "Week 41: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
+    "date": "2026-10-05",
+    "date_str": "5 October 2026",
+    "title": "Tech Week by a16z (Los Angeles): AI, Entertainment, and Consumer Tech",
+    "link": "https://www.tech-week.com/",
     "author": "Above",
-    "description": "28 Sep–2 Oct 2026 · Copenhagen. Developers, architects, and engineering leaders gather in Copenhagen for five days of talks and masterclasses on software architecture, distributed systems, AI, and resilient system design. Keynotes and speakers include Sam Newman, Alex Ewerlöf, and Kevlin Henney.",
-    "category": "Software Architecture & Distributed Systems",
-    "is_spotlight": true,
+    "description": "12–18 Oct 2026 · Los Angeles. A citywide programme of founder dinners, product launches, investor gatherings, and technical sessions across AI, entertainment, gaming, and consumer technology, including an AI Startup Disruption in Media & Entertainment track.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
     "type": "conference",
     "hide": false,
     "user_overrides": [],
     "metadata": {
-      "location": "Copenhagen",
-      "dates": "28 Sep–2 Oct 2026"
+      "location": "San Francisco",
+      "dates": "5–11 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-41-78babb",
+    "newsletter": "The Week Ahead",
+    "issue_number": 41,
+    "issue_title": "Week 41: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
+    "date": "2026-10-05",
+    "date_str": "5 October 2026",
+    "title": "Advertising Week New York",
+    "link": "https://advertisingweek.com/",
+    "author": "Above",
+    "description": "5–8 Oct 2026 · New York. Marketing, media, and commerce conference in Manhattan covering brand strategy, creator economies, and platform advertising.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "advertising and creator marketing conference outside software engineering/AI scope",
+      "location": "New York",
+      "dates": "5–8 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-40-160a68",
+    "newsletter": "The Week Ahead",
+    "issue_number": 40,
+    "issue_title": "Week 40: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+    "date": "2026-10-01",
+    "date_str": "1 October 2026",
+    "title": "SOFTER Digital Futures (Rødvig): Building Democratic, Creative, and Caring Tech Ecosystems",
+    "link": "https://dk.linkedin.com/company/softerdigitalfutures",
+    "author": "Above",
+    "description": "1–3 Oct 2026 · Rødvig. An intimate gathering in Rødvig for designers, creative technologists, and engineers, featuring workshops and conversations on building more democratic, creative, and caring digital futures (curated by Ida Lissner & Nicole Jonasson).",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Rødvig",
+      "dates": "1–3 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-40-59a876",
+    "newsletter": "The Week Ahead",
+    "issue_number": 40,
+    "issue_title": "Week 40: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+    "date": "2026-10-01",
+    "date_str": "1 October 2026",
+    "title": "FilmFest Hamburg Explorer Konferenz",
+    "link": "https://de.linkedin.com/company/filmfesthamburg",
+    "author": "Above",
+    "description": "1 Oct 2026 · Hamburg. One-day industry conference for producers, financiers, and streaming platforms in Hamburg.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "film and streaming financing conference outside software engineering/AI scope",
+      "location": "Hamburg",
+      "dates": "1 Oct 2026"
     }
   },
   {
@@ -182,6 +323,28 @@
     }
   },
   {
+    "id": "twa-40-cbcaf1",
+    "newsletter": "The Week Ahead",
+    "issue_number": 40,
+    "issue_title": "Week 40: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+    "date": "2026-09-28",
+    "date_str": "28 September 2026",
+    "title": "GOTO Copenhagen 2026: Masterclasses in Architecture, Distributed Systems, and Reliable Tech",
+    "link": "https://gotocph.com/2026",
+    "author": "Above",
+    "description": "28 Sep–2 Oct 2026 · Copenhagen. Developers, architects, and engineering leaders gather in Copenhagen for five days of talks and masterclasses on software architecture, distributed systems, AI, and resilient system design. Keynotes and speakers include Sam Newman, Alex Ewerlöf, and Kevlin Henney.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": true,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Copenhagen",
+      "dates": "28 Sep–2 Oct 2026"
+    }
+  },
+  {
     "id": "twa-40-00be97",
     "newsletter": "The Week Ahead",
     "issue_number": 40,
@@ -201,28 +364,6 @@
     "metadata": {
       "location": "Boston",
       "dates": "24 Sep–2 Oct 2026"
-    }
-  },
-  {
-    "id": "twa-40-160a68",
-    "newsletter": "The Week Ahead",
-    "issue_number": 40,
-    "issue_title": "Week 40: The Week Ahead in Media + Tech",
-    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
-    "date": "2026-10-01",
-    "date_str": "1 October 2026",
-    "title": "SOFTER Digital Futures (Rødvig): Building Democratic, Creative, and Caring Tech Ecosystems",
-    "link": "https://dk.linkedin.com/company/softerdigitalfutures",
-    "author": "Above",
-    "description": "1–3 Oct 2026 · Rødvig. An intimate gathering in Rødvig for designers, creative technologists, and engineers, featuring workshops and conversations on building more democratic, creative, and caring digital futures (curated by Ida Lissner & Nicole Jonasson).",
-    "category": "Engineering Philosophy & Estimation",
-    "is_spotlight": false,
-    "type": "conference",
-    "hide": false,
-    "user_overrides": [],
-    "metadata": {
-      "location": "Rødvig",
-      "dates": "1–3 Oct 2026"
     }
   },
   {
@@ -248,31 +389,6 @@
       "hide_reason": "creator/video marketing conference outside software engineering/AI scope",
       "location": "Dallas",
       "dates": "29 Sep–1 Oct 2026"
-    }
-  },
-  {
-    "id": "twa-40-59a876",
-    "newsletter": "The Week Ahead",
-    "issue_number": 40,
-    "issue_title": "Week 40: The Week Ahead in Media + Tech",
-    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
-    "date": "2026-10-01",
-    "date_str": "1 October 2026",
-    "title": "FilmFest Hamburg Explorer Konferenz",
-    "link": "https://de.linkedin.com/company/filmfesthamburg",
-    "author": "Above",
-    "description": "1 Oct 2026 · Hamburg. One-day industry conference for producers, financiers, and streaming platforms in Hamburg.",
-    "category": "Tech Industry, Jobs & Careers",
-    "is_spotlight": false,
-    "type": "conference",
-    "hide": true,
-    "user_overrides": [
-      "hide"
-    ],
-    "metadata": {
-      "hide_reason": "film and streaming financing conference outside software engineering/AI scope",
-      "location": "Hamburg",
-      "dates": "1 Oct 2026"
     }
   },
   {

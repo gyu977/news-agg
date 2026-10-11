@@ -1,5 +1,80 @@
 [
   {
+    "id": "pe-2026-10-b5590c",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-10-08",
+    "date_str": "8 October 2026",
+    "title": "The Pulse: new trend of building “internal vibe-coding apps” at tech companies",
+    "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-new-trend-of-building-internal",
+    "author": "Gergely Orosz",
+    "description": "Also: do us engineers truly enjoy ‘hard problems’, or do we really just want to solve those which attract promotions, new open models launch in the EU and US, and more",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "pulse",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "the-pulse-new-trend-of-building-internal"
+    }
+  },
+  {
+    "id": "pe-2026-10-c2e921",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-10-07",
+    "date_str": "7 October 2026",
+    "title": "Building resilient systems with Sam Newman",
+    "link": "https://newsletter.pragmaticengineer.com/p/building-resilient-systems-with-sam",
+    "author": "Gergely Orosz & Sam Newman",
+    "description": "Sam Newman joins me to discuss when to use microservices, how to build resilient distributed systems, and how some of the tech world fundamentally misunderstands AI",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {
+      "audience": "everyone",
+      "slug": "building-resilient-systems-with-sam"
+    }
+  },
+  {
+    "id": "pe-2026-10-659ba4",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-10-06",
+    "date_str": "6 October 2026",
+    "title": "The state of the tech industry in 2026",
+    "link": "https://newsletter.pragmaticengineer.com/p/the-state-of-the-tech-industry-in",
+    "author": "Gergely Orosz",
+    "description": "A look into what has changed, what’s still the same – and what’s broken – in the tech industry. The full video and the summary of my keynote at LDX3 New York",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {
+      "audience": "everyone",
+      "slug": "the-state-of-the-tech-industry-in"
+    }
+  },
+  {
     "id": "pe-2026-10-593fe8",
     "newsletter": "The Pragmatic Engineer",
     "issue_number": null,

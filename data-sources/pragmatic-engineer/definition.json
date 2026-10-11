@@ -5,8 +5,32 @@
   "official_site": "https://newsletter.pragmaticengineer.com/",
   "archive_url": "https://newsletter.pragmaticengineer.com/archive",
   "parsed_issues": {
-    "count": 39,
+    "count": 42,
     "issues": [
+      {
+        "id": "pe-2026-10-b5590c",
+        "date": "2026-10-08",
+        "date_str": "8 October 2026",
+        "title": "The Pulse: new trend of building “internal vibe-coding apps” at tech companies",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-new-trend-of-building-internal",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-10-c2e921",
+        "date": "2026-10-07",
+        "date_str": "7 October 2026",
+        "title": "Building resilient systems with Sam Newman",
+        "url": "https://newsletter.pragmaticengineer.com/p/building-resilient-systems-with-sam",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-10-659ba4",
+        "date": "2026-10-06",
+        "date_str": "6 October 2026",
+        "title": "The state of the tech industry in 2026",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-state-of-the-tech-industry-in",
+        "quotes": []
+      },
       {
         "id": "pe-2026-10-593fe8",
         "date": "2026-10-01",
@@ -320,8 +344,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "pe-2026-10-593fe8",
-    "last_parsed_date": "2026-10-01"
+    "last_parsed_issue": "pe-2026-10-b5590c",
+    "last_parsed_date": "2026-10-08"
   },
   "default_header": "### Gergely Orosz's The Pragmatic Engineer",
   "short_name": "Pragmatic Eng.",

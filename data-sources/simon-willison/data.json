@@ -1,5 +1,49 @@
 [
   {
+    "id": "sw-2026-10-19c45c",
+    "newsletter": "Simon Willison's Weblog",
+    "issue_number": null,
+    "issue_title": "A new feature for my blog, built using my voice",
+    "issue_link": "https://simonwillison.net/2026/Oct/9/built-using-my-voice/",
+    "date": "2026-10-09",
+    "date_str": "9 October 2026",
+    "title": "A new feature for my blog, built using my voice",
+    "link": "https://simonwillison.net/2026/Oct/9/built-using-my-voice/",
+    "author": "Simon Willison",
+    "description": "Simon Willison builds and ships a new Django newsletters index feature for his blog almost entirely by voice using the ChatGPT desktop app Codex voice conversation mode with GPT-6 Astra High while cooking dinner, followed by a brief keyboard review and PR.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "sw-2026-10-a343c9",
+    "newsletter": "Simon Willison's Weblog",
+    "issue_number": null,
+    "issue_title": "Claude Haiku 5.5",
+    "issue_link": "https://simonwillison.net/2026/Oct/7/claude-haiku-5-5/",
+    "date": "2026-10-07",
+    "date_str": "7 October 2026",
+    "title": "Claude Haiku 5.5",
+    "link": "https://simonwillison.net/2026/Oct/7/claude-haiku-5-5/",
+    "author": "Simon Willison",
+    "description": "Anthropic releases Claude Haiku 5.5, a fast and low-cost reasoning model matching OpenAI's GPT-6 Luna pricing (zsh.10/zsh.50 per million tokens up to 100k tokens), featuring default reasoning, SVG generation benchmarks, and halved cache read pricing for Sonnet 5.5.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "sw-2026-10-3ba896",
     "newsletter": "Simon Willison's Weblog",
     "issue_number": null,

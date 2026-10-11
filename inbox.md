@@ -19,6 +19,11 @@ Supported formats:
 
 ## ✅ Processed Articles
 
+### Processed on 2026-10-10 20:31:
+- **Diomidis Spinellis** - [blog dds: 2026-10-08 — Thinking will become a hobby](https://www.spinellis.gr/blog/20261008/?li261008=)
+- [Why Agent-Written Code Needs Product Verification](https://stack72.dev/why-agent-written-code-needs-product-verification/)
+
+
 ### Processed on 2026-09-30 10:28:
 - **Anthropic** - [GLM-5.3 and the spread of advanced cyber capabilities](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
 

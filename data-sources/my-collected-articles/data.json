@@ -19,6 +19,53 @@
     "metadata": {}
   },
   {
+    "id": "others-2026-10-8bbd0a",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "October 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-10-10",
+    "date_str": "10 October 2026",
+    "title": "Thinking will become a hobby",
+    "link": "https://www.spinellis.gr/blog/20261008/",
+    "author": "Diomidis Spinellis",
+    "description": "Diomidis Spinellis reflects on the trajectory of AI systems outperforming human cognition across perception, reasoning, and autonomous action, arguing that driven by superior performance, lower cost, and 24/7 availability, professional thinking will increasingly be delegated to AI while human thinking becomes a hobby.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "title",
+      "link",
+      "author",
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "others-2026-10-670185",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "October 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-10-06",
+    "date_str": "6 October 2026",
+    "title": "Why Agent-Written Code Needs Product Verification",
+    "link": "https://stack72.dev/why-agent-written-code-needs-product-verification/",
+    "author": "Paul Stack",
+    "description": "Whether your tests catch real defects is not a property of the test level. It is a property of where the expectations come from and who can change them. The expectations have to come from outside the implementation loop — and those expectations need to be protected.",
+    "category": "Software Testing, Quality & Observability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "others-2026-09-ee711e",
     "newsletter": "Editor's Radar",
     "issue_number": null,

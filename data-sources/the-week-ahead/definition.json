@@ -1,16 +1,20 @@
 {
   "source_id": "the-week-ahead",
   "name": "The Week Ahead",
-  "short_name": "The Week Ahead",
   "author": "Above",
   "official_site": "https://dk.linkedin.com/company/aboveimpacts",
   "archive_url": "https://www.linkedin.com/company/aboveimpacts/posts/",
-  "default_header": "### The Week Ahead in Media + Tech",
-  "description": "Weekly radar forecasting landmark software engineering, AI infrastructure, and creative tech conferences and summits.",
-  "article_id_prefix": "twa",
   "parsed_issues": {
-    "count": 2,
+    "count": 3,
     "issues": [
+      {
+        "id": "42",
+        "date": "2026-10-12",
+        "date_str": "12 October 2026",
+        "title": "Week 42: The Week Ahead in Media + Tech",
+        "url": "https://www.linkedin.com/posts/aboveimpacts_from-santa-monica-to-south-of-france-activity-7515010222252277773-C0sa",
+        "quotes": []
+      },
       {
         "id": "41",
         "date": "2026-10-05",
@@ -28,12 +32,18 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "41",
-    "last_parsed_date": "2026-10-05"
+    "last_parsed_issue": "42",
+    "last_parsed_date": "2026-10-12"
   },
+  "default_header": "### The Week Ahead in Media + Tech",
+  "short_name": "The Week Ahead",
   "sponsor_domains": [],
+  "archive_retention_days": null,
   "has_archive": true,
   "static": true,
   "refresh_enabled": false,
-  "refresh_disabled_reason": "Curated event series; manual issue ingestion avoids automated LinkedIn bot rate-limits (HTTP 999)."
+  "refresh_disabled_reason": "Curated event series; manual issue ingestion avoids automated LinkedIn bot rate-limits (HTTP 999).",
+  "selectors_spec": {},
+  "article_id_prefix": "twa",
+  "description": "Weekly radar forecasting landmark software engineering, AI infrastructure, and creative tech conferences and summits."
 }
