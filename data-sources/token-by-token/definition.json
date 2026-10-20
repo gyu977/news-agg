@@ -5,14 +5,22 @@
   "official_site": "https://www.tokenbytoken.ai/",
   "archive_url": "https://www.tokenbytoken.ai/",
   "parsed_issues": {
-    "count": 26,
+    "count": 27,
     "issues": [
+      {
+        "id": "27",
+        "date": "2026-10-15",
+        "date_str": "",
+        "title": "Rewriting 800k lines of code with AI - #27 token by token",
+        "url": "https://preview.mailerlite.io/emails/webview/2096144/201410373689017861?signature=ba3e283d47a7554aab0cf7c78188ee4fb83cf039a87d24d647a8c5df1430187d",
+        "quotes": []
+      },
       {
         "id": "26",
         "date": "2026-10-08",
         "date_str": "8 October 2026",
         "title": "Cut AI costs without losing performance - #26 token by token",
-        "url": "https://preview.mailerlite.io/emails/webview/2096144/200795509941602103",
+        "url": "https://preview.mailerlite.io/emails/webview/2096144/200795509941602103?signature=e11b571e9a97dcd4d906ffa7dac84a4469dde984d02ddfbf1b81e2c5482d5ec4",
         "quotes": []
       },
       {
@@ -20,7 +28,7 @@
         "date": "2026-10-01",
         "date_str": "1 October 2026",
         "title": "Token by Token #25 - Is your AI strategy ready?",
-        "url": "https://preview.mailerlite.io/emails/webview/2096144/200132261056611774",
+        "url": "https://preview.mailerlite.io/emails/webview/2096144/200132261056611774?signature=25bc6b1633e8a39ca33ffa3598e99ad7808600f179dc4494ae9fc7b63d890da3",
         "quotes": []
       },
       {
@@ -216,8 +224,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "26",
-    "last_parsed_date": "2026-10-08"
+    "last_parsed_issue": "27",
+    "last_parsed_date": "2026-10-15"
   },
   "default_header": "### Luca Mezzalira's Token by Token",
   "short_name": "Token by Token",

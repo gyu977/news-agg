@@ -19,6 +19,18 @@ Supported formats:
 
 ## ✅ Processed Articles
 
+### Processed on 2026-10-20 19:32:
+- **Kent Beck** - [Take My Toil, Leave Me My Struggle](https://newsletter.kentbeck.com/p/take-my-toil-leave-me-my-struggle)
+
+
+### Processed on 2026-10-20 19:19:
+- **Hillel Wayne** - [What TLA+ can and can't check](https://buttondown.com/hillelwayne/archive/what-tla-can-and-cant-check/)
+
+
+### Processed on 2026-10-17 22:48:
+- **Addy Osmani** - [How the Claude Code team does code review / claude.dev Blog](https://claude.dev/blog/solving-code-review-at-anthropic/)
+
+
 ### Processed on 2026-10-10 20:31:
 - **Diomidis Spinellis** - [blog dds: 2026-10-08 — Thinking will become a hobby](https://www.spinellis.gr/blog/20261008/?li261008=)
 - [Why Agent-Written Code Needs Product Verification](https://stack72.dev/why-agent-written-code-needs-product-verification/)

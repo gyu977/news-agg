@@ -36,6 +36,7 @@ TRACKING_REDIRECT_DOMAINS: Set[str] = {
     "ow.ly",
     "is.gd",
     "rebrand.ly",
+    "fandf.co",
 }
 
 # Tracking parameters that carry attribution only and do not affect content identity
@@ -179,12 +180,23 @@ def unshorten_url(url: str, timeout: int = 10, max_hops: int = 5, force: bool = 
                 return clean_tracking_params(destination)
     except urllib.error.HTTPError as exc:
         # Some servers redirect but reject subsequent content requests with 403 or 401.
-        # If headers contain Location, extract it using the failing request's URL as base.
+        # 1. If headers contain Location, extract it using the failing request's URL as base.
         location = exc.headers.get("Location") if hasattr(exc, "headers") else None
         if location:
             base = getattr(exc, "url", clean_original) or clean_original
             resolved = urllib.parse.urljoin(base, location)
-            return clean_tracking_params(resolved)
+            if is_safe_public_url(resolved):
+                return clean_tracking_params(resolved)
+        # 2. If urllib already followed the redirect(s) to the destination before the
+        # destination server returned 403/401/429, exc.url holds the resolved destination URL.
+        err_url = getattr(exc, "url", None) or (exc.geturl() if hasattr(exc, "geturl") else None)
+        if (
+            err_url
+            and err_url != clean_original
+            and is_safe_public_url(err_url)
+            and not is_tracking_redirect_domain(err_url)
+        ):
+            return clean_tracking_params(err_url)
         # Log and return original if resolution failed
         print(f"[url_utils] Unshorten warning for {clean_original}: HTTP {exc.code}")
     except (urllib.error.URLError, TimeoutError, OSError, ValueError) as exc:

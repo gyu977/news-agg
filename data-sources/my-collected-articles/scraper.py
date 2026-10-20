@@ -32,6 +32,10 @@ class MetadataParser(HTMLParser):
         self.meta = {}
         self.title_parts = []
         self.in_title = False
+        self.in_json_ld = False
+        self.json_ld_parts = []
+        self.json_ld_date = None
+        self.json_ld_author = None
         self.first_time = None
 
     def handle_starttag(self, tag, attrs):
@@ -43,16 +47,39 @@ class MetadataParser(HTMLParser):
                 self.meta[key] = content.strip()
         elif tag.lower() == "title":
             self.in_title = True
+        elif tag.lower() == "script" and attrs.get("type", "").lower() == "application/ld+json":
+            self.in_json_ld = True
+            self.json_ld_parts = []
         elif tag.lower() == "time" and not self.first_time:
             self.first_time = attrs.get("datetime")
 
     def handle_endtag(self, tag):
         if tag.lower() == "title":
             self.in_title = False
+        elif tag.lower() == "script" and self.in_json_ld:
+            self.in_json_ld = False
+            try:
+                data = json.loads("".join(self.json_ld_parts).strip())
+                items = data if isinstance(data, list) else [data]
+                for item in items:
+                    if not isinstance(item, dict):
+                        continue
+                    if not self.json_ld_date and item.get("datePublished"):
+                        self.json_ld_date = str(item["datePublished"]).strip()
+                    if not self.json_ld_author and item.get("author"):
+                        auth = item["author"]
+                        if isinstance(auth, dict) and auth.get("name"):
+                            self.json_ld_author = str(auth["name"]).strip()
+                        elif isinstance(auth, str):
+                            self.json_ld_author = auth.strip()
+            except Exception:
+                pass
 
     def handle_data(self, data):
         if self.in_title:
             self.title_parts.append(data)
+        elif self.in_json_ld:
+            self.json_ld_parts.append(data)
 
     @property
     def title(self):
@@ -69,6 +96,7 @@ class MyCollectedArticlesScraper(BaseScraper):
         "linkedin.com/pulse/100-most-watched": "Tech Talks Weekly",
         "lucumr.pocoo.org": "Armin Ronacher",
         "nick-tune.me": "Nick Tune",
+        "buttondown.com/hillelwayne": "Hillel Wayne",
     }
 
     def __init__(self):
@@ -163,6 +191,7 @@ class MyCollectedArticlesScraper(BaseScraper):
             cand_auth = (
                 parser.meta.get("article:author")
                 or parser.meta.get("author")
+                or parser.json_ld_author
                 or parser.meta.get("twitter:creator")
             )
             if cand_auth:
@@ -174,6 +203,7 @@ class MyCollectedArticlesScraper(BaseScraper):
                 parser.meta.get("article:published_time")
                 or parser.meta.get("publication_date")
                 or parser.meta.get("date")
+                or parser.json_ld_date
                 or parser.first_time
             )
             if raw_dt:

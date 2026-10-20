@@ -5,8 +5,32 @@
   "official_site": "https://newsletter.pragmaticengineer.com/",
   "archive_url": "https://newsletter.pragmaticengineer.com/archive",
   "parsed_issues": {
-    "count": 42,
+    "count": 45,
     "issues": [
+      {
+        "id": "pe-2026-10-0e4f83",
+        "date": "2026-10-15",
+        "date_str": "15 October 2026",
+        "title": "The Pulse: OpenAI software engineer accused of spying",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-openai-software-engineer",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-10-bc6f7d",
+        "date": "2026-10-14",
+        "date_str": "14 October 2026",
+        "title": "Uber’s AI infra, from the inside",
+        "url": "https://newsletter.pragmaticengineer.com/p/ubers-ai-infra-from-the-inside",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-10-837e84",
+        "date": "2026-10-13",
+        "date_str": "13 October 2026",
+        "title": "Building resilient AI-powered software, and planning for when things go wrong",
+        "url": "https://newsletter.pragmaticengineer.com/p/building-resilient-systems",
+        "quotes": []
+      },
       {
         "id": "pe-2026-10-b5590c",
         "date": "2026-10-08",
@@ -344,8 +368,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "pe-2026-10-b5590c",
-    "last_parsed_date": "2026-10-08"
+    "last_parsed_issue": "pe-2026-10-0e4f83",
+    "last_parsed_date": "2026-10-15"
   },
   "default_header": "### Gergely Orosz's The Pragmatic Engineer",
   "short_name": "Pragmatic Eng.",

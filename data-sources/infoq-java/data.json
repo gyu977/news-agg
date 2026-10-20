@@ -1,5 +1,47 @@
 [
   {
+    "id": "java-2026-10-f167fc",
+    "newsletter": "InfoQ Java",
+    "issue_number": null,
+    "issue_title": "Helidon 27 Introduces Restructured Programming Models and New Messaging and Data Modules",
+    "issue_link": "https://www.infoq.com/news/2026/10/helidon-27-released/",
+    "date": "2026-10-16",
+    "date_str": "16 October 2026",
+    "title": "Helidon 27 Introduces Restructured Programming Models and New Messaging and Data Modules",
+    "link": "https://www.infoq.com/news/2026/10/helidon-27-released/",
+    "author": "Michael Redlich",
+    "description": "The release of Helidon 27 is the first release that follows the Oracle Tip & Tail Model of Library Development by which the Tip adopts the latest Java technology while the Tail provides a more stable and secure baseline. Concurrent with the release of JDK 27, new features in Helidon 27 include: an introduction to new major modules, Helidon Messaging and Helidon Data JDBC. By Michael Redlich",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "java-2026-10-f94425",
+    "newsletter": "InfoQ Java",
+    "issue_number": null,
+    "issue_title": "Java News Roundup: Grails 8, Open Liberty, GlassFish, Infinispan, LangChain4j, Spock",
+    "issue_link": "https://www.infoq.com/news/2026/10/java-news-roundup-oct05-2026/",
+    "date": "2026-10-12",
+    "date_str": "12 October 2026",
+    "title": "Java News Roundup: Grails 8, Open Liberty, GlassFish, Infinispan, LangChain4j, Spock",
+    "link": "https://www.infoq.com/news/2026/10/java-news-roundup-oct05-2026/",
+    "author": "Michael Redlich",
+    "description": "This week's Java roundup for October 5th, 2026, features news highlighting: OpenJDK JEPs Proposed to Target for JDK 28; Lazy Constants elevated to Candidate status; the GA releases of Apache Grails 8.0 and Open Liberty 20.0.0.10; point releases of TornadoVM, Infinispan, LangChain4j and Spock; and a maintenance release of GlassFish. By Michael Redlich",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "java-2026-10-620c7f",
     "newsletter": "InfoQ Java",
     "issue_number": null,

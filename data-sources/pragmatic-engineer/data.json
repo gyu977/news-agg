@@ -1,5 +1,75 @@
 [
   {
+    "id": "pe-2026-10-0e4f83",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-10-15",
+    "date_str": "15 October 2026",
+    "title": "The Pulse: OpenAI software engineer accused of spying",
+    "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-openai-software-engineer",
+    "author": null,
+    "description": "Also: insider details on how and why Anthropic moved off Git, a new trend of AI-assisted coding rounds inside of Big Tech, and more",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "pulse",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "the-pulse-openai-software-engineer"
+    }
+  },
+  {
+    "id": "pe-2026-10-bc6f7d",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-10-14",
+    "date_str": "14 October 2026",
+    "title": "Uber’s AI infra, from the inside",
+    "link": "https://newsletter.pragmaticengineer.com/p/ubers-ai-infra-from-the-inside",
+    "author": null,
+    "description": "Uber Distinguished Engineer Uday Kiran Medisetty shares how Uber builds internal developer tools, integrates AI agents into engineering workflows, and measures their impact on productivity.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "audience": "everyone",
+      "slug": "ubers-ai-infra-from-the-inside"
+    }
+  },
+  {
+    "id": "pe-2026-10-837e84",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-10-13",
+    "date_str": "13 October 2026",
+    "title": "Building resilient AI-powered software, and planning for when things go wrong",
+    "link": "https://newsletter.pragmaticengineer.com/p/building-resilient-systems",
+    "author": null,
+    "description": "How to handle uncertainty with AI vendors and disaster recovery (DR) approaches to consider. An excerpt from the book Building Resilient Distributed Systems by Sam Newman",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {
+      "audience": "everyone",
+      "slug": "building-resilient-systems"
+    }
+  },
+  {
     "id": "pe-2026-10-b5590c",
     "newsletter": "The Pragmatic Engineer",
     "issue_number": null,

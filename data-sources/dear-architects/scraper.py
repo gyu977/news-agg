@@ -21,7 +21,7 @@ class DearArchitectsScraper(MailerLiteScraper):
     )
     article_id_prefix = "da"
     newsletter_name = "Dear Architects"
-    blocked_link_terms = ("deararchitects.xyz",)
+    blocked_link_terms = ("deararchitects.xyz", "tokenbytoken.ai")
     archive_pages = (
         "https://deararchitects.xyz/",
         "https://www.deararchitects.xyz/archive",

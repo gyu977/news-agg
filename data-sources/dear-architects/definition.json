@@ -5,14 +5,27 @@
   "official_site": "https://deararchitects.xyz/",
   "archive_url": "https://www.deararchitects.xyz/archive",
   "parsed_issues": {
-    "count": 93,
+    "count": 94,
     "issues": [
+      {
+        "id": "312",
+        "date": "2026-10-17",
+        "date_str": "17 October 2026",
+        "title": "How the Claude Code team reviews AI changes - #312 Dear Architects",
+        "url": "https://preview.mailerlite.io/emails/webview/1235400/201606412872189003?signature=fe3785226f8838ad8deb1f896a8c50b6b7c208a666516c0ddad89974ca7f9439",
+        "quotes": [
+          {
+            "text": "Any program is only as good as it is useful.",
+            "author": "Linus Torvalds"
+          }
+        ]
+      },
       {
         "id": "311",
         "date": "2026-10-10",
         "date_str": "10 October 2026",
         "title": "The real AI SDLC playbook from Atlassian - #311 Dear Architects",
-        "url": "https://preview.mailerlite.io/emails/webview/1235400/200957954648704390",
+        "url": "https://preview.mailerlite.io/emails/webview/1235400/200957954648704390?signature=1b58f3b0b78845550292aceb693688a9265053b36056bb5e9625563917632137",
         "quotes": [
           {
             "text": "One accurate measurement is worth a thousand expert opinions.",
@@ -25,7 +38,7 @@
         "date": "2026-10-03",
         "date_str": "3 October 2026",
         "title": "Mapping your complex systems - #310 Dear Architects",
-        "url": "https://preview.mailerlite.io/emails/webview/1235400/200338558652777848",
+        "url": "https://preview.mailerlite.io/emails/webview/1235400/200338558652777848?signature=7d2677815d24da6aa3a378da1164a21a94640a2d6b1cdf3f49248f0b65cceec5",
         "quotes": [
           {
             "text": "Emotions are essential parts of human intelligence. Without emotional intelligence, Artificial Intelligence will remain incomplete.",
@@ -1197,8 +1210,8 @@
         ]
       }
     ],
-    "last_parsed_issue": "311",
-    "last_parsed_date": "2026-10-10"
+    "last_parsed_issue": "312",
+    "last_parsed_date": "2026-10-17"
   },
   "default_header": "### Luca Mezzalira's Dear Architects",
   "short_name": "Dear Architects",

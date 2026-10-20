@@ -1,5 +1,124 @@
 [
   {
+    "id": "twa-43-1390fb",
+    "newsletter": "The Week Ahead",
+    "issue_number": 43,
+    "issue_title": "Week 43: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_nyc-to-berlin-a-few-key-events-worth-activity-7517585301456924672-97QQ",
+    "date": "2026-10-20",
+    "date_str": "20 October 2026",
+    "title": "NVIDIA GTC (Berlin): AI Infrastructure, Accelerated Computing, and Physical AI",
+    "link": "https://www.nvidia.com/gtc/",
+    "author": "Above",
+    "description": "20–22 Oct 2026 · Berlin. NVIDIA brings GTC to Europe for a major gathering on AI infrastructure, accelerated computing, and physical AI. CEO Jensen Huang delivers the keynote, with sessions for developers, researchers, and executives across the full AI stack. Speakers also include Alexandre Jacob of L'Oréal, Andrew McNamara, Joerg Burzer of Mercedes, Kimberly Powell of NVIDIA, and Tim Anderson of London Stock Exchange.",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": true,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Berlin",
+      "dates": "20–22 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-43-67cdcb",
+    "newsletter": "The Week Ahead",
+    "issue_number": 43,
+    "issue_title": "Week 43: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_nyc-to-berlin-a-few-key-events-worth-activity-7517585301456924672-97QQ",
+    "date": "2026-10-20",
+    "date_str": "20 October 2026",
+    "title": "NAB Show (New York): Broadcasting, Streaming, and Production Marketplace",
+    "link": "https://www.nabshow.com/",
+    "author": "Above",
+    "description": "20–22 Oct 2026 · New York. Founded over 100 years ago, a major East Coast marketplace for broadcasting, streaming, sports media, creators, and production technology. This year’s program includes CNBC’s Alex Sherman, BofA media analyst Jessica Reif Ehrlich, J.P. Morgan’s Eric Menell, 3C Ventures founder Michael Kassan, dentsu’s Christine Cotter, and UPROXX CEO Jarret Myer.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "broadcasting, streaming, and media production marketplace outside software engineering/AI scope",
+      "location": "New York",
+      "dates": "20–22 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-43-97ec9c",
+    "newsletter": "The Week Ahead",
+    "issue_number": 43,
+    "issue_title": "Week 43: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_nyc-to-berlin-a-few-key-events-worth-activity-7517585301456924672-97QQ",
+    "date": "2026-10-20",
+    "date_str": "20 October 2026",
+    "title": "PG Connects Nordics (Helsinki): Game Publishing and Studio Economics",
+    "link": "https://www.pgconnects.com/nordics/",
+    "author": "Above",
+    "description": "20–21 Oct 2026 · Helsinki. Publishers, studios, and investors compare notes on the new economics of making games, finding audiences, and turning a hit into a lasting world. With more than 1,500 professionals attending, speakers include Tatu Petersen-Jessen of Odd Latent, Wilma Ramona Ikäheimonen of Game Makers of Finland, Zoran Gjorgiev of InnoGames, and Urška L. of Outfit7.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "mobile/indie game publishing and business conference outside software engineering/AI scope",
+      "location": "Helsinki",
+      "dates": "20–21 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-43-d45813",
+    "newsletter": "The Week Ahead",
+    "issue_number": 43,
+    "issue_title": "Week 43: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_nyc-to-berlin-a-few-key-events-worth-activity-7517585301456924672-97QQ",
+    "date": "2026-10-19",
+    "date_str": "19 October 2026",
+    "title": "Paley International Council Summit (New York): Media, Entertainment, Gaming, and Finance",
+    "link": "https://www.paleycenter.org/",
+    "author": "Above",
+    "description": "19–21 Oct 2026 · New York. Often called the 'Davos of Media,' this invitation-led gathering convenes senior figures across media, tech, entertainment, sport, gaming, and finance. The programme includes Sony Group CEO Hiroki Totoki, Take-Two CEO Strauss Zelnick, Reddit co-founder Alexis Ohanian Sr., Yahoo CEO Jim Lanzone, Bluesky COO Rose Wang, McDonald’s CMO Morgan Flatley, and 3C Ventures founder Michael Kassan.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "invitation-led media, entertainment, and brand executive summit outside software engineering/AI scope",
+      "location": "New York",
+      "dates": "19–21 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-43-f6730d",
+    "newsletter": "The Week Ahead",
+    "issue_number": 43,
+    "issue_title": "Week 43: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_nyc-to-berlin-a-few-key-events-worth-activity-7517585301456924672-97QQ",
+    "date": "2026-10-18",
+    "date_str": "18 October 2026",
+    "title": "Money20/20 (Las Vegas): Fintech, AI, and the Economics of Trust",
+    "link": "https://us.money2020.com/",
+    "author": "Above",
+    "description": "18–21 Oct 2026 · Las Vegas. Where the financial system comes to renegotiate its future: who owns the customer relationship, how AI changes the economics of trust, and whether the next era of money will feel more open or more controlled. Speakers include Perplexity co-founder Aravind Srinivas, Plaid co-founder Zachary Perret, Kalshi CEO Tarek Mansour, Lightspark CEO David Marcus, and Fintech Is Femme founder Nicole Casperson.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Las Vegas",
+      "dates": "18–21 Oct 2026"
+    }
+  },
+  {
     "id": "twa-42-688ad5",
     "newsletter": "The Week Ahead",
     "issue_number": 42,

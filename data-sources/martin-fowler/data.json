@@ -1,5 +1,69 @@
 [
   {
+    "id": "mf-2026-10-b77438",
+    "newsletter": "Martin Fowler",
+    "issue_number": null,
+    "issue_title": "When Software Meets Hardware",
+    "issue_link": "https://martinfowler.com/articles/software-meets-hardware.html",
+    "date": "2026-10-15",
+    "date_str": "15 October 2026",
+    "title": "When Software Meets Hardware",
+    "link": "https://martinfowler.com/articles/software-meets-hardware.html",
+    "author": "Kuldeep Singh",
+    "description": "When software meets hardware, engineering principles remain the same, but the defaults change—from testing devices to handling disconnection, energy, diagnostics, observability, and recovery.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "mf-2026-10-a63742",
+    "newsletter": "Martin Fowler",
+    "issue_number": null,
+    "issue_title": "Build your slide template",
+    "issue_link": "https://martinfowler.com/articles/never-send-slides/build-your-slide-template.html",
+    "date": "2026-10-14",
+    "date_str": "14 October 2026",
+    "title": "Build your slide template",
+    "link": "https://martinfowler.com/articles/never-send-slides/build-your-slide-template.html",
+    "author": "Sumeet Gayathri Moghe",
+    "description": "Building a reusable slide template with colour palettes, typography, and simple layouts.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "mf-2026-10-56f869",
+    "newsletter": "Martin Fowler",
+    "issue_number": null,
+    "issue_title": "Are Harnesses Worth the Cost?",
+    "issue_link": "https://martinfowler.com/articles/are-harnesses-worth-the-cost.html",
+    "date": "2026-10-13",
+    "date_str": "13 October 2026",
+    "title": "Are Harnesses Worth the Cost?",
+    "link": "https://martinfowler.com/articles/are-harnesses-worth-the-cost.html",
+    "author": "Naresh Jain",
+    "description": "An experiment asks whether a behavioral harness can improve the reliability of cost-optimized coding models.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category",
+      "description"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "mf-2026-10-f6ff5f",
     "newsletter": "Martin Fowler",
     "issue_number": null,
@@ -375,7 +439,7 @@
     "issue_link": "https://martinfowler.com/articles/practitioner-voice.html",
     "date": "2026-08-19",
     "date_str": "19 August 2026",
-    "title": "Practitioner Voice: The Writing Category Nobody has Named Yet",
+    "title": "The Craft of Practitioner Voice",
     "link": "https://martinfowler.com/articles/practitioner-voice.html",
     "author": "Jim Highsmith",
     "description": "",

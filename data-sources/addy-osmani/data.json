@@ -1,5 +1,26 @@
 [
   {
+    "id": "addy-2026-10-72e88d",
+    "newsletter": "Addy Osmani",
+    "issue_number": null,
+    "issue_title": "October 2026 Blog Essays",
+    "issue_link": "https://addyosmani.com/blog/",
+    "date": "2026-10-14",
+    "date_str": "14 October 2026",
+    "title": "Agentic Verification",
+    "link": "https://addyo.substack.com/p/agentic-verification",
+    "author": "Addy Osmani",
+    "description": "The bottleneck has moved from writing code to knowing it’s correct.",
+    "category": "Software Testing, Quality & Observability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "addy-2026-09-b1a3b0",
     "newsletter": "Addy Osmani",
     "issue_number": null,

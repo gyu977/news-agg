@@ -5,8 +5,16 @@
   "official_site": "https://dk.linkedin.com/company/aboveimpacts",
   "archive_url": "https://www.linkedin.com/company/aboveimpacts/posts/",
   "parsed_issues": {
-    "count": 3,
+    "count": 4,
     "issues": [
+      {
+        "id": "43",
+        "date": "2026-10-19",
+        "date_str": "19 October 2026",
+        "title": "Week 43: The Week Ahead in Media + Tech",
+        "url": "https://www.linkedin.com/posts/aboveimpacts_nyc-to-berlin-a-few-key-events-worth-activity-7517585301456924672-97QQ",
+        "quotes": []
+      },
       {
         "id": "42",
         "date": "2026-10-12",
@@ -32,8 +40,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "42",
-    "last_parsed_date": "2026-10-12"
+    "last_parsed_issue": "43",
+    "last_parsed_date": "2026-10-19"
   },
   "default_header": "### The Week Ahead in Media + Tech",
   "short_name": "The Week Ahead",

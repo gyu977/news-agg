@@ -40,11 +40,31 @@ Completed UI modernization recommendations and enhancements.
   - *Goal*: Add an inline `Show only` / `Show all` toggle directly inside the `.pill-selected` capsule (`[ 3 selected | 👁️ Show only | Clear ]`), keeping selection management in a single, motionless capsule that vanishes when no rows are checked.
 - **Unified Export for Active Filtered Views (UI Polish Candidate)**: ⏳ **Planned**
   - *Context*: Currently, export buttons appear only when $\ge 1$ item is selected. When 0 rows are selected, users might want to export the entire currently filtered view (e.g. `Export View (322)`) directly from the table toolbar.
-- **Author Column Quality Audit & Representation Review**: ⏳ **Planned**
-  - *Context*: Some rows currently have missing authors or unexpected/weird values (e.g. publisher credits, scraping artifacts). This may stem from parsing errors or imprecise extraction heuristics in certain newsletter scrapers.
+- **Author & Scraper Metadata Quality Audit (`SubstackScraper`, `my-collected-articles`, `normalize_data.py`)**: ⏳ **Planned**
+  - *Context*: Some rows currently have missing authors or unexpected/weird values (e.g. publisher credits, scraping artifacts, site suffixes in titles).
   - *Planned Action*:
-    1. **Parsing & Root-Cause Audit**: Audit individual scrapers (MailerLite, Substack, RSS feeds) and `BaseScraper._is_plausible_author` in `normalize_data.py` to identify where authors are dropped or misparsed and tighten author extraction rules.
-    2. **Layout & Byline Evaluation**: Revisit whether author deserves a standalone table column or should be consolidated into the `Article` cell as an inline byline (e.g., *Title — by Author*), which would eliminate empty cell gaps and expand horizontal space for titles and descriptions.
+    1. **Substack Default & Byline Author (`code/common/substack_scraper.py`, `pragmatic-engineer/scraper.py`)**: Currently `SubstackScraper` sets `author=guest_author` (which is `None` unless the title contains `"with <Guest>"`). Add `default_author = "Gergely Orosz"` on `PragmaticEngineerScraper` (or extract `publishedBylines[0].name` from the Substack API payload) so new posts don't land with `author: null`.
+    2. **Inbox Metadata & JSON-LD Extraction (`data-sources/my-collected-articles/scraper.py`)**: Strip trailing site branding suffixes from `<title>` / `og:title` (e.g., `" / claude.dev Blog"`, `" | Site Name"`), and parse `<script type="application/ld+json">` so multi-author lists (`author: [{"name": "A"}, {"name": "B"}]`) and ISO publication dates are captured when OpenGraph tags omit them.
+    3. **Layout & Byline Evaluation**: Revisit whether author deserves a standalone table column or should be consolidated into the `Article` cell as an inline byline (e.g., *Title — by Author*).
+- **CLI & Build Orchestrator Enhancements (`code/build.py`)**: ⏳ **Planned**
+  - *Context*: Running `python3 code/build.py --refresh --source <name>` currently passes `args.source` into `build_news_page(args.days, args.source)` (line 165), overwriting the root `news.html` with a single-source dashboard until a full build is re-run. Additionally, `--source` only accepts a single string (`type=str`) and lacks an `--exclude` flag.
+  - *Planned Action*:
+    1. Decouple `--source` scraper/markdown targeting from `build_news_page()` so `news.html` always builds across all sources (unless an explicit `--filter-dashboard-source` flag is passed).
+    2. Upgrade `--source` to `nargs="+"` (supporting multiple sources) and add `--exclude` (`nargs="+"`) to support one-command partial refreshes (e.g. `python3 code/build.py --refresh --exclude dear-architects the-week-ahead`).
+- **MailerLite Direct URL Ingestion & Signature Invariants (`code/common/mailerlite_scraper.py`, `tests/test_data_integrity.py`)**: ⏳ **Planned**
+  - *Context*: Newer *Dear Architects* and *Token by Token* issues use MailerLite's `/emails/webview/{account}/{id}?signature=<hmac>` format, which returns HTTP 404 if `?signature=` is stripped and isn't listed on the legacy `campaign-archive.com` index.
+  - *Planned Action*:
+    1. Add `--ingest-url <url>` to `MailerLiteScraper` (and expose via `code/build.py`) to resolve `clicks.mlsend.com` tracking links while preserving `?signature=`, automatically append/update `definition.json`, and run `parse_issue_html()` (with built-in article link unshortening).
+    2. Add an invariant check in `tests/test_data_integrity.py` and `code/tools/normalize_data.py` verifying that all `mailerlite.com/emails/webview/` URLs in `data.json` (`issue_link`) and `definition.json` (`url`) retain `?signature=`, and that no `clicks.mlsend.com` or `fandf.co` redirect wrappers remain in `data.json`.
+- **Cross-Source Deduplication Field Enrichment (`code/builders/build_news_page.py`)**: ⏳ **Planned**
+  - *Context*: When two sources share the same canonical link (`by_link` in `build_news_page.py` lines 156–178), the builder keeps the earlier-dated record and records the second source in `also_in`, but ignores the secondary record's metadata fields. If the earlier record has an empty `description` (e.g., `martin-fowler` default Atom scrape) or `is_spotlight: False` while the later curated newsletter (`token-by-token` or `dear-architects`) has a rich summary or `is_spotlight: True`, that metadata is lost on the dashboard.
+  - *Planned Action*:
+    1. Enrich the surviving primary record with non-empty fallback fields from the secondary record during `by_link` deduplication (`description`, `author`, and `is_spotlight`).
+- **Auto-Categorizer Keyword Precision (`code/common/base_scraper.py`)**: ⏳ **Planned**
+  - *Context*: In `BaseScraper.CATEGORY_KEYWORDS`, the bare single-word keyword `"model"` in `Large Language Models & Evaluation Infrastructure` false-positives on classical software engineering titles like *"Programming Models"* or *"Domain Model"*.
+  - *Planned Action*:
+    1. Replace bare `"model"` with contextual phrases (`"language model"`, `"open model"`, `"frontier model"`, `"model weights"`, `"model training"`, `"reasoning model"`, `"world model"`).
+    2. Add missing high-signal keywords to `Software Testing, Quality & Observability` (`"code review"`, `"verification"`, `"static analysis"`, `"benchmark"`) and `Cloud Infrastructure & System Reliability` (`"disaster recovery"`, `"multi-region"`, `"resilient"`, `"failover"`).
 - **Auto-Disable "Future Events" Toggle When No Future-Dated Items Exist (UI Polish)**: ⏳ **Planned**
   - *Context*: The "Future Events" switch toggles articles dated strictly after local today midnight (`todayLocalMidnight`). Currently, Codecamp Cluj-Napoca 2026 (`2026-10-20`) and SOFTER (`2026-10-01`) ensure upcoming events exist. After October 20, 2026 (or when active filter combinations like "Articles only" or specific sources yield zero future events), flipping the switch produces no visual changes, risking a "dead control" UX impression.
   - *Planned Action*:

@@ -19,6 +19,51 @@
     "metadata": {}
   },
   {
+    "id": "others-2026-10-625a95",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "October 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-10-20",
+    "date_str": "20 October 2026",
+    "title": "Take My Toil, Leave Me My Struggle",
+    "link": "https://newsletter.kentbeck.com/p/take-my-toil-leave-me-my-struggle",
+    "author": "Kent Beck",
+    "description": "Imagine RoboGym, where pressing a 'Lift' button moves weights up and down for you—missing the entire point of a workout. Kent Beck reflects on how AI 'Genies' are being designed as a RoboGym for the mind, arguing that tools should eliminate mechanical toil while preserving the cognitive struggle that builds human understanding and mastery.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "others-2026-10-7fd7e0",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "October 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-10-15",
+    "date_str": "15 October 2026",
+    "title": "How the Claude Code team does code review",
+    "link": "https://claude.dev/blog/solving-code-review-at-anthropic/",
+    "author": "Addy Osmani, Morgan Westlee Lunt & Qing Wang",
+    "description": "How do you review code at the volume agents produce it? On the Claude Code team, once we had high coverage and deep reviews, we started optimizing for the minimum amount of human review time that doesn't raise reverts or incidents.",
+    "category": "Software Testing, Quality & Observability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "title",
+      "author",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "others-2026-10-8bbd0a",
     "newsletter": "Editor's Radar",
     "issue_number": null,
@@ -61,6 +106,28 @@
     "hide": false,
     "user_overrides": [
       "author",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "others-2026-09-3f95e6",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "September 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-09-30",
+    "date_str": "30 September 2026",
+    "title": "What TLA+ can and can't check",
+    "link": "https://buttondown.com/hillelwayne/archive/what-tla-can-and-cant-check/",
+    "author": "Hillel Wayne",
+    "description": "Let's chill just a little bit on the \"TLA+ will save AI from itself\" narrative. Hillel Wayne breaks down what TLA+ can express (invariants, action properties, liveness) and what it fundamentally cannot check natively—unformalizable domain concepts, multi-step safety without auxiliary variables, reachability, and hyperproperties across sets of behaviors.",
+    "category": "Software Testing, Quality & Observability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description",
       "category"
     ],
     "metadata": {}

@@ -8,6 +8,14 @@
     "count": 11,
     "issues": [
       {
+        "id": "addy-2026-10",
+        "date": "2026-10-14",
+        "date_str": "14 October 2026",
+        "title": "October 2026 Blog Essays",
+        "url": "https://addyosmani.com/blog/",
+        "quotes": []
+      },
+      {
         "id": "addy-2026-09",
         "date": "2026-09-14",
         "date_str": "14 September 2026",
@@ -86,18 +94,10 @@
         "title": "December 2025 Blog Essays",
         "url": "https://addyosmani.com/blog/",
         "quotes": []
-      },
-      {
-        "id": "addy-2025-11",
-        "date": "2025-11-25",
-        "date_str": "25 November 2025",
-        "title": "November 2025 Blog Essays",
-        "url": "https://addyosmani.com/blog/",
-        "quotes": []
       }
     ],
-    "last_parsed_issue": "addy-2026-09",
-    "last_parsed_date": "2026-09-14"
+    "last_parsed_issue": "addy-2026-10",
+    "last_parsed_date": "2026-10-14"
   },
   "default_header": "### Addy Osmani",
   "short_name": "Addy Osmani",

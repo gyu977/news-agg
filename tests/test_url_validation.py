@@ -125,6 +125,19 @@ class UnshortenUrlTests(unittest.TestCase):
             self.assertEqual(result, "https://clicks.mlsend.com/redirected-path")
         err.close()
 
+    def test_unshorten_preserves_destination_on_final_hop_403(self):
+        err = urllib.error.HTTPError(
+            url="https://careersatdoordash.com/blog/feature-flag-cleanup/?utm_source=newsletter",
+            code=403,
+            msg="Forbidden",
+            hdrs={},
+            fp=io.BytesIO(b""),
+        )
+        with patch.object(urllib.request.OpenerDirector, "open", side_effect=err):
+            result = unshorten_url("https://pmwebq.clicks.mlsend.com/gp/c/v2.k1.XYZ")
+            self.assertEqual(result, "https://careersatdoordash.com/blog/feature-flag-cleanup/")
+        err.close()
+
     def test_unshorten_handles_network_error_gracefully(self):
         err = urllib.error.URLError("DNS lookup failed")
         with patch.object(urllib.request.OpenerDirector, "open", side_effect=err), patch("builtins.print"):

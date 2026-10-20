@@ -359,7 +359,7 @@ class MailerLiteScraper(BaseScraper):
                     text = paragraph.get_text(" ", strip=True).replace("&amp;", "and")
                     if (
                         len(text) > 20
-                        and title.lower() not in text.lower()
+                        and text.strip().lower() != title.strip().lower()
                         and "mailerlite" not in text.lower()
                     ):
                         parts.append(text)
