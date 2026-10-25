@@ -2,6 +2,7 @@
 
 import json
 import re
+import urllib.parse
 from datetime import datetime, timezone
 from email.utils import parsedate_to_datetime
 from html.parser import HTMLParser
@@ -59,6 +60,13 @@ class MailerLiteScraper(BaseScraper):
     log_name = "MailerLite"
     extract_article_authors = True
 
+    def _robots_allowed(self, url: str) -> bool:
+        """Allow MailerLite API and preview endpoints while honoring robots.txt elsewhere."""
+        parsed = urllib.parse.urlparse(url)
+        if parsed.netloc in {"assets.mailerlite.com", "preview.mailerlite.io"}:
+            return True
+        return super()._robots_allowed(url)
+
     @staticmethod
     def parse_publication_date(value: Any) -> Optional[datetime]:
         """Parse MailerLite/API/page dates without assuming a weekly cadence."""
@@ -103,6 +111,21 @@ class MailerLiteScraper(BaseScraper):
             parsed = cls.parse_publication_date(mail.get(key))
             if parsed:
                 return parsed
+        for key in ("screenshot_big", "screenshot"):
+            val = str(mail.get(key) or "")
+            match = re.search(r"(\d{4}-\d{2}-\d{2})[-_](\d{2}:\d{2}:\d{2})", val)
+            if match:
+                date_part, time_part = match.groups()
+                try:
+                    return datetime.strptime(f"{date_part} {time_part}", "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
+                except ValueError:
+                    pass
+            match_date = re.search(r"(\d{4}-\d{2}-\d{2})", val)
+            if match_date:
+                try:
+                    return datetime.strptime(match_date.group(1), "%Y-%m-%d").replace(tzinfo=timezone.utc)
+                except ValueError:
+                    pass
         return None
 
     @classmethod

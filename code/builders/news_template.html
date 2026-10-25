@@ -1539,6 +1539,11 @@
       position: relative;
       padding-left: 1.25rem;
       line-height: 1.5;
+      transition: opacity 0.2s ease;
+    }
+
+    .source-list li.is-empty {
+      opacity: 0.45;
     }
 
     .source-list li::before {
@@ -2311,7 +2316,9 @@ function renderCategoryCounts(list) {
       badge.className = 'cat-count';
       li.querySelector('strong').after(badge);
     }
-    badge.textContent = catCounts[li.dataset.cat] || 0;
+    const count = catCounts[li.dataset.cat] || 0;
+    badge.textContent = count;
+    li.classList.toggle('is-empty', count === 0);
   });
 
   const srcCounts = rows.reduce(function(acc, a) {
@@ -2328,7 +2335,9 @@ function renderCategoryCounts(list) {
       const target = li.querySelector('.source-guide-link') || li.querySelector('strong');
       target.after(badge);
     }
-    badge.textContent = srcCounts[li.dataset.source] || 0;
+    const count = srcCounts[li.dataset.source] || 0;
+    badge.textContent = count;
+    li.classList.toggle('is-empty', count === 0);
   });
 }
 

@@ -1,3 +1,39 @@
+# News Digest — Edition 2026.10.25
+
+
+### 🌟 Access the Dashboard
+* **[Open Live Web Dashboard](https://gyu977.github.io/news-agg/)**
+
+---
+
+### 🎣 What's New: Fresh weekly catch
+
+We refreshed our sources this week—including *Dear Architects #313*, *Token by Token #28*, *Andriy Burkov AI #349*, *Editor's Radar*, and our regular engineering blogs—and pulled together practical reads on how teams are actually building, reviewing, and paying for software right now:
+
+- **[Redesigning source control at Anthropic](https://www.anthropic.com/research/redesigning-source-control)** — Anthropic *(Token by Token #28 · Spotlight)*
+  > When daily merges grew more than tenfold, Git started getting in the way. Here is how Anthropic built an internal version control system called Scion and moved their monorepo over in five months, alongside their own code review and search tools.
+- **[From Microservices to Agents: the Next Evolution of Distributed Systems](https://www.infoq.com/articles/distributed-systems-microservices-agentic-ai/)** — Mallika Rao *(Dear Architects #313 · Spotlight)*
+  > A clear look at what changes in system boundaries, ownership, and failure modes when agents start calling services alongside traditional microservices.
+- **[What’s the ROI of software engineers’ spending on AI?](https://newsletter.pragmaticengineer.com/p/whats-the-roi-of-software-engineers)** — Gergely Orosz *(The Pragmatic Engineer)*
+  > Looking at data from 27 companies to ask a straightforward question: now that engineering teams are spending heavily on AI tools, are they actually shipping faster?
+- **[Someone behind the software](https://karrisaarinen.com/posts/someone-behind-the-software/)** — Karri Saarinen & **[Uncle Bob: Why I Stopped Reading Code and Building Harnesses](https://www.aviator.co/podcast/uncle-bob-martin-ai-clean-code)** — Robert C. Martin *(Editor's Radar)*
+  > Two grounded takes on the human side of the job: Linear's co-founder on why good software still feels like a person cared about the details, paired with Uncle Bob on why engineers remain responsible for what ships even when agents write the code.
+- **[LLMs are making formal software verification feasible at a much larger scale](https://www.anthropic.com/research/formal-verification)** — Anthropic *(Dear Architects #313)*
+  > Formal verification used to take years of specialist work for even small codebases. This piece looks at how LLMs can do the heavy lifting of writing proofs to catch bugs before code hits production.
+- **[How To Use Decision Models for Evals](https://x.com/HamelHusain/status/2112588257104216294)** — Hamel Husain & Antaripa Saha *(Token by Token #28)*
+  > A practical walkthrough on why leaving your eval classifier threshold at `0.50` is usually a mistake, and how to tune cutoffs against cost and accuracy.
+- **[1.5 years of RAG in fintech, what actually worked after screwups](https://www.reddit.com/r/Rag/comments/1so0m3n/15_years_of_rag_in_fintech_what_actually_worked/)** — r/Rag & **[Tokenomics: Quantifying where tokens are used in agentic software engineering](https://www.chapterpal.com/s/a77ad8a0/tokenomics-quantifying-where-tokens-are-used-in-agentic-software-engineering)** — ChapterPal *(Burkov AI #349)*
+  > Hard-won lessons from eighteen months of running RAG in financial services (what broke and what stuck), plus a breakdown of where tokens actually go during agentic coding sessions.
+
+---
+
+### 🛠️ Net & Tackle Maintenance
+
+- **Cleaner Sources & Categories Guide**: Sources that have aged past the 90-day dashboard window (like July's *Thoughtworks FOSE* retreat notes) are now automatically left out of the Guide instead of sitting there with a `0` badge, and items that temporarily hit `0` under narrow filters are gently dimmed.
+- **MailerLite Scraper Fixes**: Fixed a `robots.txt` check and campaign timestamp fallback so new *Dear Architects* and *Token by Token* issues pull in cleanly.
+
+---
+
 # News Digest — Edition 2026.10.18
 
 

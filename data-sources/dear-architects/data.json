@@ -1,5 +1,136 @@
 [
   {
+    "id": "da-313-4d03a8",
+    "newsletter": "Dear Architects",
+    "issue_number": 313,
+    "issue_title": "From microservices to AI agents 🚀 #313 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/202242275841934392",
+    "date": "2026-10-24",
+    "date_str": "24 October 2026",
+    "title": "From Microservices to Agents: the Next Evolution of Distributed Systems",
+    "link": "https://www.infoq.com/articles/distributed-systems-microservices-agentic-ai/",
+    "author": "Mallika Rao",
+    "description": "Over the past decade, microservices have reshaped how large-scale software systems are designed and operated. They enabled teams to decompose monoliths into independently deployable services, scale ownership boundaries, and evolve systems incrementally.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": true,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-313-7e484c",
+    "newsletter": "Dear Architects",
+    "issue_number": 313,
+    "issue_title": "From microservices to AI agents 🚀 #313 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/202242275841934392",
+    "date": "2026-10-24",
+    "date_str": "24 October 2026",
+    "title": "Who’s really spending your tokens?",
+    "link": "https://app.livestorm.co/stacklet-io/the-token-governance-summit",
+    "author": "Stacklet",
+    "description": "Once AI agents run across multiple teams and AI providers, token budgets and model routing become design questions: where does policy live, and how do you attribute spend to the team or agent behind it? Get answers at the virtual Token Governance Summit (Oct 27, 12 PM ET), where builders cover how they set budgets and route models, plus a first look at how Stacklet Token Custodian enforces policy.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "type"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-313-c9400f",
+    "newsletter": "Dear Architects",
+    "issue_number": 313,
+    "issue_title": "From microservices to AI agents 🚀 #313 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/202242275841934392",
+    "date": "2026-10-24",
+    "date_str": "24 October 2026",
+    "title": "AI is an Amplifier: Scale High Performance, Not Dysfunction",
+    "link": "https://www.infoq.com/presentations/dora-ai-adoption-engineering-performance/",
+    "author": "Nathen Harvey",
+    "description": "Nathen Harvey shares insights from DORA research on AI adoption in software delivery. Nathen Harvey leads Google Cloud’s DORA team, using its research to help organizations improve software delivery speed, stability, and efficiency.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "presentation",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "type",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-313-051ef4",
+    "newsletter": "Dear Architects",
+    "issue_number": 313,
+    "issue_title": "From microservices to AI agents 🚀 #313 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/202242275841934392",
+    "date": "2026-10-24",
+    "date_str": "24 October 2026",
+    "title": "Why Are We Still Talking About Clean Architecture?",
+    "link": "https://ricofritzsche.me/why-are-we-still-talking-about-clean-architecture/",
+    "author": "Rico Fritzsche",
+    "description": "Let me get this out of the way right off the bat: We should stop talking about this. Unless, that is, the goal is to finally consign all these layered architectural approaches to the dustbin of history.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-313-4e9bfd",
+    "newsletter": "Dear Architects",
+    "issue_number": 313,
+    "issue_title": "From microservices to AI agents 🚀 #313 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/202242275841934392",
+    "date": "2026-10-24",
+    "date_str": "24 October 2026",
+    "title": "LLMs are making formal software verification feasible at a much larger scale",
+    "link": "https://www.anthropic.com/research/formal-verification",
+    "author": "Anthropic",
+    "description": "The standard defenses against cyberattacks are no longer sufficient: we need ways to prove that code is free of bugs. Formal software verification could provide this guarantee, but it has historically required years of expert effort, making it impractical for most real-world projects.",
+    "category": "Software Testing, Quality & Observability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-313-5c4b41",
+    "newsletter": "Dear Architects",
+    "issue_number": 313,
+    "issue_title": "From microservices to AI agents 🚀 #313 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/preview/1235400/emails/202242275841934392",
+    "date": "2026-10-24",
+    "date_str": "24 October 2026",
+    "title": "Beyond API Compatibility: Building a Tool to Measure the Blast Radius of Library Changes",
+    "link": "https://netflixtechblog.com/beyond-api-compatibility-building-a-tool-to-measure-the-blast-radius-of-library-changes-9474f2fd4f90",
+    "author": "Roberto Perez Alcolea",
+    "description": "Netflix's shared Java libraries serve applications spread across a large, independently evolving repository ecosystem. A change made in one repository can reach many others, and while producers can see the API diff in front of them, they often cannot see who still depends on the symbols that changed.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "da-312-6ad24f",
     "newsletter": "Dear Architects",
     "issue_number": 312,

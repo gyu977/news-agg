@@ -1,5 +1,78 @@
 [
   {
+    "id": "pe-2026-10-c4f0d4",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-10-22",
+    "date_str": "22 October 2026",
+    "title": "The Pulse: Time to rethink software security because of AI?",
+    "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-do-we-need-to-rethink-software",
+    "author": "Gergely Orosz",
+    "description": "A month’s worth of security breaches in a single day – will things get worse before they improve? Also: Anthropic accused of version control “rip off”, and more",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": false,
+    "type": "pulse",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "the-pulse-do-we-need-to-rethink-software"
+    }
+  },
+  {
+    "id": "pe-2026-10-28a12e",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-10-21",
+    "date_str": "21 October 2026",
+    "title": "The revised rules of engineering management with Will Larson",
+    "link": "https://newsletter.pragmaticengineer.com/p/the-revised-rules-of-engineering",
+    "author": "Gergely Orosz",
+    "description": "Will Larson, CTO of Imprint, explores how AI and shifting industry expectations are changing engineering management, career ladders, and the path from engineer to CTO.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {
+      "audience": "everyone",
+      "slug": "the-revised-rules-of-engineering"
+    }
+  },
+  {
+    "id": "pe-2026-10-536d96",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-10-20",
+    "date_str": "20 October 2026",
+    "title": "What’s the ROI of software engineers’ spending on AI?",
+    "link": "https://newsletter.pragmaticengineer.com/p/whats-the-roi-of-software-engineers",
+    "author": "Gergely Orosz",
+    "description": "AI spending has greatly increased at most companies this year, but has it actually changed shipping velocity and PR output? We analyse data from 27 companies – with some interesting findings",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "whats-the-roi-of-software-engineers"
+    }
+  },
+  {
     "id": "pe-2026-10-0e4f83",
     "newsletter": "The Pragmatic Engineer",
     "issue_number": null,
@@ -9,14 +82,15 @@
     "date_str": "15 October 2026",
     "title": "The Pulse: OpenAI software engineer accused of spying",
     "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-openai-software-engineer",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "Also: insider details on how and why Anthropic moved off Git, a new trend of AI-assisted coding rounds inside of Big Tech, and more",
     "category": "Tech Industry, Jobs & Careers",
     "is_spotlight": false,
     "type": "pulse",
     "hide": false,
     "user_overrides": [
-      "category"
+      "category",
+      "author"
     ],
     "metadata": {
       "audience": "only_paid",
@@ -33,13 +107,15 @@
     "date_str": "14 October 2026",
     "title": "Uber’s AI infra, from the inside",
     "link": "https://newsletter.pragmaticengineer.com/p/ubers-ai-infra-from-the-inside",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "Uber Distinguished Engineer Uday Kiran Medisetty shares how Uber builds internal developer tools, integrates AI agents into engineering workflows, and measures their impact on productivity.",
     "category": "AI-Native & Agentic Software Engineering",
     "is_spotlight": false,
     "type": "video",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "author"
+    ],
     "metadata": {
       "audience": "everyone",
       "slug": "ubers-ai-infra-from-the-inside"
@@ -55,14 +131,15 @@
     "date_str": "13 October 2026",
     "title": "Building resilient AI-powered software, and planning for when things go wrong",
     "link": "https://newsletter.pragmaticengineer.com/p/building-resilient-systems",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "How to handle uncertainty with AI vendors and disaster recovery (DR) approaches to consider. An excerpt from the book Building Resilient Distributed Systems by Sam Newman",
     "category": "Cloud Infrastructure & System Reliability",
     "is_spotlight": false,
     "type": "article",
     "hide": false,
     "user_overrides": [
-      "category"
+      "category",
+      "author"
     ],
     "metadata": {
       "audience": "everyone",
@@ -204,14 +281,15 @@
     "date_str": "29 September 2026",
     "title": "Why has Shopify dropped React Native?",
     "link": "https://newsletter.pragmaticengineer.com/p/shopify-native-mobile",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "It’s only been a year since the e-commerce platform declared it was very happy with React Native, but now Shopify is dumping it – and the reason, unsurprisingly, is AI",
     "category": "Software Architecture & Distributed Systems",
     "is_spotlight": false,
     "type": "article",
     "hide": false,
     "user_overrides": [
-      "category"
+      "category",
+      "author"
     ],
     "metadata": {
       "audience": "only_paid",
@@ -316,13 +394,15 @@
     "date_str": "15 September 2026",
     "title": "Inside OpenAI’s agentic software factory",
     "link": "https://newsletter.pragmaticengineer.com/p/openai-software-factory",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "A deepdive into how Codex has “taken over” OpenAI, how the frontier lab builds its agentic software factory, and the engineering challenges of one billion users. Details from inside OpenAI",
     "category": "AI-Native & Agentic Software Engineering",
     "is_spotlight": false,
     "type": "article",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "author"
+    ],
     "metadata": {
       "audience": "only_paid",
       "slug": "openai-software-factory"
@@ -338,14 +418,15 @@
     "date_str": "10 September 2026",
     "title": "The Pulse #191: a new trend of CPU shortages",
     "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-191-a-new-trend-of-cpu",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "For compute-intensive services: it’s worth reserving more compute now. Also: growth dreams end for more COVID-era unicorns, engineers losing touch with systems when AI handles incidents, and more",
     "category": "Cloud Infrastructure & System Reliability",
     "is_spotlight": false,
     "type": "pulse",
     "hide": false,
     "user_overrides": [
-      "category"
+      "category",
+      "author"
     ],
     "metadata": {
       "audience": "only_paid",
@@ -384,14 +465,15 @@
     "date_str": "8 September 2026",
     "title": "What is happening with code reviews?",
     "link": "https://newsletter.pragmaticengineer.com/p/what-is-happening-with-code-reviews",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "AI generates more code than devs can track in 2026, so will the code review process have to adapt – or is it doomed? A look into this decades-old practice and the approaches that could replace it",
     "category": "Software Testing, Quality & Observability",
     "is_spotlight": false,
     "type": "article",
     "hide": false,
     "user_overrides": [
-      "category"
+      "category",
+      "author"
     ],
     "metadata": {
       "audience": "only_paid",
@@ -408,13 +490,15 @@
     "date_str": "3 September 2026",
     "title": "The Pulse: tech companies move to open AI models",
     "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-tech-companies-move-to",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "Cost-saving efforts reveal that moving simpler workloads to open AI models is the easiest way to save ~50% on AI bills. Also: automated software maintenance experience, and more",
     "category": "Large Language Models & Evaluation Infrastructure",
     "is_spotlight": false,
     "type": "pulse",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "author"
+    ],
     "metadata": {
       "audience": "only_paid",
       "slug": "the-pulse-tech-companies-move-to"
@@ -506,13 +590,15 @@
     "date_str": "20 August 2026",
     "title": "The Pulse: We need to talk about migrations with AI",
     "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-we-need-to-talk-about-migrations",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "Asana completed a testing framework migration in two weeks, that they would have delayed for years more, and they’re not alone. Also: AI startups could make Gartner much less relevant, and more",
     "category": "Software Testing, Quality & Observability",
     "is_spotlight": false,
     "type": "pulse",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "author"
+    ],
     "metadata": {
       "audience": "only_paid",
       "slug": "the-pulse-we-need-to-talk-about-migrations"
@@ -550,13 +636,15 @@
     "date_str": "18 August 2026",
     "title": "Headed for the Exit: the Great Engineering Leader Career Break",
     "link": "https://newsletter.pragmaticengineer.com/p/the-great-engineering-leader-career-break",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "Trend: more CTOs, VPEs, and Heads of Engineering are walking away from their high-status, in-demand positions. There are many reasons, mostly related to AI, and to \"founder mode\"",
     "category": "Tech Industry, Jobs & Careers",
     "is_spotlight": false,
     "type": "article",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "author"
+    ],
     "metadata": {
       "audience": "only_paid",
       "slug": "the-great-engineering-leader-career-break"
@@ -572,14 +660,15 @@
     "date_str": "14 August 2026",
     "title": "The Pulse: Meta’s self-inflicted resignation-wave",
     "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-metas-self-inflicted-resignation",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "The social media giant is offering $1M+ retainer equity grants to staff who are leaving: and even this is not effective. Also: is Grok Bot the “OpenClaw moment” for managed AI agents?",
     "category": "Tech Industry, Jobs & Careers",
     "is_spotlight": false,
     "type": "pulse",
     "hide": false,
     "user_overrides": [
-      "category"
+      "category",
+      "author"
     ],
     "metadata": {
       "audience": "only_paid",
@@ -618,13 +707,15 @@
     "date_str": "11 August 2026",
     "title": "Software engineering at a proprietary trading company: Optiver",
     "link": "https://newsletter.pragmaticengineer.com/p/optiver",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "Building better AI models getting more focus than lower latency, owning the full stack from applications to building custom hardware, very different incentives to most tech companies in play, and more",
     "category": "Large Language Models & Evaluation Infrastructure",
     "is_spotlight": false,
     "type": "article",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "author"
+    ],
     "metadata": {
       "audience": "only_paid",
       "slug": "optiver"
@@ -664,13 +755,15 @@
     "date_str": "28 July 2026",
     "title": "How building software is changing at Anthropic",
     "link": "https://newsletter.pragmaticengineer.com/p/inside-anthropic",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "A deepdive on what’s changed in how the leading AI lab makes software. Ever more code review and testing is done by AI, two-pizza teams very much alive, and more. Details from inside of Anthropic",
     "category": "Software Testing, Quality & Observability",
     "is_spotlight": false,
     "type": "article",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "author"
+    ],
     "metadata": {
       "audience": "only_paid",
       "slug": "inside-anthropic"
@@ -686,14 +779,15 @@
     "date_str": "23 July 2026",
     "title": "The Pulse: Quitting Spotify Podcasts over reliability",
     "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-quitting-spotify-podcasts",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "Also: Chinese open models match closed ones from Anthropic and OpenAI, AWS’s “heart-attack” billing error, and more",
     "category": "Cloud Infrastructure & System Reliability",
     "is_spotlight": false,
     "type": "pulse",
     "hide": false,
     "user_overrides": [
-      "category"
+      "category",
+      "author"
     ],
     "metadata": {
       "audience": "only_paid",
@@ -732,13 +826,15 @@
     "date_str": "16 July 2026",
     "title": "The Pulse: Grok’s CLI caught uploading all your local files to the cloud",
     "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-groks-cli-caught-uploading",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "Also: engineering leaders concerned about continued increase in code review load, devs at enterprises surprised by high enterprise pricing, and more",
     "category": "Cloud Infrastructure & System Reliability",
     "is_spotlight": false,
     "type": "pulse",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "author"
+    ],
     "metadata": {
       "audience": "only_paid",
       "slug": "the-pulse-groks-cli-caught-uploading"
@@ -778,13 +874,15 @@
     "date_str": "14 July 2026",
     "title": "What is “loop engineering?”",
     "link": "https://newsletter.pragmaticengineer.com/p/what-is-loop-engineering",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "There’s talk about loop engineering, but what is it exactly? I looked into it, and found triggers, cron jobs, AI slop & more. Is it a “here today, gone tomorrow” trend?",
     "category": "AI-Native & Agentic Software Engineering",
     "is_spotlight": false,
     "type": "article",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "author"
+    ],
     "metadata": {
       "audience": "only_paid",
       "slug": "what-is-loop-engineering"
@@ -800,14 +898,15 @@
     "date_str": "9 July 2026",
     "title": "The Pulse: What can we learn from Bun’s rapid Rust rewrite with AI?",
     "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-what-can-we-learn-from",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "A rewrite done in 11 days that would have taken a small team a year to complete, for $165K in tokens. Also: coding LLM “wars” heat up, AI fakers from North Korea still a problem when hiring, and more",
     "category": "AI-Native & Agentic Software Engineering",
     "is_spotlight": false,
     "type": "pulse",
     "hide": false,
     "user_overrides": [
-      "category"
+      "category",
+      "author"
     ],
     "metadata": {
       "audience": "only_paid",
@@ -824,13 +923,15 @@
     "date_str": "8 July 2026",
     "title": "The Pragmatic Engineer AMA",
     "link": "https://newsletter.pragmaticengineer.com/p/the-pragmatic-engineer-ama",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "In this AMA episode, I answer listener questions on AI, engineering, hiring, and careers.",
     "category": "Tech Industry, Jobs & Careers",
     "is_spotlight": false,
     "type": "video",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "author"
+    ],
     "metadata": {
       "audience": "everyone",
       "slug": "the-pragmatic-engineer-ama"
@@ -846,14 +947,15 @@
     "date_str": "7 July 2026",
     "title": "Tech jobs market in 2026, part 3: hiring managers & job seekers",
     "link": "https://newsletter.pragmaticengineer.com/p/tech-jobs-market-in-2026-part-3-hiring",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "The market where nobody finds each other, the hottest market for AI-related positions, tough for engineering leaders, and more. Based on details from 50+ hiring managers & job seekers",
     "category": "Tech Industry, Jobs & Careers",
     "is_spotlight": false,
     "type": "article",
     "hide": false,
     "user_overrides": [
-      "category"
+      "category",
+      "author"
     ],
     "metadata": {
       "audience": "only_paid",
@@ -892,13 +994,15 @@
     "date_str": "30 June 2026",
     "title": "Impressions from visiting OpenAI, Anthropic, & Cursor",
     "link": "https://newsletter.pragmaticengineer.com/p/impressions-from-visiting-openai",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "A peek into where software engineering is headed from inside the sector’s leading AI labs. Agents running in the cloud are a major trend, while coding harnesses are spreading beyond the craft",
     "category": "AI-Native & Agentic Software Engineering",
     "is_spotlight": false,
     "type": "article",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "author"
+    ],
     "metadata": {
       "audience": "only_paid",
       "slug": "impressions-from-visiting-openai"
@@ -914,14 +1018,15 @@
     "date_str": "24 June 2026",
     "title": "Tech interviews with NeetCode",
     "link": "https://newsletter.pragmaticengineer.com/p/tech-interviews-with-neetcode",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "NeetCode shares his journey from Amazon and Google to building a startup, and why deep expertise still matters in the age of AI.",
     "category": "Tech Industry, Jobs & Careers",
     "is_spotlight": false,
     "type": "video",
     "hide": false,
     "user_overrides": [
-      "category"
+      "category",
+      "author"
     ],
     "metadata": {
       "audience": "everyone",
@@ -938,13 +1043,15 @@
     "date_str": "23 June 2026",
     "title": "Slow down to speed up: so much has changed in 6 months’ time",
     "link": "https://newsletter.pragmaticengineer.com/p/slow-down-to-speed-up",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "An overview of what’s changed in engineering during the last six months, how various tech companies are changing how they work, and why slowing down could be a sensible strategy",
     "category": "Engineering Philosophy & Estimation",
     "is_spotlight": false,
     "type": "article",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "author"
+    ],
     "metadata": {
       "audience": "only_paid",
       "slug": "slow-down-to-speed-up"
@@ -960,13 +1067,15 @@
     "date_str": "18 June 2026",
     "title": "The Pulse: Big implications of US banning Anthropic’s new model, Fable",
     "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-big-implications-of-us",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "Also: a follow-up on Meta destroying its own engineering culture, the SpaceX IPO, SpaceX buys Cursor, Cursor’s GitHub competitor, and more.",
     "category": "Large Language Models & Evaluation Infrastructure",
     "is_spotlight": false,
     "type": "pulse",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "author"
+    ],
     "metadata": {
       "audience": "only_paid",
       "slug": "the-pulse-big-implications-of-us"
@@ -1006,14 +1115,15 @@
     "date_str": "16 June 2026",
     "title": "Why is Meta destroying its engineering organization?",
     "link": "https://newsletter.pragmaticengineer.com/p/why-is-meta-destroying-its-engineering",
-    "author": null,
+    "author": "Gergely Orosz",
     "description": "Leadership at the social media giant has been on an AI-fueled rampage through its engineering org. We report what’s happened",
     "category": "Tech Industry, Jobs & Careers",
     "is_spotlight": false,
     "type": "article",
     "hide": false,
     "user_overrides": [
-      "category"
+      "category",
+      "author"
     ],
     "metadata": {
       "audience": "everyone",

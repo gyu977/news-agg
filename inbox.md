@@ -19,6 +19,11 @@ Supported formats:
 
 ## ✅ Processed Articles
 
+### Processed on 2026-10-25 08:37:
+- **Anthropic** - [Trace agents with OpenTelemetry on the Claude Platform](https://claude.com/resources/articles/agent-observability-on-the-claude-platform)
+- **Robert C. Martin** - [Uncle Bob: Why I Stopped Reading Code and Building Harnesses](https://www.aviator.co/podcast/uncle-bob-martin-ai-clean-code)
+- **Karri Saarinen** - [Someone behind the software](https://karrisaarinen.com/posts/someone-behind-the-software/)
+
 ### Processed on 2026-10-20 19:32:
 - **Kent Beck** - [Take My Toil, Leave Me My Struggle](https://newsletter.kentbeck.com/p/take-my-toil-leave-me-my-struggle)
 

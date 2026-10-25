@@ -1,5 +1,68 @@
 [
   {
+    "id": "java-2026-10-7b5132",
+    "newsletter": "InfoQ Java",
+    "issue_number": null,
+    "issue_title": "TornadoVM 7 Enables GPU-Native Workloads from Java Applications",
+    "issue_link": "https://www.infoq.com/news/2026/10/tornadovm-7-gpu/",
+    "date": "2026-10-21",
+    "date_str": "21 October 2026",
+    "title": "TornadoVM 7 Enables GPU-Native Workloads from Java Applications",
+    "link": "https://www.infoq.com/news/2026/10/tornadovm-7-gpu/",
+    "author": "Ben Evans",
+    "description": "TornadoVM, an open-source heterogeneous programming framework for Java, has reached version 7.0. It automatically accelerates Java programs on multi-core CPUs and GPUs and provides a rich GPU programming ecosystem in Java that can be used with any mainstream JDK distribution e.g. Temurin, Red Hat OpenJDK, Coretto, Oracle, GraalVM or Zulu. By Ben Evans",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "java-2026-10-5c7eb1",
+    "newsletter": "InfoQ Java",
+    "issue_number": null,
+    "issue_title": "Java News Roundup: JEPs for JDK 28, Azul Payara, Gatherers4j, Google ADK, Yupiik, Apache Camel CVEs",
+    "issue_link": "https://www.infoq.com/news/2026/10/java-news-roundup-oct12-2026/",
+    "date": "2026-10-19",
+    "date_str": "19 October 2026",
+    "title": "Java News Roundup: JEPs for JDK 28, Azul Payara, Gatherers4j, Google ADK, Yupiik, Apache Camel CVEs",
+    "link": "https://www.infoq.com/news/2026/10/java-news-roundup-oct12-2026/",
+    "author": "Michael Redlich",
+    "description": "This week's Java roundup for October 12th, 2026, features news highlighting: three OpenJDK JEPs targeted for JDK 28; the October 2026 edition of Azul Payara; point releases of Gatherers4j, Yupiik Fusion, Google ADK for Java and Google ADK for Kotlin; and 38 CVEs resolved in Apache Camel. By Michael Redlich",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "java-2026-10-47d8c6",
+    "newsletter": "InfoQ Java",
+    "issue_number": null,
+    "issue_title": "JEP 543 Finalizes Structured Concurrency in JDK 28, Ending Seven Preview Rounds",
+    "issue_link": "https://www.infoq.com/news/2026/10/jep-543-jdk-28/",
+    "date": "2026-10-19",
+    "date_str": "19 October 2026",
+    "title": "JEP 543 Finalizes Structured Concurrency in JDK 28, Ending Seven Preview Rounds",
+    "link": "https://www.infoq.com/news/2026/10/jep-543-jdk-28/",
+    "author": "A N M Bazlur Rahman",
+    "description": "JDK 28 finalizes structured concurrency through JEP 543, with no API changes from JDK 27. Teams on JDK 27 only need to drop --enable-preview and recompile. Code written for JDK 25 or 26 must adapt to the R_X exception type parameter, ExecutionException wrapping, and the abstract timeout() joiner callback. By A N M Bazlur Rahman",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "java-2026-10-f167fc",
     "newsletter": "InfoQ Java",
     "issue_number": null,

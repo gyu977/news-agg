@@ -5,8 +5,21 @@
   "official_site": "https://deararchitects.xyz/",
   "archive_url": "https://www.deararchitects.xyz/archive",
   "parsed_issues": {
-    "count": 94,
+    "count": 95,
     "issues": [
+      {
+        "id": "313",
+        "date": "2026-10-24",
+        "date_str": "24 October 2026",
+        "title": "From microservices to AI agents 🚀 #313 Dear Architects",
+        "url": "https://preview.mailerlite.io/preview/1235400/emails/202242275841934392",
+        "quotes": [
+          {
+            "text": "Some people call this artificial intelligence, but the reality is this technology will enhance us. So instead of artificial intelligence, I think we’ll augment our intelligence.",
+            "author": "Ginni Rometty"
+          }
+        ]
+      },
       {
         "id": "312",
         "date": "2026-10-17",
@@ -1210,8 +1223,8 @@
         ]
       }
     ],
-    "last_parsed_issue": "312",
-    "last_parsed_date": "2026-10-17"
+    "last_parsed_issue": "313",
+    "last_parsed_date": "2026-10-24"
   },
   "default_header": "### Luca Mezzalira's Dear Architects",
   "short_name": "Dear Architects",

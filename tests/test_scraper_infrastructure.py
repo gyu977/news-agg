@@ -569,7 +569,7 @@ class BuilderSafetyTests(unittest.TestCase):
         )
 
     def test_generated_dashboard_embeds_icon(self):
-        build.build_news_page()
+        build.build_news_page(now=datetime(2026, 9, 19, 10, 0, 0, tzinfo=timezone.utc))
         output = os.path.join(REPO_ROOT, "news.html")
         with open(output, encoding="utf-8") as stream:
             html = stream.read()
@@ -614,6 +614,11 @@ class BuilderSafetyTests(unittest.TestCase):
             tmpl = stream.read()
         self.assertIn(".source-guide-link {", tmpl)
         self.assertIn(".source-guide-link .external-link-icon", tmpl)
+        self.assertIn(".source-list li.is-empty {", tmpl)
+
+        # Sources with 0 articles in the 90-day window are omitted from the Guide
+        html_oct = build.build_news_page(now=datetime(2026, 10, 25, 10, 0, 0, tzinfo=timezone.utc))
+        self.assertNotIn('data-source="Future of Software Development (Thoughtworks FOSE)"', html_oct)
 
     def test_dashboard_explains_and_exports_cross_source_attribution(self):
         template = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
@@ -716,6 +721,9 @@ class BuilderSafetyTests(unittest.TestCase):
 
     def test_dashboard_runtime_filter_engine(self):
         """Verifies multi-layer filter resolution across timeframes, search, and sources."""
+        # Anchor clock to reference test date
+        anchor_date = datetime(2026, 9, 19, 10, 0, 0, tzinfo=timezone.utc)
+        build.build_news_page(now=anchor_date)
         news_file = os.path.join(REPO_ROOT, "news.html")
         with open(news_file, encoding="utf-8") as stream:
             html = stream.read()
@@ -723,8 +731,6 @@ class BuilderSafetyTests(unittest.TestCase):
         self.assertIsNotNone(m, "articles array not found in news.html")
         articles = json.loads(m.group(1))
 
-        # Anchor clock to reference test date
-        anchor_date = datetime(2026, 9, 19, 10, 0, 0, tzinfo=timezone.utc)
         now_ms = anchor_date.timestamp() * 1000
 
         def filter_timeframe(days_or_all):
@@ -817,6 +823,12 @@ class BuilderSafetyTests(unittest.TestCase):
             with mock.patch.object(module, "write_output"):
                 module.build_single_latest("future-software-development")
         warn.assert_not_called()
+
+    @classmethod
+    def tearDownClass(cls):
+        super().tearDownClass()
+        with redirect_stdout(io.StringIO()):
+            build.build_news_page()
 
 
 class RSSFeedScraperTests(unittest.TestCase):

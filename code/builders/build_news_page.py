@@ -223,8 +223,16 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
     latest_articles.sort(key=lambda x: (str(x.get("date", "")), str(x.get("id", ""))), reverse=True)
 
     # 5. Clean JSON serialization & source descriptions injection
+    active_sources = {
+        src
+        for a in latest_articles
+        for src in ([a.get("newsletter")] + list(a.get("also_in") or []))
+        if src
+    }
     desc_lines = []
     for s_name, s_val in source_descriptions.items():
+        if latest_articles and s_name not in active_sources:
+            continue
         if isinstance(s_val, tuple):
             if len(s_val) == 3:
                 s_display, s_desc, s_url = s_val

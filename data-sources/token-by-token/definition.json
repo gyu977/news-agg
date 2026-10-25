@@ -5,8 +5,16 @@
   "official_site": "https://www.tokenbytoken.ai/",
   "archive_url": "https://www.tokenbytoken.ai/",
   "parsed_issues": {
-    "count": 27,
+    "count": 28,
     "issues": [
+      {
+        "id": "28",
+        "date": "2026-10-21",
+        "date_str": "21 October 2026",
+        "title": "Are you tracking tokens the wrong way? - #28 token by token",
+        "url": "https://preview.mailerlite.io/preview/2096144/emails/201966935637755370",
+        "quotes": []
+      },
       {
         "id": "27",
         "date": "2026-10-15",
@@ -224,8 +232,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "27",
-    "last_parsed_date": "2026-10-15"
+    "last_parsed_issue": "28",
+    "last_parsed_date": "2026-10-21"
   },
   "default_header": "### Luca Mezzalira's Token by Token",
   "short_name": "Token by Token",

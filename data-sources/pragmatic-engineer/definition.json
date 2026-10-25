@@ -5,8 +5,32 @@
   "official_site": "https://newsletter.pragmaticengineer.com/",
   "archive_url": "https://newsletter.pragmaticengineer.com/archive",
   "parsed_issues": {
-    "count": 45,
+    "count": 48,
     "issues": [
+      {
+        "id": "pe-2026-10-c4f0d4",
+        "date": "2026-10-22",
+        "date_str": "22 October 2026",
+        "title": "The Pulse: Time to rethink software security because of AI?",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-do-we-need-to-rethink-software",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-10-28a12e",
+        "date": "2026-10-21",
+        "date_str": "21 October 2026",
+        "title": "The revised rules of engineering management with Will Larson",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-revised-rules-of-engineering",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-10-536d96",
+        "date": "2026-10-20",
+        "date_str": "20 October 2026",
+        "title": "What’s the ROI of software engineers’ spending on AI?",
+        "url": "https://newsletter.pragmaticengineer.com/p/whats-the-roi-of-software-engineers",
+        "quotes": []
+      },
       {
         "id": "pe-2026-10-0e4f83",
         "date": "2026-10-15",
@@ -368,8 +392,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "pe-2026-10-0e4f83",
-    "last_parsed_date": "2026-10-15"
+    "last_parsed_issue": "pe-2026-10-c4f0d4",
+    "last_parsed_date": "2026-10-22"
   },
   "default_header": "### Gergely Orosz's The Pragmatic Engineer",
   "short_name": "Pragmatic Eng.",
