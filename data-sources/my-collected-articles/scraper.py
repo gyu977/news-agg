@@ -37,6 +37,8 @@ class MetadataParser(HTMLParser):
         self.json_ld_date = None
         self.json_ld_author = None
         self.first_time = None
+        self.in_time = False
+        self.time_parts = []
 
     def handle_starttag(self, tag, attrs):
         attrs = {key.lower(): value for key, value in attrs if value is not None}
@@ -51,11 +53,22 @@ class MetadataParser(HTMLParser):
             self.in_json_ld = True
             self.json_ld_parts = []
         elif tag.lower() == "time" and not self.first_time:
-            self.first_time = attrs.get("datetime")
+            dt_attr = attrs.get("datetime")
+            if dt_attr:
+                self.first_time = dt_attr
+            else:
+                self.in_time = True
+                self.time_parts = []
 
     def handle_endtag(self, tag):
         if tag.lower() == "title":
             self.in_title = False
+        elif tag.lower() == "time" and self.in_time:
+            self.in_time = False
+            if not self.first_time:
+                text = " ".join("".join(self.time_parts).split())
+                if text:
+                    self.first_time = text
         elif tag.lower() == "script" and self.in_json_ld:
             self.in_json_ld = False
             try:
@@ -70,6 +83,14 @@ class MetadataParser(HTMLParser):
                         auth = item["author"]
                         if isinstance(auth, dict) and auth.get("name"):
                             self.json_ld_author = str(auth["name"]).strip()
+                        elif isinstance(auth, list):
+                            names = [
+                                str(a.get("name") if isinstance(a, dict) else a).strip()
+                                for a in auth
+                                if (isinstance(a, dict) and a.get("name")) or isinstance(a, str)
+                            ]
+                            if names:
+                                self.json_ld_author = ", ".join(names)
                         elif isinstance(auth, str):
                             self.json_ld_author = auth.strip()
             except Exception:
@@ -80,6 +101,8 @@ class MetadataParser(HTMLParser):
             self.title_parts.append(data)
         elif self.in_json_ld:
             self.json_ld_parts.append(data)
+        elif self.in_time:
+            self.time_parts.append(data)
 
     @property
     def title(self):
@@ -207,12 +230,19 @@ class MyCollectedArticlesScraper(BaseScraper):
                 or parser.first_time
             )
             if raw_dt:
+                parsed_dt = None
                 try:
-                    dt = datetime.fromisoformat(raw_dt.replace("Z", "+00:00"))
-                    meta["date"] = dt.strftime("%Y-%m-%d")
-                    meta["date_str"] = dt.strftime("%d %B %Y").lstrip("0")
+                    parsed_dt = datetime.fromisoformat(raw_dt.replace("Z", "+00:00"))
                 except ValueError:
-                    pass
+                    for fmt in ("%B %d, %Y", "%d %B %Y", "%b %d, %Y", "%d %b %Y", "%Y-%m-%d"):
+                        try:
+                            parsed_dt = datetime.strptime(raw_dt.strip(), fmt)
+                            break
+                        except ValueError:
+                            continue
+                if parsed_dt:
+                    meta["date"] = parsed_dt.strftime("%Y-%m-%d")
+                    meta["date_str"] = parsed_dt.strftime("%d %B %Y").lstrip("0")
         except (OSError, PermissionError, ValueError) as exc:
             print(f"[MyCollectedArticles] Warning: Could not fetch web metadata for {url}: {exc}")
 
@@ -373,19 +403,22 @@ class MyCollectedArticlesScraper(BaseScraper):
 
                 # Fetch web metadata fallback
                 web_meta = self.extract_web_metadata(clean_url)
-                final_title = custom_title or web_meta["title"] or clean_url
-                if final_title.lower().startswith("home | "):
-                    final_title = final_title.split("|", 1)[1].strip()
-                # Clean title suffixes like " | Dan Anthony" or " | Blog | incident.io" or " - Nick Tune"
-                final_title = re.sub(r'\s*\|\s*(Blog\s*\|\s*)?[A-Za-z0-9\.\-\s]+$', '', final_title)
-                final_title = re.sub(r'\s*-\s*Nick Tune$', '', final_title)
-                final_title = final_title.strip()
-
                 final_author = custom_author or web_meta["author"]
                 for domain_pattern, author_name in self.KNOWN_DOMAIN_AUTHORS.items():
                     if domain_pattern in clean_url:
                         final_author = author_name
                         break
+
+                final_title = custom_title or web_meta["title"] or clean_url
+                if final_title.lower().startswith("home | "):
+                    final_title = final_title.split("|", 1)[1].strip()
+                # Clean title suffixes like " | Dan Anthony" or " | Blog | incident.io" or " - Nick Tune" or " / Site Blog"
+                final_title = re.sub(r'\s*\|\s*(Blog\s*\|\s*)?[A-Za-z0-9\.\-\s]+$', '', final_title)
+                final_title = re.sub(r'\s+/\s+[A-Za-z0-9\.\-\s]+Blog$', '', final_title, flags=re.IGNORECASE)
+                final_title = re.sub(r'\s*-\s*Nick Tune$', '', final_title)
+                if final_author:
+                    final_title = re.sub(r'\s*[-–—|]\s*' + re.escape(final_author) + r'$', '', final_title, flags=re.IGNORECASE)
+                final_title = final_title.strip()
 
                 final_desc = custom_desc or web_meta["description"] or ""
                 final_date = custom_date or web_meta["date"]

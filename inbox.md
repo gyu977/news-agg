@@ -19,6 +19,11 @@ Supported formats:
 
 ## ✅ Processed Articles
 
+### Processed on 2026-10-25 22:01:
+- **Annie Vella** - [Supervisory Engineering Work](https://annievella.com/posts/supervisory-engineering-work/)
+- **Steve Huynh** - [On the Death of Amazon’s Writing Culture](https://alifeengineered.substack.com/p/on-the-death-of-amazons-writing-culture)
+
+
 ### Processed on 2026-10-25 08:37:
 - **Anthropic** - [Trace agents with OpenTelemetry on the Claude Platform](https://claude.com/resources/articles/agent-observability-on-the-claude-platform)
 - **Robert C. Martin** - [Uncle Bob: Why I Stopped Reading Code and Building Harnesses](https://www.aviator.co/podcast/uncle-bob-martin-ai-clean-code)

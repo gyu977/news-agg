@@ -1,5 +1,27 @@
 [
   {
+    "id": "others-2026-10-d77118",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "October 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-10-23",
+    "date_str": "23 October 2026",
+    "title": "Supervisory Engineering Work",
+    "link": "https://annievella.com/posts/supervisory-engineering-work/",
+    "author": "Annie Vella",
+    "description": "Examines how AI coding assistants shift software engineers from manual code creation toward a new 'middle loop' of supervisory engineering—directing AI, verifying its output, and correcting it when wrong—connecting modern agentic workflows to classic human-factors supervisory control theory.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "others-2026-10-625a95",
     "newsletter": "Editor's Radar",
     "issue_number": null,
@@ -106,6 +128,27 @@
       "author",
       "type",
       "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "others-2026-10-f13079",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "October 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-10-14",
+    "date_str": "14 October 2026",
+    "title": "On the Death of Amazon’s Writing Culture",
+    "link": "https://alifeengineered.substack.com/p/on-the-death-of-amazons-writing-culture",
+    "author": "Steve Huynh",
+    "description": "Former Amazon Principal Engineer Steve Huynh examines how generative AI broke the core guarantee behind Amazon's six-page narrative memo culture—that clear writing requires clear thinking—turning a rigorous engineering ritual into hollow, AI-generated prose.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description"
     ],
     "metadata": {}
   },
