@@ -5,8 +5,16 @@
   "official_site": "https://dk.linkedin.com/company/aboveimpacts",
   "archive_url": "https://www.linkedin.com/company/aboveimpacts/posts/",
   "parsed_issues": {
-    "count": 4,
+    "count": 5,
     "issues": [
+      {
+        "id": "44",
+        "date": "2026-10-26",
+        "date_str": "26 October 2026",
+        "title": "Week 44: The Week Ahead in Media + Tech",
+        "url": "https://www.linkedin.com/posts/aboveimpacts_from-las-vegas-to-lusaka-bangalore-to-barcelona-activity-7520406396945981440-u6Th",
+        "quotes": []
+      },
       {
         "id": "43",
         "date": "2026-10-19",
@@ -40,8 +48,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "43",
-    "last_parsed_date": "2026-10-19"
+    "last_parsed_issue": "44",
+    "last_parsed_date": "2026-10-26"
   },
   "default_header": "### The Week Ahead in Media + Tech",
   "short_name": "The Week Ahead",

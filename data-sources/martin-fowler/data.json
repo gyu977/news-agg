@@ -1,5 +1,27 @@
 [
   {
+    "id": "mf-2026-10-c9ff39",
+    "newsletter": "Martin Fowler",
+    "issue_number": null,
+    "issue_title": "Fragments: October 28",
+    "issue_link": "https://martinfowler.com/fragments/2026-10-28.html",
+    "date": "2026-10-28",
+    "date_str": "28 October 2026",
+    "title": "Fragments: October 28",
+    "link": "https://martinfowler.com/fragments/2026-10-28.html",
+    "author": "Martin Fowler",
+    "description": "Martin Fowler reflects on FOOCAMP and Andrej Karpathy's framing of the widening LLM capability gap, contextualizes Apollo chief economist Torsten Slok's report on AI payoffs through the lens of the 1997 dot-com bubble, endorses Adam Tornhill's essay on programming beyond syntax, explores Annie Vella's model of supervisory control in AI-assisted development, highlights Eric Evans's Domain Language Surveyor, and outlines Thoughtworks' 9-cell token sourcing grid.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category",
+      "description"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "mf-2026-10-507445",
     "newsletter": "Martin Fowler",
     "issue_number": null,

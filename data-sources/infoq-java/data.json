@@ -1,5 +1,27 @@
 [
   {
+    "id": "java-2026-10-05331b",
+    "newsletter": "InfoQ Java",
+    "issue_number": null,
+    "issue_title": "Java News Roundup: JDK 28 Schedule, Oracle CPUs, eMudhra Certs, Apache POI, WildFly, Azul, BellSoft",
+    "issue_link": "https://www.infoq.com/news/2026/10/java-news-roundup-oct19-2026/",
+    "date": "2026-10-26",
+    "date_str": "26 October 2026",
+    "title": "Java News Roundup: JDK 28 Schedule, Oracle CPUs, eMudhra Certs, Apache POI, WildFly, Azul, BellSoft",
+    "link": "https://www.infoq.com/news/2026/10/java-news-roundup-oct19-2026/",
+    "author": "Michael Redlich",
+    "description": "This week's Java roundup for October 19th, 2026, features news highlighting: the proposed release schedule for JDK 28; the eMudhra Intermediate CA certificates breach; the October 2026 Critical Patch Update; Azul and BellSoft CPUs; GA releases of WildFly 42 and Apache POI 6.0; the beta release of Open Liberty 26.0.0.11; and maintenance releases of Micronaut and JobRunr.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category",
+      "description"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "java-2026-10-7b5132",
     "newsletter": "InfoQ Java",
     "issue_number": null,

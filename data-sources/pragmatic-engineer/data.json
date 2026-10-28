@@ -1,5 +1,31 @@
 [
   {
+    "id": "pe-2026-10-3bd331",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-10-27",
+    "date_str": "27 October 2026",
+    "title": "AI SRE: what is it, how could it change on-call – and does it work?",
+    "link": "https://newsletter.pragmaticengineer.com/p/ai-sre",
+    "author": "Gergely Orosz",
+    "description": "“AI SRE” is fast becoming a trending term fueled by flashy demos from vendors, but has an AI SRE ever really been on-call while engineers slept?",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category",
+      "description"
+    ],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "ai-sre"
+    }
+  },
+  {
     "id": "pe-2026-10-c4f0d4",
     "newsletter": "The Pragmatic Engineer",
     "issue_number": null,

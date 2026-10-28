@@ -1,24 +1,164 @@
 [
   {
-    "id": "twa-43-1390fb",
+    "id": "twa-44-a90189",
     "newsletter": "The Week Ahead",
-    "issue_number": 43,
-    "issue_title": "Week 43: The Week Ahead in Media + Tech",
-    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_nyc-to-berlin-a-few-key-events-worth-activity-7517585301456924672-97QQ",
-    "date": "2026-10-20",
-    "date_str": "20 October 2026",
-    "title": "NVIDIA GTC (Berlin): AI Infrastructure, Accelerated Computing, and Physical AI",
-    "link": "https://www.nvidia.com/gtc/",
+    "issue_number": 44,
+    "issue_title": "Week 44: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_from-las-vegas-to-lusaka-bangalore-to-barcelona-activity-7520406396945981440-u6Th",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "The Long Play (New York): Media, Entertainment, Technology, and Finance Executive Summit",
+    "link": "https://www.businessinsider.com/",
     "author": "Above",
-    "description": "20–22 Oct 2026 · Berlin. NVIDIA brings GTC to Europe for a major gathering on AI infrastructure, accelerated computing, and physical AI. CEO Jensen Huang delivers the keynote, with sessions for developers, researchers, and executives across the full AI stack. Speakers also include Alexandre Jacob of L'Oréal, Andrew McNamara, Joerg Burzer of Mercedes, Kimberly Powell of NVIDIA, and Tim Anderson of London Stock Exchange.",
+    "description": "29 Oct 2026 · New York. Business Insider’s new event brings together leaders from media, technology, entertainment and finance to discuss building enduring businesses. Speakers include Barry Diller, Smartbird CEO Nadia Carlsten, PhD, John C. Santora of WeWork, and Zachariah Reitano of Ro.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "media, entertainment, and general business executive summit outside software engineering/AI scope",
+      "location": "New York",
+      "dates": "29 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-44-410260",
+    "newsletter": "The Week Ahead",
+    "issue_number": 44,
+    "issue_title": "Week 44: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_from-las-vegas-to-lusaka-bangalore-to-barcelona-activity-7520406396945981440-u6Th",
+    "date": "2026-10-28",
+    "date_str": "28 October 2026",
+    "title": "Mozilla Festival (Barcelona): Open Web, Diverse Digital Spaces, and Internet Health",
+    "link": "https://www.mozillafestival.org/",
+    "author": "Above",
+    "description": "28–30 Oct 2026 · Barcelona. MozFest brings technologists, artists and communities together for conversations and hands-on sessions about the future of the internet. This year’s theme, “Wilding,” looks at more open, diverse and community-shaped digital spaces. Speakers include Ruha Benjamin, Jason Silva, and Chelsea Manning.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {
+      "location": "Barcelona",
+      "dates": "28–30 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-44-cbcf2e",
+    "newsletter": "The Week Ahead",
+    "issue_number": 44,
+    "issue_title": "Week 44: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_from-las-vegas-to-lusaka-bangalore-to-barcelona-activity-7520406396945981440-u6Th",
+    "date": "2026-10-27",
+    "date_str": "27 October 2026",
+    "title": "SAP TechEd (Berlin): Enterprise Developer Gathering and AI-Powered Systems",
+    "link": "https://www.sap.com/events/teched.html",
+    "author": "Above",
+    "description": "27–29 Oct 2026 · Berlin. SAP’s developer gathering explores how to build AI-powered systems and applications for business. The keynote features SAP CTO Dr. Philipp Herzig, Chief Product Officer Manoj Swaminathan and Chief AI Officer Jonathan von Rüden.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Berlin",
+      "dates": "27–29 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-44-a4bbac",
+    "newsletter": "The Week Ahead",
+    "issue_number": 44,
+    "issue_title": "Week 44: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_from-las-vegas-to-lusaka-bangalore-to-barcelona-activity-7520406396945981440-u6Th",
+    "date": "2026-10-27",
+    "date_str": "27 October 2026",
+    "title": "Black Hat India (Bangalore): Cybersecurity, Technical Training, and Vulnerability Research",
+    "link": "https://www.blackhat.com/",
+    "author": "Above",
+    "description": "27–30 Oct 2026 · Bangalore. The cybersecurity conference makes its India debut with technical training, research briefings and open-source tool demonstrations. The programme lists keynote speaker Nathan Hamiel, Durga Prasad Dube of Reliance, Burgess Cooper of Adani, Sandeep Khanna of Aditya Birla, and a special address by Shri Rajesh Kumar.",
+    "category": "Software Testing, Quality & Observability",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Bangalore",
+      "dates": "27–30 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-44-87eb50",
+    "newsletter": "The Week Ahead",
+    "issue_number": 44,
+    "issue_title": "Week 44: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_from-las-vegas-to-lusaka-bangalore-to-barcelona-activity-7520406396945981440-u6Th",
+    "date": "2026-10-26",
+    "date_str": "26 October 2026",
+    "title": "Africa Tech-Xpo (Lusaka): Digital Economy, AI, Fintech, and Infrastructure",
+    "link": "https://africatechxpo.com/",
+    "author": "Above",
+    "description": "26–27 Oct 2026 · Lusaka. A pan-African gathering focused on the digital economy, including AI, fintech, digital infrastructure and investment. Speakers include Chembo Sumbwe, COO of ZoykPay, Lars Christer Johannisson of Rack Centre, Ngozi Madueke-Dozie of Google, and software engineer Mwansa Mukonko.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Lusaka",
+      "dates": "26–27 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-44-81cc4d",
+    "newsletter": "The Week Ahead",
+    "issue_number": 44,
+    "issue_title": "Week 44: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_from-las-vegas-to-lusaka-bangalore-to-barcelona-activity-7520406396945981440-u6Th",
+    "date": "2026-10-25",
+    "date_str": "25 October 2026",
+    "title": "Oracle AI World (Las Vegas): Moving AI from Demos into Enterprise Systems",
+    "link": "https://www.oracle.com/cloudworld/",
+    "author": "Above",
+    "description": "25–28 Oct 2026 · Las Vegas. How do companies move AI from demos into the systems and workflows they rely on? Oracle’s annual conference puts that question at the centre of its keynotes, sessions and product demonstrations. Oracle co-CEOs Mike Sicilia and Clay Magouyrk open the programme.",
     "category": "Cloud Infrastructure & System Reliability",
     "is_spotlight": true,
     "type": "conference",
     "hide": false,
     "user_overrides": [],
     "metadata": {
-      "location": "Berlin",
-      "dates": "20–22 Oct 2026"
+      "location": "Las Vegas",
+      "dates": "25–28 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-43-97ec9c",
+    "newsletter": "The Week Ahead",
+    "issue_number": 43,
+    "issue_title": "Week 43: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_nyc-to-berlin-a-few-key-events-worth-activity-7517585301456924672-97QQ",
+    "date": "2026-10-20",
+    "date_str": "20 October 2026",
+    "title": "PG Connects Nordics (Helsinki): Game Publishing and Studio Economics",
+    "link": "https://www.pgconnects.com/nordics/",
+    "author": "Above",
+    "description": "20–21 Oct 2026 · Helsinki. Publishers, studios, and investors compare notes on the new economics of making games, finding audiences, and turning a hit into a lasting world. With more than 1,500 professionals attending, speakers include Tatu Petersen-Jessen of Odd Latent, Wilma Ramona Ikäheimonen of Game Makers of Finland, Zoran Gjorgiev of InnoGames, and Urška L. of Outfit7.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "mobile/indie game publishing and business conference outside software engineering/AI scope",
+      "location": "Helsinki",
+      "dates": "20–21 Oct 2026"
     }
   },
   {
@@ -47,28 +187,25 @@
     }
   },
   {
-    "id": "twa-43-97ec9c",
+    "id": "twa-43-1390fb",
     "newsletter": "The Week Ahead",
     "issue_number": 43,
     "issue_title": "Week 43: The Week Ahead in Media + Tech",
     "issue_link": "https://www.linkedin.com/posts/aboveimpacts_nyc-to-berlin-a-few-key-events-worth-activity-7517585301456924672-97QQ",
     "date": "2026-10-20",
     "date_str": "20 October 2026",
-    "title": "PG Connects Nordics (Helsinki): Game Publishing and Studio Economics",
-    "link": "https://www.pgconnects.com/nordics/",
+    "title": "NVIDIA GTC (Berlin): AI Infrastructure, Accelerated Computing, and Physical AI",
+    "link": "https://www.nvidia.com/gtc/",
     "author": "Above",
-    "description": "20–21 Oct 2026 · Helsinki. Publishers, studios, and investors compare notes on the new economics of making games, finding audiences, and turning a hit into a lasting world. With more than 1,500 professionals attending, speakers include Tatu Petersen-Jessen of Odd Latent, Wilma Ramona Ikäheimonen of Game Makers of Finland, Zoran Gjorgiev of InnoGames, and Urška L. of Outfit7.",
-    "category": "Tech Industry, Jobs & Careers",
-    "is_spotlight": false,
+    "description": "20–22 Oct 2026 · Berlin. NVIDIA brings GTC to Europe for a major gathering on AI infrastructure, accelerated computing, and physical AI. CEO Jensen Huang delivers the keynote, with sessions for developers, researchers, and executives across the full AI stack. Speakers also include Alexandre Jacob of L'Oréal, Andrew McNamara, Joerg Burzer of Mercedes, Kimberly Powell of NVIDIA, and Tim Anderson of London Stock Exchange.",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": true,
     "type": "conference",
-    "hide": true,
-    "user_overrides": [
-      "hide"
-    ],
+    "hide": false,
+    "user_overrides": [],
     "metadata": {
-      "hide_reason": "mobile/indie game publishing and business conference outside software engineering/AI scope",
-      "location": "Helsinki",
-      "dates": "20–21 Oct 2026"
+      "location": "Berlin",
+      "dates": "20–22 Oct 2026"
     }
   },
   {
@@ -235,28 +372,6 @@
     }
   },
   {
-    "id": "twa-41-93831a",
-    "newsletter": "The Week Ahead",
-    "issue_number": 41,
-    "issue_title": "Week 41: The Week Ahead in Media + Tech",
-    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
-    "date": "2026-10-07",
-    "date_str": "7 October 2026",
-    "title": "World Summit AI (Amsterdam): 10th Anniversary Gathering on Frontier AI, Governance, and Agentic Systems",
-    "link": "https://worldsummit.ai/",
-    "author": "Above",
-    "description": "7–8 Oct 2026 · Amsterdam. The tenth-anniversary edition of one of Europe’s largest AI gatherings convenes over 300 speakers across research, business, and policy. Featured speakers include OpenAI board member Zico Kolter, insitro founder Daphne Koller, LangChain co-founder Harrison Chase, former Taiwanese digital minister Audrey Tang, and Sony AI governance lead Alice Xiang.",
-    "category": "Large Language Models & Evaluation Infrastructure",
-    "is_spotlight": false,
-    "type": "conference",
-    "hide": false,
-    "user_overrides": [],
-    "metadata": {
-      "location": "Amsterdam",
-      "dates": "7–8 Oct 2026"
-    }
-  },
-  {
     "id": "twa-41-e5ada5",
     "newsletter": "The Week Ahead",
     "issue_number": 41,
@@ -275,6 +390,28 @@
     "user_overrides": [],
     "metadata": {
       "location": "Stuttgart",
+      "dates": "7–8 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-41-93831a",
+    "newsletter": "The Week Ahead",
+    "issue_number": 41,
+    "issue_title": "Week 41: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
+    "date": "2026-10-07",
+    "date_str": "7 October 2026",
+    "title": "World Summit AI (Amsterdam): 10th Anniversary Gathering on Frontier AI, Governance, and Agentic Systems",
+    "link": "https://worldsummit.ai/",
+    "author": "Above",
+    "description": "7–8 Oct 2026 · Amsterdam. The tenth-anniversary edition of one of Europe’s largest AI gatherings convenes over 300 speakers across research, business, and policy. Featured speakers include OpenAI board member Zico Kolter, insitro founder Daphne Koller, LangChain co-founder Harrison Chase, former Taiwanese digital minister Audrey Tang, and Sony AI governance lead Alice Xiang.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "Amsterdam",
       "dates": "7–8 Oct 2026"
     }
   },
@@ -304,28 +441,6 @@
     }
   },
   {
-    "id": "twa-41-1e4c07",
-    "newsletter": "The Week Ahead",
-    "issue_number": 41,
-    "issue_title": "Week 41: The Week Ahead in Media + Tech",
-    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
-    "date": "2026-10-05",
-    "date_str": "5 October 2026",
-    "title": "Tech Week by a16z (Los Angeles): AI, Entertainment, and Consumer Tech",
-    "link": "https://www.tech-week.com/",
-    "author": "Above",
-    "description": "12–18 Oct 2026 · Los Angeles. A citywide programme of founder dinners, product launches, investor gatherings, and technical sessions across AI, entertainment, gaming, and consumer technology, including an AI Startup Disruption in Media & Entertainment track.",
-    "category": "AI-Native & Agentic Software Engineering",
-    "is_spotlight": false,
-    "type": "conference",
-    "hide": false,
-    "user_overrides": [],
-    "metadata": {
-      "location": "San Francisco",
-      "dates": "5–11 Oct 2026"
-    }
-  },
-  {
     "id": "twa-41-78babb",
     "newsletter": "The Week Ahead",
     "issue_number": 41,
@@ -351,25 +466,25 @@
     }
   },
   {
-    "id": "twa-40-160a68",
+    "id": "twa-41-1e4c07",
     "newsletter": "The Week Ahead",
-    "issue_number": 40,
-    "issue_title": "Week 40: The Week Ahead in Media + Tech",
-    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
-    "date": "2026-10-01",
-    "date_str": "1 October 2026",
-    "title": "SOFTER Digital Futures (Rødvig): Building Democratic, Creative, and Caring Tech Ecosystems",
-    "link": "https://dk.linkedin.com/company/softerdigitalfutures",
+    "issue_number": 41,
+    "issue_title": "Week 41: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-media-tech-week-41-activity-7512481714439475200-YgdF",
+    "date": "2026-10-05",
+    "date_str": "5 October 2026",
+    "title": "Tech Week by a16z (Los Angeles): AI, Entertainment, and Consumer Tech",
+    "link": "https://www.tech-week.com/",
     "author": "Above",
-    "description": "1–3 Oct 2026 · Rødvig. An intimate gathering in Rødvig for designers, creative technologists, and engineers, featuring workshops and conversations on building more democratic, creative, and caring digital futures (curated by Ida Lissner & Nicole Jonasson).",
-    "category": "Engineering Philosophy & Estimation",
+    "description": "12–18 Oct 2026 · Los Angeles. A citywide programme of founder dinners, product launches, investor gatherings, and technical sessions across AI, entertainment, gaming, and consumer technology, including an AI Startup Disruption in Media & Entertainment track.",
+    "category": "AI-Native & Agentic Software Engineering",
     "is_spotlight": false,
     "type": "conference",
     "hide": false,
     "user_overrides": [],
     "metadata": {
-      "location": "Rødvig",
-      "dates": "1–3 Oct 2026"
+      "location": "San Francisco",
+      "dates": "5–11 Oct 2026"
     }
   },
   {
@@ -398,25 +513,25 @@
     }
   },
   {
-    "id": "twa-40-7d743b",
+    "id": "twa-40-160a68",
     "newsletter": "The Week Ahead",
     "issue_number": 40,
     "issue_title": "Week 40: The Week Ahead in Media + Tech",
     "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
-    "date": "2026-09-29",
-    "date_str": "29 September 2026",
-    "title": "CoreWeave Fully Connected (San Francisco): Compute, Networking, and Storage for AI at Scale",
-    "link": "https://www.coreweave.com/",
+    "date": "2026-10-01",
+    "date_str": "1 October 2026",
+    "title": "SOFTER Digital Futures (Rødvig): Building Democratic, Creative, and Caring Tech Ecosystems",
+    "link": "https://dk.linkedin.com/company/softerdigitalfutures",
     "author": "Above",
-    "description": "29 Sep–1 Oct 2026 · San Francisco. A summit for leaders and infrastructure engineers building AI clusters at scale, focusing on compute, high-speed networking, distributed storage, and developer experience. Keynotes include Michael Intrator, Lukas Biewald, Ian Buck, and Fei-Fei Li.",
-    "category": "Cloud Infrastructure & System Reliability",
+    "description": "1–3 Oct 2026 · Rødvig. An intimate gathering in Rødvig for designers, creative technologists, and engineers, featuring workshops and conversations on building more democratic, creative, and caring digital futures (curated by Ida Lissner & Nicole Jonasson).",
+    "category": "Engineering Philosophy & Estimation",
     "is_spotlight": false,
     "type": "conference",
     "hide": false,
     "user_overrides": [],
     "metadata": {
-      "location": "San Francisco",
-      "dates": "29 Sep–1 Oct 2026"
+      "location": "Rødvig",
+      "dates": "1–3 Oct 2026"
     }
   },
   {
@@ -442,6 +557,53 @@
     }
   },
   {
+    "id": "twa-40-7d743b",
+    "newsletter": "The Week Ahead",
+    "issue_number": 40,
+    "issue_title": "Week 40: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+    "date": "2026-09-29",
+    "date_str": "29 September 2026",
+    "title": "CoreWeave Fully Connected (San Francisco): Compute, Networking, and Storage for AI at Scale",
+    "link": "https://www.coreweave.com/",
+    "author": "Above",
+    "description": "29 Sep–1 Oct 2026 · San Francisco. A summit for leaders and infrastructure engineers building AI clusters at scale, focusing on compute, high-speed networking, distributed storage, and developer experience. Keynotes include Michael Intrator, Lukas Biewald, Ian Buck, and Fei-Fei Li.",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "location": "San Francisco",
+      "dates": "29 Sep–1 Oct 2026"
+    }
+  },
+  {
+    "id": "twa-40-d1140f",
+    "newsletter": "The Week Ahead",
+    "issue_number": 40,
+    "issue_title": "Week 40: The Week Ahead in Media + Tech",
+    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
+    "date": "2026-09-28",
+    "date_str": "28 September 2026",
+    "title": "Nashville Film Festival Creators Conference",
+    "link": "https://www.linkedin.com/company/nashville-film-festival",
+    "author": "Above",
+    "description": "28 Sep 2026 · Nashville. Conference programming for filmmakers, screenwriters, and creative-industry professionals in Nashville.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": true,
+    "user_overrides": [
+      "hide"
+    ],
+    "metadata": {
+      "hide_reason": "film production conference outside software engineering/AI scope",
+      "location": "Nashville",
+      "dates": "28 Sep 2026"
+    }
+  },
+  {
     "id": "twa-40-cbcaf1",
     "newsletter": "The Week Ahead",
     "issue_number": 40,
@@ -461,28 +623,6 @@
     "metadata": {
       "location": "Copenhagen",
       "dates": "28 Sep–2 Oct 2026"
-    }
-  },
-  {
-    "id": "twa-40-00be97",
-    "newsletter": "The Week Ahead",
-    "issue_number": 40,
-    "issue_title": "Week 40: The Week Ahead in Media + Tech",
-    "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
-    "date": "2026-09-28",
-    "date_str": "28 September 2026",
-    "title": "Boston AI Week: Exploring Real-World Business and Healthcare AI Transformation",
-    "link": "https://www.linkedin.com/company/bostonaiweek",
-    "author": "Above",
-    "description": "28 Sep–2 Oct 2026 · Boston. The annual festival brings together researchers, founders, and technologists across the Boston innovation community to explore how AI is changing industry and everyday life, with sessions from Radhika Dutt and Alex Condoleon.",
-    "category": "Tech Industry, Jobs & Careers",
-    "is_spotlight": false,
-    "type": "conference",
-    "hide": false,
-    "user_overrides": [],
-    "metadata": {
-      "location": "Boston",
-      "dates": "24 Sep–2 Oct 2026"
     }
   },
   {
@@ -511,28 +651,25 @@
     }
   },
   {
-    "id": "twa-40-d1140f",
+    "id": "twa-40-00be97",
     "newsletter": "The Week Ahead",
     "issue_number": 40,
     "issue_title": "Week 40: The Week Ahead in Media + Tech",
     "issue_link": "https://www.linkedin.com/posts/aboveimpacts_the-week-ahead-in-media-tech-week-40-activity-7509945049498189825-22-7",
     "date": "2026-09-28",
     "date_str": "28 September 2026",
-    "title": "Nashville Film Festival Creators Conference",
-    "link": "https://www.linkedin.com/company/nashville-film-festival",
+    "title": "Boston AI Week: Exploring Real-World Business and Healthcare AI Transformation",
+    "link": "https://www.linkedin.com/company/bostonaiweek",
     "author": "Above",
-    "description": "28 Sep 2026 · Nashville. Conference programming for filmmakers, screenwriters, and creative-industry professionals in Nashville.",
+    "description": "28 Sep–2 Oct 2026 · Boston. The annual festival brings together researchers, founders, and technologists across the Boston innovation community to explore how AI is changing industry and everyday life, with sessions from Radhika Dutt and Alex Condoleon.",
     "category": "Tech Industry, Jobs & Careers",
     "is_spotlight": false,
     "type": "conference",
-    "hide": true,
-    "user_overrides": [
-      "hide"
-    ],
+    "hide": false,
+    "user_overrides": [],
     "metadata": {
-      "hide_reason": "film production conference outside software engineering/AI scope",
-      "location": "Nashville",
-      "dates": "28 Sep 2026"
+      "location": "Boston",
+      "dates": "24 Sep–2 Oct 2026"
     }
   }
 ]

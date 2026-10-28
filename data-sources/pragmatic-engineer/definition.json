@@ -5,8 +5,16 @@
   "official_site": "https://newsletter.pragmaticengineer.com/",
   "archive_url": "https://newsletter.pragmaticengineer.com/archive",
   "parsed_issues": {
-    "count": 48,
+    "count": 49,
     "issues": [
+      {
+        "id": "pe-2026-10-3bd331",
+        "date": "2026-10-27",
+        "date_str": "27 October 2026",
+        "title": "AI SRE: what is it, how could it change on-call – and does it work?",
+        "url": "https://newsletter.pragmaticengineer.com/p/ai-sre",
+        "quotes": []
+      },
       {
         "id": "pe-2026-10-c4f0d4",
         "date": "2026-10-22",
@@ -392,8 +400,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "pe-2026-10-c4f0d4",
-    "last_parsed_date": "2026-10-22"
+    "last_parsed_issue": "pe-2026-10-3bd331",
+    "last_parsed_date": "2026-10-27"
   },
   "default_header": "### Gergely Orosz's The Pragmatic Engineer",
   "short_name": "Pragmatic Eng.",

@@ -8,14 +8,14 @@
 
 ### 🎣 What's New: Fresh weekly catch
 
-We refreshed our sources this week—including *Dear Architects #313*, *Token by Token #28*, *Andriy Burkov AI #349*, *Editor's Radar*, and our regular engineering blogs—and pulled together practical reads on how teams are actually building, reviewing, and paying for software right now:
+We refreshed our sources this week—including *Dear Architects #313*, *Token by Token #28*, *Andriy Burkov AI #349*, *The Week Ahead #44*, *Editor's Radar*, and our regular engineering blogs—and pulled together practical reads on how teams are actually building, reviewing, and paying for software right now:
 
 - **[Redesigning source control at Anthropic](https://www.anthropic.com/research/redesigning-source-control)** — Anthropic *(Token by Token #28 · Spotlight)*
   > When daily merges grew more than tenfold, Git started getting in the way. Here is how Anthropic built an internal version control system called Scion and moved their monorepo over in five months, alongside their own code review and search tools.
 - **[From Microservices to Agents: the Next Evolution of Distributed Systems](https://www.infoq.com/articles/distributed-systems-microservices-agentic-ai/)** — Mallika Rao *(Dear Architects #313 · Spotlight)*
   > A clear look at what changes in system boundaries, ownership, and failure modes when agents start calling services alongside traditional microservices.
-- **[What’s the ROI of software engineers’ spending on AI?](https://newsletter.pragmaticengineer.com/p/whats-the-roi-of-software-engineers)** — Gergely Orosz *(The Pragmatic Engineer)*
-  > Looking at data from 27 companies to ask a straightforward question: now that engineering teams are spending heavily on AI tools, are they actually shipping faster?
+- **[AI SRE: what is it, how could it change on-call – and does it work?](https://newsletter.pragmaticengineer.com/p/ai-sre)** & **[What’s the ROI of software engineers’ spending on AI?](https://newsletter.pragmaticengineer.com/p/whats-the-roi-of-software-engineers)** — Gergely Orosz *(The Pragmatic Engineer)*
+  > Cutting through vendor demos to ask whether "AI SRE" tools actually hold up during real 3 a.m. pages, alongside data from 27 companies on whether big AI budgets are translating into faster shipping.
 - **[Supervisory Engineering Work](https://annievella.com/posts/supervisory-engineering-work/)** — Annie Vella & **[On the Death of Amazon’s Writing Culture](https://alifeengineered.substack.com/p/on-the-death-of-amazons-writing-culture)** — Steve Huynh *(Editor's Radar)*
   > Annie Vella on the new "middle loop" of software engineering—directing AI, verifying output, and fixing what it gets wrong—paired with former Amazon Principal Engineer Steve Huynh on how generative AI broke the guarantee that writing a six-page memo forces clear thinking.
 - **[Someone behind the software](https://karrisaarinen.com/posts/someone-behind-the-software/)** — Karri Saarinen & **[Uncle Bob: Why I Stopped Reading Code and Building Harnesses](https://www.aviator.co/podcast/uncle-bob-martin-ai-clean-code)** — Robert C. Martin *(Editor's Radar)*
@@ -31,6 +31,7 @@ We refreshed our sources this week—including *Dear Architects #313*, *Token by
 
 ### 🛠️ Net & Tackle Maintenance
 
+- **Upcoming Conferences Radar (Week 44)**: Added *The Week Ahead (Week 44)* events—including **Oracle AI World (Las Vegas)**, **Black Hat India (Bangalore)**, **SAP TechEd (Berlin)**, and **MozFest (Barcelona)**—with non-engineering media summits filtered out.
 - **Cleaner Sources & Categories Guide**: Sources that have aged past the 90-day dashboard window (like July's *Thoughtworks FOSE* retreat notes) are now automatically left out of the Guide instead of sitting there with a `0` badge, and items that temporarily hit `0` under narrow filters are gently dimmed.
 - **MailerLite Scraper Fixes**: Fixed a `robots.txt` check and campaign timestamp fallback so new *Dear Architects* and *Token by Token* issues pull in cleanly.
 
