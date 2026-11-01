@@ -1,5 +1,141 @@
 [
   {
+    "id": "infoq-111-a14477",
+    "newsletter": "InfoQ Architecture",
+    "issue_number": 111,
+    "issue_title": "Issue #111: Designing Reusable Components: From the Frontend to the Backend and Beyond",
+    "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/111Architects_NL_October-2026.html",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "From Reusable to Regeneratable: Rethinking the Shared UI Component Library",
+    "link": "https://www.infoq.com/articles/regeneratable-ui-component-library/",
+    "author": "Daniel Curtis",
+    "description": "Case Study: Daniel Curtis challenges the conventional wisdom of maintaining centralized UI component libraries, arguing that generative AI enables organizations to regenerate components on demand from design tokens and machine-readable guidelines rather than maintaining complex shared packages.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": true,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "theme": "Designing Reusable Components: From the Frontend to the Backend and Beyond",
+      "section": "case_study"
+    }
+  },
+  {
+    "id": "infoq-111-493736",
+    "newsletter": "InfoQ Architecture",
+    "issue_number": 111,
+    "issue_title": "Issue #111: Designing Reusable Components: From the Frontend to the Backend and Beyond",
+    "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/111Architects_NL_October-2026.html",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "Composable Commerce: Inside Shipt’s Kit Platform",
+    "link": "https://www.infoq.com/articles/shipt-composable-commerce-design-ddd/",
+    "author": "Khurshid Hameed",
+    "description": "Khurshid Hameed explores how Shipt used Domain-Driven Design (DDD) and composable architecture to build a grocery bundling platform in three weeks, modeling reusable items, shopping lists, and kits as independent entities.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "theme": "Designing Reusable Components: From the Frontend to the Backend and Beyond",
+      "section": "news"
+    }
+  },
+  {
+    "id": "infoq-111-7a73da",
+    "newsletter": "InfoQ Architecture",
+    "issue_number": 111,
+    "issue_title": "Issue #111: Designing Reusable Components: From the Frontend to the Backend and Beyond",
+    "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/111Architects_NL_October-2026.html",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "Beyond Relevance: A Governance-First Architecture for Enterprise Personalization",
+    "link": "https://www.infoq.com/articles/architecture-enterprise-personalization-relevance-governance/",
+    "author": "Jerald Selvaraj",
+    "description": "Jerald Selvaraj proposes a modular architecture that integrates governance directly into AI-driven recommendations, separating relevance scoring, customer memory, policy enforcement, and AI model selection.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "theme": "Designing Reusable Components: From the Frontend to the Backend and Beyond",
+      "section": "news"
+    }
+  },
+  {
+    "id": "infoq-111-0f87da",
+    "newsletter": "InfoQ Architecture",
+    "issue_number": 111,
+    "issue_title": "Issue #111: Designing Reusable Components: From the Frontend to the Backend and Beyond",
+    "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/111Architects_NL_October-2026.html",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "Rightsizing Platform Engineering: Building the Platform Your Organization Actually Needs",
+    "link": "https://www.infoq.com/articles/rightsizing-platform-engineering/",
+    "author": "John Keates",
+    "description": "John Keates explores how Wehkamp evolved its internal developer platform to reduce operational toil and accelerate delivery, advocating opinionated golden paths, reusable self-service capabilities, and pragmatic escape hatches over comprehensive developer portals.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "theme": "Designing Reusable Components: From the Frontend to the Backend and Beyond",
+      "section": "news"
+    }
+  },
+  {
+    "id": "infoq-111-8cfd22",
+    "newsletter": "InfoQ Architecture",
+    "issue_number": 111,
+    "issue_title": "Issue #111: Designing Reusable Components: From the Frontend to the Backend and Beyond",
+    "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/111Architects_NL_October-2026.html",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "An Evolutionary Architecture Pattern for Managing AI's Pace of Change",
+    "link": "https://www.infoq.com/articles/evolutionary-architecture-pattern/",
+    "author": "Joe Price, Branimir Đurek, Pavlos Migkiros & Trevor Dearham",
+    "description": "Joe Price and colleagues explore how an AI gateway can isolate rapidly evolving AI capabilities from stable enterprise systems by centralizing model routing, security policies, guardrails, and observability.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {
+      "theme": "Designing Reusable Components: From the Frontend to the Backend and Beyond",
+      "section": "news"
+    }
+  },
+  {
+    "id": "infoq-111-5d517c",
+    "newsletter": "InfoQ Architecture",
+    "issue_number": 111,
+    "issue_title": "Issue #111: Designing Reusable Components: From the Frontend to the Backend and Beyond",
+    "issue_link": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/111Architects_NL_October-2026.html",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "Local First, LLMs, and Next-Generation UIs",
+    "link": "https://www.infoq.com/podcasts/future-web-apps/",
+    "author": "Rachel Lee Nabors",
+    "description": "Rachel Lee Nabors explores how small language models and local-first architectures enable privacy-conscious, low-latency web applications without relying on cloud-hosted services.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "type"
+    ],
+    "metadata": {
+      "theme": "Designing Reusable Components: From the Frontend to the Backend and Beyond",
+      "section": "news"
+    }
+  },
+  {
     "id": "infoq-110-f0edd1",
     "newsletter": "InfoQ Architecture",
     "issue_number": 110,

@@ -5,8 +5,16 @@
   "official_site": "https://www.tokenbytoken.ai/",
   "archive_url": "https://www.tokenbytoken.ai/",
   "parsed_issues": {
-    "count": 28,
+    "count": 29,
     "issues": [
+      {
+        "id": "29",
+        "date": "2026-10-29",
+        "date_str": "29 October 2026",
+        "title": "Build smarter AI with local models - #29 token by token",
+        "url": "https://preview.mailerlite.io/emails/webview/2096144/202662997608367727?signature=f81ea350ff5d42603ec4a1de25228b7d5323e145742e6ff8da2574d9104f0402",
+        "quotes": []
+      },
       {
         "id": "28",
         "date": "2026-10-21",
@@ -232,8 +240,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "28",
-    "last_parsed_date": "2026-10-21"
+    "last_parsed_issue": "29",
+    "last_parsed_date": "2026-10-29"
   },
   "default_header": "### Luca Mezzalira's Token by Token",
   "short_name": "Token by Token",

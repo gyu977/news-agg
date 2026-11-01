@@ -19,6 +19,10 @@ Supported formats:
 
 ## ✅ Processed Articles
 
+### Processed on 2026-11-01 14:05:
+- **Andriy Burkov** - [On Keeping Classic Open-Access Tech Books Up to Date](https://www.linkedin.com/posts/andriyburkov_i-love-books-especially-high-quality-textbooks-activity-7522028236726382592-oSu7)
+
+
 ### Processed on 2026-10-25 22:01:
 - **Annie Vella** - [Supervisory Engineering Work](https://annievella.com/posts/supervisory-engineering-work/)
 - **Steve Huynh** - [On the Death of Amazon’s Writing Culture](https://alifeengineered.substack.com/p/on-the-death-of-amazons-writing-culture)

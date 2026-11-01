@@ -1,3 +1,34 @@
+# News Digest — Edition 2026.11.01
+
+
+### 🌟 Access the Dashboard
+* **[Open Live Web Dashboard](https://gyu977.github.io/news-agg/)**
+
+---
+
+### 🎣 What's New: Fresh weekly catch
+
+We refreshed our sources for the November 1 edition—including *Dear Architects #314*, *Token by Token #29*, *The Software Architects' Newsletter #111 (October 2026)*, *Editor's Radar*, and our regular engineering blogs—and pulled together grounded reads on agentic workflows, component architecture, and engineering craft:
+
+- **[What I Learned Building an AI Software Factory](https://codecapsule.com/2026/10/04/what-i-learned-building-an-ai-software-factory/)** — Emmanuel Goossaert *(Token by Token #29 · Spotlight)*
+  > Lessons from nine weeks and 421 commits building an autonomous, seven-stage AI coding loop—what breaks when agents run unattended, and the mental models that actually keep them on track.
+- **[From Reusable to Regeneratable: Rethinking the Shared UI Component Library](https://www.infoq.com/articles/regeneratable-ui-component-library/)** — Daniel Curtis *(InfoQ Architecture #111 · Case Study Spotlight)*
+  > A fresh challenge to centralized UI component packages: as AI lowers the cost of generating code, does it make more sense to centralize design tokens and guidelines while regenerating components on demand?
+- **[InfoQ AI, ML and Data Engineering Trends Report - 2026](https://www.infoq.com/articles/ai-ml-data-engineering-trends-2026/)** — Srini Penchikala, Chip Huyen, Daniel Dominguez, Hien Luu & Arthur Casals *(Dear Architects #314 · Spotlight)*
+  > InfoQ's annual breakdown of where AI, ML, and data engineering sit on the adoption curve—from agentic architectures and small language models to evaluation pipelines.
+- **[Why are good developers so wary of agentic development?](https://martinfowler.com/rachels-ramblings/good-devs-wary.html)** — Rachel Laycock & **[Bliki: LLM Voice](https://martinfowler.com/bliki/LLM-Voice.html)** — Martin Fowler *(Martin Fowler)*
+  > Thoughtworks CTO Rachel Laycock on why experienced engineers remain cautious about agent-generated code (because writing code isn't the same as running it in production), paired with Martin Fowler on why the recognizable cadence of "LLM Voice" triggers instant reader distrust.
+- **[Scaling Agentic Coding As If People Still Mattered](https://adamtornhill.substack.com/p/scaling-agentic-coding-as-if-people)** — Adam Tornhill *(Dear Architects #314)* & **[Cutting an AI Agent's costs by 70%](https://nearform.com/digital-community/cutting-an-ai-agents-cost-by-70-without-losing-accuracy)** — Pasquale Carmine Carbone & Alfonso Graziano *(Token by Token #29)*
+  > Two practical reality checks on running agents in teams: Adam Tornhill on the human cognitive load of juggling 5–10 parallel terminal agents, and Nearform on tracing token spend down to the query to slash an agent system's bill by 70% without hurting accuracy.
+- **[Cell-Based Architecture for Resilient Payment Systems](https://americanexpress.io/cell-based-architecture-for-resilient-payment-systems/)** — Benjamin Cane *(Dear Architects #314)* & **[Rightsizing Platform Engineering](https://www.infoq.com/articles/rightsizing-platform-engineering/)** — John Keates *(InfoQ Architecture #111)*
+  > How American Express isolates failure domains in global payment processing using cell-based architecture, alongside Wehkamp's practical guide to building opinionated golden paths instead of bloated internal developer portals.
+- **[The Pulse: Anthropic kills the coding interview](https://newsletter.pragmaticengineer.com/p/the-pulse-anthropic-kills-the-coding)** & **[Software engineering at Google & CS education with Titus Winters](https://newsletter.pragmaticengineer.com/p/software-engineering-at-google-and)** — Gergely Orosz *(The Pragmatic Engineer)*
+  > Why Anthropic dropped Leetcode-style coding interviews from its hiring loop (plus real startup AI spend numbers from incident.io), and a conversation with Titus Winters on how AI is changing CS education and day-to-day engineering.
+- **[On Keeping Classic Open-Access Tech Books Up to Date](https://www.linkedin.com/posts/andriyburkov_i-love-books-especially-high-quality-textbooks-activity-7522028236726382592-oSu7)** — Andriy Burkov *(Editor's Radar)*
+  > Why great technical textbooks go stale, and how Creative Commons and GNU FDL licenses make it possible to modernize classics like Swaroop C.H.'s *A Byte of Python* for 2026.
+
+---
+
 # News Digest — Edition 2026.10.25
 
 

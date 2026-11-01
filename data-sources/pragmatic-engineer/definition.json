@@ -5,8 +5,24 @@
   "official_site": "https://newsletter.pragmaticengineer.com/",
   "archive_url": "https://newsletter.pragmaticengineer.com/archive",
   "parsed_issues": {
-    "count": 49,
+    "count": 51,
     "issues": [
+      {
+        "id": "pe-2026-10-849285",
+        "date": "2026-10-30",
+        "date_str": "30 October 2026",
+        "title": "The Pulse: Anthropic kills the coding interview",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-anthropic-kills-the-coding",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-10-22a421",
+        "date": "2026-10-29",
+        "date_str": "29 October 2026",
+        "title": "Software engineering at Google & CS education with Titus Winters",
+        "url": "https://newsletter.pragmaticengineer.com/p/software-engineering-at-google-and",
+        "quotes": []
+      },
       {
         "id": "pe-2026-10-3bd331",
         "date": "2026-10-27",
@@ -400,8 +416,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "pe-2026-10-3bd331",
-    "last_parsed_date": "2026-10-27"
+    "last_parsed_issue": "pe-2026-10-849285",
+    "last_parsed_date": "2026-10-30"
   },
   "default_header": "### Gergely Orosz's The Pragmatic Engineer",
   "short_name": "Pragmatic Eng.",

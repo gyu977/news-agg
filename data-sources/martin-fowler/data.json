@@ -1,5 +1,47 @@
 [
   {
+    "id": "mf-2026-10-739e0b",
+    "newsletter": "Martin Fowler",
+    "issue_number": null,
+    "issue_title": "Bliki: LLM Voice",
+    "issue_link": "https://martinfowler.com/bliki/LLM-Voice.html",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "Bliki: LLM Voice",
+    "link": "https://martinfowler.com/bliki/LLM-Voice.html",
+    "author": "Martin Fowler",
+    "description": "Martin Fowler reflects on the uncanny, recognizable cadence of LLM-generated prose ('LLM Voice'), exploring why it creates a visceral sense of revulsion and distrust in readers, and why authentic human voice matters.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "mf-2026-10-e73b1e",
+    "newsletter": "Martin Fowler",
+    "issue_number": null,
+    "issue_title": "Why are good developers so wary of agentic development?",
+    "issue_link": "https://martinfowler.com/rachels-ramblings/good-devs-wary.html",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "Why are good developers so wary of agentic development?",
+    "link": "https://martinfowler.com/rachels-ramblings/good-devs-wary.html",
+    "author": "Rachel Laycock",
+    "description": "Rachel Laycock explains why experienced developers are cautious about agentic coding, arguing that their reluctance stems from deep knowledge that generating code is not the same as operating reliable software in production.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "mf-2026-10-c9ff39",
     "newsletter": "Martin Fowler",
     "issue_number": null,

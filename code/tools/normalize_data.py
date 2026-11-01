@@ -196,9 +196,15 @@ def normalize_source(source_id, records, definition=None):
                     idx = filtered_result.index(existing)
                     filtered_result[idx] = rec
                     by_title[norm_t] = rec
-                else:
+                    stats["duplicates_merged"] += 1
+                elif ex_is_primary and not rec_is_primary:
                     merge_records(existing, rec)
-                stats["duplicates_merged"] += 1
+                    stats["duplicates_merged"] += 1
+                elif issue_segment(rec) == issue_segment(existing):
+                    merge_records(existing, rec)
+                    stats["duplicates_merged"] += 1
+                else:
+                    filtered_result.append(rec)
         result = filtered_result
 
     for rec in result:

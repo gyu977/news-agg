@@ -1,5 +1,137 @@
 [
   {
+    "id": "da-314-7c485a",
+    "newsletter": "Dear Architects",
+    "issue_number": 314,
+    "issue_title": "What does a software architect actually do? - #314 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/202866593422640475?signature=57cae4d9c108de9dbcf334226e99b04e3ff55102f81470e3114e12d2a37d8582",
+    "date": "2026-10-31",
+    "date_str": "31 October 2026",
+    "title": "InfoQ AI, ML and Data Engineering Trends Report - 2026",
+    "link": "https://www.infoq.com/articles/ai-ml-data-engineering-trends-2026/",
+    "author": "Srini Penchikala, Chip Huyen, Daniel Dominguez, Hien Luu & Arthur Casals",
+    "description": "The InfoQ AI ML Annual Trends Reports offer InfoQ readers a comprehensive overview of emerging trends and technologies in the areas of AI, ML, and Data Engineering.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": true,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-314-4f3fd2",
+    "newsletter": "Dear Architects",
+    "issue_number": 314,
+    "issue_title": "What does a software architect actually do? - #314 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/202866593422640475?signature=57cae4d9c108de9dbcf334226e99b04e3ff55102f81470e3114e12d2a37d8582",
+    "date": "2026-10-31",
+    "date_str": "31 October 2026",
+    "title": "The first code execution model",
+    "link": "https://heymaxwell.ai/",
+    "author": "doubleAI",
+    "description": "doubleAI unveiled Maxwell, the first code execution model: an AI that lives inside running programs and keeps making them faster, without changing your code. Now available for early access.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": true,
+    "user_overrides": [
+      "author",
+      "hide"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-314-b2ffeb",
+    "newsletter": "Dear Architects",
+    "issue_number": 314,
+    "issue_title": "What does a software architect actually do? - #314 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/202866593422640475?signature=57cae4d9c108de9dbcf334226e99b04e3ff55102f81470e3114e12d2a37d8582",
+    "date": "2026-10-31",
+    "date_str": "31 October 2026",
+    "title": "Cell-Based Architecture for Resilient Payment Systems",
+    "link": "https://americanexpress.io/cell-based-architecture-for-resilient-payment-systems/",
+    "author": "Benjamin Cane",
+    "description": "The American Express core payments ecosystem is a global platform relied on by Card Members and partners around the world. Every day, it processes live payment transactions that require high availability, low latency, and predictable performance.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-314-d5df6e",
+    "newsletter": "Dear Architects",
+    "issue_number": 314,
+    "issue_title": "What does a software architect actually do? - #314 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/202866593422640475?signature=57cae4d9c108de9dbcf334226e99b04e3ff55102f81470e3114e12d2a37d8582",
+    "date": "2026-10-31",
+    "date_str": "31 October 2026",
+    "title": "The One Minute Architect: The Story of the Most Invisible Job in Software",
+    "link": "https://www.amazon.com/dp/8398263601",
+    "author": "Karol Wiszowaty",
+    "description": "Joe just got the title he wanted: Software Architect. But he has no idea what the job actually is. He knows how to write code.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "book",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "link",
+      "category",
+      "description"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-314-10ba49",
+    "newsletter": "Dear Architects",
+    "issue_number": 314,
+    "issue_title": "What does a software architect actually do? - #314 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/202866593422640475?signature=57cae4d9c108de9dbcf334226e99b04e3ff55102f81470e3114e12d2a37d8582",
+    "date": "2026-10-31",
+    "date_str": "31 October 2026",
+    "title": "Anita Kvamme - DDD & BDD Then and Now: Unpacking Similarities and Differences - DDD Europe 2025",
+    "link": "https://www.youtube.com/watch?v=Qk9UCQB5x8w",
+    "author": "Anita Kvamme",
+    "description": "One was all about breaking up a monolith, the other a greenfield project using event sourcing. There were a lot of similarities, but also clear differences.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-314-477d9e",
+    "newsletter": "Dear Architects",
+    "issue_number": 314,
+    "issue_title": "What does a software architect actually do? - #314 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/202866593422640475?signature=57cae4d9c108de9dbcf334226e99b04e3ff55102f81470e3114e12d2a37d8582",
+    "date": "2026-10-31",
+    "date_str": "31 October 2026",
+    "title": "Scaling Agentic Coding As If People Still Mattered",
+    "link": "https://adamtornhill.substack.com/p/scaling-agentic-coding-as-if-people",
+    "author": "Adam Tornhill",
+    "description": "The other week I read Gergely Orosz’s excellent post on the state of the tech industry in 2026. In that post, several prominent developers share how they work with 5-10 parallel agents, each one running in a separate terminal tab.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "da-313-4d03a8",
     "newsletter": "Dear Architects",
     "issue_number": 313,

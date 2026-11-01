@@ -5,8 +5,21 @@
   "official_site": "https://deararchitects.xyz/",
   "archive_url": "https://www.deararchitects.xyz/archive",
   "parsed_issues": {
-    "count": 95,
+    "count": 96,
     "issues": [
+      {
+        "id": "314",
+        "date": "2026-10-31",
+        "date_str": "31 October 2026",
+        "title": "What does a software architect actually do? - #314 Dear Architects",
+        "url": "https://preview.mailerlite.io/emails/webview/1235400/202866593422640475?signature=57cae4d9c108de9dbcf334226e99b04e3ff55102f81470e3114e12d2a37d8582",
+        "quotes": [
+          {
+            "text": "Good judgement comes from experience, and experience comes from bad judgement.",
+            "author": "Frederick P. Brooks"
+          }
+        ]
+      },
       {
         "id": "313",
         "date": "2026-10-24",
@@ -1223,8 +1236,8 @@
         ]
       }
     ],
-    "last_parsed_issue": "313",
-    "last_parsed_date": "2026-10-24"
+    "last_parsed_issue": "314",
+    "last_parsed_date": "2026-10-31"
   },
   "default_header": "### Luca Mezzalira's Dear Architects",
   "short_name": "Dear Architects",

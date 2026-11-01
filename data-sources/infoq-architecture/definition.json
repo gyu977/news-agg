@@ -9,8 +9,16 @@
   "description": "Curated software architecture presentations, case studies, and engineering deep dives from InfoQ.",
   "article_id_prefix": "infoq",
   "parsed_issues": {
-    "count": 3,
+    "count": 4,
     "issues": [
+      {
+        "id": "111",
+        "date": "2026-10-29",
+        "date_str": "29 October 2026",
+        "title": "Issue #111: Designing Reusable Components: From the Frontend to the Backend and Beyond",
+        "url": "https://assets.infoq.com/newsletter/architect/en/newsletter_sample/111Architects_NL_October-2026.html",
+        "quotes": []
+      },
       {
         "id": "110",
         "date": "2026-09-25",
@@ -36,8 +44,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "110",
-    "last_parsed_date": "2026-09-25"
+    "last_parsed_issue": "111",
+    "last_parsed_date": "2026-10-29"
   },
   "sponsor_domains": [
     "certification.qconferences.com",

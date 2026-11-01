@@ -1,5 +1,30 @@
 [
   {
+    "id": "others-2026-11-558446",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "November 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-11-01",
+    "date_str": "1 November 2026",
+    "title": "On Keeping Classic Open-Access Tech Books Up to Date",
+    "link": "https://www.linkedin.com/posts/andriyburkov_i-love-books-especially-high-quality-textbooks-activity-7522028236726382592-oSu7",
+    "author": "Andriy Burkov",
+    "description": "Andriy Burkov reflects on how great tech textbooks become outdated and how permissive licenses (Creative Commons, GNU FDL) allow the community to modernize them, sharing his initiative on ChapterPal to update classics like Swaroop C.H.'s A Byte of Python.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "pulse",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "title",
+      "description",
+      "type",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "others-2026-10-d77118",
     "newsletter": "Editor's Radar",
     "issue_number": null,

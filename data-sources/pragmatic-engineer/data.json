@@ -1,5 +1,54 @@
 [
   {
+    "id": "pe-2026-10-849285",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-10-30",
+    "date_str": "30 October 2026",
+    "title": "The Pulse: Anthropic kills the coding interview",
+    "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-anthropic-kills-the-coding",
+    "author": "Gergely Orosz",
+    "description": "AI is rendering the Leetcode-style interview pointless and now Anthropic has deleted it from its interview loop. Also: details of incident.io’s AI spend, Microsoft’s exit offer to engineers, and more",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "pulse",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "the-pulse-anthropic-kills-the-coding"
+    }
+  },
+  {
+    "id": "pe-2026-10-22a421",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "Software engineering at Google & CS education with Titus Winters",
+    "link": "https://newsletter.pragmaticengineer.com/p/software-engineering-at-google-and",
+    "author": "Gergely Orosz",
+    "description": "Titus Winters shares lessons from engineering at Google’s scale and explores how AI is reshaping developer productivity and computer science education.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {
+      "audience": "everyone",
+      "slug": "software-engineering-at-google-and"
+    }
+  },
+  {
     "id": "pe-2026-10-3bd331",
     "newsletter": "The Pragmatic Engineer",
     "issue_number": null,

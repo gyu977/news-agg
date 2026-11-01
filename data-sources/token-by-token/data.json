@@ -1,5 +1,134 @@
 [
   {
+    "id": "tbt-29-01058e",
+    "newsletter": "Token by Token",
+    "issue_number": 29,
+    "issue_title": "Build smarter AI with local models - #29 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/202662997608367727?signature=f81ea350ff5d42603ec4a1de25228b7d5323e145742e6ff8da2574d9104f0402",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "What I Learned Building an AI Software Factory",
+    "link": "https://codecapsule.com/2026/10/04/what-i-learned-building-an-ai-software-factory/",
+    "author": "Emmanuel Goossaert",
+    "description": "So my idea was simple: build an AI workflow, apply it to a few projects, and observe myself interact with it to see what new habits I’m adopting, what I’m learning, what works and doesn’t. After a few weeks, I would extract the guiding principles behind my decisions, as a way to gain a deeper understanding of how those systems work under the hood, and equip myself with some mental models of how one should interact with such systems in the future.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": true,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-29-785f7f",
+    "newsletter": "Token by Token",
+    "issue_number": 29,
+    "issue_title": "Build smarter AI with local models - #29 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/202662997608367727?signature=f81ea350ff5d42603ec4a1de25228b7d5323e145742e6ff8da2574d9104f0402",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "QVAC: Run LLMs, speech, vision, image/video generation, and more on any device",
+    "link": "https://github.com/tetherto/qvac",
+    "author": "Tether",
+    "description": "Not every AI feature needs a round trip to someone else's server. QVAC SDK runs open models directly on phones & laptops, so there are no token costs, no cloud hosting, and sensitive files never leave the device. It's free, Apache 2.0, and on GitHub, so you can read the code, build on it, and monetize what you make.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "link"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-29-6251fc",
+    "newsletter": "Token by Token",
+    "issue_number": 29,
+    "issue_title": "Build smarter AI with local models - #29 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/202662997608367727?signature=f81ea350ff5d42603ec4a1de25228b7d5323e145742e6ff8da2574d9104f0402",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "Choosing the Right Multi-Agent Architecture",
+    "link": "https://www.langchain.com/blog/choosing-the-right-multi-agent-architecture",
+    "author": "Sydney Runkle",
+    "description": "Many agentic tasks are best handled by a single agent with well-designed tools. You should start here—single agents are simpler to build, reason about, and debug. But as applications scale, teams face a common challenge wherein they have sprawling agent capabilities they want to combine into a single coherent interface. As the features they want to combine grow in number, two main constraints emerge..",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-29-f82015",
+    "newsletter": "Token by Token",
+    "issue_number": 29,
+    "issue_title": "Build smarter AI with local models - #29 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/202662997608367727?signature=f81ea350ff5d42603ec4a1de25228b7d5323e145742e6ff8da2574d9104f0402",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "Cutting an AI Agent's costs by 70%",
+    "link": "https://nearform.com/digital-community/cutting-an-ai-agents-cost-by-70-without-losing-accuracy",
+    "author": "Pasquale Carmine Carbone & Alfonso Graziano",
+    "description": "For cost, we recorded what every query spent, down to the token and the dollar, so we could open up any single request and see exactly where the money went. We used Langfuse for tracing, with a custom metering layer on top for the cost accounting. Once we could see the costs, it was pretty clear where to aim. The telemetry broke cost down per agent, and it turned out one agent alone was consuming around 65% of the tokens in the entire system. So that's where we started. Any improvement there would move the bill much further than the same effort spread across the cheaper agents, which also meant the first change we shipped was the one that mattered most.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-29-b5f71b",
+    "newsletter": "Token by Token",
+    "issue_number": 29,
+    "issue_title": "Build smarter AI with local models - #29 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/202662997608367727?signature=f81ea350ff5d42603ec4a1de25228b7d5323e145742e6ff8da2574d9104f0402",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "Serving LLMs at Scale",
+    "link": "https://www.infoq.com/presentations/llm-inference-kv-cache/",
+    "author": "Khawaja Shams",
+    "description": "Khawaja Shams shares a distributed systems perspective on scaling LLM inference stacks efficiently. He discusses practical strategies for optimizing GPU utilization, managing KV cache memory cliffs, leveraging tiered storage, reducing tail latency, and implementing disaggregated prefill and decode architectures to improve overall fleet performance, cost economics, and availability.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "presentation",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "type"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-29-4a8c36",
+    "newsletter": "Token by Token",
+    "issue_number": 29,
+    "issue_title": "Build smarter AI with local models - #29 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/202662997608367727?signature=f81ea350ff5d42603ec4a1de25228b7d5323e145742e6ff8da2574d9104f0402",
+    "date": "2026-10-29",
+    "date_str": "29 October 2026",
+    "title": "Getting started with Claude Code mods",
+    "link": "https://claude.dev/blog/getting-started-with-claude-code-mods/",
+    "author": "Anthropic",
+    "description": "A mod is a small JavaScript or TypeScript file that runs inside your Claude Code session. It can watch what's happening, change what Claude Code does, or draw its own UI, in the terminal or the desktop app. You don't need to learn the API to try one. Run claude , then describe the mod you want. Allow hot reload when it asks, and the mod shows up when the turn ends.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "tbt-28-d9a400",
     "newsletter": "Token by Token",
     "issue_number": 28,
