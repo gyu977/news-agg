@@ -1,5 +1,28 @@
 [
   {
+    "id": "mf-2026-11-4d44cd",
+    "newsletter": "Martin Fowler",
+    "issue_number": null,
+    "issue_title": "The Data Product Platform Navigator",
+    "issue_link": "https://martinfowler.com/articles/data-product-platform-nav.html",
+    "date": "2026-11-05",
+    "date_str": "5 November 2026",
+    "title": "The Data Product Platform Navigator",
+    "link": "https://martinfowler.com/articles/data-product-platform-nav.html",
+    "author": "Tom De Wolf",
+    "description": "Tom De Wolf adapts the CNCF Platform Engineering Maturity Model into a four-level navigator (Provisional, Operational, Scalable, Optimizing) to help organizations overcome self-service platform bottlenecks when adopting Data Mesh and building Data Products.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "mf-2026-10-739e0b",
     "newsletter": "Martin Fowler",
     "issue_number": null,

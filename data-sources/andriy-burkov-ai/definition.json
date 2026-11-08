@@ -5,8 +5,16 @@
   "official_site": "https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/",
   "archive_url": "https://www.linkedin.com/newsletters/artificial-intelligence-6598352935271358464/",
   "parsed_issues": {
-    "count": 17,
+    "count": 18,
     "issues": [
+      {
+        "id": "350",
+        "date": "2026-11-08",
+        "date_str": "8 November 2026",
+        "title": "Artificial Intelligence #350",
+        "url": "https://www.linkedin.com/pulse/artificial-intelligence-350-andriy-burkov-rowpc",
+        "quotes": []
+      },
       {
         "id": "349",
         "date": "2026-10-24",
@@ -144,8 +152,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "349",
-    "last_parsed_date": "2026-10-24"
+    "last_parsed_issue": "350",
+    "last_parsed_date": "2026-11-08"
   },
   "default_header": "### Andriy Burkov's Artificial Intelligence",
   "short_name": "Burkov AI",

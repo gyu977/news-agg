@@ -9,7 +9,7 @@
     "issues": [
       {
         "id": "collected-november-2026",
-        "date": "2026-11-01",
+        "date": "2026-11-08",
         "date_str": "November 2026",
         "title": "Collected articles — November 2026",
         "url": "",
@@ -57,7 +57,7 @@
       }
     ],
     "last_parsed_issue": "collected-november-2026",
-    "last_parsed_date": "2026-11-01"
+    "last_parsed_date": "2026-11-08"
   },
   "default_header": "### Editor's Radar",
   "short_name": "Editor's Radar",

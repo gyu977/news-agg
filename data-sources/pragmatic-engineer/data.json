@@ -1,5 +1,57 @@
 [
   {
+    "id": "pe-2026-11-7fb652",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-11-05",
+    "date_str": "5 November 2026",
+    "title": "Scaling Slack and GitHub with Maude Lemaire",
+    "link": "https://newsletter.pragmaticengineer.com/p/scaling-slack-and-github-with-maude",
+    "author": "Gergely Orosz",
+    "description": "What is involved in scaling up large, popular products at places like Slack and GitHub? Maude Lemaire, principal engineer and author of 'Refactoring at Scale,' shares lessons from Slack's enterprise sharding and $150,000 load tests, GitHub's Ruby on Rails monolith, and performance engineering in the AI era.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "description",
+      "category"
+    ],
+    "metadata": {
+      "audience": "everyone",
+      "slug": "scaling-slack-and-github-with-maude"
+    }
+  },
+  {
+    "id": "pe-2026-11-626d39",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-11-03",
+    "date_str": "3 November 2026",
+    "title": "How software engineering is changing: a tale of two eras",
+    "link": "https://newsletter.pragmaticengineer.com/p/how-software-engineering-is-changing",
+    "author": "Neil Kakkar & Gergely Orosz",
+    "description": "We invited readers to write about how building software changed in an essay challenge. Winning author Neil Kakkar contrasts pre-AI engineering (merging 8–20 PRs/month) with the AI-native era (merging 200+ PRs/month via parallel agents) and the resulting shifts in code review, context management, and ownership.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "description",
+      "category"
+    ],
+    "metadata": {
+      "audience": "everyone",
+      "slug": "how-software-engineering-is-changing"
+    }
+  },
+  {
     "id": "pe-2026-10-849285",
     "newsletter": "The Pragmatic Engineer",
     "issue_number": null,

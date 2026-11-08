@@ -5,8 +5,16 @@
   "official_site": "https://www.infoq.com/java/news/",
   "archive_url": "https://feed.infoq.com/java/news/",
   "parsed_issues": {
-    "count": 3,
+    "count": 4,
     "issues": [
+      {
+        "id": "2026-11",
+        "date": "2026-11-02",
+        "date_str": "2 November 2026",
+        "title": "InfoQ Java - 2 November 2026",
+        "url": "https://www.infoq.com/news/2026/11/java-news-roundup-oct26-2026/",
+        "quotes": []
+      },
       {
         "id": "2026-10",
         "date": "2026-10-05",
@@ -32,8 +40,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "2026-10",
-    "last_parsed_date": "2026-10-05"
+    "last_parsed_issue": "2026-11",
+    "last_parsed_date": "2026-11-02"
   },
   "default_header": "InfoQ Java News",
   "short_name": "InfoQ Java",

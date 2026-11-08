@@ -5,8 +5,21 @@
   "official_site": "https://deararchitects.xyz/",
   "archive_url": "https://www.deararchitects.xyz/archive",
   "parsed_issues": {
-    "count": 96,
+    "count": 97,
     "issues": [
+      {
+        "id": "315",
+        "date": "2026-11-07",
+        "date_str": "7 November 2026",
+        "title": "Educating an Architect - #315 Dear Architects",
+        "url": "https://preview.mailerlite.io/emails/webview/1235400/203515116811978660?signature=3dd44d72bf6e7c79b04a0b72bfba7fcd871a322dd4d264fef619a0b3d22ed2f1",
+        "quotes": [
+          {
+            "text": "I've finally learned what 'upward compatible' means. It means we get to keep all our old mistakes.",
+            "author": "Dennie van Tassel"
+          }
+        ]
+      },
       {
         "id": "314",
         "date": "2026-10-31",
@@ -1236,8 +1249,8 @@
         ]
       }
     ],
-    "last_parsed_issue": "314",
-    "last_parsed_date": "2026-10-31"
+    "last_parsed_issue": "315",
+    "last_parsed_date": "2026-11-07"
   },
   "default_header": "### Luca Mezzalira's Dear Architects",
   "short_name": "Dear Architects",

@@ -1,5 +1,113 @@
 [
   {
+    "id": "tbt-30-7cc28e",
+    "newsletter": "Token by Token",
+    "issue_number": 30,
+    "issue_title": "Why early AI productivity vanishes - #30 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/203313349539136660?signature=72c87b94fc8f58b15d80952eb3a5d95651a5d0feff53ad648d0f1535aa9af60e",
+    "date": "2026-11-05",
+    "date_str": "5 November 2026",
+    "title": "The Missing Link for Speed with Quality",
+    "link": "https://youtu.be/ciRTdOIhNCc",
+    "author": "Adam Tornhill",
+    "description": "Have you seen early productivity gains from AI, only to watch them disappear under growing complexity and production incidents? You're not alone. There's a common reason: many production systems already struggle with technical debt. When AI agents enter the development loop, that debt becomes a multiplier. Poor-quality code not only increases defects and costs. It dramatically raises AI risk by driving high breakage rates, turning promising AI agents into legacy code generators rather than genuine help.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": true,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-30-c84276",
+    "newsletter": "Token by Token",
+    "issue_number": 30,
+    "issue_title": "Why early AI productivity vanishes - #30 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/203313349539136660?signature=72c87b94fc8f58b15d80952eb3a5d95651a5d0feff53ad648d0f1535aa9af60e",
+    "date": "2026-11-05",
+    "date_str": "5 November 2026",
+    "title": "Beyond the Harness",
+    "link": "https://www.infoq.com/presentations/canvas-ai-agents",
+    "author": "Nimisha Asthagiri",
+    "description": "Nimisha Asthagiri shares how applying proven product engineering and architecture principles creates a bounded canvas for AI agents. She explains how this model provides agents with bounded autonomy, continuous drift detection, and decision records to scale software development resiliently.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "presentation",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "type"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-30-ddef30",
+    "newsletter": "Token by Token",
+    "issue_number": 30,
+    "issue_title": "Why early AI productivity vanishes - #30 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/203313349539136660?signature=72c87b94fc8f58b15d80952eb3a5d95651a5d0feff53ad648d0f1535aa9af60e",
+    "date": "2026-11-05",
+    "date_str": "5 November 2026",
+    "title": "Evals for AI Engineers",
+    "link": "https://www.amazon.com/dp/B0GTYQTYDP",
+    "author": "Shreya Shankar & Hamel Husain",
+    "description": "Stop using guesswork to find out how your AI applications are performing. Evals for AI Engineers gives you a practical framework for systematically testing, measuring, and improving AI applications, especially those built with LLMs. Written by Shreya Shankar and Hamel Husain, AI engineers with extensive experience across 35+ AI products and cutting-edge research, this book focuses on the techniques teams actually need to build reliable AI systems in production. Ideal for software engineers, technical product managers, and technical leads, this hands-on guide shows you how to build an evaluation process that improves alongside your product.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "book",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "link"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-30-557dcb",
+    "newsletter": "Token by Token",
+    "issue_number": 30,
+    "issue_title": "Why early AI productivity vanishes - #30 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/203313349539136660?signature=72c87b94fc8f58b15d80952eb3a5d95651a5d0feff53ad648d0f1535aa9af60e",
+    "date": "2026-11-05",
+    "date_str": "5 November 2026",
+    "title": "Inside OpenAI’s agentic software factory",
+    "link": "https://newsletter.pragmaticengineer.com/p/openai-software-factory",
+    "author": "Gergely Orosz",
+    "description": "It’s rare to work with an unlimited token budget, but at OpenAI, that’s what all engineers, researchers, finance colleagues, and marketing folks do. Recently, I visited one of the world’s leading frontier labs to find out how OpenAI operates today – and for a glimpse at where software engineering might be headed as a profession. Plenty has changed since I visited OpenAI’s headquarters last year. Within a year, Codex has gone from a “nice-to-have” tool to being the backbone of pretty much everything at the company.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-30-dda094",
+    "newsletter": "Token by Token",
+    "issue_number": 30,
+    "issue_title": "Why early AI productivity vanishes - #30 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/203313349539136660?signature=72c87b94fc8f58b15d80952eb3a5d95651a5d0feff53ad648d0f1535aa9af60e",
+    "date": "2026-11-05",
+    "date_str": "5 November 2026",
+    "title": "From writing code to leading through others",
+    "link": "https://tborys.com/blog/leading-through-others",
+    "author": "Tomasz Borys",
+    "description": "You have a problem. You investigate it, try something, run the tests and eventually see it working. Sometimes it takes hours, sometimes days, especially when you're figuring it out on your own. But when it works, you know it came from something you just did. As my role moved towards technical leadership, that feeling became less frequent. I was still solving problems, just not always by writing the code myself. More often, I needed to help other engineers solve them. And I discovered that the reward could take much longer to arrive.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "tbt-29-01058e",
     "newsletter": "Token by Token",
     "issue_number": 29,

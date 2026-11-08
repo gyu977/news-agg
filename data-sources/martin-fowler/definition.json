@@ -5,8 +5,16 @@
   "official_site": "https://martinfowler.com/",
   "archive_url": "https://martinfowler.com/recent-changes.html",
   "parsed_issues": {
-    "count": 5,
+    "count": 6,
     "issues": [
+      {
+        "id": "2026-11",
+        "date": "2026-11-05",
+        "date_str": "5 November 2026",
+        "title": "November 2026 Essays",
+        "url": "https://martinfowler.com/articles.html",
+        "quotes": []
+      },
       {
         "id": "2026-10",
         "date": "2026-10-04",
@@ -48,8 +56,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "2026-10",
-    "last_parsed_date": "2026-10-04"
+    "last_parsed_issue": "2026-11",
+    "last_parsed_date": "2026-11-05"
   },
   "default_header": "Martin Fowler",
   "short_name": "Martin Fowler",

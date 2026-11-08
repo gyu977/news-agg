@@ -1,5 +1,49 @@
 [
   {
+    "id": "sw-2026-11-9b0f1b",
+    "newsletter": "Simon Willison's Weblog",
+    "issue_number": null,
+    "issue_title": "Qwen 3.8 27B on my laptop can interpret model weights, too",
+    "issue_link": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+    "date": "2026-11-03",
+    "date_str": "3 November 2026",
+    "title": "Qwen 3.8 27B on my laptop can interpret model weights, too",
+    "link": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+    "author": "Simon Willison",
+    "description": "Simon Willison replicates MIT CSAIL's weight-space programming experiments locally on his laptop using a quantized Qwen 3.8 27B model in LM Studio, showing that open-weights models can identify Atari game policy networks purely by reading raw floating-point weight tensors.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "sw-2026-11-efcf00",
+    "newsletter": "Simon Willison's Weblog",
+    "issue_number": null,
+    "issue_title": "The U.S. Census Bureau and “Super Intelligence”",
+    "issue_link": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/",
+    "date": "2026-11-02",
+    "date_str": "2 November 2026",
+    "title": "The U.S. Census Bureau and “Super Intelligence”",
+    "link": "https://simonwillison.net/2026/Nov/2/census-bureau-super-intelligence/",
+    "author": "Simon Willison",
+    "description": "Simon Willison examines how Executive Order 14434 prompted the U.S. Census Bureau to replace 'Artificial Intelligence' with 'Super Intelligence' in its Business Trends and Outlook Survey (BTOS), complicating longitudinal tracking of corporate AI adoption.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "sw-2026-10-d63165",
     "newsletter": "Simon Willison's Weblog",
     "issue_number": null,

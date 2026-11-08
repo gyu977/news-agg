@@ -5,8 +5,16 @@
   "official_site": "https://www.tokenbytoken.ai/",
   "archive_url": "https://www.tokenbytoken.ai/",
   "parsed_issues": {
-    "count": 29,
+    "count": 30,
     "issues": [
+      {
+        "id": "30",
+        "date": "2026-11-05",
+        "date_str": "5 November 2026",
+        "title": "Why early AI productivity vanishes - #30 token by token",
+        "url": "https://preview.mailerlite.io/emails/webview/2096144/203313349539136660?signature=72c87b94fc8f58b15d80952eb3a5d95651a5d0feff53ad648d0f1535aa9af60e",
+        "quotes": []
+      },
       {
         "id": "29",
         "date": "2026-10-29",
@@ -240,8 +248,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "29",
-    "last_parsed_date": "2026-10-29"
+    "last_parsed_issue": "30",
+    "last_parsed_date": "2026-11-05"
   },
   "default_header": "### Luca Mezzalira's Token by Token",
   "short_name": "Token by Token",

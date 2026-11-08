@@ -19,6 +19,19 @@ Supported formats:
 
 ## ✅ Processed Articles
 
+### Processed on 2026-11-08 11:43:
+- **Hillel Wayne** - [Why Antithesis?](https://antithesis.com/blog/2026/hillel-joins-antithesis/)
+
+
+### Processed on 2026-11-08 11:07:
+- **Gregor Ojstersek** - [The Multiplier Mindset: How to Move from Senior Engineer to Tech Lead in the Age of AI](https://learning.oreilly.com/library/view/the-multiplier-mindset/0642572310509/)
+
+
+### Processed on 2026-11-08 11:04:
+- **Addy Osmani** - [Practical Loop Engineering](https://www.oreilly.com/radar/practical-loop-engineering/)
+- **Rikiya Takehi, Jayden Teoh, Alex Zhang & Omar Khattab** - [Sparks of Weight-Space Programming: LLMs can natively read & write neural network weights](https://rikiyat.github.io/blog/weight-space-programming/)
+
+
 ### Processed on 2026-11-01 14:05:
 - **Andriy Burkov** - [On Keeping Classic Open-Access Tech Books Up to Date](https://www.linkedin.com/posts/andriyburkov_i-love-books-especially-high-quality-textbooks-activity-7522028236726382592-oSu7)
 
