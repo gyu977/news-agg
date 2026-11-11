@@ -86,6 +86,15 @@ Completed UI modernization recommendations and enhancements.
     1. Add a 3rd tab `<button id="tabBtnLegend" class="modal-tab" role="tab">Legend &amp; Tips</button>` to `guideDialog`.
     2. Add `<div id="tabContentLegend" class="tab-content" role="tabpanel">` with concise definition cards / visual legend.
     3. Update tab switching logic in `news_template.html` to support 3 tabs cleanly with keyboard accessibility.
+- **Compact Mobile Feed Card Layout & Standalone PWA Shell (`code/builders/news_template.html`)**: ⏳ **Planned** (Detailed reviewed specification saved in [`docs/MOBILE-PWA-PLAN.md`](./MOBILE-PWA-PLAN.md))
+  - *Context*: Currently at `@media (max-width: 768px)`, `news_template.html` sets `table, tr, td { display: block }` and prints uppercase `td::before` (`DATE`, `SOURCE`, `CATEGORY`, `AUTHOR`, `ARTICLE`) headers above each cell, making each article ~11 lines tall (~1.2 articles per screen) and stacking all 8 filter/export controls into a ~500px block at the top.
+  - *Planned Action*:
+    1. **Compact 3-Line Flex Card (`< 768px`)**: Use `display: flex; flex-wrap: wrap` on `tr` (hiding `td::before` labels while preserving DOM/tab focus order) to arrange the existing `<td>` cells into a tight native-reader card:
+       - **Row 1 (Meta Pill Row)**: `[Checkbox (38×38px hit area)] · Date · [Source Badge + inline Also-in] · [Category Badge]` on a horizontal line.
+       - **Row 2 (Byline)**: Inline `by Author` (`:empty { display: none }` when no author).
+       - **Row 3 (Title + Clamped Summary)**: Prominent article link + content-type glyph + mobile share button, followed by a 2-line clamped description (`-webkit-line-clamp: 2; line-clamp: 2; overflow: clip`, keyboard/tap expandable).
+    2. **Collapsible Mobile Filter Drawer**: Collapse the 4 full-width filter dropdowns and horizontal switch row behind a compact toggle button (`[ 🔍 Search... ] [ Filters (N) ]`) with accessible focus routing (`aria-expanded`, `Done`/`Escape` return focus).
+    3. **OS-Native Standalone PWA Mode**: Add `<meta name="apple-mobile-web-app-capable" content="yes">`, `apple-mobile-web-app-status-bar-style`, `viewport-fit=cover`, safe-area inset padding (`env(safe-area-inset-top)` / `env(safe-area-inset-bottom)`), raster PNG `apple-touch-icon` (`{{NEWS_ICON_PNG_DATA_URI}}`), inline base64 Web App Manifest (`{{NEWS_MANIFEST_DATA_URI}}` omitting relative `start_url`), and native OS Share Sheet (`navigator.share`) support.
 - **Guide Dialog Background Scroll Lock & Scroll-Chaining Prevention (UX Polish / Bug)**: ⏳ **Planned**
   - *Context*: When the Guide dialog (`#guideDialog`) is open, moving the mouse wheel or trackpad over the dialog backdrop, headers, or boundary edges causes the main background page to scroll underneath ("background scroll bleed" / scroll chaining). Closing the modal leaves the user disoriented at an unexpected scroll offset down the table.
   - *Planned Action*:
