@@ -743,7 +743,7 @@ class FilterMatrixSimulationTests(unittest.TestCase):
         self.assertIn("animation: table-scroll-progress linear;", html)
         self.assertIn("animation-timeline: scroll();", html)
         self.assertIn('<div class="table-progress-bar" id="tableProgressBar" aria-hidden="true"></div>', html)
-        self.assertIn(".table-progress-bar {\n        top: 0;\n      }", html)
+        self.assertIn(".table-progress-bar {\n        top: env(safe-area-inset-top, 0px);\n      }", html)
 
         # 6. Reactive CSS counter for selected rows
         self.assertIn("--selected-count: 0;", html)

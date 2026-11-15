@@ -1,5 +1,6 @@
 """Offline guards for H9, H12, M4 and M5."""
 
+import base64
 import json
 import importlib.util
 import io
@@ -576,6 +577,56 @@ class BuilderSafetyTests(unittest.TestCase):
         self.assertNotIn('href="news-icon.svg"', html)
         self.assertNotIn('src="news-icon.svg"', html)
         self.assertEqual(html.count("data:image/svg+xml;base64,"), 2)
+
+    def test_mobile_pwa_shell_and_compact_card_layout(self):
+        build.build_news_page(now=datetime(2026, 9, 19, 10, 0, 0, tzinfo=timezone.utc))
+        output = os.path.join(REPO_ROOT, "news.html")
+        with open(output, encoding="utf-8") as stream:
+            html = stream.read()
+
+        # 1. PWA meta tags & raster apple-touch-icon
+        self.assertIn('content="width=device-width, initial-scale=1.0, viewport-fit=cover"', html)
+        self.assertIn('<meta name="theme-color" content="#0b0f19">', html)
+        self.assertIn('<meta name="apple-mobile-web-app-capable" content="yes">', html)
+        self.assertIn('<meta name="mobile-web-app-capable" content="yes">', html)
+        self.assertIn('<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">', html)
+        self.assertIn('<meta name="apple-mobile-web-app-title" content="News Catch">', html)
+        self.assertIn('<link rel="apple-touch-icon" href="data:image/png;base64,', html)
+
+        # 2. Inline Web App Manifest data URI (no relative start_url or scope)
+        manifest_match = re.search(
+            r'<link rel="manifest" href="data:application/manifest\+json;base64,([A-Za-z0-9+/=]+)">',
+            html,
+        )
+        self.assertIsNotNone(manifest_match, "Web App Manifest data URI not found")
+        manifest_data = json.loads(base64.b64decode(manifest_match.group(1)).decode("utf-8"))
+        self.assertEqual(manifest_data["name"], "News Catch — AI, Architecture & Engineering")
+        self.assertEqual(manifest_data["short_name"], "News Catch")
+        self.assertEqual(manifest_data["display"], "standalone")
+        self.assertEqual(manifest_data["theme_color"], "#0b0f19")
+        self.assertNotIn("start_url", manifest_data)
+        self.assertNotIn("scope", manifest_data)
+        self.assertTrue(
+            any(
+                icon["type"] == "image/png"
+                and icon["sizes"] == "189x192"
+                and icon["src"].startswith("data:image/png;base64,")
+                for icon in manifest_data["icons"]
+            )
+        )
+
+        # 3. Mobile filter drawer, compact card layout & native share controls
+        self.assertIn('id="controlsPanel"', html)
+        self.assertIn('id="mobileFilterToggleBtn"', html)
+        self.assertIn('id="mobileFilterBadge"', html)
+        self.assertIn('id="closeMobileFiltersBtn"', html)
+        self.assertIn("tdDetails.className = 'details-column';", html)
+        self.assertIn("td.author-column:empty", html)
+        self.assertIn("-webkit-line-clamp: 2;", html)
+        self.assertIn("class=\"btn-share-article\"", html)
+        self.assertIn("navigator.share({ title, url })", html)
+        self.assertIn("function syncResponsiveA11y()", html)
+        self.assertIn("shareBtn.dataset.origHtml", html)
 
     def test_build_news_page_prevents_script_breakout(self):
         """Ensures closing script tags and HTML comment markers are escaped in embedded JSON."""

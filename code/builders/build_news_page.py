@@ -48,11 +48,46 @@ def build_news_page(days_window: Optional[int] = DEFAULT_NEWS_DAYS_WINDOW, sourc
     if not os.path.exists(icon_path):
         raise FileNotFoundError(f"Dashboard icon not found at {icon_path}.")
     with open(icon_path, "rb") as f:
+        svg_bytes = f.read()
         icon_data_uri = (
             "data:image/svg+xml;base64,"
-            + base64.b64encode(f.read()).decode("ascii")
+            + base64.b64encode(svg_bytes).decode("ascii")
         )
+    svg_text = svg_bytes.decode("utf-8", errors="ignore")
+    png_match = re.search(r'(data:image/png;base64,[A-Za-z0-9+/=]+)', svg_text)
+    if not png_match:
+        raise ValueError(f"Embedded raster PNG not found in {icon_path}.")
+    icon_png_data_uri = png_match.group(1)
+
+    manifest_obj = {
+        "name": "News Catch — AI, Architecture & Engineering",
+        "short_name": "News Catch",
+        "display": "standalone",
+        "background_color": "#0b0f19",
+        "theme_color": "#0b0f19",
+        "icons": [
+            {
+                "src": icon_png_data_uri,
+                "sizes": "189x192",
+                "type": "image/png",
+                "purpose": "any"
+            },
+            {
+                "src": icon_data_uri,
+                "sizes": "any",
+                "type": "image/svg+xml",
+                "purpose": "any"
+            }
+        ]
+    }
+    manifest_data_uri = (
+        "data:application/manifest+json;base64,"
+        + base64.b64encode(json.dumps(manifest_obj, separators=(",", ":")).encode("utf-8")).decode("ascii")
+    )
+
     html = html.replace("{{NEWS_ICON_DATA_URI}}", icon_data_uri)
+    html = html.replace("{{NEWS_ICON_PNG_DATA_URI}}", icon_png_data_uri)
+    html = html.replace("{{NEWS_MANIFEST_DATA_URI}}", manifest_data_uri)
 
     # 1. Collect all articles from data-sources/*/data.json
     sources_dir = os.path.join(project_root, "data-sources")
