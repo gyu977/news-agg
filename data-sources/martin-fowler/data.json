@@ -1,5 +1,93 @@
 [
   {
+    "id": "mf-2026-11-1cc122",
+    "newsletter": "Martin Fowler",
+    "issue_number": null,
+    "issue_title": "Bliki: Generated Glossary",
+    "issue_link": "https://martinfowler.com/bliki/GeneratedGlossary.html",
+    "date": "2026-11-12",
+    "date_str": "12 November 2026",
+    "title": "Bliki: Generated Glossary",
+    "link": "https://martinfowler.com/bliki/GeneratedGlossary.html",
+    "author": "Martin Fowler",
+    "description": "Martin Fowler proposes using an LLM to scan organizational documents, emails, and chat logs to generate a human-curated domain glossary that gives other LLMs and team members consistent ubiquitous language.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "mf-2026-11-18d4d4",
+    "newsletter": "Martin Fowler",
+    "issue_number": null,
+    "issue_title": "Tests as data: ensuring AI-generated code does what we want",
+    "issue_link": "https://martinfowler.com/articles/tests-as-data.html",
+    "date": "2026-11-11",
+    "date_str": "11 November 2026",
+    "title": "Tests as data: ensuring AI-generated code does what we want",
+    "link": "https://martinfowler.com/articles/tests-as-data.html",
+    "author": "Matteo Vaccari",
+    "description": "Matteo Vaccari explores how to maintain trust when AI agents write both production and test code, advocating for expressing test specifications as human-readable tabular data contracts separate from test execution logic.",
+    "category": "Software Testing, Quality & Observability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "mf-2026-11-8b899a",
+    "newsletter": "Martin Fowler",
+    "issue_number": null,
+    "issue_title": "Fragments: November 10",
+    "issue_link": "https://martinfowler.com/fragments/2026-11-10.html",
+    "date": "2026-11-10",
+    "date_str": "10 November 2026",
+    "title": "Fragments: November 10",
+    "link": "https://martinfowler.com/fragments/2026-11-10.html",
+    "author": "Martin Fowler",
+    "description": "Martin Fowler shares links and commentary on Thoughtworks Technology Radar Vol. 35, the macro-economic risks of AI data center buildouts, subsidized LLM token pricing, MIT's weight-space programming, and evaluating agent context files.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "mf-2026-11-75af9a",
+    "newsletter": "Martin Fowler",
+    "issue_number": null,
+    "issue_title": "Long-horizon agents and durable execution",
+    "issue_link": "https://martinfowler.com/articles/durable-execution-agents.html",
+    "date": "2026-11-10",
+    "date_str": "10 November 2026",
+    "title": "Long-horizon agents and durable execution",
+    "link": "https://martinfowler.com/articles/durable-execution-agents.html",
+    "author": "Kiran Prakash",
+    "description": "Kiran Prakash examines how durable execution engines (such as Temporal, Restate, and Azure Durable Entities) handle state persistence, retries, and crash recovery for long-horizon AI agents, and what remains the responsibility of the agent harness.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "mf-2026-11-4d44cd",
     "newsletter": "Martin Fowler",
     "issue_number": null,

@@ -1,5 +1,26 @@
 [
   {
+    "id": "java-2026-11-d2ab14",
+    "newsletter": "InfoQ Java",
+    "issue_number": null,
+    "issue_title": "Java News Roundup: TornadoVM, A2A Java, Open Liberty, Open J Proxy, Gradle, EclipseStore",
+    "issue_link": "https://www.infoq.com/news/2026/11/java-news-roundup-nov02-2026/",
+    "date": "2026-11-09",
+    "date_str": "9 November 2026",
+    "title": "Java News Roundup: TornadoVM, A2A Java, Open Liberty, Open J Proxy, Gradle, EclipseStore",
+    "link": "https://www.infoq.com/news/2026/11/java-news-roundup-nov02-2026/",
+    "author": "Michael Redlich",
+    "description": "This week's Java roundup for November 2nd, 2026, features news highlighting: point releases of TornadoVM, TornadoInsight, A2A for Java, Gradle and EclipseStore; the November 2026 edition of Open Liberty; the third release candidate of Open J Proxy; the second release candidates of Micrometer Metrics and Micrometer Tracing; and the third beta release of Quarkus 4.0. By Michael Redlich",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "java-2026-11-3a944c",
     "newsletter": "InfoQ Java",
     "issue_number": null,

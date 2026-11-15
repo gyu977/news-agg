@@ -5,8 +5,16 @@
   "official_site": "https://www.tokenbytoken.ai/",
   "archive_url": "https://www.tokenbytoken.ai/",
   "parsed_issues": {
-    "count": 30,
+    "count": 31,
     "issues": [
+      {
+        "id": "31",
+        "date": "2026-11-11",
+        "date_str": "11 November 2026",
+        "title": "Why long-running AI agents crash - #31 token by token",
+        "url": "https://preview.mailerlite.io/emails/webview/2096144/203928524088673733?signature=7ea479d24f2507432687d884812a6c4a3f78b815a4634fab4359cf7f3dc424c8",
+        "quotes": []
+      },
       {
         "id": "30",
         "date": "2026-11-05",
@@ -248,8 +256,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "30",
-    "last_parsed_date": "2026-11-05"
+    "last_parsed_issue": "31",
+    "last_parsed_date": "2026-11-11"
   },
   "default_header": "### Luca Mezzalira's Token by Token",
   "short_name": "Token by Token",

@@ -1,3 +1,43 @@
+# News Digest — Edition 2026.11.15
+
+
+### 🌟 Access the Dashboard
+* **[Open Live Web Dashboard](https://gyu977.github.io/news-agg/)**
+
+---
+
+### 🎣 What's New: Fresh weekly catch
+
+We refreshed our sources for the November 15 edition—including *Dear Architects #316*, *Token by Token #31*, *Andriy Burkov AI #351*, *Editor's Radar*, and our regular engineering blogs—and pulled together grounded reads on long-horizon agent execution, context and memory architecture, multi-layer LLM verification, and deterministic testing:
+
+- **[Long-horizon agents and durable execution](https://martinfowler.com/articles/durable-execution-agents.html)** — Kiran Prakash *(Token by Token #31 · Martin Fowler · Spotlight)* & **[AI agent collisions: Worktrees aren't enough](https://compositecode.blog/2026/11/02/agent-collisions-beyond-worktrees/)** — Adron Hall *(Token by Token #31)*
+  > How durable execution engines (Temporal, Restate, Azure Durable Entities) handle state persistence, retries, and crash recovery for long-running agents while leaving context assembly to the harness, paired with Adron Hall on why explicit boundaries and integration checks matter more than parallel Git worktrees when multiple agents edit the same codebase.
+- **[The Components of Agent Memory](https://www.anthropic.com/research/components-of-agent-memory)** — Anthropic *(Editor's Radar)* & **[Context != Context: Codified vs. Ambient Context for Agents](https://www.youtube.com/watch?v=NxypyNu1944)** — Birgitta Böckeler *(Editor's Radar)*
+  > Anthropic's four-tier memory architecture (transcripts, salient notes, structured representations, and injected context) and offline "Dreaming" consolidation, paired with Birgitta Böckeler's AI Native DevCon talk ([slides](https://speakerdeck.com/birgitta410/context-context-ai-devcon-new-york-nov-2026)) on separating long-lived codified context from noisy, ephemeral ambient context.
+- **[Are architects surrendering their thinking to AI? With Jacob Shadbolt](https://youtu.be/F9aM1AWSQ3o)** — Luca Mezzalira & Jacob Shadbolt *(Dear Architects #316 · Spotlight)* & **[Vibe Coding, Meet Reality](https://medium.com/@springrod/vibe-coding-meet-reality-0fb1e4e04053)** — Rod Johnson *(Editor's Radar)*
+  > Recorded at GOTO Copenhagen, Luca Mezzalira and IcePanel CEO Jacob Shadbolt examine how to keep architecture documentation alive as AI accelerates system sprawl, alongside Spring Framework creator Rod Johnson on the security, governance, and architectural failure modes of unverified "vibe coding."
+- **[LLM Reliability Layers Under Test: Accuracy, Yield, and the Limits of Verification](https://www.infoq.com/articles/llm-reliability-layers-limits-accuracy/)** — Pushpdeep Mishra & Wejdan Bagais *(Dear Architects #316 · Token by Token #31)* & **[Tests as data: ensuring AI-generated code does what we want](https://martinfowler.com/articles/tests-as-data.html)** — Matteo Vaccari *(Dear Architects #316 · Martin Fowler)*
+  > Two rigorous looks at verification in the age of AI: empirical benchmarking of six stacked LLM verification layers (showing why naive stacking fails when layers share correlated blind spots), and Matteo Vaccari on expressing test specifications as human-readable tabular data contracts so humans stay in control when agents write both production and test code.
+- **[Beating the frontier on NetHack](https://antithesis.com/blog/2026/nethack/)** — Paul Ryan, Mikail Khan & Will Wilson *(Editor's Radar)* & **[Software correctness & supply chain security, with Sean Allen](https://newsletter.pragmaticengineer.com/p/software-correctness)** — Gergely Orosz *(The Pragmatic Engineer)*
+  > How Antithesis's deterministic simulation testing and state-branching fuzzer ascends *NetHack* on ~79% of game seeds in under two minutes (uncovering a 100%-CPU infinite loop triggered by `;|:`), paired with Sean Allen on formal methods, supply chain security, and software correctness at scale.
+- **[Clef: Cloudflare's family of open-source decision models](https://blog.cloudflare.com/clef-decision-models/)** — Michelle Chen, Alex Reneau & Kevin Flansburg *(Burkov AI #351)* & **[The ultimate guide to multi-harness RL](https://huggingface.co/spaces/FineEnvs/multi-harness-rl)** — Hugging Face (FineEnvs) *(Burkov AI #351)*
+  > Cloudflare open-sources Clef and Clef-flash for low-latency routing, classification, and guardrails in agentic pipelines, alongside an interactive FineEnvs exploration of reinforcement learning across multiple coding agent harnesses like Claude Code and Codex.
+- **[Introducing CUDA Rust: Two tracks for writing GPU kernels](https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels/)** — Elizabeth Goodman *(Burkov AI #351)* & **[e-means: Outperforming k-means in one-tenth the epochs](https://e-means.github.io/)** — Swann Bessa et al. *(Burkov AI #351)*
+  > NVIDIA's dual-track roadmap for writing native GPU kernels in Rust (`cuTile Rust` and `rust-cuda`), paired with Meta FAIR's `e-means` clustering algorithm achieving a 10× speedup in epochs and wall-clock time over classic k-means.
+- **[Bliki: Generated Glossary](https://martinfowler.com/bliki/GeneratedGlossary.html)** — Martin Fowler *(Martin Fowler)* & **[Ontology Pipeline: A Framework for Knowledge Engineering](https://www.amazon.com/dp/B0HJ9223FH)** — Jessica Talisman *(Dear Architects #316)*
+  > Using LLMs to bootstrap a human-curated domain glossary that enforces ubiquitous language across both engineers and coding agents, paired with Jessica Talisman's book on turning messy organizational terminology into structured, machine-readable ontologies.
+- **[Scaling AI in legal: Building Uber's redlining agent](https://www.uber.com/gb/en/blog/building-ubers-redlining-agent/)** — Uber Engineering *(Burkov AI #351)* & **[Hide your slop PR descriptions behind `<details><summary>`](https://simonwillison.net/2026/Nov/9/details-summary/)** — Simon Willison *(Simon Willison's Weblog)*
+  > How Uber engineered a multi-agent contract-redlining system inside Microsoft Word with strict citation verification, plus Simon Willison's practical convention for keeping human pull-request context front and center by folding verbose agent-generated PR summaries into `<details>` blocks.
+
+---
+
+### 🛠️ Net & Tackle Maintenance
+
+- **Substack API v1 Cursor Pagination**: Updated `SubstackScraper` and `AddyOsmaniScraper` to use `limit=20` with cursor pagination (`after`) and support both dictionary (`{"posts": [...]}`) and list responses after Substack deprecated `limit=50` offset queries.
+- **MailerLite Mid-Subject Issue Titles & RSS Bucket Sync**: Fixed `MailerLiteScraper.parse_subject()` so subjects with mid-string `#<issue>` markers retain their full headline, and updated `RSSFeedScraper` to advance monthly bucket dates in `definition.json` as new posts arrive.
+
+---
+
 # News Digest — Edition 2026.11.08
 
 

@@ -158,12 +158,16 @@ class MailerLiteScraper(BaseScraper):
         return date_iso, date_str
 
     def parse_subject(self, subject: str) -> Optional[Tuple[int, str]]:
-        match = re.search(r"#(\d+)\s*[-—–]?\s*(.*)", subject)
-        if match:
-            return int(match.group(1)), match.group(2).strip()
-        reverse = re.search(r"(.*?)\s*[-—–]?\s*#(\d+)", subject)
-        if reverse:
-            return int(reverse.group(2)), reverse.group(1).strip()
+        stripped = (subject or "").strip()
+        lead = re.match(r"^#(\d+)\s*[-—–]?\s*(.*)", stripped)
+        if lead:
+            return int(lead.group(1)), lead.group(2).strip()
+        tail = re.search(r"^(.*?)\s*[-—–]?\s*#(\d+)\s*$", stripped)
+        if tail:
+            return int(tail.group(2)), tail.group(1).strip()
+        mid = re.search(r"#(\d+)", stripped)
+        if mid:
+            return int(mid.group(1)), stripped
         return None
 
     def issue_title(self, number: int, parsed_title: str) -> str:

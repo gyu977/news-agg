@@ -5,8 +5,32 @@
   "official_site": "https://newsletter.pragmaticengineer.com/",
   "archive_url": "https://newsletter.pragmaticengineer.com/archive",
   "parsed_issues": {
-    "count": 53,
+    "count": 56,
     "issues": [
+      {
+        "id": "pe-2026-11-2583bd",
+        "date": "2026-11-12",
+        "date_str": "12 November 2026",
+        "title": "The Pulse: What can we learn from the Railway hack?",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-what-can-we-learn-from-114",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-11-583511",
+        "date": "2026-11-10",
+        "date_str": "10 November 2026",
+        "title": "Software correctness & supply chain security, with Sean Allen",
+        "url": "https://newsletter.pragmaticengineer.com/p/software-correctness",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-11-d09844",
+        "date": "2026-11-06",
+        "date_str": "6 November 2026",
+        "title": "The Pragmatic Summit 2027",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pragmatic-summit-2027",
+        "quotes": []
+      },
       {
         "id": "pe-2026-11-7fb652",
         "date": "2026-11-05",
@@ -432,8 +456,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "pe-2026-11-7fb652",
-    "last_parsed_date": "2026-11-05"
+    "last_parsed_issue": "pe-2026-11-2583bd",
+    "last_parsed_date": "2026-11-12"
   },
   "default_header": "### Gergely Orosz's The Pragmatic Engineer",
   "short_name": "Pragmatic Eng.",

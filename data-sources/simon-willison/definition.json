@@ -9,8 +9,8 @@
     "issues": [
       {
         "id": "2026-11",
-        "date": "2026-11-03",
-        "date_str": "3 November 2026",
+        "date": "2026-11-09",
+        "date_str": "9 November 2026",
         "title": "November 2026 Blog Posts",
         "url": "https://simonwillison.net/2026/Nov/",
         "quotes": []
@@ -49,7 +49,7 @@
       }
     ],
     "last_parsed_issue": "2026-11",
-    "last_parsed_date": "2026-11-03"
+    "last_parsed_date": "2026-11-09"
   },
   "default_header": "### Simon Willison",
   "short_name": "Simon Willison",

@@ -71,7 +71,8 @@ class AndriyBurkovScraper(BaseScraper):
             "new-font-turns-ordinary-webpages", "weapon against ai scrapers",
             "so who is", "theguardian.com/commentisfree", "cbc.ca", "human readers",
             "protect social media communities", "bill-oliver-ai-speech", "nationalpost.com",
-            "putting sign language ai", "tutormoments", "do ai tutors know"
+            "putting sign language ai", "tutormoments", "do ai tutors know",
+            "student generative artificial intelligence survey", "hepi.ac.uk"
         ]
         if any(p in haystack for p in societal_patterns):
             return True
@@ -167,7 +168,7 @@ class AndriyBurkovScraper(BaseScraper):
                 if m:
                     tag = m.group(1).strip()
                     rest = m.group(2).strip()
-                    if tag.lower() not in ["explained", "project", "paper", "book", "tool", "sponsored", "open model"]:
+                    if tag.lower() not in ["explained", "project", "paper", "book", "tool", "sponsored", "open model", "research", "model"]:
                         author = tag
                     elif tag.lower() == "open model":
                         author = "Open model"

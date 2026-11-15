@@ -1,5 +1,113 @@
 [
   {
+    "id": "tbt-31-75af9a",
+    "newsletter": "Token by Token",
+    "issue_number": 31,
+    "issue_title": "Why long-running AI agents crash - #31 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/203928524088673733?signature=7ea479d24f2507432687d884812a6c4a3f78b815a4634fab4359cf7f3dc424c8",
+    "date": "2026-11-11",
+    "date_str": "11 November 2026",
+    "title": "Long-horizon agents and durable execution",
+    "link": "https://martinfowler.com/articles/durable-execution-agents.html",
+    "author": "Kiran Prakash",
+    "description": "Long-horizon agents also need to reckon with history that keeps growing. The durable execution runtime logs everything the agent did. The harness decides what the model sees in each turn. Stock Replenisher needs nothing more than state : it holds everything about the current replenishment, and that's enough to decide the next step. The SkuAgent entity stores the results of previous replenishments but the model never needs to refer to them. Other agents are not like this. A customer's entity workflow runs for years, collecting every conversation, complaint, and promise, and the next decision may depend on a promise made months ago.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": true,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-31-5332f5",
+    "newsletter": "Token by Token",
+    "issue_number": 31,
+    "issue_title": "Why long-running AI agents crash - #31 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/203928524088673733?signature=7ea479d24f2507432687d884812a6c4a3f78b815a4634fab4359cf7f3dc424c8",
+    "date": "2026-11-11",
+    "date_str": "11 November 2026",
+    "title": "LLM Reliability Layers Under Test: Accuracy, Yield, and the Limits of Verification",
+    "link": "https://www.infoq.com/articles/llm-reliability-layers-limits-accuracy/",
+    "author": "Pushpdeep Mishra & Wejdan Bagais",
+    "description": "We tested six layers, checks wrapped around the model, that each evaluate the model's output and flag what is wrong so that it can be put right: check each answer against something deterministic, send provable failures back to the model, sample it several times and vote, have a second model judge it, withhold what cannot be corroborated, and send the rest to a person. The theory we set out to test is that these layers are additive : each one catches errors the layers below it missed, so accuracy rises with every layer added. That assumption is what justifies stacking them at all. We ran all six on the same records, each priced, with the free check entered as a competitor. The theory did not hold.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "title",
+      "link",
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-31-83e6f8",
+    "newsletter": "Token by Token",
+    "issue_number": 31,
+    "issue_title": "Why long-running AI agents crash - #31 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/203928524088673733?signature=7ea479d24f2507432687d884812a6c4a3f78b815a4634fab4359cf7f3dc424c8",
+    "date": "2026-11-11",
+    "date_str": "11 November 2026",
+    "title": "Build Applications with Local AI Models",
+    "link": "https://www.amazon.com/dp/1633433706",
+    "author": "Keiji Kamigusa",
+    "description": "Running AI applications on local hardware unlocks architecturally guaranteed privacy, eliminates costly subscriptions and API fees, and gives you the power to tune your models to your exact needs. In Build Applications with Local AI Models on a Mac , author Keiji Kamigusa guides you step-by-step as you build a voice-enabled chatbot that will run on any recent Mac—from a basic Mac mini to a top-of-the-line Mac Studio. As you set up your custom hardware and software stack, you’ll experience a powerful paradigm shift that turns you from a passive consumer into an AI architect.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "book",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "link"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-31-23474c",
+    "newsletter": "Token by Token",
+    "issue_number": 31,
+    "issue_title": "Why long-running AI agents crash - #31 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/203928524088673733?signature=7ea479d24f2507432687d884812a6c4a3f78b815a4634fab4359cf7f3dc424c8",
+    "date": "2026-11-11",
+    "date_str": "11 November 2026",
+    "title": "Make Your AI Agents Predictable With Graph Engineering",
+    "link": "https://youtu.be/g_NgCLTibiM",
+    "author": "Zachary Blumenfeld",
+    "description": "Graph engineering is a new name for an old idea: give agents a map of the logic they should follow, not just a pile of text. Zachary Blumenfeld of Neo4j explains how graphs make agents more predictable, governable and portable. He shows how to compile skills and past decision traces into graph-shaped skills, then demos a loan-approval agent that follows them.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "tbt-31-b8596b",
+    "newsletter": "Token by Token",
+    "issue_number": 31,
+    "issue_title": "Why long-running AI agents crash - #31 token by token",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/2096144/203928524088673733?signature=7ea479d24f2507432687d884812a6c4a3f78b815a4634fab4359cf7f3dc424c8",
+    "date": "2026-11-11",
+    "date_str": "11 November 2026",
+    "title": "AI agent collisions: Worktrees aren't enough",
+    "link": "https://compositecode.blog/2026/11/02/agent-collisions-beyond-worktrees/",
+    "author": "Adron Hall",
+    "description": "A small number of clear assignments, visible ownership, bounded runs, and one integration pass will beat a large crowd of agents whose outputs need arbitration. Count rework and review time alongside token use. If adding another agent makes the queue of conflicting diffs longer, reduce concurrency or stabilize the interface first. Collisions were always part of software development. Agents make them arrive while the coffee is still hot. The fix is to make the boundaries, contracts, and shared resources explicit before the work starts, then check the integrated behavior before calling it done.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "tbt-30-7cc28e",
     "newsletter": "Token by Token",
     "issue_number": 30,
@@ -38,7 +146,9 @@
     "hide": false,
     "user_overrides": [
       "author",
-      "type"
+      "type",
+      "description",
+      "category"
     ],
     "metadata": {}
   },
@@ -775,7 +885,10 @@
     "is_spotlight": false,
     "type": "article",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "description",
+      "category"
+    ],
     "metadata": {}
   },
   {

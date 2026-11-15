@@ -9,16 +9,16 @@
     "issues": [
       {
         "id": "2026-11",
-        "date": "2026-11-05",
-        "date_str": "5 November 2026",
+        "date": "2026-11-12",
+        "date_str": "12 November 2026",
         "title": "November 2026 Essays",
         "url": "https://martinfowler.com/articles.html",
         "quotes": []
       },
       {
         "id": "2026-10",
-        "date": "2026-10-04",
-        "date_str": "4 October 2026",
+        "date": "2026-10-13",
+        "date_str": "13 October 2026",
         "title": "October 2026 Essays",
         "url": "https://martinfowler.com/articles.html",
         "quotes": []
@@ -57,7 +57,7 @@
       }
     ],
     "last_parsed_issue": "2026-11",
-    "last_parsed_date": "2026-11-05"
+    "last_parsed_date": "2026-11-12"
   },
   "default_header": "Martin Fowler",
   "short_name": "Martin Fowler",

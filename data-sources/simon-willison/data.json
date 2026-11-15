@@ -1,5 +1,49 @@
 [
   {
+    "id": "sw-2026-11-baaf71",
+    "newsletter": "Simon Willison's Weblog",
+    "issue_number": null,
+    "issue_title": "Locating the source of a mysterious beep with Claude",
+    "issue_link": "https://simonwillison.net/2026/Nov/9/mysterious-beeps/",
+    "date": "2026-11-09",
+    "date_str": "9 November 2026",
+    "title": "Locating the source of a mysterious beep with Claude",
+    "link": "https://simonwillison.net/2026/Nov/9/mysterious-beeps/",
+    "author": "Simon Willison",
+    "description": "Simon Willison describes vibe-coding a multi-device Python and Web Audio API triangulation app with Claude to detect, record, and localize an intermittent 2048 Hz piezo beep hidden inside a room of unpacked boxes.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "sw-2026-11-6ee1de",
+    "newsletter": "Simon Willison's Weblog",
+    "issue_number": null,
+    "issue_title": "Hide your slop PR descriptions behind <details><summary>",
+    "issue_link": "https://simonwillison.net/2026/Nov/9/details-summary/",
+    "date": "2026-11-09",
+    "date_str": "9 November 2026",
+    "title": "Hide your slop PR descriptions behind <details><summary>",
+    "link": "https://simonwillison.net/2026/Nov/9/details-summary/",
+    "author": "Simon Willison",
+    "description": "Simon Willison recommends instructing coding agents like Claude Code and Codex to wrap verbose, auto-generated pull request summaries inside collapsible <details><summary> blocks so human-written context stays prominent.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "sw-2026-11-9b0f1b",
     "newsletter": "Simon Willison's Weblog",
     "issue_number": null,

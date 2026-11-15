@@ -3,6 +3,7 @@
 import json
 import os
 import re
+import urllib.parse
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -25,7 +26,7 @@ class SubstackScraper(BaseScraper):
     article_id_prefix: str = ""
     log_name: str = "Substack"
     max_posts_to_fetch: int = 200
-    page_limit: int = 50
+    page_limit: int = 20
 
     def __init__(self, source_dir: str):
         super().__init__(source_dir=source_dir)
@@ -130,22 +131,42 @@ class SubstackScraper(BaseScraper):
         """
         print(f"[{self.log_name}] Querying Substack API for {self.newsletter_name} articles...")
         all_posts = []
-        offset = 0
-        limit = self.page_limit
+        after_cursor = None
+        limit = min(self.page_limit, 20)
+        existing_keys = {self._article_key(a) for a in self.articles}
 
         while True:
-            api_url = f"{self.base_url.rstrip('/')}/api/v1/archive?sort=new&limit={limit}&offset={offset}"
+            api_url = f"{self.base_url.rstrip('/')}/api/v1/archive?sort=new&limit={limit}"
+            if after_cursor:
+                api_url += f"&after={urllib.parse.quote(str(after_cursor))}"
             data = self.fetch_json(api_url)
-            if not isinstance(data, list):
+            if isinstance(data, dict) and isinstance(data.get("posts"), list):
+                batch = data["posts"]
+                after_cursor = data.get("nextCursor")
+            elif isinstance(data, list):
+                batch = data
+                after_cursor = None
+            else:
                 raise ValueError(
-                    f"{self.newsletter_name} archive API returned {type(data).__name__}, expected list"
+                    f"{self.newsletter_name} archive API returned {type(data).__name__}, expected list or dict with 'posts'"
                 )
-            if not data:
+            if not batch:
                 break
-            all_posts.extend(data)
-            offset += len(data)
-            if len(data) < limit or offset >= self.max_posts_to_fetch:
+            all_posts.extend(batch)
+            if (
+                len(batch) < limit
+                or len(all_posts) >= self.max_posts_to_fetch
+                or not after_cursor
+            ):
                 break
+            if existing_keys:
+                tail_art = None
+                try:
+                    tail_art = self.parse_post_payload(batch[-1])
+                except ValueError:
+                    pass
+                if tail_art and self._article_key(tail_art) in existing_keys:
+                    break
 
         print(f"[{self.log_name}] Retrieved {len(all_posts)} posts from Substack.")
 

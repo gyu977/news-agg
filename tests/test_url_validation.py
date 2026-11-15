@@ -252,6 +252,10 @@ class BaseScraperIntegrationTests(unittest.TestCase):
 
 class MailerLiteScraperUnshortenTests(unittest.TestCase):
     def test_parse_issue_html_unshortens_tracking_redirects(self):
+        try:
+            import bs4  # noqa: F401
+        except ImportError:
+            self.skipTest("beautifulsoup4 not installed in test environment")
         scraper = MailerLiteScraper.__new__(MailerLiteScraper)
         scraper.newsletter_name = "Test NL"
         scraper.article_id_prefix = "tst"

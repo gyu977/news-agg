@@ -153,9 +153,10 @@ class AddyOsmaniScraper(BaseScraper):
         # for essays that have not yet been published to addyosmani.com/blog/
         try:
             print("[AddyOsmani] Querying fallback Substack archive...")
-            substack_api = "https://addyo.substack.com/api/v1/archive?sort=new&limit=50"
+            substack_api = "https://addyo.substack.com/api/v1/archive?sort=new&limit=20"
             raw = self.fetch_url(substack_api, accept="application/json")
-            posts = json.loads(raw.decode("utf-8"))
+            payload = json.loads(raw.decode("utf-8"))
+            posts = payload.get("posts", []) if isinstance(payload, dict) else payload
             fallback_added = 0
             for p in posts:
                 canonical = p.get("canonical_url")

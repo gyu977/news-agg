@@ -116,7 +116,11 @@ class MartinFowlerScraper(RSSFeedScraper):
 
             if c_link in existing_articles:
                 existing = existing_articles[c_link]
-                if item.get("author") and existing.author != item["author"]:
+                if (
+                    "author" not in existing.user_overrides
+                    and item.get("author")
+                    and existing.author != item["author"]
+                ):
                     existing.author = item["author"]
                     updated_count += 1
                 continue
@@ -181,7 +185,7 @@ class MartinFowlerScraper(RSSFeedScraper):
         if self.definition and self.definition.parsed_issues:
             curr_issues = {str(i.id): i for i in self.definition.parsed_issues.issues}
             for k, v in new_issues_map.items():
-                if k not in curr_issues:
+                if k not in curr_issues or (v.date and v.date > curr_issues[k].date):
                     curr_issues[k] = v
             self.sync_parsed_issues(list(curr_issues.values()))
 

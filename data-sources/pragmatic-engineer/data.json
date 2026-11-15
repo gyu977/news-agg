@@ -1,5 +1,83 @@
 [
   {
+    "id": "pe-2026-11-2583bd",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-11-12",
+    "date_str": "12 November 2026",
+    "title": "The Pulse: What can we learn from the Railway hack?",
+    "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-what-can-we-learn-from-114",
+    "author": "Gergely Orosz",
+    "description": "Also: native mobile and frontend jobs are disappearing, how trust helps an “AI-native” engineering team to succeed, Carta starts selling a coding harness, and more",
+    "category": "Cloud Infrastructure & System Reliability",
+    "is_spotlight": false,
+    "type": "pulse",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category"
+    ],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "the-pulse-what-can-we-learn-from-114"
+    }
+  },
+  {
+    "id": "pe-2026-11-583511",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-11-10",
+    "date_str": "10 November 2026",
+    "title": "Software correctness & supply chain security, with Sean Allen",
+    "link": "https://newsletter.pragmaticengineer.com/p/software-correctness",
+    "author": "Gergely Orosz & Sean Allen",
+    "description": "Sean Allen Discusses software correctness, supply chain security, formal methods, and foundational engineering practices that remain critical when building software at scale.",
+    "category": "Software Testing, Quality & Observability",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "description",
+      "category",
+      "type"
+    ],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "software-correctness"
+    }
+  },
+  {
+    "id": "pe-2026-11-d09844",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-11-06",
+    "date_str": "6 November 2026",
+    "title": "The Pragmatic Summit 2027",
+    "link": "https://newsletter.pragmaticengineer.com/p/the-pragmatic-summit-2027",
+    "author": "Gergely Orosz",
+    "description": "The Summit is back in San Francisco, for the second year, and registrations are open for February 10, 2027",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "conference",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "category",
+      "type"
+    ],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "the-pragmatic-summit-2027"
+    }
+  },
+  {
     "id": "pe-2026-11-7fb652",
     "newsletter": "The Pragmatic Engineer",
     "issue_number": null,

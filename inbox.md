@@ -19,6 +19,13 @@ Supported formats:
 
 ## ✅ Processed Articles
 
+### Processed on 2026-11-15 14:55:
+- **Paul Ryan, Mikail Khan & Will Wilson (Antithesis)** - [Beating the frontier on NetHack](https://antithesis.com/blog/2026/nethack/)
+- **Anthropic** - [The Components of Agent Memory](https://www.anthropic.com/research/components-of-agent-memory)
+- **Birgitta Böckeler** - [Context != Context: Codified vs. Ambient Context for Agents](https://www.youtube.com/watch?v=NxypyNu1944) *(Slides: [SpeakerDeck](https://speakerdeck.com/birgitta410/context-context-ai-devcon-new-york-nov-2026))*
+- **Rod Johnson** - [Vibe Coding, Meet Reality](https://medium.com/@springrod/vibe-coding-meet-reality-0fb1e4e04053)
+
+
 ### Processed on 2026-11-08 11:43:
 - **Hillel Wayne** - [Why Antithesis?](https://antithesis.com/blog/2026/hillel-joins-antithesis/)
 

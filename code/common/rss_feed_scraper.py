@@ -257,7 +257,7 @@ class RSSFeedScraper(BaseScraper):
         if self.definition and self.definition.parsed_issues:
             curr_issues = {str(i.id): i for i in self.definition.parsed_issues.issues}
             for k, v in new_issues_map.items():
-                if k not in curr_issues:
+                if k not in curr_issues or (v.date and v.date > curr_issues[k].date):
                     curr_issues[k] = v
             self.sync_parsed_issues(list(curr_issues.values()))
 

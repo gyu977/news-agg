@@ -1,5 +1,29 @@
 [
   {
+    "id": "others-2026-11-a2e9d6",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "November 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-11-13",
+    "date_str": "13 November 2026",
+    "title": "Beating the frontier on NetHack",
+    "link": "https://antithesis.com/blog/2026/nethack/",
+    "author": "Paul Ryan, Mikail Khan & Will Wilson (Antithesis)",
+    "description": "How Antithesis used deterministic simulation testing, state-branching tree fuzzing, and custom workload drivers to ascend NetHack on ~79% of game seeds within five minutes—and uncovered a 100%-CPU infinite loop hang triggered by typing ';|:' at game start.",
+    "category": "Software Testing, Quality & Observability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "title",
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "others-2026-11-4cc5db",
     "newsletter": "Editor's Radar",
     "issue_number": null,
@@ -93,6 +117,79 @@
       "description",
       "category",
       "type"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "others-2026-11-d8887a",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "November 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-11-06",
+    "date_str": "6 November 2026",
+    "title": "The Components of Agent Memory",
+    "link": "https://www.anthropic.com/research/components-of-agent-memory",
+    "author": "Anthropic",
+    "description": "Anthropic dissects external agent memory across sessions into a four-tier hierarchy (transcripts, salient notes, structured representations, and injected context), showing why hoarding raw logs hurts long-horizon performance and how offline 'Dreaming' consolidation prunes and promotes durable knowledge.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "title",
+      "description",
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "others-2026-11-90c132",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "November 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-11-04",
+    "date_str": "4 November 2026",
+    "title": "Context != Context: Codified vs. Ambient Context for Agents",
+    "link": "https://www.youtube.com/watch?v=NxypyNu1944",
+    "author": "Birgitta Böckeler",
+    "description": "Recorded at AI Native DevCon New York (slides: https://speakerdeck.com/birgitta410/context-context-ai-devcon-new-york-nov-2026), Thoughtworks Distinguished Engineer Birgitta Böckeler presents a lifecycle taxonomy for context engineering—separating long-lived, versioned codified context (rules, specs, skills) from noisy, ephemeral ambient context (tool outputs, logs, session history) sharing the same context window.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "title",
+      "description",
+      "category",
+      "type"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "others-2026-11-04184b",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "November 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-11-03",
+    "date_str": "3 November 2026",
+    "title": "Vibe Coding, Meet Reality",
+    "link": "https://medium.com/@springrod/vibe-coding-meet-reality-0fb1e4e04053",
+    "author": "Rod Johnson",
+    "description": "Spring Framework creator and Embabel founder Rod Johnson examines the security, governance, and architectural failure modes of unverified 'vibe coding' when moving from prototypes to production, arguing for explicit domain structure, verification, and safety architecture.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "title",
+      "description",
+      "category"
     ],
     "metadata": {}
   },

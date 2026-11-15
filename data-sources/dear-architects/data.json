@@ -1,5 +1,136 @@
 [
   {
+    "id": "da-316-7cd492",
+    "newsletter": "Dear Architects",
+    "issue_number": 316,
+    "issue_title": "Are architects surrendering thinking to AI? - #316 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/204144459123787478?signature=abfc6baf22f9ad513ec0f5fb09eb1c716280516bd01ec0aba0df88718f6c51c1",
+    "date": "2026-11-13",
+    "date_str": "13 November 2026",
+    "title": "Are architects surrendering their thinking to AI? With Jacob Shadbolt",
+    "link": "https://youtu.be/F9aM1AWSQ3o",
+    "author": "Luca Mezzalira & Jacob Shadbolt",
+    "description": "This is a special episode of Dear Architects, recorded away from the studio at the GOTO conference in Copenhagen. I sit down with Jacob Shadbolt, CEO and co-founder of IcePanel, to talk about keeping architecture documentation useful when systems sprawl and AI is changing how we work.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": true,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "is_spotlight",
+      "type"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-316-994aa2",
+    "newsletter": "Dear Architects",
+    "issue_number": 316,
+    "issue_title": "Are architects surrendering thinking to AI? - #316 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/204144459123787478?signature=abfc6baf22f9ad513ec0f5fb09eb1c716280516bd01ec0aba0df88718f6c51c1",
+    "date": "2026-11-13",
+    "date_str": "13 November 2026",
+    "title": "Enforce agent access outside the prompt",
+    "link": "https://www.beams.run/",
+    "author": "Teleport",
+    "description": "Teleport Beams is a trusted runtime for AI agents in production. Agents propose execution plans for a human or LLM judge to review. A separate runtime executes with only approved access and no secrets in the agent’s environment. Trace actions and LLM conversations, flag behavior that drifts from intent, and stop agents and their connections with a kill switch.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": true,
+    "user_overrides": [
+      "author",
+      "hide"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-316-5332f5",
+    "newsletter": "Dear Architects",
+    "issue_number": 316,
+    "issue_title": "Are architects surrendering thinking to AI? - #316 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/204144459123787478?signature=abfc6baf22f9ad513ec0f5fb09eb1c716280516bd01ec0aba0df88718f6c51c1",
+    "date": "2026-11-13",
+    "date_str": "13 November 2026",
+    "title": "LLM Reliability Layers Under Test: Accuracy, Yield, and the Limits of Verification",
+    "link": "https://www.infoq.com/articles/llm-reliability-layers-limits-accuracy/",
+    "author": "Pushpdeep Mishra & Wejdan Bagais",
+    "description": "Clinical notes, incident reports, support tickets, and forum posts are prose, and a language model can read them. What it produces is not dependable. Ours was right about one answer in three on the task below and reported full confidence on two-thirds of its answers; wherever a wrong answer costs something, that is unusable.",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-316-18d4d4",
+    "newsletter": "Dear Architects",
+    "issue_number": 316,
+    "issue_title": "Are architects surrendering thinking to AI? - #316 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/204144459123787478?signature=abfc6baf22f9ad513ec0f5fb09eb1c716280516bd01ec0aba0df88718f6c51c1",
+    "date": "2026-11-13",
+    "date_str": "13 November 2026",
+    "title": "Tests as data: ensuring AI-generated code does what we want",
+    "link": "https://martinfowler.com/articles/tests-as-data.html",
+    "author": "Matteo Vaccari",
+    "description": "Automated testing in the age of AI coding assistants is problematic: when AI agents write both production and test code, developers risk losing the assurance that automated tests protect against functional errors. All of this optimizes for human-readable tests that establish a contract between humans and AI.",
+    "category": "Software Testing, Quality & Observability",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "title",
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-316-414bc0",
+    "newsletter": "Dear Architects",
+    "issue_number": 316,
+    "issue_title": "Are architects surrendering thinking to AI? - #316 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/204144459123787478?signature=abfc6baf22f9ad513ec0f5fb09eb1c716280516bd01ec0aba0df88718f6c51c1",
+    "date": "2026-11-13",
+    "date_str": "13 November 2026",
+    "title": "Ontology Pipeline: A Framework for Knowledge Engineering",
+    "link": "https://www.amazon.com/dp/B0HJ9223FH",
+    "author": "Jessica Talisman",
+    "description": "Ontology Pipeline gives data leaders, semantic engineers, ontologists, taxonomists, knowledge managers, librarians, AI architects, and enterprise data teams a practical framework for turning messy organizational language into structured, machine-readable knowledge.",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "book",
+    "hide": false,
+    "user_overrides": [
+      "author",
+      "link"
+    ],
+    "metadata": {}
+  },
+  {
+    "id": "da-316-281526",
+    "newsletter": "Dear Architects",
+    "issue_number": 316,
+    "issue_title": "Are architects surrendering thinking to AI? - #316 Dear Architects",
+    "issue_link": "https://preview.mailerlite.io/emails/webview/1235400/204144459123787478?signature=abfc6baf22f9ad513ec0f5fb09eb1c716280516bd01ec0aba0df88718f6c51c1",
+    "date": "2026-11-13",
+    "date_str": "13 November 2026",
+    "title": "State of Devs 2026",
+    "link": "https://2026.stateofdevs.com/",
+    "author": "Devographics",
+    "description": "Nearly half of this year's survey respondents had experienced job insecurity and insufficient wages. A quarter had been laid off at some point in their career, and nearly 1 in 10 had been laid off within the last 9 months.",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "author"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "da-315-d6f53f",
     "newsletter": "Dear Architects",
     "issue_number": 315,
@@ -1635,7 +1766,10 @@
     "is_spotlight": false,
     "type": "article",
     "hide": false,
-    "user_overrides": [],
+    "user_overrides": [
+      "title",
+      "description"
+    ],
     "metadata": {}
   },
   {
