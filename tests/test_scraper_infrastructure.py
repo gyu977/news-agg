@@ -902,6 +902,9 @@ class BuilderSafetyTests(unittest.TestCase):
         self.assertIn("function loadFilterPreferences()", source)
         self.assertIn("body:has(#descriptionToggle:not(:checked)) .description-text,", source)
         self.assertIn('id="descriptionToggle" role="switch" aria-checked="true" autocomplete="off" checked>', source)
+        # GoatCounter privacy-first analytics integration
+        self.assertIn('data-goatcounter="https://news-catch.goatcounter.com/count"', source)
+        self.assertIn('async src="//gc.zgo.at/count.js"', source)
 
     def test_static_source_does_not_emit_scraping_staleness_warning(self):
         from builders import build_latest as module

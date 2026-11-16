@@ -121,7 +121,7 @@ Completed UI modernization recommendations and enhancements.
 - **`localStorage` Filter & View Persistence**: ✅ **Done**
   - *Delivered*: Persists filter and view preferences (`timeframe`, `sources`, `categories`, `types`, `descriptions`, `spotlights`, `futureEvents`) across browser sessions in `localStorage` (`newsCatch.filterPrefs.v1`) using an exclusion-based schema (`{ mode: 'all' | 'none' | 'exclude', values: [...] }`) so newly onboarded sources or categories automatically appear selected by default without requiring expired article ID cleanup.
 - **Aggregated RSS Feed**: ⏸️ **Postponed** (`code/builders/build_feed.py` to output a unified `output/feed.xml`; deferred while readers primarily use `news.html`).
-- **GoatCounter Privacy-First Analytics**: ⏳ **Planned (Later)** (Lightweight, cookie-free, GDPR-compliant pageview counter via `gc.zgo.at/count.js` with `integrity` SRI hash once ready to track real `news.html` visits).
+- **GoatCounter Privacy-First Analytics**: ✅ **Done** (Integrated cookie-free, GDPR-compliant pageview counter `https://news-catch.goatcounter.com/count` via `//gc.zgo.at/count.js` in `code/builders/news_template.html`).
 - **Modern CSS Modernization ("CSS Reacts, JS Just Listens" Architecture)**:
   - *Context*: Based on Adam Argyle's reactive CSS architectural patterns (`prop-for-that`) and vetted by Claude Opus for browser standards, shifting UI state management from JavaScript DOM mutation to native CSS primitives:
   - **Phase 1: Immediate Quick Wins (Zero Risk, Baseline Universal)**: ✅ **Done**
