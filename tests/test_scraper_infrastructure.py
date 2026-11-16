@@ -867,6 +867,42 @@ class BuilderSafetyTests(unittest.TestCase):
         self.assertIn("spotlightToggle.disabled = !available", source)
         self.assertIn("if (!available) spotlightToggle.checked = false", source)
 
+    def test_group1_ui_polish_and_local_storage_filter_persistence(self):
+        template = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
+        with open(template, encoding="utf-8") as stream:
+            source = stream.read()
+        # 1a. Opaque sticky header + sticky zero-radius state (.is-stuck)
+        self.assertIn("th {\n      position: sticky;\n      top: 0;\n      z-index: 20;\n      background: #0f172a;", source)
+        self.assertIn("thead.is-stuck tr:first-child th:first-child", source)
+        self.assertIn("thead.is-stuck tr:first-child th:last-child", source)
+        self.assertIn("function syncStickyHeaderState()", source)
+        # 1b. Guide dialog scroll lock & scroll-chaining prevention
+        self.assertIn("scrollbar-gutter: stable;", source)
+        self.assertIn("body.modal-open {", source)
+        self.assertIn("overscroll-behavior: contain;", source)
+        self.assertIn("document.body.classList.add('modal-open');", source)
+        self.assertIn("document.body.classList.remove('modal-open');", source)
+        # 1c. Auto-disable Future Events toggle when no future-dated items exist (preserving user intent)
+        self.assertIn("function hasFutureEvents(selectedSources)", source)
+        self.assertIn("function updateFutureEventsAvailability()", source)
+        self.assertIn("futureEventsToggle.disabled = !available;", source)
+        self.assertIn("else if (wasDisabled) futureEventsToggle.checked = userFutureEventsPref;", source)
+        self.assertIn("No upcoming events scheduled beyond today", source)
+        # 1d. Legend & Tips 3rd tab in Guide dialog with roving tabindex and mobile overflow safety
+        self.assertIn('id="tabBtnLegend"', source)
+        self.assertIn('id="tabContentLegend"', source)
+        self.assertIn('role="tablist" aria-label="Guide sections"', source)
+        self.assertIn("const guideTabs = [", source)
+        self.assertIn("item.btn.tabIndex = isActive ? 0 : -1;", source)
+        # localStorage filter & view persistence (without article ID persistence) + reload resilience
+        self.assertIn("const FILTER_PREFS_STORAGE_KEY = 'newsCatch.filterPrefs.v1';", source)
+        self.assertIn("function serializeMultiFilterState(filterEl)", source)
+        self.assertIn("function restoreMultiFilterState(filterEl, state)", source)
+        self.assertIn("function saveFilterPreferences()", source)
+        self.assertIn("function loadFilterPreferences()", source)
+        self.assertIn("body:has(#descriptionToggle:not(:checked)) .description-text,", source)
+        self.assertIn('id="descriptionToggle" role="switch" aria-checked="true" autocomplete="off" checked>', source)
+
     def test_static_source_does_not_emit_scraping_staleness_warning(self):
         from builders import build_latest as module
 

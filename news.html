@@ -51,6 +51,14 @@
       padding: 0;
     }
 
+    html {
+      scrollbar-gutter: stable;
+    }
+
+    body.modal-open {
+      overflow: hidden;
+    }
+
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background: var(--bg-color);
@@ -706,6 +714,7 @@
       opacity: 0.5;
     }
 
+    body:has(#descriptionToggle:not(:checked)) .description-text,
     .hide-descriptions .description-text {
       display: none !important;
     }
@@ -780,9 +789,6 @@
       top: 0;
       z-index: 20;
       background: #0f172a;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       padding: 0.85rem 1.15rem;
       font-size: 0.82rem;
       font-weight: 700;
@@ -794,12 +800,18 @@
       transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
 
-    /* Seamless Table Card Corner Radius Integration */
+    /* Seamless Table Card Corner Radius Integration & Sticky State */
     thead tr:first-child th:first-child {
       border-top-left-radius: 15px;
     }
     thead tr:first-child th:last-child {
       border-top-right-radius: 15px;
+    }
+    thead.is-stuck tr:first-child th:first-child {
+      border-top-left-radius: 0;
+    }
+    thead.is-stuck tr:first-child th:last-child {
+      border-top-right-radius: 0;
     }
     tbody tr:last-child td:first-child {
       border-bottom-left-radius: 15px;
@@ -812,7 +824,7 @@
     }
 
     th:hover {
-      background: rgba(15, 23, 42, 0.98);
+      background: #131c31;
       color: var(--text-main);
     }
 
@@ -833,6 +845,7 @@
       left: 0;
       width: 100%;
       height: 2px;
+      margin-bottom: -2px;
       background: linear-gradient(90deg, var(--accent-blue) 0%, #818cf8 100%);
       box-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
       transform-origin: left;
@@ -1468,6 +1481,7 @@
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       overflow: hidden;
+      overscroll-behavior: contain;
       display: flex;
       flex-direction: column;
       z-index: 1000;
@@ -1522,6 +1536,13 @@
       gap: 0.75rem;
       padding: 0.85rem 1.75rem 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .modal-tabs::-webkit-scrollbar {
+      display: none;
     }
 
     .modal-tab {
@@ -1532,6 +1553,8 @@
       font-size: 0.95rem;
       font-weight: 600;
       padding: 0.6rem 0.9rem;
+      white-space: nowrap;
+      flex-shrink: 0;
       cursor: pointer;
       transition: var(--transition-smooth);
     }
@@ -1548,6 +1571,7 @@
     .modal-body {
       padding: 1.75rem;
       overflow-y: auto;
+      overscroll-behavior: contain;
       flex-grow: 1;
     }
 
@@ -1593,6 +1617,14 @@
     .source-list strong {
       color: var(--text-main);
       font-weight: 600;
+    }
+
+    .legend-list li {
+      padding-left: 0;
+    }
+
+    .legend-list li::before {
+      display: none;
     }
 
     .source-guide-link {
@@ -1727,6 +1759,16 @@
       .btn-guide {
         padding: 0.35rem 0.65rem;
         font-size: 0.78rem;
+      }
+
+      .modal-tabs {
+        gap: 0.25rem;
+        padding: 0.6rem 1rem 0;
+      }
+
+      .modal-tab {
+        padding: 0.55rem 0.6rem;
+        font-size: 0.88rem;
       }
 
       /* Collapsible Mobile Filter Drawer */
@@ -2140,9 +2182,6 @@
         backdrop-filter: none !important;
         -webkit-backdrop-filter: none !important;
       }
-      th {
-        background: #0f172a !important;
-      }
       .controls-panel {
         background: #1e293b !important;
       }
@@ -2203,12 +2242,13 @@
         </h2>
         <button id="closeGuideBtn" class="btn-modal-close" aria-label="Close guide dialog">✕</button>
       </div>
-      <div class="modal-tabs" role="tablist">
-        <button id="tabBtnSources" class="modal-tab active" role="tab" aria-selected="true" aria-controls="tabContentSources">Sources</button>
-        <button id="tabBtnCategories" class="modal-tab" role="tab" aria-selected="false" aria-controls="tabContentCategories">Categories</button>
+      <div class="modal-tabs" role="tablist" aria-label="Guide sections">
+        <button id="tabBtnSources" class="modal-tab active" role="tab" aria-selected="true" aria-controls="tabContentSources" tabindex="0">Sources</button>
+        <button id="tabBtnCategories" class="modal-tab" role="tab" aria-selected="false" aria-controls="tabContentCategories" tabindex="-1">Categories</button>
+        <button id="tabBtnLegend" class="modal-tab" role="tab" aria-selected="false" aria-controls="tabContentLegend" tabindex="-1">Legend &amp; Tips</button>
       </div>
       <div class="modal-body">
-        <div id="tabContentSources" class="tab-content active" role="tabpanel" aria-labelledby="tabBtnSources">
+        <div id="tabContentSources" class="tab-content active" role="tabpanel" aria-labelledby="tabBtnSources" tabindex="0">
           <div id="sourceDesc">
             <ul class="source-list">
         <li data-source="Addy Osmani"><a href="https://addyosmani.com/blog/" target="_blank" rel="noopener noreferrer" class="source-guide-link" title="Visit Addy Osmani"><strong>Addy Osmani</strong><svg class="external-link-icon" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a> — Personal blog essays on agentic engineering, software factories, and developer judgment.</li>
@@ -2225,7 +2265,7 @@
             </ul>
           </div>
         </div>
-        <div id="tabContentCategories" class="tab-content" role="tabpanel" aria-labelledby="tabBtnCategories">
+        <div id="tabContentCategories" class="tab-content" role="tabpanel" aria-labelledby="tabBtnCategories" tabindex="0">
           <div id="categoryDesc">
             <ul class="source-list category-list">
               <li data-cat="AI-Native &amp; Agentic Software Engineering"><strong>AI &amp; Agentic Eng</strong> — Building software with agents: loops, orchestration, context engineering and the day-to-day craft of AI-assisted development.</li>
@@ -2235,6 +2275,18 @@
               <li data-cat="Software Architecture &amp; Distributed Systems"><strong>Arch &amp; Dist Systems</strong> — Boundaries and modularity: architectural decision-making, ADRs, micro frontends, microservices, DSLs and distributed systems design.</li>
               <li data-cat="Software Testing, Quality &amp; Observability"><strong>Testing &amp; Observability</strong> — Verifying software: automated repair, code-review agents, test strategy, evals-as-tests, non-functional requirements and observability.</li>
               <li data-cat="Tech Industry, Jobs &amp; Careers"><strong>Industry &amp; Careers</strong> — The business around the code: AI spend and economics, industry news and incidents, hiring and developer careers.</li>
+            </ul>
+          </div>
+        </div>
+        <div id="tabContentLegend" class="tab-content" role="tabpanel" aria-labelledby="tabBtnLegend" tabindex="0">
+          <div id="legendDesc">
+            <ul class="source-list legend-list">
+              <li><strong><span aria-hidden="true">★</span> Spotlights</strong> — Editor-curated keynote essays, architectural deep dives, and flagship industry summits. Toggle <em>Spotlights</em> in the filter bar to isolate these picks.</li>
+              <li><strong><span aria-hidden="true">🏛️</span> Future Events</strong> — Upcoming software architecture, AI engineering, and systems conferences scheduled after today. Automatically disabled when no future events match active filters.</li>
+              <li><strong>Also in N</strong> — Cross-source deduplication badge shown when an article is recommended by multiple newsletters. Hover or focus the pill to see every source that featured it.</li>
+              <li><strong>Content Type Glyphs</strong> — Inline icons before titles indicate media format: <strong><span aria-hidden="true">▶️</span></strong> Videos &amp; Podcasts · <strong><span aria-hidden="true">📖</span></strong> Books · <strong><span aria-hidden="true">⚡</span></strong> Pulses &amp; Newsbytes · <strong><span aria-hidden="true">🎤</span></strong> Presentations &amp; Talks · <strong><span aria-hidden="true">🏛️</span></strong> Conferences (plain titles are standard articles).</li>
+              <li><strong>Curator Export (.md / .html)</strong> — Check any combination of articles (or use the header checkbox to select all visible rows) to export a formatted reading list in Markdown (ready for Obsidian, Notion, or Logseq) or standalone HTML.</li>
+              <li><strong>Saved Filter Preferences &amp; Shortcuts</strong> — Your active timeframe, source, category, content type, and toggle selections are automatically remembered in browser <code>localStorage</code>. Press <strong>Esc</strong> to clear active search or close open dropdowns and dialogs; on mobile, tap any 2-line synopsis to expand it.</li>
             </ul>
           </div>
         </div>
@@ -2317,21 +2369,21 @@
           <div class="toggles-wrapper">
             <label class="switch-label" title="Toggle article descriptions and synopses">
               <span class="switch-control">
-                <input type="checkbox" id="descriptionToggle" role="switch" aria-checked="true" checked>
+                <input type="checkbox" id="descriptionToggle" role="switch" aria-checked="true" autocomplete="off" checked>
                 <span class="switch-slider"></span>
               </span>
               Descriptions
             </label>
             <label id="spotlightLabel" class="switch-label" title="Show only editor-curated spotlight articles and keynote summits (★)">
               <span class="switch-control">
-                <input type="checkbox" id="spotlightToggle" role="switch" aria-checked="false">
+                <input type="checkbox" id="spotlightToggle" role="switch" aria-checked="false" autocomplete="off">
                 <span class="switch-slider"></span>
               </span>
               Spotlights
             </label>
             <label id="futureEventsLabel" class="switch-label" title="Include upcoming conferences and summits scheduled after today">
               <span class="switch-control">
-                <input type="checkbox" id="futureEventsToggle" role="switch" aria-checked="false">
+                <input type="checkbox" id="futureEventsToggle" role="switch" aria-checked="false" autocomplete="off">
                 <span class="switch-slider"></span>
               </span>
               Future Events
@@ -2403,7 +2455,7 @@
       <table id="articlesTable">
         <thead>
           <tr>
-            <th class="select-col" title="Select all visible articles to export as Markdown or HTML"><input type="checkbox" id="selectAllToggle" title="Select all visible articles to export as Markdown or HTML" aria-label="Select all visible articles to export as Markdown or HTML"></th>
+            <th class="select-col" title="Select all visible articles to export as Markdown or HTML"><input type="checkbox" id="selectAllToggle" autocomplete="off" title="Select all visible articles to export as Markdown or HTML" aria-label="Select all visible articles to export as Markdown or HTML"></th>
             <th onclick="handleSort('date')" id="th-date" class="date-column active-sort" tabindex="0" role="button" aria-label="Sort by date" aria-sort="descending">Date <span class="sort-indicator">&#x25BC;</span></th>
             <th onclick="handleSort('newsletter')" id="th-newsletter" class="source-column" tabindex="0" role="button" aria-label="Sort by source" aria-sort="none">Source <span class="sort-indicator"></span></th>
             <th onclick="handleSort('category')" id="th-category" class="category-column" tabindex="0" role="button" aria-label="Sort by category" aria-sort="none">Category <span class="sort-indicator"></span></th>
@@ -9565,8 +9617,10 @@
     const closeGuideBtn = document.getElementById('closeGuideBtn');
     const tabBtnSources = document.getElementById('tabBtnSources');
     const tabBtnCategories = document.getElementById('tabBtnCategories');
+    const tabBtnLegend = document.getElementById('tabBtnLegend');
     const tabContentSources = document.getElementById('tabContentSources');
     const tabContentCategories = document.getElementById('tabContentCategories');
+    const tabContentLegend = document.getElementById('tabContentLegend');
     const tableBody = document.getElementById('tableBody');
     const resultsCount = document.getElementById('resultsCount');
     const crossSourceTooltip = document.getElementById('crossSourceTooltip');
@@ -9718,6 +9772,7 @@
           timeframeFilter.value = opt.dataset.value;
           timeframeDropdown.open = false;
           syncTimeframeDropdown();
+          saveFilterPreferences();
           render();
         }
       });
@@ -9726,37 +9781,57 @@
     if (timeframeFilter) {
       timeframeFilter.addEventListener('change', function() {
         syncTimeframeDropdown();
+        saveFilterPreferences();
         render();
       });
     }
     sourceFilter.addEventListener('change', function() {
       updateMultiFilterSummary(sourceFilter);
       updateSpotlightAvailability();
+      updateFutureEventsAvailability();
+      saveFilterPreferences();
       render();
     });
     typeFilter.addEventListener('change', function() {
       updateMultiFilterSummary(typeFilter);
+      saveFilterPreferences();
       render();
     });
     categoryFilter.addEventListener('change', function() {
       updateMultiFilterSummary(categoryFilter);
+      saveFilterPreferences();
       render();
     });
     spotlightToggle.addEventListener('change', function() {
+      userSpotlightPref = spotlightToggle.checked;
       spotlightToggle.setAttribute('aria-checked', String(spotlightToggle.checked));
+      saveFilterPreferences();
       render();
     });
     descriptionToggle.addEventListener('change', function() {
       descriptionToggle.setAttribute('aria-checked', String(descriptionToggle.checked));
       updateDescriptionVisibility();
       updateMobileFilterBadge();
+      saveFilterPreferences();
     });
     if (futureEventsToggle) {
       futureEventsToggle.addEventListener('change', function() {
+        userFutureEventsPref = futureEventsToggle.checked;
         futureEventsToggle.setAttribute('aria-checked', String(futureEventsToggle.checked));
+        saveFilterPreferences();
         render();
       });
     }
+
+    // Sticky Table Header Corner State (.is-stuck)
+    const articlesTableEl = document.getElementById('articlesTable');
+    const tableHeadEl = articlesTableEl ? articlesTableEl.querySelector('thead') : null;
+    function syncStickyHeaderState() {
+      if (!articlesTableEl || !tableHeadEl) return;
+      const rect = articlesTableEl.getBoundingClientRect();
+      tableHeadEl.classList.toggle('is-stuck', rect.top <= 0 && rect.bottom > 45);
+    }
+    window.addEventListener('scroll', syncStickyHeaderState, { passive: true });
 
     // Guide Dialog Controller
     if (openGuideBtn && guideDialog) {
@@ -9770,6 +9845,7 @@
 
       openGuideBtn.addEventListener('click', function() {
         lastFocusedElement = document.activeElement;
+        document.body.classList.add('modal-open');
         if (typeof guideDialog.showModal === 'function') {
           guideDialog.showModal();
         } else {
@@ -9782,6 +9858,7 @@
       });
 
       const closeGuide = function() {
+        document.body.classList.remove('modal-open');
         if (typeof guideDialog.close === 'function') {
           guideDialog.close();
         } else {
@@ -9791,6 +9868,10 @@
           lastFocusedElement.focus();
         }
       };
+
+      guideDialog.addEventListener('close', function() {
+        document.body.classList.remove('modal-open');
+      });
 
       if (closeGuideBtn) closeGuideBtn.addEventListener('click', closeGuide);
 
@@ -9802,6 +9883,8 @@
       // Trap focus within modal while open
       guideDialog.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
+          e.preventDefault();
+          e.stopPropagation();
           closeGuide();
           return;
         }
@@ -9824,26 +9907,46 @@
         }
       });
 
-      // Tab switching in Guide Dialog
-      if (tabBtnSources && tabBtnCategories) {
-        tabBtnSources.addEventListener('click', function() {
-          tabBtnSources.classList.add('active');
-          tabBtnSources.setAttribute('aria-selected', 'true');
-          tabBtnCategories.classList.remove('active');
-          tabBtnCategories.setAttribute('aria-selected', 'false');
-          tabContentSources.classList.add('active');
-          tabContentCategories.classList.remove('active');
-        });
+      // Tab switching in Guide Dialog (3 tabs: Sources, Categories, Legend & Tips)
+      const guideTabs = [
+        { btn: tabBtnSources, panel: tabContentSources },
+        { btn: tabBtnCategories, panel: tabContentCategories },
+        { btn: tabBtnLegend, panel: tabContentLegend }
+      ].filter(item => item.btn && item.panel);
 
-        tabBtnCategories.addEventListener('click', function() {
-          tabBtnCategories.classList.add('active');
-          tabBtnCategories.setAttribute('aria-selected', 'true');
-          tabBtnSources.classList.remove('active');
-          tabBtnSources.setAttribute('aria-selected', 'false');
-          tabContentCategories.classList.add('active');
-          tabContentSources.classList.remove('active');
+      const activateGuideTab = function(targetBtn) {
+        guideTabs.forEach(item => {
+          const isActive = item.btn === targetBtn;
+          item.btn.classList.toggle('active', isActive);
+          item.btn.setAttribute('aria-selected', String(isActive));
+          item.btn.tabIndex = isActive ? 0 : -1;
+          item.btn.setAttribute('tabindex', isActive ? '0' : '-1');
+          item.panel.classList.toggle('active', isActive);
         });
-      }
+      };
+
+      guideTabs.forEach((item, idx) => {
+        item.btn.addEventListener('click', function() {
+          activateGuideTab(item.btn);
+        });
+        item.btn.addEventListener('keydown', function(e) {
+          if (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === 'Home' || e.key === 'End') {
+            e.preventDefault();
+            let nextIdx = idx;
+            if (e.key === 'Home') {
+              nextIdx = 0;
+            } else if (e.key === 'End') {
+              nextIdx = guideTabs.length - 1;
+            } else {
+              const delta = e.key === 'ArrowRight' ? 1 : -1;
+              nextIdx = (idx + delta + guideTabs.length) % guideTabs.length;
+            }
+            const nextBtn = guideTabs[nextIdx].btn;
+            activateGuideTab(nextBtn);
+            nextBtn.focus();
+          }
+        });
+      });
     }
 
 function additionalSourceNames(article) {
@@ -10378,6 +10481,9 @@ function renderCategoryCounts(list) {
         .map(category => ({ value: category, label: getCategoryDisplayName(category) })));
     }
 
+    let userSpotlightPref = false;
+    let userFutureEventsPref = false;
+
     const spotlightSources = new Set(
       articles
         .filter(a => a.is_spotlight)
@@ -10391,11 +10497,130 @@ function renderCategoryCounts(list) {
     function updateSpotlightAvailability() {
       const selectedSources = getSelectedFilterValues(sourceFilter);
       const available = hasSpotlightSource(selectedSources);
+      const wasDisabled = spotlightToggle.disabled;
+      if (!wasDisabled) {
+        userSpotlightPref = spotlightToggle.checked;
+      }
       spotlightToggle.disabled = !available;
       spotlightLabel.classList.toggle('disabled', !available);
       spotlightLabel.setAttribute('aria-disabled', String(!available));
       if (!available) spotlightToggle.checked = false;
+      else if (wasDisabled) spotlightToggle.checked = userSpotlightPref;
       spotlightToggle.setAttribute('aria-checked', String(spotlightToggle.checked));
+    }
+
+    function hasFutureEvents(selectedSources) {
+      const today = new Date();
+      const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
+      return articles.some(article => {
+        const artTime = parseArticleDate(article.date);
+        if (isNaN(artTime) || artTime <= startOfToday) return false;
+        return articleMatchesSource(article, selectedSources);
+      });
+    }
+
+    function updateFutureEventsAvailability() {
+      if (!futureEventsToggle || !futureEventsLabel) return;
+      const selectedSources = getSelectedFilterValues(sourceFilter);
+      const available = hasFutureEvents(selectedSources);
+      const wasDisabled = futureEventsToggle.disabled;
+      if (!wasDisabled) {
+        userFutureEventsPref = futureEventsToggle.checked;
+      }
+      futureEventsToggle.disabled = !available;
+      futureEventsLabel.classList.toggle('disabled', !available);
+      futureEventsLabel.setAttribute('aria-disabled', String(!available));
+      futureEventsLabel.title = available
+        ? 'Include upcoming conferences and summits scheduled after today'
+        : 'No upcoming events scheduled beyond today';
+      if (!available) futureEventsToggle.checked = false;
+      else if (wasDisabled) futureEventsToggle.checked = userFutureEventsPref;
+      futureEventsToggle.setAttribute('aria-checked', String(futureEventsToggle.checked));
+    }
+
+    const FILTER_PREFS_STORAGE_KEY = 'newsCatch.filterPrefs.v1';
+
+    function serializeMultiFilterState(filterEl) {
+      if (!filterEl) return { mode: 'all', values: [] };
+      const inputs = Array.from(filterEl.querySelectorAll('input[type="checkbox"]'));
+      const checked = inputs.filter(i => i.checked).map(i => i.value);
+      const unchecked = inputs.filter(i => !i.checked).map(i => i.value);
+      if (unchecked.length === 0) {
+        return { mode: 'all', values: [] };
+      }
+      if (checked.length === 0) {
+        return { mode: 'none', values: [] };
+      }
+      return { mode: 'exclude', values: unchecked };
+    }
+
+    function restoreMultiFilterState(filterEl, state) {
+      if (!filterEl || !state || typeof state !== 'object') return;
+      const inputs = Array.from(filterEl.querySelectorAll('input[type="checkbox"]'));
+      if (inputs.length === 0) return;
+      if (state.mode === 'all') {
+        inputs.forEach(i => { i.checked = true; });
+      } else if (state.mode === 'none') {
+        inputs.forEach(i => { i.checked = false; });
+      } else if (state.mode === 'exclude' && Array.isArray(state.values)) {
+        const excludedSet = new Set(state.values);
+        inputs.forEach(i => { i.checked = !excludedSet.has(i.value); });
+      }
+      // Guard against landing on an empty 0-checked filter state on page reload
+      if (!inputs.some(i => i.checked)) {
+        inputs.forEach(i => { i.checked = true; });
+      }
+      updateMultiFilterSummary(filterEl);
+    }
+
+    function saveFilterPreferences() {
+      try {
+        if (typeof window.localStorage === 'undefined') return;
+        const prefs = {
+          timeframe: timeframeFilter ? timeframeFilter.value : '30',
+          sources: serializeMultiFilterState(sourceFilter),
+          categories: serializeMultiFilterState(categoryFilter),
+          types: serializeMultiFilterState(typeFilter),
+          descriptions: Boolean(descriptionToggle && descriptionToggle.checked),
+          spotlights: Boolean(userSpotlightPref),
+          futureEvents: Boolean(userFutureEventsPref)
+        };
+        window.localStorage.setItem(FILTER_PREFS_STORAGE_KEY, JSON.stringify(prefs));
+      } catch (e) {}
+    }
+
+    function loadFilterPreferences() {
+      try {
+        if (typeof window.localStorage === 'undefined') return;
+        const raw = window.localStorage.getItem(FILTER_PREFS_STORAGE_KEY);
+        if (!raw) return;
+        const prefs = JSON.parse(raw);
+        if (!prefs || typeof prefs !== 'object') return;
+
+        const validTimeframes = new Set(['7', '14', '30', '60', 'all']);
+        if (timeframeFilter && validTimeframes.has(String(prefs.timeframe))) {
+          timeframeFilter.value = String(prefs.timeframe);
+          syncTimeframeDropdown();
+        }
+        restoreMultiFilterState(sourceFilter, prefs.sources);
+        restoreMultiFilterState(categoryFilter, prefs.categories);
+        restoreMultiFilterState(typeFilter, prefs.types);
+
+        if (descriptionToggle && typeof prefs.descriptions === 'boolean') {
+          descriptionToggle.checked = prefs.descriptions;
+          descriptionToggle.setAttribute('aria-checked', String(prefs.descriptions));
+        }
+        if (spotlightToggle && typeof prefs.spotlights === 'boolean') {
+          userSpotlightPref = prefs.spotlights;
+          spotlightToggle.checked = prefs.spotlights;
+          spotlightToggle.setAttribute('aria-checked', String(prefs.spotlights));
+        }
+        if (futureEventsToggle && typeof prefs.futureEvents === 'boolean') {
+          userFutureEventsPref = prefs.futureEvents;
+          futureEventsToggle.checked = prefs.futureEvents;
+          futureEventsToggle.setAttribute('aria-checked', String(prefs.futureEvents));
+        }
+      } catch (e) {}
     }
 
     function articleMatchesSource(article, sources) {
@@ -10472,23 +10697,54 @@ function renderCategoryCounts(list) {
       timeframeFilter.value = '30';
       syncTimeframeDropdown();
     }
+    if (descriptionToggle) {
+      descriptionToggle.checked = true;
+      descriptionToggle.setAttribute('aria-checked', 'true');
+    }
+    if (spotlightToggle) {
+      spotlightToggle.checked = false;
+      spotlightToggle.setAttribute('aria-checked', 'false');
+    }
+    if (futureEventsToggle) {
+      futureEventsToggle.checked = false;
+      futureEventsToggle.setAttribute('aria-checked', 'false');
+    }
     populateFilters();
+    loadFilterPreferences();
     bindMultiFilterActions(sourceFilter, function() {
       updateSpotlightAvailability();
+      updateFutureEventsAvailability();
+      saveFilterPreferences();
       render();
     });
-    bindMultiFilterActions(typeFilter, render);
-    bindMultiFilterActions(categoryFilter, render);
+    bindMultiFilterActions(typeFilter, function() {
+      saveFilterPreferences();
+      render();
+    });
+    bindMultiFilterActions(categoryFilter, function() {
+      saveFilterPreferences();
+      render();
+    });
     if (window.location.hash) {
       try {
         history.replaceState(null, '', window.location.pathname);
       } catch (e) {}
     }
-    updateSpotlightAvailability();
     render();
     updateDescriptionVisibility();
+    syncStickyHeaderState();
+
+    // Re-sync state after browser post-parse form restoration or bfcache pageshow
+    window.addEventListener('pageshow', function() {
+      loadFilterPreferences();
+      updateDescriptionVisibility();
+      updateMobileFilterBadge();
+    });
 
     function render() {
+      updateSpotlightAvailability();
+      updateFutureEventsAvailability();
+      updateDescriptionVisibility();
       const query = searchInput.value.toLowerCase().trim();
       const timeframe = timeframeFilter ? timeframeFilter.value : 'all';
       const spotlightOnly = spotlightToggle.checked;
@@ -10551,6 +10807,7 @@ function renderCategoryCounts(list) {
       // Update live counts and disabled states in filter options
       updateFilterOptionCounts(articlesForSources, articlesForTypes, articlesForCategories);
       updateSpotlightAvailability();
+      updateFutureEventsAvailability();
       updateMobileFilterBadge();
 
       // Filter articles matching active criteria

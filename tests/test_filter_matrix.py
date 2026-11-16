@@ -801,6 +801,58 @@ class FilterMatrixSimulationTests(unittest.TestCase):
         # Event listener wiring
         self.assertIn("futureEventsToggle.addEventListener('change', function()", html)
 
+    def test_scenario_18_description_and_switch_reload_sync(self):
+        """Scenario 18: Verifies that switch controls (#descriptionToggle, #spotlightToggle,
+        #futureEventsToggle) and #selectAllToggle disable browser form-state restoration
+        (autocomplete="off"), initialize deterministic defaults before loadFilterPreferences(),
+        couple description visibility via CSS :has(#descriptionToggle:not(:checked)), and
+        synchronize updateDescriptionVisibility() inside render() and pageshow."""
+        template_path = os.path.join(REPO_ROOT, "code", "builders", "news_template.html")
+        with open(template_path, encoding="utf-8") as stream:
+            html = stream.read()
+
+        # 1. All switch checkboxes and selectAllToggle must have autocomplete="off"
+        self.assertIn(
+            '<input type="checkbox" id="descriptionToggle" role="switch" aria-checked="true" autocomplete="off" checked>',
+            html,
+        )
+        self.assertIn(
+            '<input type="checkbox" id="spotlightToggle" role="switch" aria-checked="false" autocomplete="off">',
+            html,
+        )
+        self.assertIn(
+            '<input type="checkbox" id="futureEventsToggle" role="switch" aria-checked="false" autocomplete="off">',
+            html,
+        )
+        self.assertIn('<input type="checkbox" id="selectAllToggle" autocomplete="off"', html)
+
+        # 2. Pure CSS :has() fallback ensures descriptions cannot remain visible when toggle is unchecked
+        self.assertIn(
+            "body:has(#descriptionToggle:not(:checked)) .description-text,\n    .hide-descriptions .description-text {\n      display: none !important;\n    }",
+            html,
+        )
+
+        # 3. Boot sequence: explicit default initialization occurs BEFORE loadFilterPreferences()
+        script_m = re.search(r"<script>([\s\S]*?)</script>", html)
+        self.assertIsNotNone(script_m)
+        script = script_m.group(1)
+
+        desc_reset_pos = script.find("descriptionToggle.checked = true;")
+        spot_reset_pos = script.find("spotlightToggle.checked = false;", desc_reset_pos)
+        fut_reset_pos = script.find("futureEventsToggle.checked = false;", spot_reset_pos)
+        load_prefs_pos = script.find("loadFilterPreferences();", fut_reset_pos)
+        self.assertGreater(desc_reset_pos, 0)
+        self.assertGreater(spot_reset_pos, desc_reset_pos)
+        self.assertGreater(fut_reset_pos, spot_reset_pos)
+        self.assertGreater(load_prefs_pos, fut_reset_pos)
+
+        # 4. render() and pageshow both invoke updateDescriptionVisibility()
+        render_fn_pos = script.find("function render() {")
+        render_desc_sync_pos = script.find("updateDescriptionVisibility();", render_fn_pos)
+        self.assertGreater(render_fn_pos, 0)
+        self.assertGreater(render_desc_sync_pos, render_fn_pos)
+        self.assertIn("window.addEventListener('pageshow', function()", script)
+
 
 if __name__ == "__main__":
     unittest.main()

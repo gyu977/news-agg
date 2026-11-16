@@ -27,14 +27,11 @@ Completed UI modernization recommendations and enhancements.
 
 ## 2. Immediate Shortlist (Active Tasks)
 
-- **Sticky Table Header Not Covering First Column Selection Marker (UI Bug / Polish)**: 🔴 **Open**
-  - *Context*: When an article is selected, its left blue selection indicator on the first column remains visible / bleeds through when passing underneath the fixed sticky table header during scroll. The previous `box-shadow: inset 3px 0 0` did not eliminate the effect.
-  - *Root Cause Analysis*:
-    1. **Header Translucency**: `th` uses `background: rgba(15, 23, 42, 0.95)` with `backdrop-filter: blur(12px)`. The 5% translucency allows vibrant cyan (`#38bdf8`) to glow through the header during scroll.
-    2. **Curved Corner Masking**: `thead tr:first-child th:first-child` has `border-top-left-radius: 15px`. Because `.table-container` uses `overflow: visible` (to allow sticky positioning), rows scrolling past `top: 0` peek through the transparent outer curve of the corner.
-  - *Planned Action*:
-    1. Make `th` background 100% opaque (`#0f172a`) during scroll to prevent color bleed-through.
-    2. Square off or mask the scrolling boundary so the selection marker is completely covered under the header.
+- **Sticky Table Header Not Covering First Column Selection Marker (UI Bug / Polish)**: ✅ **Done**
+  - *Context*: When an article is selected, its left blue selection indicator on the first column remained visible / bled through when passing underneath the fixed sticky table header during scroll.
+  - *Delivered*:
+    1. Made `th` background 100% opaque (`#0f172a`, `#131c31` on `:hover`) during scroll to eliminate cyan color bleed-through.
+    2. Added `thead.is-stuck` state (toggled via `syncStickyHeaderState()`) setting `border-top-left-radius: 0; border-top-right-radius: 0;` on the first/last `th` while stuck at `top: 0`, and removed the 2px vertical layout offset from `.table-progress-bar` (`margin-bottom: -2px;`).
 - **"Show Only Selected" View Toggle (UI Feature Candidate)**: ⏳ **Planned**
   - *Context*: When reviewing or curating articles, users selecting multiple rows across a 300+ item table need a quick way to isolate only their selected articles on screen before exporting or clearing.
   - *Goal*: Add an inline `Show only` / `Show all` toggle directly inside the `.pill-selected` capsule (`[ 3 selected | 👁️ Show only | Clear ]`), keeping selection management in a single, motionless capsule that vanishes when no rows are checked.
@@ -65,27 +62,17 @@ Completed UI modernization recommendations and enhancements.
   - *Planned Action*:
     1. Replace bare `"model"` with contextual phrases (`"language model"`, `"open model"`, `"frontier model"`, `"model weights"`, `"model training"`, `"reasoning model"`, `"world model"`).
     2. Add missing high-signal keywords to `Software Testing, Quality & Observability` (`"code review"`, `"verification"`, `"static analysis"`, `"benchmark"`) and `Cloud Infrastructure & System Reliability` (`"disaster recovery"`, `"multi-region"`, `"resilient"`, `"failover"`).
-- **Auto-Disable "Future Events" Toggle When No Future-Dated Items Exist (UI Polish)**: ⏳ **Planned**
-  - *Context*: The "Future Events" switch toggles articles dated strictly after local today midnight (`todayLocalMidnight`). Currently, Codecamp Cluj-Napoca 2026 (`2026-10-20`) and SOFTER (`2026-10-01`) ensure upcoming events exist. After October 20, 2026 (or when active filter combinations like "Articles only" or specific sources yield zero future events), flipping the switch produces no visual changes, risking a "dead control" UX impression.
-  - *Planned Action*:
-    1. Implement `updateFutureEventsAvailability()` mirroring the pattern in `updateSpotlightAvailability()`.
-    2. Check if any future-dated articles exist within the current filter scope (or dataset). If count is 0:
-       - Set `futureEventsToggle.disabled = true;`
-       - Set `futureEventsToggle.checked = false;`
-       - Add `.disabled` class and `aria-disabled="true"` to `futureEventsLabel` (leveraging existing opacity 0.45 and `cursor: not-allowed` styling).
-       - Update `title` tooltip to explain why it is disabled (e.g. *"No upcoming events scheduled beyond today"*).
-    3. Invoke `updateFutureEventsAvailability()` on initial load and whenever filter selections change.
-- **Add "Legend & Tips" Tab to Guide Dialog (UX Polish Candidate)**: ⏳ **Planned**
-  - *Context*: While core dashboard interactions (filtering, search, row selection) present themselves clearly by design, certain editorial concepts and power-user superpowers benefit from a consolidated reference:
-    - **★ Spotlights**: Curator-selected keynote essays and deep-dives.
-    - **🏛️ / 📅 Future Events**: Conference & summit radar scheduled after today.
-    - **🏷️ Also In**: Cross-source deduplication when high-signal articles appear in multiple newsletters.
-    - **Curator Export**: Markdown (.md) formatted for seamless paste into personal knowledge graphs (Obsidian, Notion, Logseq).
-    - **Keyboard Shortcuts**: `Esc` clears active search and closes dialogs.
-  - *Planned Action*:
-    1. Add a 3rd tab `<button id="tabBtnLegend" class="modal-tab" role="tab">Legend &amp; Tips</button>` to `guideDialog`.
-    2. Add `<div id="tabContentLegend" class="tab-content" role="tabpanel">` with concise definition cards / visual legend.
-    3. Update tab switching logic in `news_template.html` to support 3 tabs cleanly with keyboard accessibility.
+- **Auto-Disable "Future Events" Toggle When No Future-Dated Items Exist (UI Polish)**: ✅ **Done**
+  - *Context*: The "Future Events" switch toggles articles dated strictly after local today midnight (`todayLocalMidnight`). When active filter combinations (or future calendar dates) yield zero upcoming events, flipping the switch previously produced no visual changes.
+  - *Delivered*:
+    1. Implemented `hasFutureEvents(selectedSources, selectedTypes, selectedCategories)` and `updateFutureEventsAvailability()` mirroring `updateSpotlightAvailability()`.
+    2. Automatically disables `#futureEventsToggle` (`disabled = true`, `checked = false`, `.disabled` class and `aria-disabled="true"` on `#futureEventsLabel`, with explanatory tooltip `"No upcoming events scheduled beyond today"`) whenever zero future-dated articles exist for the active filter selections.
+- **Add "Legend & Tips" Tab to Guide Dialog (UX Polish Candidate)**: ✅ **Done**
+  - *Context*: Added a consolidated reference inside `#guideDialog` explaining core editorial concepts and power-user shortcuts.
+  - *Delivered*:
+    1. Added 3rd tab `<button id="tabBtnLegend" class="modal-tab" role="tab">Legend &amp; Tips</button>` and `<div id="tabContentLegend" class="tab-content" role="tabpanel">` to `#guideDialog`.
+    2. Documented **★ Spotlights**, **🏛️ Future Events**, **Also in N** cross-source deduplication, **Content Type Glyphs**, **Curator Export (.md / .html)**, and **Saved Filter Preferences & Shortcuts**.
+    3. Updated modal tab controller to support N-tab click switching and Left/Right arrow key navigation.
 - **Compact Mobile Feed Card Layout & Standalone PWA Shell (`code/builders/news_template.html`)**: ✅ **Done** (Detailed reviewed specification saved in [`docs/MOBILE-PWA-PLAN.md`](./MOBILE-PWA-PLAN.md))
   - *Context*: Previously at `@media (max-width: 768px)`, `news_template.html` set `table, tr, td { display: block }` and printed uppercase `td::before` (`DATE`, `SOURCE`, `CATEGORY`, `AUTHOR`, `ARTICLE`) headers above each cell, making each article ~11 lines tall (~1.2 articles per screen) and stacking all 8 filter/export controls into a ~500px block at the top.
   - *Implemented*:
@@ -100,12 +87,12 @@ Completed UI modernization recommendations and enhancements.
   - *Planned Action*:
     1. **Interactive `NarrativeTextVis` ("Edition Pulse") Summary Bar**: Render a compact, reactive 1-line narrative summary above the feed (or inside the header/toolbar) that dynamically updates with the active filter window, embedding clickable inline metric pills and trend deltas (e.g., *"Showing **48 articles** across **9 sources** · Led by **[AI & Agentic Eng 38% ↑]** and **[Arch & Dist Systems 24%]** · Includes **[6 ★ Spotlights]** and **[4 cross-source picks]**"*). Clicking an inline pill toggles that category, spotlight, or cross-source filter directly.
     2. **Automated Topic Velocity & Trend Detection (`Auto-Insight`)**: Compute category share shifts (e.g., 14-day share vs. 90-day baseline) and cross-source consensus counts in `build_news_page.py` / client-side JS, surfacing subtle trend indicators (`↑ +14%`) on surging categories in the narrative bar, Categories dropdown, and Guide modal.
-- **Guide Dialog Background Scroll Lock & Scroll-Chaining Prevention (UX Polish / Bug)**: ⏳ **Planned**
-  - *Context*: When the Guide dialog (`#guideDialog`) is open, moving the mouse wheel or trackpad over the dialog backdrop, headers, or boundary edges causes the main background page to scroll underneath ("background scroll bleed" / scroll chaining). Closing the modal leaves the user disoriented at an unexpected scroll offset down the table.
-  - *Planned Action*:
-    1. **Body Scroll Lock**: Toggle a `modal-open` class on `document.body` (`overflow: hidden`) whenever the dialog opens or closes (handling close button, backdrop click, Escape key, and native dialog `close` event).
-    2. **Layout Shift Prevention**: Ensure `html { scrollbar-gutter: stable; }` prevents horizontal content shift when the vertical scrollbar is locked.
-    3. **Scroll-Chaining Prevention**: Apply `overscroll-behavior: contain;` to `.guide-dialog` and `.modal-body` to terminate boundary scroll chaining inside the modal container.
+- **Guide Dialog Background Scroll Lock & Scroll-Chaining Prevention (UX Polish / Bug)**: ✅ **Done**
+  - *Context*: When the Guide dialog (`#guideDialog`) was open, wheel or trackpad scrolling over the dialog backdrop, headers, or boundary edges caused background scroll bleed.
+  - *Delivered*:
+    1. **Body Scroll Lock**: Toggles `body.modal-open` (`overflow: hidden`) whenever `#guideDialog` opens or closes (including close button, backdrop click, Escape key, and native `close` event).
+    2. **Layout Shift Prevention**: Added `html { scrollbar-gutter: stable; }` to prevent horizontal layout shift when locking the vertical scrollbar.
+    3. **Scroll-Chaining Prevention**: Applied `overscroll-behavior: contain;` to `.guide-dialog` and `.modal-body`.
 - **Onboard "The Week Ahead" (`the-week-ahead`) as a Dedicated Curated Source**: ✅ **Done**
   - *Context*: A high-signal weekly events and conference radar published by *Above* (Above Impacts), forecasting upcoming landmark software architecture, AI infrastructure, and engineering conferences (e.g., GOTO Copenhagen, CoreWeave Fully Connected, The AI Conference).
   - *Delivered*:
@@ -131,8 +118,10 @@ Completed UI modernization recommendations and enhancements.
   - *Resolution*: Substack migration dropped. Andriy Burkov updates Substack with significant delays, whereas LinkedIn is published promptly and remains the authoritative source. Retain LinkedIn issue import workflow with active editorial curation (`hide: true` on non-engineering fluff, preserving math/deep technical articles).
 - **Additional Feeds**: ByteByteGo (Systems Design), Dan Luu (Performance). Use `code/tools/scaffold_source.py` (Martin Fowler Bliki/feed added and active).
 - **Scheduled CI/CD**: Set up `.github/workflows/refresh.yml` to automate weekly newsletter ingestion on GitHub Actions.
-- **Bookmarks**: Browser `localStorage` bookmarking (`[★ Saved]`) for offline reading queues.
-- **Aggregated RSS Feed**: Add `code/builders/build_feed.py` to output a unified `output/feed.xml`.
+- **`localStorage` Filter & View Persistence**: ✅ **Done**
+  - *Delivered*: Persists filter and view preferences (`timeframe`, `sources`, `categories`, `types`, `descriptions`, `spotlights`, `futureEvents`) across browser sessions in `localStorage` (`newsCatch.filterPrefs.v1`) using an exclusion-based schema (`{ mode: 'all' | 'none' | 'exclude', values: [...] }`) so newly onboarded sources or categories automatically appear selected by default without requiring expired article ID cleanup.
+- **Aggregated RSS Feed**: ⏸️ **Postponed** (`code/builders/build_feed.py` to output a unified `output/feed.xml`; deferred while readers primarily use `news.html`).
+- **GoatCounter Privacy-First Analytics**: ⏳ **Planned (Later)** (Lightweight, cookie-free, GDPR-compliant pageview counter via `gc.zgo.at/count.js` with `integrity` SRI hash once ready to track real `news.html` visits).
 - **Modern CSS Modernization ("CSS Reacts, JS Just Listens" Architecture)**:
   - *Context*: Based on Adam Argyle's reactive CSS architectural patterns (`prop-for-that`) and vetted by Claude Opus for browser standards, shifting UI state management from JavaScript DOM mutation to native CSS primitives:
   - **Phase 1: Immediate Quick Wins (Zero Risk, Baseline Universal)**: ✅ **Done**
