@@ -5,8 +5,40 @@
   "official_site": "https://newsletter.pragmaticengineer.com/",
   "archive_url": "https://newsletter.pragmaticengineer.com/archive",
   "parsed_issues": {
-    "count": 56,
+    "count": 60,
     "issues": [
+      {
+        "id": "pe-2026-11-04da22",
+        "date": "2026-11-19",
+        "date_str": "19 November 2026",
+        "title": "The Pulse: Is Amazon’s writing culture collapsing because of AI?",
+        "url": "https://newsletter.pragmaticengineer.com/p/the-pulse-is-amazons-writing-culture",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-11-f7bfd0",
+        "date": "2026-11-18",
+        "date_str": "18 November 2026",
+        "title": "Software factories and code reviews with Harjot Gill",
+        "url": "https://newsletter.pragmaticengineer.com/p/software-factories-and-code-reviews",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-11-6c265f",
+        "date": "2026-11-17",
+        "date_str": "17 November 2026",
+        "title": "Inference engineering for software engineers",
+        "url": "https://newsletter.pragmaticengineer.com/p/inference-engineering-for-software-engineers",
+        "quotes": []
+      },
+      {
+        "id": "pe-2026-11-bb1032",
+        "date": "2026-11-16",
+        "date_str": "16 November 2026",
+        "title": "Software engineering after code becomes cheap with Satya Nadella",
+        "url": "https://newsletter.pragmaticengineer.com/p/software-engineering-after-code-becomes",
+        "quotes": []
+      },
       {
         "id": "pe-2026-11-2583bd",
         "date": "2026-11-12",
@@ -456,8 +488,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "pe-2026-11-2583bd",
-    "last_parsed_date": "2026-11-12"
+    "last_parsed_issue": "pe-2026-11-04da22",
+    "last_parsed_date": "2026-11-19"
   },
   "default_header": "### Gergely Orosz's The Pragmatic Engineer",
   "short_name": "Pragmatic Eng.",

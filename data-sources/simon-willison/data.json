@@ -1,5 +1,26 @@
 [
   {
+    "id": "sw-2026-11-5b1588",
+    "newsletter": "Simon Willison's Weblog",
+    "issue_number": null,
+    "issue_title": "Running the full server-side Datasette Python app in the browser with service workers and Pyodide",
+    "issue_link": "https://simonwillison.net/2026/Nov/17/datasette-lite/",
+    "date": "2026-11-17",
+    "date_str": "17 November 2026",
+    "title": "Running the full server-side Datasette Python app in the browser with service workers and Pyodide",
+    "link": "https://simonwillison.net/2026/Nov/17/datasette-lite/",
+    "author": "Simon Willison",
+    "description": "",
+    "category": "Software Architecture & Distributed Systems",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {}
+  },
+  {
     "id": "sw-2026-11-baaf71",
     "newsletter": "Simon Willison's Weblog",
     "issue_number": null,

@@ -96,6 +96,14 @@ class AutoCategorizeTests(unittest.TestCase):
     def test_case_insensitive(self):
         self.assertEqual(self.cat("AGENTIC CODING"), self.cat("agentic coding"))
 
+    def test_new_domain_keywords(self):
+        self.assertEqual(self.cat("A Circuit for In-Context Learning"), LLM)
+        self.assertEqual(self.cat("Deep Reinforcement Learning Book"), LLM)
+        self.assertEqual(self.cat("Data Contracts"), ARCH)
+        self.assertEqual(self.cat("Java News Roundup: Spring and JDK 28"), ARCH)
+        self.assertEqual(self.cat("The Pulse: Writing culture and largest IPO"), JOBS)
+        self.assertEqual(self.cat("Software factories and code reviews"), AI)
+
 
 if __name__ == "__main__":
     unittest.main()

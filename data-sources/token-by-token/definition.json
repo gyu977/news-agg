@@ -5,8 +5,16 @@
   "official_site": "https://www.tokenbytoken.ai/",
   "archive_url": "https://www.tokenbytoken.ai/",
   "parsed_issues": {
-    "count": 31,
+    "count": 32,
     "issues": [
+      {
+        "id": "32",
+        "date": "2026-11-18",
+        "date_str": "18 November 2026",
+        "title": "Why AI is breaking junior hiring - #32 token by token",
+        "url": "https://preview.mailerlite.io/preview/2096144/emails/204434976564840146",
+        "quotes": []
+      },
       {
         "id": "31",
         "date": "2026-11-11",
@@ -256,8 +264,8 @@
         "quotes": []
       }
     ],
-    "last_parsed_issue": "31",
-    "last_parsed_date": "2026-11-11"
+    "last_parsed_issue": "32",
+    "last_parsed_date": "2026-11-18"
   },
   "default_header": "### Luca Mezzalira's Token by Token",
   "short_name": "Token by Token",

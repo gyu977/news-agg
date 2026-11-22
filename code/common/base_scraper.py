@@ -365,18 +365,23 @@ class BaseScraper:
             ("AI-Native & Agentic Software Engineering", [
                 "claude code", "loop", "agent", "vibe coding", "ai writes the code", 
                 "ai-native", "ai reviewer", "ai-generated code", "ai product", "ai tools", 
-                "agentic", "slow ai", "coder", "prompting", "spec-driven", "codex"
+                "agentic", "slow ai", "coder", "prompting", "spec-driven", "codex",
+                "code review", "pull request", "software factory", "software factories"
             ]),
             ("Large Language Models & Evaluation Infrastructure", [
                 "evaluation", "model", "parameter", "quantization", "benchmarks", 
                 "glm-5.2", "kimi", "open-weight", "small language model", "evals", 
                 "gpt2", "kimi3", "gpt-4", "how models learn", "decoding", "vllm",
-                "speculative decoding", "self-improvement", "training data"
+                "speculative decoding", "self-improvement", "training data",
+                "inference", "llm", "reinforcement learning", "in-context learning",
+                "interpretability", "deep learning", "transformer", "distributed inference"
             ]),
             ("Software Architecture & Distributed Systems", [
                 "architecture", "microservices", "microservice", "micro-frontend", 
                 "modular", "systems design", "structural", "skeleton architecture", 
-                "architects", "architecting", "adr", "service topology"
+                "architects", "architecting", "adr", "service topology",
+                "java", "jdk", "spring", "data contract", "platform",
+                "modernization", "modernisation"
             ]),
             ("Software Testing, Quality & Observability", [
                 "test", "testing", "observability", "qa", "repair at scale", "quality", 
@@ -389,7 +394,8 @@ class BaseScraper:
             ]),
             ("Tech Industry, Jobs & Careers", [
                 "job", "hiring", "hiring managers", "career", "senior dev", "economy", 
-                "market", "salary", "luck filter", "developers", "employment"
+                "market", "salary", "luck filter", "developers", "employment",
+                "ipo", "layoff", "acquisition", "the pulse", "writing culture"
             ]),
             ("Engineering Philosophy & Estimation", [
                 "math", "philosophy", "factories", "factory", "fundamental", "unconference", 

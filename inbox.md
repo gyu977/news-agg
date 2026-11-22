@@ -19,6 +19,14 @@ Supported formats:
 
 ## ✅ Processed Articles
 
+### Processed on 2026-11-22 16:11:
+- **Graham Dumpleton** - [AI as a lifestyle choice](https://grahamdumpleton.me/posts/2026/11/ai-as-a-lifestyle-choice/)
+
+
+### Processed on 2026-11-22 09:48:
+- **Nick Tune** - [Moving to HTML-based collaboration with agents](https://nick-tune.me/blog/2026-11-21-moving-to-html-based-collaboration-with-agents/)
+
+
 ### Processed on 2026-11-15 14:55:
 - **Paul Ryan, Mikail Khan & Will Wilson (Antithesis)** - [Beating the frontier on NetHack](https://antithesis.com/blog/2026/nethack/)
 - **Anthropic** - [The Components of Agent Memory](https://www.anthropic.com/research/components-of-agent-memory)

@@ -1,5 +1,24 @@
 [
   {
+    "id": "others-2026-11-0b6a79",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "November 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-11-21",
+    "date_str": "21 November 2026",
+    "title": "Moving to HTML-based collaboration with agents",
+    "link": "https://nick-tune.me/blog/2026-11-21-moving-to-html-based-collaboration-with-agents/",
+    "author": "Nick Tune",
+    "description": "Allow your agents to express themselves in HTML and you'll find it much easier and more efficient to collaborate on non-trivial topics.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {}
+  },
+  {
     "id": "others-2026-11-a2e9d6",
     "newsletter": "Editor's Radar",
     "issue_number": null,
@@ -21,6 +40,25 @@
       "description",
       "category"
     ],
+    "metadata": {}
+  },
+  {
+    "id": "others-2026-11-1b0be6",
+    "newsletter": "Editor's Radar",
+    "issue_number": null,
+    "issue_title": "November 2026 Collected Articles",
+    "issue_link": "",
+    "date": "2026-11-11",
+    "date_str": "11 November 2026",
+    "title": "AI as a lifestyle choice",
+    "link": "https://grahamdumpleton.me/posts/2026/11/ai-as-a-lifestyle-choice/",
+    "author": "Graham Dumpleton",
+    "description": "What building software with AI looks like as I edge towards retirement, why all software starts out as mud, and why I would like to hear what you never had time to build.",
+    "category": "Engineering Philosophy & Estimation",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
     "metadata": {}
   },
   {

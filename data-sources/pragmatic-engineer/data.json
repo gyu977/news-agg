@@ -1,5 +1,99 @@
 [
   {
+    "id": "pe-2026-11-04da22",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-11-19",
+    "date_str": "19 November 2026",
+    "title": "The Pulse: Is Amazon’s writing culture collapsing because of AI?",
+    "link": "https://newsletter.pragmaticengineer.com/p/the-pulse-is-amazons-writing-culture",
+    "author": null,
+    "description": "Also: Anthropic goes public with the largest-ever IPO, Meta frantically reverses shutdown of popular AI coding harness Conductor, and more",
+    "category": "Tech Industry, Jobs & Careers",
+    "is_spotlight": false,
+    "type": "pulse",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "the-pulse-is-amazons-writing-culture"
+    }
+  },
+  {
+    "id": "pe-2026-11-f7bfd0",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-11-18",
+    "date_str": "18 November 2026",
+    "title": "Software factories and code reviews with Harjot Gill",
+    "link": "https://newsletter.pragmaticengineer.com/p/software-factories-and-code-reviews",
+    "author": "with Harjot Gill",
+    "description": "CodeRabbit CEO Harjot Gill explains how he shipped over 5,000 pull requests in a month, why he believes human code review is dead, and what he gets from spending $250,000 a month on AI.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {
+      "audience": "everyone",
+      "slug": "software-factories-and-code-reviews"
+    }
+  },
+  {
+    "id": "pe-2026-11-6c265f",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-11-17",
+    "date_str": "17 November 2026",
+    "title": "Inference engineering for software engineers",
+    "link": "https://newsletter.pragmaticengineer.com/p/inference-engineering-for-software-engineers",
+    "author": null,
+    "description": "When is the right time to drop APIs provided by the frontier AI labs, and what about choosing models & providers, caching, dedicated GPUs, KV cache concerns, and more? A practical deepdive",
+    "category": "Large Language Models & Evaluation Infrastructure",
+    "is_spotlight": false,
+    "type": "article",
+    "hide": false,
+    "user_overrides": [],
+    "metadata": {
+      "audience": "only_paid",
+      "slug": "inference-engineering-for-software-engineers"
+    }
+  },
+  {
+    "id": "pe-2026-11-bb1032",
+    "newsletter": "The Pragmatic Engineer",
+    "issue_number": null,
+    "issue_title": "The Pragmatic Engineer",
+    "issue_link": "https://newsletter.pragmaticengineer.com/archive",
+    "date": "2026-11-16",
+    "date_str": "16 November 2026",
+    "title": "Software engineering after code becomes cheap with Satya Nadella",
+    "link": "https://newsletter.pragmaticengineer.com/p/software-engineering-after-code-becomes",
+    "author": "with Satya Nadella",
+    "description": "Microsoft CEO Satya Nadella on AI’s impact on software engineering, code verification, hybrid cloud+local models, and engineers’ careers.",
+    "category": "AI-Native & Agentic Software Engineering",
+    "is_spotlight": false,
+    "type": "video",
+    "hide": false,
+    "user_overrides": [
+      "category"
+    ],
+    "metadata": {
+      "audience": "everyone",
+      "slug": "software-engineering-after-code-becomes"
+    }
+  },
+  {
     "id": "pe-2026-11-2583bd",
     "newsletter": "The Pragmatic Engineer",
     "issue_number": null,

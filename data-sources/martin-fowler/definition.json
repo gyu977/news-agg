@@ -9,8 +9,8 @@
     "issues": [
       {
         "id": "2026-11",
-        "date": "2026-11-12",
-        "date_str": "12 November 2026",
+        "date": "2026-11-20",
+        "date_str": "20 November 2026",
         "title": "November 2026 Essays",
         "url": "https://martinfowler.com/articles.html",
         "quotes": []
@@ -57,7 +57,7 @@
       }
     ],
     "last_parsed_issue": "2026-11",
-    "last_parsed_date": "2026-11-12"
+    "last_parsed_date": "2026-11-20"
   },
   "default_header": "Martin Fowler",
   "short_name": "Martin Fowler",

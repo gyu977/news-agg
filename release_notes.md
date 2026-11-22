@@ -1,3 +1,45 @@
+# News Digest — Edition 2026.11.22
+
+
+### 🌟 Access the Dashboard
+* **[Open Live Web Dashboard](https://gyu977.github.io/news-agg/)**
+
+---
+
+### 🎣 What's New: Fresh weekly catch
+
+We refreshed our sources for the November 22 edition—including *Dear Architects #317*, *Token by Token #32*, *Andriy Burkov AI #352*, *The Pragmatic Engineer*, *Martin Fowler*, *Editor's Radar*, *Simon Willison's Weblog*, and *InfoQ Java*—and pulled together grounded reads on software verification and deterministic testing, production database and observability scale, AI inference engineering, and how engineering roles and code review are evolving:
+
+- **[Redefining the Software Engineering Profession for AI](https://cacm.acm.org/opinion/redefining-the-software-engineering-profession-for-ai/)** *(Dear Architects #317 · Token by Token #32 · Spotlight)* & **[Software engineering after code becomes cheap with Satya Nadella](https://newsletter.pragmaticengineer.com/p/software-engineering-after-code-becomes)** — with Satya Nadella *(The Pragmatic Engineer)*
+  > Why halting early-in-career developer hiring risks collapsing the engineering talent pipeline and how AI-enabled preceptorship can turn daily work into teachable moments, paired with Satya Nadella on AI's impact on software engineering, code verification, hybrid cloud-and-local models, and engineering careers.
+- **[Bottlenecks in Software Production](https://fion.ac/jellyfish.pdf)** *(Token by Token #32)* & **[Software factories and code reviews with Harjot Gill](https://newsletter.pragmaticengineer.com/p/software-factories-and-code-reviews)** — with Harjot Gill *(The Pragmatic Engineer)*
+  > A calibrated model of firm production and AI adoption predicting that code review becomes the primary bottleneck as changes wait longer and attract more revisions, alongside CodeRabbit CEO Harjot Gill on shipping 5,000+ PRs in a month and why he argues human code review is dead.
+- **[How the Claude Code team thinks about verification](https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/)** *(Token by Token #32)* & **[Deterministic Simulation Testing](https://martinfowler.com/articles/deterministic-simulation-testing.html)** — Unmesh Joshi *(Martin Fowler)*
+  > Practical guidance on designing fast, non-flaky test suites so coding agents pinpoint failures instead of blindly retrying, paired with Unmesh Joshi's deep dive on deterministic simulation testing for distributed systems.
+- **[Beyond synthetic testing: Capturing and replaying real database workloads at Airbnb](https://airbnb.tech/infrastructure/beyond-synthetic-testing-capturing-and-replaying-real-database-workloads-at-airbnb/)** *(Dear Architects #317)* & **[Ontology-Driven Observability: Building an End-to-End Knowledge Graph at Netflix Scale](https://netflixtechblog.com/ontology-driven-observability-building-an-end-to-end-knowledge-graph-at-netflix-scale-421392cf5adf)** *(Dear Architects #317)*
+  > Production infrastructure lessons from two massive fleets: Airbnb's traffic capture and replay system across MySQL-compatible clusters serving millions of QPS, and Netflix's ontology-driven observability knowledge graph processing 2 billion+ requests and 38 million+ real-time logging events per second.
+- **[Modernising Retail at Scale: Architecting a Cloud‑to‑Edge Platform for a Global Enterprise](https://www.infoq.com/presentations/tesco-enterprise-tech-transformation/)** — Jayesh Bhayani *(Dear Architects #317 · Spotlight)* & **[Data Contracts](https://martinfowler.com/articles/data-contracts.html)** — Simon Harrer *(Martin Fowler)*
+  > Jayesh Bhayani walks through Tesco's decade-long shift from fragmented legacy systems to a unified cloud-to-edge platform, build-vs-buy trade-offs, and readiness for agentic commerce, paired with Simon Harrer on formalizing data contracts across teams.
+- **[Inference engineering for software engineers](https://newsletter.pragmaticengineer.com/p/inference-engineering-for-software-engineers)** *(The Pragmatic Engineer)* & **[llm-d 1.0](https://cloud.google.com/blog/topics/ai-infrastructure/llm-d-1-0-an-open-source-stack-for-distributed-inference)** — Google *(Burkov AI #352)*
+  > A practical guide on when to move beyond frontier lab APIs to dedicated GPUs, model routing, and KV-cache management, paired with Google's open distributed inference stack for agents on TPUs and GPUs (alongside DeepSeek's open-source [DeepInfer](https://github.com/deepseek-ai/deepinfer) in *Burkov AI #352*).
+- **[We gave AI agents a mobile dev environment](https://shopify.engineering/remote-dev)** *(Token by Token #32)* & **[Moving to HTML-based collaboration with agents](https://nick-tune.me/blog/2026-11-21-moving-to-html-based-collaboration-with-agents/)** — Nick Tune *(Editor's Radar)*
+  > How Shopify wired remote Macs and iOS simulators over SSH—and worked around macOS nested-virtualization limits for Android emulators—so coding agents can test mobile apps directly, alongside Nick Tune on having agents express complex artifacts in HTML for clearer human-agent collaboration.
+- **[Beyond Top-K: Building search-confidence guardrails for agentic AI with OpenSearch](https://opensearch.org/blog/beyond-top-k-building-search-confidence-guardrails-for-agentic-ai-with-opensearch/)** *(Burkov AI #352)* & **[The state of decision models](https://seldon-ai.com/blog/state-of-decision-models)** *(Token by Token #32)*
+  > Two angles on making agentic retrieval and routing safer and cheaper: adding search-confidence guardrails in OpenSearch beyond naive top-K retrieval, and using specialized decision models instead of full paragraph generation when an application just needs a reliable judgment.
+- **[Running the full server-side Datasette Python app in the browser with service workers and Pyodide](https://simonwillison.net/2026/Nov/17/datasette-lite/)** — Simon Willison *(Simon Willison's Weblog)* & **[Here be monsters: What do you still need to know when agents do the work?](https://blog.adrq.dev/here-be-monsters-what-do-you-still-need-to-know-when-agents-do-the-work)** *(Burkov AI #352)*
+  > Simon Willison gets the full server-side Datasette Python app running locally in the browser via Service Workers and Pyodide, paired with a reflection on the foundational engineering knowledge practitioners still need even when agents execute the implementation.
+
+---
+
+### 🛠️ Net & Tackle Maintenance
+
+- **Compact Mobile Feed & Standalone PWA Shell**: Implemented a compact mobile feed card layout and standalone Progressive Web App shell in the dashboard for mobile reading and home-screen installs.
+- **Filter Persistence, Guide Legend & Sticky Header/Modal Polish**: Added `localStorage` persistence for active dashboard filters, a Legend tab in the Sources & Categories Guide, and sticky header and modal refinements.
+- **GoatCounter Analytics**: Added lightweight GoatCounter analytics to the web dashboard.
+- **Category & Type Curation + Classifier Expansion**: Expanded `BaseScraper.auto_categorize` keywords across LLM inference/interpretability, software architecture/Java, industry news, and AI-native code review, and applied category and content-type refinements across `11` newly ingested articles (with `user_overrides` preserved).
+
+---
+
 # News Digest — Edition 2026.11.15
 
 

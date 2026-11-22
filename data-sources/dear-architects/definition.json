@@ -5,8 +5,21 @@
   "official_site": "https://deararchitects.xyz/",
   "archive_url": "https://www.deararchitects.xyz/archive",
   "parsed_issues": {
-    "count": 98,
+    "count": 99,
     "issues": [
+      {
+        "id": "317",
+        "date": "2026-11-21",
+        "date_str": "21 November 2026",
+        "title": "Capturing real database workloads at Airbnb - #317 Dear Architects",
+        "url": "https://preview.mailerlite.io/preview/1235400/emails/204783795935643254",
+        "quotes": [
+          {
+            "text": "The most secure code in the world is code which is never written",
+            "author": "Colin Percival"
+          }
+        ]
+      },
       {
         "id": "316",
         "date": "2026-11-13",
@@ -1262,8 +1275,8 @@
         ]
       }
     ],
-    "last_parsed_issue": "316",
-    "last_parsed_date": "2026-11-13"
+    "last_parsed_issue": "317",
+    "last_parsed_date": "2026-11-21"
   },
   "default_header": "### Luca Mezzalira's Dear Architects",
   "short_name": "Dear Architects",
